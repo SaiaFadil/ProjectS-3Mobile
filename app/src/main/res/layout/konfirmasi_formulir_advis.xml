@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".KonfirmMenu.KonfirmasiFormulirAdvis">
+    <include
+        android:id="@+id/viewtop"
+        layout="@layout/fragment_viewtop_konfirm_fitur"
+        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PENGAJUAN SURAT IZIN PENTAS KEGIATAN"
+                android:textSize="16sp"
+
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:id="@+id/tulisanatas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Surat ini hanyna dapat diajukan apabila anda memiliki kartu nomor induk seniman, Jika belum memilikinya, anda dapat mendaftar terlebih dahulu"
+                android:textSize="16sp"
+                android:textAlignment="center"
+                android:layout_marginTop="30dp"
+                android:gravity="center_horizontal"
+                />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:src="@drawable/animadvis"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Untuk mengajukan surat advis, anda dapat melengkapi formulir berikut ini"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:textAlignment="center"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_lanjut"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Lanjut"
+                android:textSize="16sp"
+                android:layout_marginTop="50dp"
+                android:shadowRadius="3"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:backgroundTint="@color/greendark"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/white">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="-20dp"
+        android:layout_marginRight="-20dp"
+        android:id="@+id/cardjudulprofil"
+        android:backgroundTint="@color/white"
+        app:strokeColor="@color/black"
+        app:strokeWidth="1dp"
+        android:outlineAmbientShadowColor="@color/black"
+        >
+
+        <ImageButton
+            android:id="@+id/kembaliprofil"
+            android:layout_width="60dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="15dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_back"
+            android:backgroundTint="@color/white"
+            android:scaleType="fitXY"
+
+            />
+        <TextView
+            android:id="@+id/judul"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/judul_menu_profil"
+            android:textColor="@color/greendark"
+            android:textSize="30sp"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="13dp"/>
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>
