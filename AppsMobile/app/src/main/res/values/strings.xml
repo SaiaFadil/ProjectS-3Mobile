@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">JettDhilz</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="judul_menu_profil">profil</string>
+    <string name="judul_menu_status">status</string>
+    <string name="judul_menu_layanan">layanan</string>
+    <string name="judul_menu_home">home</string>
+    <string name="viewtopkonfirmfituradvis">SURAT ADVIS</string>
+    <string name="viewtopformuliradvis">Formulir Surat Advis</string>
+    <string name="viewtopkonfirmfiturnis">NOMOR INDUK SENIMAN</string>
+    <string name="viewtopformulirnis">Formulir Regristrasi Nomor Induk Seniman</string>
+    <string name="jeniskelamin">Pilih Jenis Kelamin</string>
+    <string-array name="jenis_kelamin_array">
+        <item>Pilih Jenis Kelamin</item>
+        <item>Laki-laki</item>
+        <item>Perempuan</item>
+    </string-array>
+
+
+</resources>

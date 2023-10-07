@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".Activity.FormulirPeminjamanTempat">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="-20dp"
+            android:layout_marginRight="-20dp"
+            android:backgroundTint="@color/white"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/black"
+            android:outlineAmbientShadowColor="@color/black"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/judul"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:text="Formulir Peminjaman Tempat"
+                        android:textColor="@color/greendark"
+                        android:textSize="20sp"
+                        android:maxLines="1"
+                        android:gravity="center"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <ImageButton
+                    android:id="@+id/pinjamback"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_back"
+                    android:backgroundTint="@color/white"
+                    android:scaleType="fitXY"
+                    />
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp">
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nama Lengkap"
+                    android:textSize="17sp"
+                    />
+
+                <EditText
+                    android:id="@+id/et_namalengkappinjam"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/bg_editext"
+                    android:ems="10"
+                    android:hint="Masukkan Nama Lengkap"
+                    android:inputType="text"
+                    android:paddingLeft="18dp"
+                    android:paddingTop="10dp"
+                    android:maxLines="1"
+                    android:paddingBottom="10dp"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No.KTP"
+                    android:textSize="17sp"
+                    />
+                <EditText
+                    android:id="@+id/et_ktppinjam"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:hint="Masukkan Nomor KTP"
+                    android:textSize="15dp"
+                    android:maxLines="1"
+                    android:background="@drawable/bg_editext"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="18dp"/>
+
+
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Instansi"
+                    android:textSize="17sp"
+                    />
+                <EditText
+                    android:id="@+id/et_instansipinjam"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:hint="Masukkan Nama Instansi"
+                    android:textSize="15dp"
+                    android:background="@drawable/bg_editext"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="18dp"/>
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nama Kegiatan"
+                    android:textSize="17sp"
+                    />
+                <EditText
+                    android:id="@+id/et_namakegiatanpinjam"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:hint="Masukkan Nama Kegiatan"
+                    android:textSize="15dp"
+                    android:background="@drawable/bg_editext"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:maxLines="1"
+                    android:paddingLeft="18dp"/>
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jumlah Peserta"
+                    android:textSize="17sp"
+                    />
+                <EditText
+                    android:id="@+id/et_jumlahpesertapinjam"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:hint="Masukkan Jumlah Peserta"
+                    android:maxLines="1"
+                    android:textSize="15dp"
+                    android:background="@drawable/bg_editext"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="18dp"/>
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tempat"
+                    android:textSize="17sp"
+                    />
+
+                <EditText
+                    android:id="@+id/et_tempatpinjam"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:ems="10"
+                    android:maxLines="1"
+                    android:inputType="number"
+                    android:hint="Masukkan Gedung/Tempat"
+                    android:textSize="15dp"
+                    android:background="@drawable/bg_editext"
+                    android:paddingTop="10dp"
+                    android:enabled="false"
+                    android:textColor="@color/black"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="18dp"/>
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tanggal"
+                    android:textSize="17sp"
+                    />
+
+                <EditText
+                    android:id="@+id/et_tanggalpinjam"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:ems="10"
+                    android:maxLines="1"
+                    android:inputType="number"
+                    android:hint="Masukkan Tanggal"
+                    android:textSize="15dp"
+                    android:background="@drawable/bg_editext"
+                    android:paddingTop="10dp"
+                    android:enabled="false"
+                    android:textColor="@color/black"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="18dp"/>
+
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent">
+
+                    <TableRow
+                        android:gravity="center_horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Jam Awal"
+                        android:textAlignment="center"
+                        android:textSize="16sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="     "
+                            android:textStyle="bold"
+                            android:textAlignment="center"
+                            android:textSize="30sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Jam Akhir"
+                        android:textAlignment="center"
+                        android:textSize="16sp" />
+                    </TableRow>
+                    <TableRow
+                        android:gravity="center_horizontal">
+
+                        <EditText
+                        android:id="@+id/et_jamawalpinjam"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:inputType="text"
+                        android:hint="Pilih Jam"
+                        android:textSize="15dp"
+                        android:background="@drawable/bg_editext"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="  -  "
+                            android:textStyle="bold"
+                            android:textAlignment="center"
+                            android:textSize="30sp" />
+                        <EditText
+                            android:id="@+id/et_jamakhirpinjam"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="text"
+                        android:hint="Pilih Jam"
+                        android:textSize="15dp"
+                        android:background="@drawable/bg_editext"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textAlignment="center" />
+                    </TableRow>
+                </TableLayout>
+
+
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Deskripsi Kegiatan"
+                    android:textSize="17sp"
+                    />
+                <EditText
+                    android:id="@+id/et_deskripsipinjam"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="5dp"
+                    android:inputType="textMultiLine"
+                    android:hint="Masukkan Deskripsi Kegiatan"
+                    android:textSize="15dp"
+                    android:background="@drawable/bg_editext"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="18dp"
+                    android:gravity="top|left"
+                    android:maxHeight="100dp"
+                    android:maxLines="4"
+                    android:maxLength="120" />
+
+
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Surat Keterangan Dari Desa"
+                    android:textSize="17sp"
+                    />
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/corner_image">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/selectFileButton2"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="-5dp"
+                        android:layout_marginBottom="-5dp"
+                        android:backgroundTint="@color/greendark"
+                        android:text="Pilih\nFile"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="17sp"
+                        android:text="Pilih File"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="15dp" />
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="30dp"
+                    android:id="@+id/button_kirimpinjam"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="Lanjut"
+                    android:textSize="20sp"
+                    app:cornerRadius="10dp"
+                    android:shadowRadius="3"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:textAllCaps="false"
+
+                    android:textColor="@color/white"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:backgroundTint="@color/greendark"/>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>

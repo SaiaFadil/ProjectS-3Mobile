@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".MenuFragment.HomeFragment">
+    <include
+        android:id="@+id/cardViewContainer"
+        layout="@layout/viewtopprofil" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardviewprofil"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            app:strokeColor="@color/black"
+            app:strokeWidth="1dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="start|center_vertical"
+            android:layout_marginLeft="10dp"
+            android:padding="8dp">
+            <ImageView
+                android:id="@+id/imgProfil"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/profilimagefull"
+                android:layout_marginEnd="8dp"
+            android:contentDescription="Profil Image" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_NamaAkun"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="nama"
+                    android:layout_marginLeft="10dp"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:layout_marginBottom="2dp"
+                    android:maxLines="1"/>
+
+                <!-- Deskripsi Pesan -->
+                <TextView
+                    android:id="@+id/tv_Email"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="contoh@gmail.com"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:maxLines="1"/>
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:text="Bantuan"
+        android:textColor="@color/greendark"/>
+
+
+    <Button
+        android:id="@+id/tentang_kami"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="Tentang Kami"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:drawableLeft="@drawable/tandatanya"
+        android:layout_gravity="left"
+        android:textColor="@color/greendark"
+        android:textAllCaps="false"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="0dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_keluar"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="@color/greendark"
+        android:fontFamily="sans-serif"
+        android:shadowRadius="3"
+        android:text="Keluar"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>
