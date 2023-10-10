@@ -5,11 +5,14 @@ import androidx.fragment.app.Fragment;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.InputFilter;
 import android.text.InputType;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -49,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("prefLogin", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
+
         progressDialog = new ProgressDialog(LoginActivity.this);
         progressDialog.setTitle("Loading...");
         progressDialog.setMessage("Sabar");
@@ -62,6 +66,22 @@ public class LoginActivity extends AppCompatActivity {
         mViewPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
 
+        String email = getIntent().getStringExtra("email");
+        mViewUser.setText(email);
+
+        InputFilter noWhiteSpaceFilter = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                for (int i = start; i < end; i++) {
+                    if (Character.isWhitespace(source.charAt(i))) {
+                        return ""; //gantiin spasi dengan string kosong
+                    }
+                }
+                return null; // nothing perubahan
+            }
+        };
+        mViewPassword.setFilters(new InputFilter[]{noWhiteSpaceFilter});
+        mViewUser.setFilters(new InputFilter[]{noWhiteSpaceFilter});
 
 
         lupapassword.setOnClickListener(new View.OnClickListener() {
