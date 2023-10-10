@@ -91,6 +91,8 @@ private CardView cardviewprofil;
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
                 getActivity().finish();
+                getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+
             }
         });
 
