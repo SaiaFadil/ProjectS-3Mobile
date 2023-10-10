@@ -79,6 +79,8 @@ public class HomeFragment extends Fragment {
         String namaLengkap = sharedPreferences.getString("nama_lengkap", "");
         tvNama = view.findViewById(R.id.namauserhome);
         tvNama.setText(namaLengkap);
+
+
         ImageButton keprofil = view.findViewById(R.id.keprofil);
         keprofil.setOnClickListener(new View.OnClickListener() {
             @Override
