@@ -29,7 +29,7 @@ private Button kirimdata;
 
         ImageButton kembali = findViewById(R.id.kembalikekonfirmasiadvis);
         kirimdata = findViewById(R.id.btn_kirimformuliradvis);
-        kirimdata.setOnClickListener(new View.OnClickListener() {
+        kirimdata.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(FormulirSuratAdvisActivity.this, PengajuanBerhasilTerkirim.class));
