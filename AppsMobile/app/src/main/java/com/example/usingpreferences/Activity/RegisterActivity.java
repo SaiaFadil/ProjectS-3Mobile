@@ -5,11 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
+import android.text.InputFilter;
 import android.text.InputType;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
@@ -22,6 +25,7 @@ import android.widget.Toast;
 
 import com.example.usingpreferences.API.APIRequestData;
 import com.example.usingpreferences.API.RetroServer;
+import com.example.usingpreferences.DataModel.ModelUsers;
 import com.example.usingpreferences.DataModel.ResponseModelUsers;
 import com.example.usingpreferences.KonfirmMenu.BerhasilDaftar;
 import com.example.usingpreferences.R;
@@ -51,11 +55,33 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        // Inisialisasi EditText
         mViewNama = findViewById(R.id.et_namaSignup);
         mViewNotlp = findViewById(R.id.et_nohpSignup);
         mViewEmail = findViewById(R.id.et_emailSignup);
         mViewPassword = findViewById(R.id.et_passwordSignup);
         mViewPassword2 = findViewById(R.id.et_passwordSignup2);
+
+// Membuat InputFilter untuk menghilangkan spasi
+        InputFilter noWhiteSpaceFilter = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end,Spanned dest, int dstart, int dend) {
+                for (int i = start; i < end; i++) {
+                    if (Character.isWhitespace(source.charAt(i))) {
+                        return ""; //gantiin spasi dengan string kosong
+                    }
+                }
+                return null; // nothing perubahan
+            }
+        };
+
+// mengnetapkan InputFilter ke setiap EditText
+        mViewNotlp.setFilters(new InputFilter[] { noWhiteSpaceFilter });
+        mViewEmail.setFilters(new InputFilter[] { noWhiteSpaceFilter });
+        mViewPassword.setFilters(new InputFilter[] { noWhiteSpaceFilter });
+        mViewPassword2.setFilters(new InputFilter[] { noWhiteSpaceFilter });
+
         mBtnRegister = findViewById(R.id.button_signupSignup);
         mBtnLogin = findViewById(R.id.button_signinsignin);
         tampilkansandi = findViewById(R.id.checkboxpw);
@@ -239,7 +265,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                     mViewPassword.requestFocus();
                 } else if (password.length() < 8) {
-                    mViewPassword.setError("Kata Sandi harus minimal 8 karakter");
+                    mViewPassword.setError("Kata Sandi minimal 8 karakter");
                     focus = mViewPassword;
 
                     mViewPassword.requestFocus();
@@ -278,9 +304,13 @@ public class RegisterActivity extends AppCompatActivity {
                                     public void run() {
                                         // Tutup ProgressDialog
                                         progressDialog.dismiss();
+                                        String email = mViewEmail.getText().toString();
 
-
+                                        // Buat Intent
                                         Intent pindah = new Intent(RegisterActivity.this, LoginActivity.class);
+
+                                        // Kirim email ke LoginActivity
+                                        pindah.putExtra("email", email);
                                         startActivity(pindah);
                                         overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
 
@@ -308,7 +338,7 @@ public class RegisterActivity extends AppCompatActivity {
         });//ini akhir dari fungsi tmbol registrasi di klik
     }
     private void bersihkan(){
-        mViewEmail.setText(null);
+
         mViewNama.setText(null);
         mViewNotlp.setText(null);
         mViewPassword.setText(null);
