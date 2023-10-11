@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.example.usingpreferences.FragmentStatus.PilihTanggalAwalPeminjaman;
 import com.example.usingpreferences.R;
 
 public class PinjamTempatList extends AppCompatActivity {

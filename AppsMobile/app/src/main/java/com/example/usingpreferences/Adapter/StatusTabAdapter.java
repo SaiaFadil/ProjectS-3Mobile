@@ -4,10 +4,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.usingpreferences.FragmentStatus.StatusDitolak;
-import com.example.usingpreferences.FragmentStatus.StatusProses;
-import com.example.usingpreferences.FragmentStatus.StatusSelesai;
-import com.example.usingpreferences.FragmentStatus.StatusSemua;
+import com.example.usingpreferences.MenuFragment.StatusDitolak;
+import com.example.usingpreferences.MenuFragment.StatusProses;
+import com.example.usingpreferences.MenuFragment.StatusSelesai;
+import com.example.usingpreferences.MenuFragment.StatusSemua;
 
 public class StatusTabAdapter  extends FragmentPagerAdapter {
 

@@ -58,7 +58,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         // Inisialisasi EditText
         mViewNama = findViewById(R.id.et_namaSignup);
-        mViewNotlp = findViewById(R.id.et_nohpSignup);
         mViewEmail = findViewById(R.id.et_emailSignup);
         mViewPassword = findViewById(R.id.et_passwordSignup);
         mViewPassword2 = findViewById(R.id.et_passwordSignup2);

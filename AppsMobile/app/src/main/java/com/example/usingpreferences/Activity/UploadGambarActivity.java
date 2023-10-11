@@ -15,10 +15,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.example.usingpreferences.Network.BaseResponse;
-import com.example.usingpreferences.Network.FileUtils;
-import com.example.usingpreferences.Network.ImageUtils;
-import com.example.usingpreferences.Network.UploadService;
+import com.example.usingpreferences.UpImage.BaseResponse;
+import com.example.usingpreferences.UpImage.FileUtils;
+import com.example.usingpreferences.UpImage.ImageUtils;
+import com.example.usingpreferences.UpImage.UploadService;
 import com.example.usingpreferences.R;
 
 import java.io.File;
