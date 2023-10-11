@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    tools:context=".fragment_tab_panel_status">
+    tools:context=".MenuFragment.fragment_tab_panel_status">
 
     <Button
         android:layout_width="0dp"
