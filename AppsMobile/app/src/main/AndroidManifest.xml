@@ -18,6 +18,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Activity.FormStatusDitolak"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.FormStatusDiterima"
+            android:exported="false" />
+        <activity
             android:name=".Activity.FormulirUploadEvent"
             android:exported="false" />
         <activity
@@ -27,7 +33,7 @@
             android:name=".Activity.FormulirPeminjamanTempat"
             android:exported="false" />
         <activity
-            android:name=".FragmentStatus.PilihTanggalAwalPeminjaman"
+            android:name=".Activity.PilihTanggalAwalPeminjaman"
             android:exported="false" />
         <activity
             android:name=".PilihTanggalPinjam"
