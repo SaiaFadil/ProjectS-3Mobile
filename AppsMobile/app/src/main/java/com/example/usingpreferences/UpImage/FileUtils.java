@@ -1,4 +1,4 @@
-package com.example.usingpreferences.Network;
+package com.example.usingpreferences.UpImage;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.CursorLoader;

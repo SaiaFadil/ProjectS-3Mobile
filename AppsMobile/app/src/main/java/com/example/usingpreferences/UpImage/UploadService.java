@@ -1,4 +1,4 @@
-package com.example.usingpreferences.Network;
+package com.example.usingpreferences.UpImage;
 
 import java.util.concurrent.TimeUnit;
 //import com.example.usingpreferences.BuildConfig;

@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".Activity.FormStatusDiterima">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/cardjudulstatus"
+        android:layout_marginLeft="-20dp"
+        android:layout_marginRight="-20dp"
+        android:backgroundTint="@color/white"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/black"
+        android:outlineAmbientShadowColor="@color/black"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/judul"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="STATUS"
+                    android:textColor="@color/greendark"
+                    android:textSize="30sp"
+                    android:gravity="center"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <ImageButton
+                android:id="@+id/statusback"
+                android:layout_width="70dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_back"
+                android:backgroundTint="@color/white"
+                android:scaleType="fitXY"
+                />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="1dp"
+                    android:backgroundTint="@color/white"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:padding="10dp"
+                    android:layout_marginTop="20dp"
+                    app:cardElevation="10dp"
+                    app:cardMaxElevation="20dp">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/green">
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Surat Advis"
+                            android:textStyle="bold"
+                            android:layout_marginLeft="10dp"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@color/black"
+                            android:textSize="17sp"
+                            />
+                    </androidx.cardview.widget.CardView>
+
+
+                    <LinearLayout
+                        android:layout_marginTop="50dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tanggal"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="  :  "
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="19 september 2023"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        />
+                </LinearLayout>
+
+                        <TextView
+                            android:layout_marginTop="15dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nomor Induk Seniman"
+                            android:textColor="@color/black"
+                            android:textSize="17sp"
+                            />
+
+                        <EditText
+                            android:id="@+id/et_induksenimanadvis"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/bg_editext"
+                            android:ems="10"
+                            android:hint="Masukkan Nomor Induk Seniman"
+                            android:inputType="number"
+                            android:paddingLeft="18dp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:textSize="15dp" />
+                        <TextView
+                            android:layout_marginTop="15dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nama Lengkap"
+                            android:textSize="17sp"
+                            android:textColor="@color/black"
+                            />
+
+                        <EditText
+                            android:id="@+id/et_namalengkapadvis"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/bg_editext"
+                            android:ems="10"
+                            android:hint="Masukkan Nama Lengkap Sesuai KTP"
+                            android:inputType="text"
+                            android:maxLines="1"
+
+                            android:paddingLeft="18dp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:textSize="15dp" />
+
+
+
+                        <TextView
+                            android:layout_marginTop="15dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Alamat"
+                            android:textColor="@color/black"
+                            android:textSize="17sp"
+                            />
+
+                        <EditText
+                            android:id="@+id/et_alamatadvis"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/bg_editext"
+                            android:ems="10"
+                            android:hint="Masukkan Alamatmu"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:paddingLeft="18dp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:textSize="15dp" />
+
+                        <TextView
+                            android:layout_marginTop="15dp"
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nama Pentas"
+                            android:textSize="17sp"
+                            />
+
+                        <EditText
+                            android:id="@+id/et_namapentasadvis"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/bg_editext"
+                            android:ems="10"
+                            android:hint="Masukkan Nama Pentasmu"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:paddingLeft="18dp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:textSize="15dp" />
+
+                        <TextView
+                            android:layout_marginTop="15dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tanggal Pentas"
+                            android:textColor="@color/black"
+                            android:textSize="17sp"                            />
+
+
+                        <EditText
+                            android:id="@+id/et_tanggalpentasadvis"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/bg_editext"
+                            android:ems="10"
+                            android:hint="Pilih Tanggal"
+                            android:maxLines="1"
+                            android:paddingLeft="18dp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:textSize="15dp" />
+                        <TextView
+                            android:layout_marginTop="15dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lokasi"
+                            android:textColor="@color/black"
+                            android:textSize="17sp"
+                            />
+
+
+                        <EditText
+                            android:id="@+id/et_lokasiadvis"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/bg_editext"
+                            android:ems="10"
+                            android:hint="Masukkan Tempat"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:paddingLeft="18dp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:textSize="15dp" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
+                            android:backgroundTint="@color/green">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Diterima"
+                                android:textStyle="bold"
+                                android:layout_marginLeft="10dp"
+                                android:layout_gravity="center"
+                                android:textColor="@color/white"
+                                android:textSize="16sp"
+                                />
+                        </androidx.cardview.widget.CardView>
+
+
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:src="@drawable/animstatus"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Selamat! Permintaan Anda telah memenuhi persyaratan kami.\nSilahkan Cetak code QR"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/cetakkodeqr"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="Cetak Code QR "
+                    android:textSize="16sp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:shadowRadius="3"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:backgroundTint="@color/greendark"/>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>

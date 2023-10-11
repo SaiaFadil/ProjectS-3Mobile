@@ -1,5 +1,6 @@
-package com.example.usingpreferences.FragmentStatus;
+package com.example.usingpreferences.MenuFragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,14 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.usingpreferences.Activity.FormStatusDitolak;
 import com.example.usingpreferences.R;
+import com.google.android.material.card.MaterialCardView;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link StatusSemua#newInstance} factory method to
+ * Use the {@link StatusDitolak#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class StatusSemua extends Fragment {
+public class StatusDitolak extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +29,7 @@ public class StatusSemua extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public StatusSemua() {
+    public StatusDitolak() {
         // Required empty public constructor
     }
 
@@ -36,11 +39,11 @@ public class StatusSemua extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment StatusSemua.
+     * @return A new instance of fragment StatusDitolak.
      */
     // TODO: Rename and change types and number of parameters
-    public static StatusSemua newInstance(String param1, String param2) {
-        StatusSemua fragment = new StatusSemua();
+    public static StatusDitolak newInstance(String param1, String param2) {
+        StatusDitolak fragment = new StatusDitolak();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -60,7 +63,18 @@ public class StatusSemua extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_status_semua, container, false);
+        View view =  inflater.inflate(R.layout.fragment_status_ditolak, container, false);
+        MaterialCardView cardditolak = view.findViewById(R.id.cardditolak);
+
+        cardditolak.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pindah = new Intent(getActivity(), FormStatusDitolak.class);
+                startActivity(pindah);
+                getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+
+            }
+        });
+        return view;
     }
 }

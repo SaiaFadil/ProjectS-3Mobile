@@ -1,4 +1,4 @@
-package com.example.usingpreferences.Network;
+package com.example.usingpreferences.UpImage;
 
 public class Config {
 

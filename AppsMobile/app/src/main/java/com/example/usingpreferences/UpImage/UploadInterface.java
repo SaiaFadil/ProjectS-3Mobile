@@ -1,4 +1,4 @@
-package com.example.usingpreferences.Network;
+package com.example.usingpreferences.UpImage;
 
 
 import okhttp3.MultipartBody;

@@ -1,4 +1,4 @@
-package com.example.usingpreferences.FragmentStatus;
+package com.example.usingpreferences.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +9,6 @@ import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.usingpreferences.Activity.FormulirPeminjamanTempat;
 import com.example.usingpreferences.R;
 import com.google.android.material.button.MaterialButton;
 

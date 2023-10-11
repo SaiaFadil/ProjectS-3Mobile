@@ -1,4 +1,4 @@
-package com.example.usingpreferences.Network;
+package com.example.usingpreferences.UpImage;
 
 import android.graphics.Bitmap;
 import android.util.Base64;
