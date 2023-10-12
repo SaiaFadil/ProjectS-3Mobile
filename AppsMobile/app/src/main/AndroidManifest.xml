@@ -10,9 +10,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/cat"
-        android:label="HufflePuff"
-        android:roundIcon="@drawable/cat"
+        android:icon="@drawable/logonganjuk"
+        android:label="Nganjuk Elok"
+        android:roundIcon="@drawable/logonganjuk"
         android:supportsRtl="true"
         android:theme="@style/Theme.UsingPreferences"
         android:usesCleartextTraffic="true"
@@ -36,13 +36,7 @@
             android:name=".Activity.PilihTanggalAwalPeminjaman"
             android:exported="false" />
         <activity
-            android:name=".PilihTanggalPinjam"
-            android:exported="false" />
-        <activity
             android:name=".Activity.PinjamTempatList"
-            android:exported="false" />
-        <activity
-            android:name=".TabPanelStatus"
             android:exported="false" />
         <activity
             android:name=".KonfirmMenu.PengajuanBerhasilTerkirim"
@@ -63,9 +57,6 @@
             android:name=".Activity.NoInduk4"
             android:exported="false" />
         <activity
-            android:name=".Activity.NoInduk5"
-            android:exported="false" />
-        <activity
             android:name=".Activity.NoInduk3"
             android:exported="false" />
         <activity
@@ -73,12 +64,6 @@
             android:exported="false" />
         <activity
             android:name=".Activity.NoInduk1"
-            android:exported="false" />
-        <activity
-            android:name=".KonfirmMenu.KonfirmasiFormulirAdvis"
-            android:exported="false" />
-        <activity
-            android:name=".KonfirmMenu.KonfSuratAdvis_Activity"
             android:exported="false" />
         <activity
             android:name=".KonfirmMenu.BerhasilGantiSandi"
@@ -112,7 +97,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
