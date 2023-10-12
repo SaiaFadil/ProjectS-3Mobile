@@ -3,8 +3,11 @@ package com.example.usingpreferences;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.ScaleAnimation;
@@ -40,39 +43,7 @@ TextView textView1,textView2;
         }, 3000);
 
 
-//
-////MULAI KODE EFEK
-////        TextView yourTextView1 = findViewById(R.id.text1);
-//        TextView yourTextView2 = findViewById(R.id.text2);
-//
-//        int centerX = getResources().getDisplayMetrics().widthPixels / 2;
-//        int centerY = getResources().getDisplayMetrics().heightPixels / 2;
-////
-////        ScaleAnimation scaleAnimation1 = new ScaleAnimation(
-////                0f, // Ukuran awal X
-////                1f, // Ukuran akhir X
-////                0f, // Ukuran awal Y
-////                1f, // Ukuran akhir Y
-////                centerX,
-////                centerY
-////        );
-//        ScaleAnimation scaleAnimation2 = new ScaleAnimation(
-//                0f, // Ukuran awal X
-//                1f, // Ukuran akhir X
-//                0f, // Ukuran awal Y
-//                1f, // Ukuran akhir Y
-//                centerX,
-//                centerY
-//        );
-//
-//        scaleAnimation2.setDuration(1000); // Durasi animasi dalam milidetik
-//        scaleAnimation2.setFillAfter(true);// Menjaga elemen dalam ukuran akhir setelah animasi selesai
-////        scaleAnimation1.setDuration(1000); // Durasi animasi dalam milidetik
-////        scaleAnimation1.setFillAfter(true); // Menjaga elemen dalam ukuran akhir setelah animasi selesai
-//
-//        // Terapkan animasi ke TextView Anda
-////        yourTextView1.startAnimation(scaleAnimation1);
-//        yourTextView2.startAnimation(scaleAnimation2);
-//// AKHIR KODE EFEK
+
+
     }
 }
