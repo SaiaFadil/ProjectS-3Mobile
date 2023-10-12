@@ -59,6 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
         // Inisialisasi EditText
         mViewNama = findViewById(R.id.et_namaSignup);
         mViewEmail = findViewById(R.id.et_emailSignup);
+        mViewNotlp = findViewById(R.id.et_nohpSignup);
         mViewPassword = findViewById(R.id.et_passwordSignup);
         mViewPassword2 = findViewById(R.id.et_passwordSignup2);
 
@@ -90,9 +91,9 @@ public class RegisterActivity extends AppCompatActivity {
         tampilkansandi.setChecked(false);
         progressDialog = new ProgressDialog(RegisterActivity.this);
         progressDialog.setTitle("Sedang Mendaftarkan...");
-        progressDialog.setMessage("Sabar ya njg");
+        progressDialog.setMessage("Sabar ya");
         progressDialog.setCancelable(false);
-        progressDialog.setIcon(R.drawable.image2tol);
+        progressDialog.setIcon(R.drawable.logonganjuk);
         icCircleGreen = getResources().getDrawable(R.drawable.ic_circle_green);
         icCircleRed = getResources().getDrawable(R.drawable.ic_circle_red);
         // Atur listener untuk checkbox
@@ -126,6 +127,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
+
         mViewNotlp.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
