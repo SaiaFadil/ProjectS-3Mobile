@@ -8,6 +8,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.InputFilter;
@@ -15,6 +16,7 @@ import android.text.InputType;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
@@ -57,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setTitle("Loading...");
         progressDialog.setMessage("Sabar");
         progressDialog.setCancelable(false);
-        progressDialog.setIcon(R.drawable.image2tol);
+        progressDialog.setIcon(R.drawable.logonganjuk);
         registerbutton = findViewById(R.id.button_signupSignin);
         loginbutton = findViewById(R.id.button_siginSignin);
         lupapassword = findViewById(R.id.btn_lupapassword);
@@ -190,6 +192,7 @@ public class LoginActivity extends AppCompatActivity {
             }
 
         });
+//Kode agar fullscreen
 
     }
 
