@@ -3,8 +3,10 @@ package com.example.usingpreferences.KonfirmMenu;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import com.example.usingpreferences.Activity.LoginActivity;
@@ -32,7 +34,9 @@ Button Mulai;
         });
 
 
-    } public void onBackPressed() {
+    }
+
+    public void onBackPressed() {
         // Tidak melakukan apa-apa ketika tombol kembali ditekan
     }
 }
