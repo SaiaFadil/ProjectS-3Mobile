@@ -91,7 +91,7 @@ public class ProfilLengkapFragment extends Fragment {
         kembali.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment selectedFragment = new ProfilFragment();
+                Fragment selectedFragment = new HomeFragment();
                 // Mengakses FragmentManager yang berkaitan dengan aktivitas
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 fragmentManager.beginTransaction()
@@ -101,16 +101,6 @@ public class ProfilLengkapFragment extends Fragment {
             }
         });
 
-
-        MaterialButton button_uploadfoto = view.findViewById(R.id.button_uploadfoto);
-        button_uploadfoto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(), UploadGambarActivity.class));
-                getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
-
-            }
-        });
 
         return view;
     }
