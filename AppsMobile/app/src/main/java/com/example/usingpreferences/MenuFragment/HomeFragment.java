@@ -5,16 +5,28 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
+import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.usingpreferences.Activity.MainActivity;
-import com.example.usingpreferences.KonfirmMenu.PengajuanBerhasilTerkirim;
+import com.example.usingpreferences.Activity.NoInduk1;
+import com.example.usingpreferences.Activity.PinjamTempatList;
+import com.example.usingpreferences.Activity.ProfilActivity;
+import com.example.usingpreferences.Adapter.DashboardAdapter;
+import com.example.usingpreferences.KonfirmMenu.KonfirmasiAwalEvent;
+import com.example.usingpreferences.KonfirmMenu.KonfirmasiKeAdvis;
 import com.example.usingpreferences.R;
 
 /**
@@ -23,9 +35,12 @@ import com.example.usingpreferences.R;
  * create an instance of this fragment.
  */
 public class HomeFragment extends Fragment {
-    private TextView tvNama;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    TextView tv_namauser,tv_namausertengah;
+    CardView cardviewatas,cardviewtengah,cardizin,cardevent,cardpinjam,cardinduk;
+    ScrollView scrollView;
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -63,11 +78,65 @@ public class HomeFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+    private ViewPager viewPager;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        // Mengambil referensi ke ViewPager dari layout fragment_home.xml
+        viewPager = view.findViewById(R.id.viewPager);
+
+        // Inisialisasi adapter untuk ViewPager
+        DashboardAdapter adapter = new DashboardAdapter(getChildFragmentManager());
+
+        // Mengatur adapter ke ViewPager
+        viewPager.setAdapter(adapter);
+
+        // Sisipkan kode Anda di sini
+
+        scrollView = view.findViewById(R.id.scrollviewid);
+        tv_namauser = view.findViewById(R.id.namauserhome);
+        tv_namausertengah = view.findViewById(R.id.namauserhometengah);
+        cardviewatas = view.findViewById(R.id.cardviewatas);
+        cardviewtengah = view.findViewById(R.id.cardviewtengah);
+        cardpinjam = view.findViewById(R.id.cardpinjam);
+        cardevent = view.findViewById(R.id.cardevent);
+        cardinduk = view.findViewById(R.id.cardinduk);
+        cardizin = view.findViewById(R.id.cardizin);
+
+        cardpinjam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), PinjamTempatList.class));
+                getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+
+            }
+        });
+        cardevent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), KonfirmasiAwalEvent.class));
+                getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+
+            }
+        });
+        cardinduk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), NoInduk1.class));
+                getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+
+            }
+        });
+        cardizin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), KonfirmasiKeAdvis.class));
+                getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+
+            }
+        });
 
 
 
@@ -77,22 +146,54 @@ public class HomeFragment extends Fragment {
 
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
         String namaLengkap = sharedPreferences.getString("nama_lengkap", "");
-        tvNama = view.findViewById(R.id.namauserhome);
-        tvNama.setText(namaLengkap);
-
-
+        tv_namauser.setText(namaLengkap);
+        tv_namausertengah.setText(namaLengkap);
         ImageButton keprofil = view.findViewById(R.id.keprofil);
+        ImageButton keprofiltengah = view.findViewById(R.id.keprofiltengah);
         keprofil.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), MainActivity.class)
-                        .putExtra(MainActivity.FRAGMENT, R.layout.fragment_profil_lengkap);
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ProfilActivity.class);
                 startActivity(intent);
                 getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
             }
         });
+        keprofiltengah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ProfilActivity.class);
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+            }
+        });
+
         return view;
     }
 
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        scrollView.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
+            @Override
+            public void onScrollChanged() {
+                int posisiY = scrollView.getScrollY();
+
+                if (posisiY > 450) {
+                    // Animasi untuk munculkan cardviewatas
+                    Animation fadeIn = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_in);
+                    cardviewatas.setVisibility(View.VISIBLE);
+                    cardviewtengah.setVisibility(View.INVISIBLE);
+                } else if (posisiY < 450) {
+                    // Animasi untuk menghilangkan cardviewatas
+                    cardviewatas.setVisibility(View.GONE);
+
+                    // Juga atur cardviewtengah menjadi terlihat
+                    cardviewtengah.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+    }
 
 }
