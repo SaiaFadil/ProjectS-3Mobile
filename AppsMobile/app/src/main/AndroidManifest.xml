@@ -18,6 +18,21 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".InformasiProfilActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PusatBantuanProfil"
+            android:exported="false" />
+        <activity
+            android:name=".GantiPasswordProfilActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditProfilActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetailEventDashboard"
+            android:exported="false" />
+        <activity
             android:name=".Activity.ProfilActivity"
             android:exported="false" />
         <activity

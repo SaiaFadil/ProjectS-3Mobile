@@ -19,10 +19,13 @@ public class DashboardAdapter extends FragmentStatePagerAdapter {
         int newPosition = position % itemCount;
 
         if (newPosition == 0) {
-            // Kembali ke item pertama setelah mencapai item terakhir
             return BannerFragment.newInstance(R.drawable.banner1);
         } else if (newPosition == 1) {
             return BannerFragment.newInstance(R.drawable.banner2);
+        } else if (newPosition == 2) {
+            return BannerFragment.newInstance(R.drawable.banner3);
+        } else if (newPosition == 3) {
+            return BannerFragment.newInstance(R.drawable.banner4);
         }
 
         return null;
@@ -32,6 +35,6 @@ public class DashboardAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 2; // Jumlah gambar yang dapat digeser
+        return 4; // Jumlah gambar yang dapat digeser
     }
 }

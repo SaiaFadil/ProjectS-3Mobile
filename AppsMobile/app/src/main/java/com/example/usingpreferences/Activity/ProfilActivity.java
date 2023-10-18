@@ -3,38 +3,49 @@ package com.example.usingpreferences.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.usingpreferences.EditProfilActivity;
+import com.example.usingpreferences.GantiPasswordProfilActivity;
+import com.example.usingpreferences.InformasiProfilActivity;
+import com.example.usingpreferences.PusatBantuanProfil;
 import com.example.usingpreferences.R;
+import com.google.android.material.button.MaterialButton;
 
 public class ProfilActivity extends AppCompatActivity {
     private ImageButton kembali;
-    private TextView tvNama,tvEmail,tvNotelp,tvTTL;
+
+    private TextView tvNama,tvEmail,tvNotelp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profil);
+        MaterialButton logout = findViewById(R.id.logout);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ProfilActivity.this,LoginActivity.class));
+                overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
 
+            }
+        });
         SharedPreferences sharedPreferences = ProfilActivity.this.getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
         String namaLengkap = sharedPreferences.getString("nama_lengkap", "");
         String email = sharedPreferences.getString("email", "");
         String notelpon = sharedPreferences.getString("no_telpon","");
-        String Tempat = sharedPreferences.getString("tempat_lahir","");
-        String tanggal = sharedPreferences.getString("tanggal_lahir","");
 
         tvEmail = findViewById(R.id.tv_Emaillengkap);
         tvNama = findViewById(R.id.tv_namalengkap);
         tvNotelp = findViewById(R.id.tv_telponlengkap);
-        tvTTL = findViewById(R.id.tv_ttllengkap);
 
         tvEmail.setText(email);
         tvNama.setText(namaLengkap);
         tvNotelp.setText(notelpon);
-        tvTTL.setText(Tempat+","+tanggal);
         kembali = findViewById(R.id.kembaliprofil);
         kembali.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +56,49 @@ public class ProfilActivity extends AppCompatActivity {
 
             }
         });
+        MaterialButton EditProfil = findViewById(R.id.EditProfil);
+        EditProfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pindah = new Intent(ProfilActivity.this, EditProfilActivity.class);
+                startActivity(pindah);
+                overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
 
+            }
+        });
+
+        MaterialButton GantiPassword = findViewById(R.id.GantiPassword);
+        GantiPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pindah = new Intent(ProfilActivity.this, GantiPasswordProfilActivity.class);
+                startActivity(pindah);
+                overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+
+            }
+        });
+
+        MaterialButton PusatBantuan = findViewById(R.id.pusatbantuan);
+        PusatBantuan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pindah = new Intent(ProfilActivity.this, PusatBantuanProfil.class);
+                startActivity(pindah);
+                overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+
+            }
+        });
+
+        MaterialButton Informasi = findViewById(R.id.informasi);
+        Informasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pindah = new Intent(ProfilActivity.this, InformasiProfilActivity.class);
+                startActivity(pindah);
+                overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+
+            }
+        });
 
     }
     public void onBackPressed(){

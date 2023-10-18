@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DetailEventDashboard">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_marginLeft="-20dp"
+        android:layout_marginRight="-20dp"
+        android:backgroundTint="@color/white"
+        app:strokeWidth="@dimen/_1sdp"
+        app:strokeColor="@color/gray"
+        android:outlineAmbientShadowColor="@color/black"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/judul"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:text="Detail Event"
+                    android:textColor="@color/greendark"
+                    android:textSize="@dimen/_25ssp"
+                    android:gravity="center"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <ImageButton
+                android:id="@+id/eventback"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_back"
+                android:backgroundTint="@color/white"
+                android:scaleType="fitXY"
+                />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/_20sdp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Judul Event"
+        android:textSize="@dimen/_25ssp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        />
+        <ImageView
+            android:layout_width="@dimen/_300sdp"
+            android:layout_height="@dimen/_150sdp"
+            android:src="@drawable/banner1"
+            android:scaleType="fitXY"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tanggal Event"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14ssp"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/_10sdp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/deskripsi_event"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            android:layout_margin="@dimen/_10sdp"
+            android:textAlignment="viewStart"/>
+        <TextView
+            android:id="@+id/linkevent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DAFTAR EVENT DISINI"
+            android:textColor="@color/blue"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_gravity="center"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

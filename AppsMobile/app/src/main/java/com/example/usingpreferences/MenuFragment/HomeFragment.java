@@ -25,9 +25,11 @@ import com.example.usingpreferences.Activity.NoInduk1;
 import com.example.usingpreferences.Activity.PinjamTempatList;
 import com.example.usingpreferences.Activity.ProfilActivity;
 import com.example.usingpreferences.Adapter.DashboardAdapter;
+import com.example.usingpreferences.DetailEventDashboard;
 import com.example.usingpreferences.KonfirmMenu.KonfirmasiAwalEvent;
 import com.example.usingpreferences.KonfirmMenu.KonfirmasiKeAdvis;
 import com.example.usingpreferences.R;
+import com.google.android.material.card.MaterialCardView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -40,6 +42,7 @@ public class HomeFragment extends Fragment {
     TextView tv_namauser,tv_namausertengah;
     CardView cardviewatas,cardviewtengah,cardizin,cardevent,cardpinjam,cardinduk;
     ScrollView scrollView;
+    MaterialCardView card1;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -104,7 +107,15 @@ public class HomeFragment extends Fragment {
         cardevent = view.findViewById(R.id.cardevent);
         cardinduk = view.findViewById(R.id.cardinduk);
         cardizin = view.findViewById(R.id.cardizin);
+        card1 =  view.findViewById(R.id.card1);
+        card1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), DetailEventDashboard.class));
+                getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
 
+            }
+        });
         cardpinjam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

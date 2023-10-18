@@ -276,6 +276,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card1"
         app:strokeColor="@color/greendark"
         app:strokeWidth="1dp"
         android:layout_width="match_parent"

@@ -3,6 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="judul_menu_profil">Profil</string>
+    <string name="deskripsi_event">Tunjukkan dukungan Anda pada komunitas seniman lokal dengan menghadiri pameran seni terbaru kami yang memukau, yang akan memamerkan karya-karya terbaru dan paling inspiratif. Bergabunglah dengan kami di malam konser musik spektakuler yang akan menampilkan bakat-bakat musik terbaik kota ini. Ini adalah kesempatan sempurna untuk bersenang-senang dengan teman dan keluarga sambil mendukung seni dan budaya lokal. Jangan lewatkan kesempatan ini untuk menjelajahi dunia seni dan musik dalam satu event yang penuh semangat.</string>
     <string name="judul_menu_status">status</string>
     <string name="judul_menu_layanan">layanan</string>
     <string name="judul_menu_home">home</string>

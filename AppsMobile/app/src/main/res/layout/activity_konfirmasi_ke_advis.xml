@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".KonfirmMenu.KonfirmasiKeAdvis">
+    tools:context=".KonfirmMenu.KonfirmasiKeAdvis"
+    >
     <include
         android:id="@+id/cardViewContainer"
         layout="@layout/fragment_view_top_konfirmasi_ke_advis"/>

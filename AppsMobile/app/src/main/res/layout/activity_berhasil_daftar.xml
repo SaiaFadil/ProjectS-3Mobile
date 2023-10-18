@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:padding="@dimen/_10sdp"
     tools:context=".KonfirmMenu.BerhasilDaftar">
     <ScrollView
         android:layout_width="match_parent"
@@ -18,36 +18,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Berhasil Daftar"
-        android:textSize="35sp"
-        android:layout_marginTop="30dp"
+        android:textSize="@dimen/_35ssp"
+        android:layout_marginTop="@dimen/_30sdp"
         android:gravity="center_horizontal"
         android:textStyle="bold"
         />
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="@dimen/_300sdp"
         android:src="@drawable/anim4"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="@dimen/_100sdp"
         />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Akun yang telah dimasukkan berhasil terdaftar pada aplikasi"
-        android:layout_marginTop="10dp"
-        android:textSize="20sp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textSize="@dimen/_20ssp"
         android:textAlignment="center"/>
 
     <com.google.android.material.button.MaterialButton
     android:id="@+id/button_lanjut"
     android:layout_width="match_parent"
-    android:layout_height="60dp"
+    android:layout_height="@dimen/_60sdp"
     android:text="Kembali ke Halaman Login"
-    android:textSize="16sp"
-        android:layout_marginTop="50dp"
+    android:textSize="@dimen/_14ssp"
+        android:layout_marginTop="@dimen/_50sdp"
     android:shadowRadius="3"
-    android:layout_marginLeft="20dp"
-    android:layout_marginRight="20dp"
+    android:layout_marginLeft="@dimen/_20sdp"
+    android:layout_marginRight="@dimen/_20sdp"
     android:textAllCaps="false"
     android:textColor="@color/white"
     style="@style/Widget.MaterialComponents.Button.TextButton"
