@@ -13,7 +13,7 @@
         android:layout_marginLeft="-20dp"
         android:layout_marginRight="-20dp"
         android:id="@+id/cardjudulprofil"
-        app:strokeColor="@color/black"
+        app:strokeColor="@color/gray"
         android:backgroundTint="@color/white"
         app:strokeWidth="1dp"
         android:outlineAmbientShadowColor="@color/black">

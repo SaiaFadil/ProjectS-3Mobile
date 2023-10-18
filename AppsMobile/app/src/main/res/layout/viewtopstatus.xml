@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:id="@+id/cardjudulstatus"
-        app:strokeColor="@color/black"
+        app:strokeColor="@color/gray"
         app:strokeWidth="1dp"
         android:layout_marginLeft="-20dp"
         android:layout_marginRight="-20dp"

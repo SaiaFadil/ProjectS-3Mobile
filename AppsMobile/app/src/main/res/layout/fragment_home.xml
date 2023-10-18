@@ -31,10 +31,8 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:backgroundTint="@color/white"
-            app:strokeWidth="1dp"
             android:id="@+id/cardviewtengah"
             android:layout_gravity="center_vertical"
-            app:strokeColor="@color/black"
             android:layout_marginTop="-15dp"
             android:layout_below="@+id/linear1"
             android:outlineAmbientShadowColor="@color/greendark"
@@ -96,7 +94,7 @@
                 android:shadowColor="#40000000"
                 android:shadowDx="2"
                 android:shadowDy="5"
-                android:shadowRadius="4"
+                android:shadowRadius="10"
 
                 android:layout_marginLeft="20dp"/>
             <TableLayout
@@ -465,7 +463,7 @@
         app:strokeWidth="1dp"
         android:id="@+id/cardviewatas"
         android:layout_gravity="center_vertical"
-        app:strokeColor="@color/black"
+        app:strokeColor="@color/gray"
         android:visibility="gone"
         android:outlineAmbientShadowColor="@color/black">
 

@@ -2,7 +2,7 @@
     <string name="app_name">JettDhilz</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="judul_menu_profil">profil</string>
+    <string name="judul_menu_profil">Profil</string>
     <string name="judul_menu_status">status</string>
     <string name="judul_menu_layanan">layanan</string>
     <string name="judul_menu_home">home</string>

@@ -15,7 +15,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.usingpreferences.R;
-import com.example.usingpreferences.Activity.UploadGambarActivity;
 import com.google.android.material.button.MaterialButton;
 
 /**

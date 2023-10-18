@@ -15,15 +15,20 @@ public class DashboardAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        switch (position) {
-            case 0:
-                return BannerFragment.newInstance(R.drawable.banner1);
-            case 1:
-                return BannerFragment.newInstance(R.drawable.banner2);
-            default:
-                return null;
+        int itemCount = getCount();
+        int newPosition = position % itemCount;
+
+        if (newPosition == 0) {
+            // Kembali ke item pertama setelah mencapai item terakhir
+            return BannerFragment.newInstance(R.drawable.banner1);
+        } else if (newPosition == 1) {
+            return BannerFragment.newInstance(R.drawable.banner2);
         }
+
+        return null;
     }
+
+
 
     @Override
     public int getCount() {

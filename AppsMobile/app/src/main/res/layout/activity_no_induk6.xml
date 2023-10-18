@@ -13,7 +13,7 @@
         android:layout_marginRight="-20dp"
         android:id="@+id/cardjudulnomorinduk"
         app:strokeWidth="1dp"
-        app:strokeColor="@color/black"
+        app:strokeColor="@color/gray"
         android:outlineAmbientShadowColor="@color/black"
         >
         <RelativeLayout

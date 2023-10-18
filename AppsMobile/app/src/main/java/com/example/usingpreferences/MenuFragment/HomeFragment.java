@@ -164,6 +164,7 @@ public class HomeFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), ProfilActivity.class);
                 startActivity(intent);
                 getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+
             }
         });
 
@@ -182,9 +183,13 @@ public class HomeFragment extends Fragment {
 
                 if (posisiY > 450) {
                     // Animasi untuk munculkan cardviewatas
-                    Animation fadeIn = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_in);
+
                     cardviewatas.setVisibility(View.VISIBLE);
+
+
                     cardviewtengah.setVisibility(View.INVISIBLE);
+                    Animation fadeIn = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_in);
+                    cardviewtengah.startAnimation(fadeIn);
                 } else if (posisiY < 450) {
                     // Animasi untuk menghilangkan cardviewatas
                     cardviewatas.setVisibility(View.GONE);
