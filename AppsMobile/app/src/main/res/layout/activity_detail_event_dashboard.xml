@@ -8,7 +8,7 @@
     tools:context=".DetailEventDashboard">
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"
+        android:layout_height="@dimen/_40sdp"
         android:layout_marginLeft="-20dp"
         android:layout_marginRight="-20dp"
         android:backgroundTint="@color/white"
@@ -29,17 +29,17 @@
                     android:id="@+id/judul"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
                     android:text="Detail Event"
                     android:textColor="@color/greendark"
-                    android:textSize="@dimen/_25ssp"
+                    android:textSize="@dimen/_20ssp"
                     android:gravity="center"
                     android:textStyle="bold" />
             </LinearLayout>
             <ImageButton
                 android:id="@+id/eventback"
-                android:layout_width="@dimen/_70sdp"
-                android:layout_height="@dimen/_60sdp"
+                android:layout_width="@dimen/_45sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_marginLeft="@dimen/_15sdp"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/ic_back"
