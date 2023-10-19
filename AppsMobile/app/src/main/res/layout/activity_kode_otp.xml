@@ -18,8 +18,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Kode OTP"
-                android:textSize="35sp"
-                android:layout_marginTop="30dp"
+                android:textSize="@dimen/_35ssp"
+                android:layout_marginTop="@dimen/_30sdp"
                 android:gravity="center_horizontal"
                 android:textStyle="bold"
                 />
@@ -28,15 +28,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Silahkan masukkan kode otp"
-                android:layout_marginTop="10dp"
-                android:textSize="20sp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textSize="@dimen/_20ssp"
                 android:textAlignment="center"/>
             <ImageView
                 android:id="@+id/gambaranimasi"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="@dimen/_300sdp"
                 android:src="@drawable/anim7"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="@dimen/_30sdp"
                 />
 
             <!-- Kolom untuk kode OTP -->
@@ -45,9 +45,9 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
-                android:paddingRight="20dp"
-                android:layout_marginTop="30dp"
-                android:paddingLeft="20dp">
+                android:paddingRight="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:paddingLeft="@dimen/_20sdp">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="0dp"
@@ -55,8 +55,8 @@
                     android:textAlignment="center"
                     android:layout_weight="1"
                     app:boxStrokeColor="@android:color/black"
-                    app:boxStrokeWidthFocused="2dp"
-                    app:boxStrokeWidth="1dp">
+                    app:boxStrokeWidthFocused="@dimen/_2sdp"
+                    app:boxStrokeWidth="@dimen/_1sdp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/otp"
@@ -64,25 +64,25 @@
                         android:layout_height="wrap_content"
                         android:inputType="number"
                         android:maxLength="6"
-                        android:textSize="33sp"
+                        android:textSize="@dimen/_33ssp"
                         android:letterSpacing="1"
                         android:textAlignment="inherit"
-                        android:padding="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"/>
+                        android:padding="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_konfirmasiotpp"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="@dimen/_60sdp"
                 android:text="Lanjut"
-                android:textSize="16sp"
-                android:layout_marginTop="30dp"
+                android:textSize="@dimen/_16ssp"
+                android:layout_marginTop="@dimen/_30sdp"
                 android:shadowRadius="3"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_20sdp"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
