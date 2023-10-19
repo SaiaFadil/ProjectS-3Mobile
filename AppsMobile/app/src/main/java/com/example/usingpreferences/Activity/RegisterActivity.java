@@ -308,7 +308,7 @@ public class RegisterActivity extends AppCompatActivity {
                                         String email = mViewEmail.getText().toString();
 
                                         // Buat Intent
-                                        Intent pindah = new Intent(RegisterActivity.this, LoginActivity.class);
+                                        Intent pindah = new Intent(RegisterActivity.this, BerhasilDaftar.class);
 
                                         // Kirim email ke LoginActivity
                                         pindah.putExtra("email", email);
