@@ -14,17 +14,17 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="5dp">
+            android:padding="@dimen/_5sdp">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Selamat Datang di\n--Nganjuk Elok-- "
                 android:textColor="@color/black"
-                android:layout_marginTop="20dp"
-                android:textSize="35sp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:textSize="@dimen/_35ssp"
                 android:textStyle="bold"
 
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:gravity="center_horizontal"
                 android:fontFamily="sans-serif"/>
             <TextView
@@ -32,13 +32,13 @@
                 android:layout_height="wrap_content"
                 android:text="Silahkan masuk dan lakukan aktivitas"
                 android:textColor="@color/black"
-                android:textSize="17sp"
+                android:textSize="@dimen/_17ssp"
                 android:gravity="center_horizontal"
                 android:fontFamily="sans-serif"/>
 
             <ImageView
-                android:layout_width="250dp"
-                android:layout_height="250dp"
+                android:layout_width="@dimen/_250sdp"
+                android:layout_height="@dimen/_250sdp"
                 android:src="@drawable/anim2"
                 android:layout_marginBottom="-30dp"
                 android:scaleType="fitXY"/>
@@ -47,14 +47,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Masukkan Email"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/_10sdp"
                 app:boxBackgroundColor="@android:color/transparent"
                 app:boxStrokeColor="@color/greendark"
-                app:boxStrokeWidth="2dp"
-                app:boxCornerRadiusTopEnd="5dp"
-                app:boxCornerRadiusTopStart="5dp"
-                app:boxCornerRadiusBottomEnd="5dp"
-                app:boxCornerRadiusBottomStart="5dp"
+                app:boxStrokeWidth="@dimen/_2sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+                app:boxCornerRadiusTopStart="@dimen/_5sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_5sdp"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -72,14 +72,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Masukkan Kata Sandi"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/_10sdp"
                 app:boxBackgroundColor="@android:color/transparent"
                 app:boxStrokeColor="@color/greendark"
-                app:boxStrokeWidth="2dp"
-                app:boxCornerRadiusTopEnd="5dp"
-                app:boxCornerRadiusTopStart="5dp"
-                app:boxCornerRadiusBottomEnd="5dp"
-                app:boxCornerRadiusBottomStart="5dp">
+                app:boxStrokeWidth="@dimen/_2sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+                app:boxCornerRadiusTopStart="@dimen/_5sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_5sdp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_passwordSignin"
@@ -100,25 +100,25 @@
                 android:id="@+id/btn_lupapassword"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="@dimen/_50sdp"
                 android:text="Lupa kata sandi?"
                 android:textStyle="italic"
                 android:layout_gravity="right"
                 android:textColor="@color/greendark"
                 android:textAllCaps="false"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="@dimen/_10sdp"
                 android:layout_marginTop="-15dp"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_siginSignin"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="@dimen/_60sdp"
                 android:text="Masuk"
-                android:textSize="20sp"
+                android:textSize="@dimen/_20ssp"
                 android:fontFamily="sans-serif"
                 android:shadowRadius="3"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_20sdp"
                 android:textAllCaps="false"
                 android:shadowDy="7"
                 android:shadowDx="5"
@@ -140,17 +140,17 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="80dp"
+                        android:layout_marginLeft="@dimen/_80sdp"
                         android:text="Belum punya akun?"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/_16ssp" />
 
                     <Button
                         android:id="@+id/button_signupSignin"
                         style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="50dp"
+                        android:layout_width="@dimen/_50sdp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="-5dp"
-                        android:layout_marginRight="70dp"
+                        android:layout_marginRight="@dimen/_70sdp"
                         android:layout_weight="1"
                         android:text="Daftar Disini"
                         android:maxLines="1"
@@ -163,7 +163,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="--------------------------  atau  --------------------------"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="@dimen/_10sdp"
                 android:textStyle="bold"
                 android:maxLines="1"
                 android:gravity="center_horizontal"/>
@@ -174,8 +174,8 @@
                 android:layout_gravity="center_horizontal"
                 android:visibility="visible"
                 android:textAlignment="center"
-                android:layout_marginRight="30dp"
-                android:layout_marginLeft="30dp"
+                android:layout_marginRight="@dimen/_30sdp"
+                android:layout_marginLeft="@dimen/_30sdp"
                 />
         </LinearLayout>
     </ScrollView>
