@@ -8,12 +8,12 @@
         tools:context=".Activity.PilihTanggalAwalPeminjaman">
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="@dimen/_60sdp"
             android:id="@+id/cardnamatempat"
             android:layout_marginLeft="-20dp"
             android:layout_marginRight="-20dp"
             android:backgroundTint="@color/white"
-            app:strokeWidth="1dp"
+            app:strokeWidth="@dimen/_1sdp"
             app:strokeColor="@color/gray"
             android:outlineAmbientShadowColor="@color/black"
             >
@@ -31,16 +31,16 @@
                         android:layout_height="match_parent"
                         android:text="Nama Tempat"
                         android:textColor="@color/greendark"
-                        android:textSize="25sp"
+                        android:textSize="@dimen/_25ssp"
                         android:maxLines="1"
                         android:gravity="center"
                         android:textStyle="bold" />
                 </LinearLayout>
                 <ImageButton
                     android:id="@+id/pinjamback"
-                    android:layout_width="70dp"
-                    android:layout_height="60dp"
-                    android:layout_marginLeft="15dp"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:layout_marginLeft="@dimen/_15sdp"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/ic_back"
                     android:backgroundTint="@color/white"
@@ -55,16 +55,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp">
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp">
                 <TextView
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="@dimen/_15sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="KALENDER TEMPAT"
                     android:textStyle="bold"
                     android:layout_gravity="center_horizontal"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/_18ssp"
                     android:textColor="@color/black"
                     />
 
@@ -73,7 +73,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="@dimen/_20sdp"
                     android:calendarViewShown="true"
                     android:datePickerMode="calendar"
                     android:calendarTextColor="@color/greendark"
@@ -85,17 +85,17 @@
 
 
                 <com.google.android.material.button.MaterialButton
-                    android:layout_marginTop="50dp"
-                    android:layout_marginBottom="30dp"
+                    android:layout_marginTop="@dimen/_50sdp"
+                    android:layout_marginBottom="@dimen/_30sdp"
                     android:id="@+id/button_pinjamtanggalawal"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="@dimen/_60sdp"
                     android:text="Pinjam"
-                    android:textSize="20sp"
-                    app:cornerRadius="10dp"
+                    android:textSize="@dimen/_20ssp"
+                    app:cornerRadius="@dimen/_10sdp"
                     android:shadowRadius="3"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginRight="@dimen/_20sdp"
                     android:textAllCaps="false"
 
                     android:textColor="@color/white"
