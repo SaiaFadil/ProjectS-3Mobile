@@ -15,14 +15,14 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="5dp">
+            android:padding="@dimen/_5sdp">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Daftarkan Akunmu"
                 android:textColor="@color/black"
-                android:layout_marginTop="20dp"
-                android:textSize="35sp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:textSize="@dimen/_35ssp"
                 android:textStyle="bold"
                 android:gravity="center_horizontal"
                 android:fontFamily="sans-serif"/>
@@ -31,35 +31,33 @@
                 android:layout_height="wrap_content"
                 android:text="Silahkan lengkapi pendaftaran akun"
                 android:textColor="@color/black"
-                android:textSize="17sp"
+                android:textSize="@dimen/_17ssp"
                 android:gravity="center_horizontal"
                 android:fontFamily="sans-serif"/>
-
-
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="@dimen/_250sdp"
                 android:src="@drawable/anim3" />
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Masukkan Namamu"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 app:boxBackgroundColor="@android:color/transparent"
                 app:boxStrokeColor="@color/blue"
-                app:boxStrokeWidth="2dp"
-                app:boxCornerRadiusTopEnd="5dp"
-                app:boxCornerRadiusTopStart="5dp"
-                app:boxCornerRadiusBottomEnd="5dp"
-                app:boxCornerRadiusBottomStart="5dp"
+                app:boxStrokeWidth="@dimen/_2sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+                app:boxCornerRadiusTopStart="@dimen/_5sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_5sdp"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_namaSignup"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="@dimen/_50sdp"
                     android:inputType="text"
                     android:maxLines="1"
                     android:singleLine="true"
@@ -70,22 +68,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Masukkan Nomor Teleponmu"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 app:boxBackgroundColor="@android:color/transparent"
                 app:boxStrokeColor="@color/blue"
-                app:boxStrokeWidth="2dp"
-                app:boxCornerRadiusTopEnd="5dp"
-                app:boxCornerRadiusTopStart="5dp"
-                app:boxCornerRadiusBottomEnd="5dp"
-                app:boxCornerRadiusBottomStart="5dp"
+                app:boxStrokeWidth="@dimen/_2sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+                app:boxCornerRadiusTopStart="@dimen/_5sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_5sdp"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_nohpSignup"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="@dimen/_50sdp"
                     android:inputType="phone"
                     android:maxLines="1"
                     android:singleLine="true"
@@ -96,48 +94,49 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Masukkan Emailmu"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 app:boxBackgroundColor="@android:color/transparent"
                 app:boxStrokeColor="@color/blue"
-                app:boxStrokeWidth="2dp"
-                app:boxCornerRadiusTopEnd="5dp"
-                app:boxCornerRadiusTopStart="5dp"
-                app:boxCornerRadiusBottomEnd="5dp"
-                app:boxCornerRadiusBottomStart="5dp"
+                app:boxStrokeWidth="@dimen/_2sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+                app:boxCornerRadiusTopStart="@dimen/_5sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_5sdp"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_emailSignup"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="@dimen/_50sdp"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:singleLine="true"
                     android:imeOptions="actionNext"
                     />
 
-            </com.google.android.material.textfield.TextInputLayout>  <com.google.android.material.textfield.TextInputLayout
+            </com.google.android.material.textfield.TextInputLayout> 
+            <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Masukkan Kata Sandi"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             app:boxBackgroundColor="@android:color/transparent"
             app:boxStrokeColor="@color/blue"
-            app:boxStrokeWidth="2dp"
-            app:boxCornerRadiusTopEnd="5dp"
-            app:boxCornerRadiusTopStart="5dp"
-            app:boxCornerRadiusBottomEnd="5dp"
-            app:boxCornerRadiusBottomStart="5dp"
+            app:boxStrokeWidth="@dimen/_2sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+            app:boxCornerRadiusTopStart="@dimen/_5sdp"
+            app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_5sdp"
             >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_passwordSignup"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="@dimen/_50sdp"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:singleLine="true"
@@ -149,21 +148,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Konfirmasi Kata Sandi"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 app:boxBackgroundColor="@android:color/transparent"
                 app:boxStrokeColor="@color/greendark"
-                app:boxStrokeWidth="2dp"
-                app:boxCornerRadiusTopEnd="5dp"
-                app:boxCornerRadiusTopStart="5dp"
-                app:boxCornerRadiusBottomEnd="5dp"
-                app:boxCornerRadiusBottomStart="5dp">
+                app:boxStrokeWidth="@dimen/_2sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+                app:boxCornerRadiusTopStart="@dimen/_5sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_5sdp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_passwordSignup2"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="@dimen/_50sdp"
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:singleLine="true"
@@ -181,21 +180,21 @@
                 android:layout_height="wrap_content"
                 android:text="Tampilkan Kata Sandi"
                 android:layout_gravity="left"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="30dp"/>
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_30sdp"/>
 
 
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_signupSignup"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="@dimen/_60sdp"
                 android:text="Daftar"
-                android:textSize="20sp"
+                android:textSize="@dimen/_20ssp"
                 android:fontFamily="sans-serif"
                 android:shadowRadius="3"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_20sdp"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
@@ -212,21 +211,23 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Sudah punya akun?"
-                        android:textSize="16sp"
-                        android:layout_marginLeft="80dp"/>
+                        android:textSize="@dimen/_12ssp"
+                        android:layout_marginLeft="@dimen/_80sdp"/>
 
                     <Button
 
                         android:id="@+id/button_signinsignin"
                         style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="50dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Masuk Disini"
+                        android:maxLines="1"
+                        android:layout_marginTop="@dimen/_minus3sdp"
                         android:textAllCaps="false"
                         android:textColor="@color/blue"
                         android:layout_marginLeft="-5dp"
                         android:textAlignment="textStart"
-                        android:layout_marginRight="60dp"
+                        android:layout_marginRight="@dimen/_60sdp"
                         android:layout_weight="1"/>
                 </TableRow>
             </TableLayout>
