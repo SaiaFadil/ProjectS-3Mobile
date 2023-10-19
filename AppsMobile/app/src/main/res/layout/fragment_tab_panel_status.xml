@@ -14,7 +14,7 @@
         android:text="Semua"
         android:background="@android:color/transparent"
         android:textColor="@color/greendark"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="@dimen/_4sdp"
         android:textAlignment="center"/>
 
     <Button
@@ -24,7 +24,7 @@
         android:text="Proses"
         android:background="@android:color/transparent"
         android:textColor="@color/greendark"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="@dimen/_4sdp"
         android:textAlignment="center"/>
 
     <Button
@@ -34,7 +34,7 @@
         android:text="Selesai"
         android:background="@android:color/transparent"
         android:textColor="@color/greendark"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="@dimen/_4sdp"
         android:textAlignment="center"/>
 
     <Button
@@ -44,6 +44,6 @@
         android:text="Ditolak"
         android:background="@android:color/transparent"
         android:textColor="@color/greendark"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="@dimen/_4sdp"
         android:textAlignment="center"/>
 </LinearLayout>
