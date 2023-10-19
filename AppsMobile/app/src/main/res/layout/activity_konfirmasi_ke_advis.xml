@@ -5,11 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".KonfirmMenu.KonfirmasiKeAdvis"
-    >
+    tools:context=".KonfirmMenu.KonfirmasiKeAdvis">
     <include
         android:id="@+id/cardViewContainer"
-        layout="@layout/fragment_view_top_konfirmasi_ke_advis"/>
+        layout="@layout/fragment_view_top_konfirmasi_ke_advis" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -22,55 +21,53 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="PENGAJUAN SURAT ADVIS/IZIN PENTAS"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
                 android:textColor="@color/black"
-                android:textSize="16sp"
-                android:layout_marginTop="20dp"
+                android:textSize="@dimen/_16ssp"
+                android:layout_marginTop="@dimen/_20sdp"
                 android:gravity="center_horizontal"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
             <TextView
                 android:id="@+id/tulisanatas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:text="Surat ini hanya dapat diajukan apabila anda memiliki kartu Nomor induk seniman. Jika anda belum memilikinya, anda dapat mendaftar terlebih dahulu."
-                android:layout_marginTop="20dp"
-                android:textSize="16sp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:textAlignment="center"/>
+                android:layout_marginTop="@dimen/_20sdp"
+                android:textSize="@dimen/_16ssp"
+                android:paddingLeft="@dimen/_20sdp"
+                android:paddingRight="@dimen/_20sdp"
+                android:textAlignment="center" />
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="@dimen/_300sdp"
                 android:src="@drawable/animadvis"
-                android:layout_marginTop="10dp"
-                />
+                android:layout_marginTop="@dimen/_10sdp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Untuk mengajukan surat advis,anda dapat melengkapi formulir berikut ini"
-                android:layout_marginTop="10dp"
-                android:textSize="20sp"
+                android:text="Untuk mengajukan surat advis, anda dapat melengkapi formulir berikut ini"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textSize="@dimen/_20ssp"
                 android:textColor="@color/black"
-                android:textAlignment="center"/>
+                android:textAlignment="center" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_lanjutadvis"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="@dimen/_60sdp"
                 android:text="Lanjut"
-                android:textSize="16sp"
-                android:layout_marginTop="20dp"
+                android:textSize="@dimen/_16ssp"
+                android:layout_marginTop="@dimen/_20sdp"
                 android:shadowRadius="3"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_20sdp"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:backgroundTint="@color/greendark"/>
+                android:backgroundTint="@color/greendark" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

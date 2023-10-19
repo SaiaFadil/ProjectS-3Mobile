@@ -17,107 +17,107 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp">
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp">
             <TextView
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nomor Induk Seniman"
-                android:textSize="17sp"
+                android:textSize="@dimen/_17ssp"
                 />
 
             <EditText
                 android:id="@+id/et_induksenimanadvis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/bg_editext"
                 android:ems="10"
                 android:hint="Masukkan Nomor Induk Seniman"
                 android:inputType="number"
-                android:paddingLeft="18dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:textSize="15dp" />
+                android:paddingLeft="@dimen/_18sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:textSize="@dimen/_15sdp" />
             <TextView
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nama Lengkap"
-                android:textSize="17sp"
+                android:textSize="@dimen/_17ssp"
                 />
 
             <EditText
                 android:id="@+id/et_namalengkapadvis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/bg_editext"
                 android:ems="10"
                 android:hint="Masukkan Nama Lengkap Sesuai KTP"
                 android:inputType="text"
                 android:maxLines="1"
 
-                android:paddingLeft="18dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:textSize="15dp" />
+                android:paddingLeft="@dimen/_18sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:textSize="@dimen/_15sdp" />
 
 
 
             <TextView
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Alamat"
-                android:textSize="17sp"
+                android:textSize="@dimen/_17ssp"
                 />
 
             <EditText
                 android:id="@+id/et_alamatadvis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/bg_editext"
                 android:ems="10"
                 android:hint="Masukkan Alamatmu"
                 android:inputType="text"
                 android:maxLines="1"
-                android:paddingLeft="18dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:textSize="15dp" />
-
+                android:paddingLeft="@dimen/_18sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:textSize="@dimen/_15sdp" />
+<!--bawah ini-->
             <TextView
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama Pentas"
-                android:textSize="17sp"
+                android:text="Untuk Pentas"
+                android:textSize="@dimen/_17ssp"
                 />
 
             <EditText
                 android:id="@+id/et_namapentasadvis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/bg_editext"
                 android:ems="10"
-                android:hint="Masukkan Nama Pentasmu"
+                android:hint="Contoh : Pentas Tari Tradisi"
                 android:inputType="text"
                 android:maxLines="1"
-                android:paddingLeft="18dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:textSize="15dp" />
+                android:paddingLeft="@dimen/_18sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:textSize="@dimen/_15sdp" />
 
             <TextView
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tanggal Pentas"
-                android:textSize="17sp"
+                android:textSize="@dimen/_17ssp"
                 />
 
 
@@ -125,21 +125,21 @@
                 android:id="@+id/et_tanggalpentasadvis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/bg_editext"
                 android:ems="10"
                 android:hint="Pilih Tanggal"
                 android:maxLines="1"
-                android:paddingLeft="18dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:textSize="15dp" />
+                android:paddingLeft="@dimen/_18sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:textSize="@dimen/_15sdp" />
             <TextView
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Lokasi"
-                android:textSize="17sp"
+                android:textSize="@dimen/_17ssp"
                 />
 
 
@@ -147,23 +147,23 @@
                 android:id="@+id/et_lokasiadvis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/bg_editext"
                 android:ems="10"
-                android:hint="Masukkan Tempat"
+                android:hint="Contoh : Balai Budaya"
                 android:inputType="text"
                 android:maxLines="1"
-                android:paddingLeft="18dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
+                android:paddingLeft="@dimen/_18sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
                 android:textSize="15dp" />
 
             <TextView
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Setelah mengisi formulir dengan lengkap, anda menyetujui hal-hal berikut :"
-                android:textSize="17sp"
+                android:textSize="@dimen/_17ssp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 />
@@ -177,20 +177,20 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="left">
                         <TextView
-                            android:layout_marginTop="15dp"
+                            android:layout_marginTop="@dimen/_15sdp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1."
-                            android:textSize="16sp"
+                            android:textSize="@dimen/_16ssp"
                             android:fallbackLineSpacing="true"
                             android:textColor="@color/black"
                             />
                         <TextView
-                            android:layout_marginTop="15dp"
+                            android:layout_marginTop="@dimen/_15sdp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Tidak keberatan memberikan Surat Advis untuk mendapatkan ijin keramaian dari kepolisian."
-                            android:textSize="16sp"
+                            android:textSize="@dimen/_16ssp"
                             android:fallbackLineSpacing="true"
                             android:textColor="@color/black"
                             />
@@ -202,20 +202,20 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="left">
                     <TextView
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="2."
-                        android:textSize="16sp"
+                        android:textSize="@dimen/_16ssp"
                         android:fallbackLineSpacing="true"
                         android:textColor="@color/black"
                         />
                     <TextView
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Surat Advis ini berlaku satu kali pentas."
-                        android:textSize="16sp"
+                        android:textSize="@dimen/_16ssp"
                         android:fallbackLineSpacing="true"
                         android:textColor="@color/black"
                         />
@@ -227,20 +227,20 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="left">
                     <TextView
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="3."
-                        android:textSize="16sp"
+                        android:textSize="@dimen/_16ssp"
                         android:fallbackLineSpacing="true"
                         android:textColor="@color/black"
                         />
                     <TextView
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pementasan kesenian tanpa Surat Advis merupakan pelanggaran Peraturan Daerah."
-                        android:textSize="16sp"
+                        android:textSize="@dimen/_16ssp"
                         android:fallbackLineSpacing="true"
                         android:textColor="@color/black"
                         />
@@ -253,17 +253,17 @@
 
 
             <com.google.android.material.button.MaterialButton
-                android:layout_marginTop="50dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
                 android:id="@+id/btn_kirimformuliradvis"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="@dimen/_60sdp"
                 android:text="Kirim"
-                android:textSize="20sp"
-                app:cornerRadius="10dp"
+                android:textSize="@dimen/_20ssp"
+                app:cornerRadius="@dimen/_10sdp"
                 android:shadowRadius="3"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_20sdp"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
