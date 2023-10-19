@@ -25,6 +25,7 @@ Button lanjut;
 
 
                 startActivity(new Intent(getBaseContext(), LoginActivity.class));
+            overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
 
 
         }
