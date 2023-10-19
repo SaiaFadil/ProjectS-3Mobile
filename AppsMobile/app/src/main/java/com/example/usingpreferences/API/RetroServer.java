@@ -4,7 +4,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetroServer {
-    private static final String baseURL = "http://172.16.106.200/HufflePuff/DatabaseMobile/";
+    private static final String baseURL = "http://172.16.103.104/HufflePuff/DatabaseMobile/";
                                // http:// ip internetmu /HufflePuff/DatabaseMobile/
 
     private static Retrofit retro;
