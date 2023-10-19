@@ -9,20 +9,20 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="@dimen/_60sdp"
         android:layout_marginLeft="-20dp"
         android:layout_marginRight="-20dp"
         android:id="@+id/cardjudulprofil"
         app:strokeColor="@color/gray"
         android:backgroundTint="@color/white"
-        app:strokeWidth="1dp"
+        app:strokeWidth="@dimen/_1sdp"
         android:outlineAmbientShadowColor="@color/black">
 
         <ImageButton
             android:id="@+id/kembalikelayanan"
-            android:layout_width="60dp"
-            android:layout_height="55dp"
-            android:layout_marginLeft="15dp"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_55sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
             android:layout_gravity="center_vertical"
             android:src="@drawable/ic_back"
             android:backgroundTint="@color/white"
@@ -35,7 +35,7 @@
             android:text="Surat Advis"
             android:textAllCaps="true"
             android:textColor="@color/greendark"
-            android:textSize="30sp"
+            android:textSize="@dimen/_30ssp"
             android:textStyle="bold"
             android:gravity="center"/>
     </com.google.android.material.card.MaterialCardView>
