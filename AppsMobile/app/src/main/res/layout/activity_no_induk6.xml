@@ -8,11 +8,11 @@
     tools:context=".Activity.NoInduk6">
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="@dimen/_60sdp"
         android:layout_marginLeft="-20dp"
         android:layout_marginRight="-20dp"
         android:id="@+id/cardjudulnomorinduk"
-        app:strokeWidth="1dp"
+        app:strokeWidth="@dimen/_1sdp"
         app:strokeColor="@color/gray"
         android:outlineAmbientShadowColor="@color/black"
         >
@@ -28,19 +28,19 @@
                     android:id="@+id/judul"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="@dimen/_10sdp"
                     android:text="Formulir Perpanjang Nomor Induk Seniman"
                     android:textColor="@color/greendark"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/_16ssp"
                     android:maxLines="1"
                     android:gravity="center"
                     android:textStyle="bold"/>
             </LinearLayout>
             <ImageButton
                 android:id="@+id/indukback"
-                android:layout_width="70dp"
-                android:layout_height="60dp"
-                android:layout_marginLeft="15dp"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_marginLeft="@dimen/_15sdp"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/ic_back"
                 android:backgroundTint="@color/white"
@@ -55,81 +55,81 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp">
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp">
             <TextView
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nomor Induk Kependudukan"
-                android:textSize="17sp"
+                android:textSize="@dimen/_17ssp"
                 />
 
             <EditText
                 android:id="@+id/editTextNIK"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/bg_editext"
                 android:ems="10"
                 android:hint="Masukkan Nomor Induk Kependudukan"
                 android:inputType="number"
-                android:paddingLeft="18dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:textSize="15dp" />
+                android:paddingLeft="@dimen/_18sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:textSize="@dimen/_15sdp" />
 
             <TextView
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nama Lengkap"
-                android:textSize="17sp"
+                android:textSize="@dimen/_17ssp"
                 />
             <EditText
                 android:id="@+id/editTextNamaLengkap"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:ems="10"
                 android:inputType="text"
                 android:hint="Masukkan Nama Lengkap sesuai KTP"
-                android:textSize="15dp"
+                android:textSize="@dimen/_15sdp"
                 android:background="@drawable/bg_editext"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:paddingLeft="18dp"/>
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:paddingLeft="@dimen/_18sdp"/>
             <TextView
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nomor Induk Seniman Lama"
-                android:textSize="17sp"
+                android:textSize="@dimen/_17ssp"
                 />
             <EditText
                 android:id="@+id/editTextNomorIndukLama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:ems="10"
                 android:inputType="number"
                 android:hint="Masukan Nomor Induk Seniman Lama"
-                android:textSize="15dp"
+                android:textSize="@dimen/_15sdp"
                 android:background="@drawable/bg_editext"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:paddingLeft="18dp"/>
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:paddingLeft="@dimen/_18sdp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Surat Keterangan Dari Desa"
-                android:textSize="17sp"
-                android:layout_marginTop="25dp"
+                android:textSize="@dimen/_17ssp"
+                android:layout_marginTop="@dimen/_25sdp"
                 />
             <LinearLayout
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_width="match_parent"
-                android:layout_height="52dp"
+                android:layout_height="@dimen/_52sdp"
                 android:orientation="horizontal"
                 android:background="@drawable/corner_image">
 
@@ -144,27 +144,27 @@
                     android:text="Pilih File"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/_14ssp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="17sp"
+                    android:textSize="@dimen/_17ssp"
                     android:text="Gambar berformat PNG, JPG, SVG"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="8dp" />
+                    android:layout_marginStart="@dimen/_8sdp" />
             </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Foto Kartu Tanda Penduduk"
-                android:textSize="17sp"
-                android:layout_marginTop="10dp"
+                android:textSize="@dimen/_17ssp"
+                android:layout_marginTop="@dimen/_10sdp"
                 />
             <LinearLayout
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_width="match_parent"
-                android:layout_height="52dp"
+                android:layout_height="@dimen/_52sdp"
                 android:orientation="horizontal"
                 android:background="@drawable/corner_image">
 
@@ -179,27 +179,27 @@
                     android:text="Pilih File"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/_14ssp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Gambar berformat PNG, JPG, SVG"
-                    android:textSize="17sp"
+                    android:textSize="@dimen/_17ssp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="8dp" />
+                    android:layout_marginStart="@dimen/_8sdp" />
             </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Pass Foto"
-                android:layout_marginTop="10dp"
-                android:textSize="17sp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textSize="@dimen/_17ssp"
                 />
             <LinearLayout
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_width="match_parent"
-                android:layout_height="52dp"
+                android:layout_height="@dimen/_52sdp"
                 android:orientation="horizontal"
                 android:background="@drawable/corner_image">
 
@@ -214,29 +214,29 @@
                     android:text="Pilih File"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/_14ssp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="17sp"
+                    android:textSize="@dimen/_17ssp"
                     android:text="Gambar berformat PNG, JPG, SVG"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="8dp" />
+                    android:layout_marginStart="@dimen/_8sdp" />
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
-                android:layout_marginTop="50dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
                 android:id="@+id/button_lanjutinduk1"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="@dimen/_70sdp"
                 android:text="Kirim"
-                android:textSize="22sp"
-                app:cornerRadius="10dp"
+                android:textSize="@dimen/_22ssp"
+                app:cornerRadius="@dimen/_10sdp"
                 android:shadowRadius="3"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_20sdp"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
