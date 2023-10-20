@@ -59,10 +59,11 @@
                 android:layout_marginEnd="@dimen/_20sdp">
                 <TextView
                     android:layout_marginTop="@dimen/_15sdp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nama Pengirim"
-                    android:textSize="@dimen/_15ssp"
                     />
 
                 <EditText
@@ -81,7 +82,8 @@
                     android:textSize="@dimen/_14sdp" />
 
                 <TextView
-                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nama Event"
@@ -102,7 +104,8 @@
                     android:paddingBottom="@dimen/_5sdp"
                     android:paddingLeft="@dimen/_12sdp"/>
                 <TextView
-                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tempat"
@@ -194,26 +197,29 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Deskripsi Event"
+                    android:layout_marginTop="@dimen/_minus5sdp"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/_15ssp"
                     />
                 <EditText
                     android:id="@+id/et_deskripsievent"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_120sdp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:inputType="textMultiLine"
-                    android:hint="Masukkan Deskripsi Kegiatan"
-                    android:textSize="@dimen/_15sdp"
-                    android:paddingTop="@dimen/_10sdp"
                     android:background="@drawable/bg_editext"
-                    android:paddingLeft="@dimen/_10sdp"
                     android:gravity="top|left"
-                    android:maxHeight="@dimen/_70sdp"
-                    android:maxLines="4"
-                    android:maxLength="120" />
+                    android:hint="Masukkan Deskripsi Event"
+                    android:inputType="textMultiLine"
+                    android:maxHeight="@dimen/_200sdp"
+                    android:maxLength="120"
+                    android:paddingLeft="@dimen/_12sdp"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_6sdp"
+                    android:textSize="@dimen/_14sdp"  />
 
                 <TextView
-                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Link Pendaftaran (Opsional)"
@@ -236,7 +242,8 @@
                     android:textSize="@dimen/_14sdp" />
 
                 <TextView
-                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Poster Event"
@@ -253,7 +260,7 @@
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/selectFileButton2"
                         style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="@dimen/_95sdp"
+                        android:layout_width="@dimen/_70sdp"
                         android:layout_height="match_parent"
                         android:layout_marginTop="-5dp"
                         android:layout_marginBottom="-5dp"
@@ -279,11 +286,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50sdp"
                     android:text="Kirim"
-                    android:textSize="@dimen/_14ssp"
+                    android:textSize="@dimen/_16ssp"
                     app:cornerRadius="@dimen/_10sdp"
                     android:shadowRadius="3"
-                    android:layout_marginLeft="@dimen/_20sdp"
-                    android:layout_marginRight="@dimen/_20sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
