@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center_horizontal"
+    android:gravity="center"
     android:layout_marginTop="@dimen/_50sdp">
 
 
@@ -31,27 +31,29 @@
                 />
 
             <ImageView
-                android:layout_width="@dimen/_350sdp"
-                android:layout_height="@dimen/_350sdp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_270sdp"
                 android:src="@drawable/woman_happy"
                 android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_20sdp"
                 android:padding="@dimen/_20sdp"
                 />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="Formulir yang anda ajukan sudah terkirim anda dapat mengecek hasilnya pada halaman status"
-                android:textSize="@dimen/_16ssp"
-                android:layout_marginTop="@dimen/_15sdp"
+                android:textSize="@dimen/_18ssp"
+                android:layout_marginTop="@dimen/_50sdp"
                 android:textAlignment="center"
-                android:layout_marginLeft="@dimen/_30sdp"
-                android:layout_marginRight="@dimen/_30sdp"
+                android:layout_marginLeft="@dimen/_25sdp"
+                android:layout_marginRight="@dimen/_25sdp"
                 />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/cekstatus"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_60sdp"
+                android:layout_height="@dimen/_50sdp"
                 android:text="Cek Status"
                 android:textSize="@dimen/_16ssp"
                 android:fontFamily="sans-serif"
