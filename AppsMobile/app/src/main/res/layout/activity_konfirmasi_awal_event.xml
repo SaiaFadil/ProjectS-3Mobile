@@ -9,7 +9,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_30sdp"
+        android:layout_height="@dimen/_40sdp"
         android:layout_marginLeft="-20dp"
         android:layout_marginRight="-10dp"
         android:backgroundTint="@color/white"
@@ -32,16 +32,16 @@
                     android:layout_marginStart="@dimen/_10sdp"
                     android:text="Event"
                     android:textColor="@color/greendark"
-                    android:textSize="@dimen/_18ssp"
+                    android:textSize="@dimen/_23ssp"
                     android:maxLines="1"
                     android:gravity="center"
                     android:textStyle="bold" />
             </LinearLayout>
             <ImageButton
                 android:id="@+id/eventback"
-                android:layout_width="@dimen/_40sdp"
+                android:layout_width="@dimen/_45sdp"
                 android:layout_height="@dimen/_50sdp"
-                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginLeft="@dimen/_20sdp"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/ic_back"
                 android:backgroundTint="@color/white"
@@ -65,8 +65,8 @@
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_10sdp"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_17ssp"
-                android:layout_marginTop="@dimen/_20sdp"
+                android:textSize="@dimen/_20ssp"
+                android:layout_marginTop="@dimen/_30sdp"
                 android:gravity="center_horizontal"
                 android:textStyle="bold" />
 
@@ -82,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:text="Untuk pengajuan upload event, anda dapat melengkapi formulir berikut ini"
                 android:layout_marginTop="@dimen/_28sdp"
-                android:textSize="@dimen/_14ssp"
+                android:textSize="@dimen/_16ssp"
                 android:paddingLeft="@dimen/_30sdp"
                 android:maxLines="2"
                 android:paddingRight="@dimen/_30sdp"
@@ -92,10 +92,10 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_lanjutevent"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_60sdp"
+                android:layout_height="@dimen/_50sdp"
                 android:text="Lanjut"
                 android:textSize="@dimen/_16ssp"
-                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_60sdp"
                 android:shadowRadius="3"
                 android:layout_marginLeft="@dimen/_20sdp"
                 android:layout_marginRight="@dimen/_20sdp"
