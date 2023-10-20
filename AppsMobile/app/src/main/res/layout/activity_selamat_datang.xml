@@ -17,8 +17,10 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
     <ImageView
-        android:layout_width="@dimen/_320sdp"
-        android:layout_height="@dimen/_320sdp"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_gravity="center"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_250sdp"
         android:src="@drawable/anim1"
         android:padding="@dimen/_20sdp"
         />
@@ -46,17 +48,17 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/mulai"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"
+        android:layout_height="@dimen/_50sdp"
         android:text="Mulai"
         android:paddingLeft="@dimen/_24sdp"
         android:textAlignment="center"
-        android:textSize="@dimen/_23ssp"
+        android:textSize="@dimen/_20ssp"
         android:textStyle="bold"
         android:fontFamily="sans-serif"
         android:shadowRadius="3"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_100sdp"
+        android:layout_marginTop="@dimen/_50sdp"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:drawableRight="@drawable/baseline_arrow_forward_24"
