@@ -9,7 +9,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_30sdp"
+        android:layout_height="@dimen/_40sdp"
         android:layout_marginLeft="-20dp"
         android:layout_marginRight="-10dp"
         android:backgroundTint="@color/white"
@@ -38,8 +38,8 @@
                     android:textStyle="bold" />
             </LinearLayout>
             <ImageButton
-                android:id="@+id/eventback"
-                android:layout_width="@dimen/_40sdp"
+                android:id="@+id/kembalikelayanan"
+                android:layout_width="@dimen/_45sdp"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_marginLeft="@dimen/_15sdp"
                 android:layout_gravity="center_vertical"

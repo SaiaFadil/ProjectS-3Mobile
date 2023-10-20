@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.usingpreferences.Activity.NoInduk1;
+import com.example.usingpreferences.Activity.NoInduk2;
 import com.example.usingpreferences.Activity.PinjamTempatList;
 import com.example.usingpreferences.Activity.ProfilActivity;
 import com.example.usingpreferences.Adapter.DashboardAdapter;
@@ -108,6 +109,8 @@ public class HomeFragment extends Fragment {
         cardinduk = view.findViewById(R.id.cardinduk);
         cardizin = view.findViewById(R.id.cardizin);
         card1 =  view.findViewById(R.id.card1);
+
+
         card1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -135,7 +138,7 @@ public class HomeFragment extends Fragment {
         cardinduk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), NoInduk1.class));
+                startActivity(new Intent(getActivity(), NoInduk2.class));
                 getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
 
             }
@@ -192,7 +195,7 @@ public class HomeFragment extends Fragment {
             public void onScrollChanged() {
                 int posisiY = scrollView.getScrollY();
 
-                if (posisiY > 450) {
+                if (posisiY > 470) {
                     // Animasi untuk munculkan cardviewatas
 
                     cardviewatas.setVisibility(View.VISIBLE);
@@ -201,7 +204,7 @@ public class HomeFragment extends Fragment {
                     cardviewtengah.setVisibility(View.INVISIBLE);
                     Animation fadeIn = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_in);
                     cardviewtengah.startAnimation(fadeIn);
-                } else if (posisiY < 450) {
+                } else if (posisiY < 470) {
                     // Animasi untuk menghilangkan cardviewatas
                     cardviewatas.setVisibility(View.GONE);
 

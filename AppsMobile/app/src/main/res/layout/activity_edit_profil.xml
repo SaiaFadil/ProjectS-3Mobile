@@ -9,7 +9,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_30sdp"
+        android:layout_height="@dimen/_40sdp"
         android:layout_marginLeft="-10dp"
         android:layout_marginRight="-10dp"
         android:backgroundTint="@color/white"
@@ -39,8 +39,8 @@
             </LinearLayout>
             <ImageButton
                 android:id="@+id/profilback"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_50sdp"
+                android:layout_width="@dimen/_43sdp"
+                android:layout_height="@dimen/_43sdp"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/ic_back"
@@ -87,6 +87,7 @@
        android:textStyle="bold"/>
 
                 <TextView
+                    android:textColor="@color/black"
                     android:layout_marginTop="@dimen/_8sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -109,6 +110,7 @@
                     android:paddingBottom="@dimen/_8sdp"
                     android:textSize="@dimen/_15sdp" />
  <TextView
+                    android:textColor="@color/black"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -131,6 +133,7 @@
                     android:paddingBottom="@dimen/_8sdp"
                     android:textSize="@dimen/_15sdp" />
                 <TextView
+                    android:textColor="@color/black"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -155,6 +158,7 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
             <TextView
+                    android:textColor="@color/black"
                                     android:layout_marginTop="@dimen/_5sdp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -165,7 +169,7 @@
 
             <EditText
                 android:id="@+id/tempatlahiredit"
-                android:layout_width="@dimen/_138sdp"
+                android:layout_width="@dimen/_130sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_marginTop="@dimen/_2sdp"
                 android:background="@drawable/bg_editext"
@@ -185,6 +189,7 @@
                             android:orientation="vertical">
 
             <TextView
+                    android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5sdp"
@@ -193,7 +198,7 @@
                 android:textSize="@dimen/_15ssp" />
             <EditText
                 android:id="@+id/tanggaledit"
-                                    android:layout_width="@dimen/_138sdp"
+                                    android:layout_width="@dimen/_130sdp"
                                     android:layout_height="@dimen/_30sdp"
                                     android:layout_marginTop="@dimen/_2sdp"
                                     android:ems="10"
@@ -210,6 +215,7 @@
 </TableLayout>
 
                 <TextView
+                    android:textColor="@color/black"
                     android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -244,7 +250,7 @@
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:backgroundTint="@color/green"/>
+                    android:backgroundTint="@color/greenold"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

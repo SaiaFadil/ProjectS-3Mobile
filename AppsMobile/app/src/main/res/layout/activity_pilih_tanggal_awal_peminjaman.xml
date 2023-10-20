@@ -8,7 +8,7 @@
         tools:context=".Activity.PilihTanggalAwalPeminjaman">
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_60sdp"
+            android:layout_height="@dimen/_40sdp"
             android:id="@+id/cardnamatempat"
             android:layout_marginLeft="-20dp"
             android:layout_marginRight="-20dp"
@@ -31,14 +31,14 @@
                         android:layout_height="match_parent"
                         android:text="Nama Tempat"
                         android:textColor="@color/greendark"
-                        android:textSize="@dimen/_25ssp"
+                        android:textSize="@dimen/_16ssp"
                         android:maxLines="1"
                         android:gravity="center"
                         android:textStyle="bold" />
                 </LinearLayout>
                 <ImageButton
                     android:id="@+id/pinjamback"
-                    android:layout_width="@dimen/_70sdp"
+                    android:layout_width="@dimen/_45sdp"
                     android:layout_height="@dimen/_60sdp"
                     android:layout_marginLeft="@dimen/_15sdp"
                     android:layout_gravity="center_vertical"
@@ -94,8 +94,8 @@
                     android:textSize="@dimen/_20ssp"
                     app:cornerRadius="@dimen/_10sdp"
                     android:shadowRadius="3"
-                    android:layout_marginLeft="@dimen/_20sdp"
-                    android:layout_marginRight="@dimen/_20sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
                     android:textAllCaps="false"
 
                     android:textColor="@color/white"

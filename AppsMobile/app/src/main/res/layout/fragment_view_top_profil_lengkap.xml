@@ -8,7 +8,7 @@
     android:backgroundTint="@color/white">
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"
+        android:layout_height="@dimen/_40sdp"
         android:layout_marginLeft="-20dp"
         android:layout_marginRight="-20dp"
         android:id="@+id/cardjudulprofil"
@@ -20,8 +20,8 @@
 
         <ImageButton
             android:id="@+id/kembaliprofil"
-            android:layout_width="@dimen/_60sdp"
-            android:layout_height="@dimen/_55sdp"
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_marginLeft="@dimen/_15sdp"
             android:layout_gravity="center_vertical"
             android:src="@drawable/ic_back"
@@ -33,11 +33,11 @@
             android:layout_height="wrap_content"
             android:text="@string/judul_menu_profil"
             android:textColor="@color/greendark"
-            android:textSize="@dimen/_25ssp"
+            android:textSize="@dimen/_20ssp"
             android:textAllCaps="true"
             android:textStyle="bold"
             android:gravity="center_horizontal"
-            android:layout_marginTop="@dimen/_13sdp"/>
+            android:layout_gravity="center"/>
     </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>

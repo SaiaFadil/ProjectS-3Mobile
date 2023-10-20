@@ -22,6 +22,7 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:gravity="center_horizontal"
                 android:textStyle="bold"
+                android:textColor="@color/black"
                 />
 
     <TextView
@@ -29,13 +30,14 @@
         android:layout_height="wrap_content"
         android:text="Silahkan atur ulang kata sandimu"
         android:layout_marginTop="@dimen/_5sdp"
+        android:textColor="@color/black"
         android:textSize="@dimen/_17ssp"
         android:textAlignment="center"/>
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_250sdp"
+        android:layout_height="@dimen/_200sdp"
         android:src="@drawable/anim5"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_50sdp"
         />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -55,11 +57,11 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_emailLupakatasandi"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_40sdp"
+            android:imeOptions="actionNext"
             android:inputType="textEmailAddress"
             android:maxLines="1"
-            android:singleLine="true"
-            android:imeOptions="actionNext" />
+            android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.button.MaterialButton
@@ -68,7 +70,7 @@
         android:layout_height="@dimen/_50sdp"
         android:text="Lanjut"
         android:textSize="@dimen/_15ssp"
-        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_50sdp"
         android:shadowRadius="3"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"

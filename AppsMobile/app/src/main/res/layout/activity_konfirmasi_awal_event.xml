@@ -72,7 +72,8 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_300sdp"
+                android:layout_height="@dimen/_200sdp"
+                android:layout_margin="@dimen/_20sdp"
                 android:src="@drawable/event1"
                 />
 

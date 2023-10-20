@@ -8,7 +8,7 @@
         tools:context=".Activity.FormulirUploadEvent">
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_30sdp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_marginLeft="-10dp"
             android:layout_marginRight="-10dp"
             android:backgroundTint="@color/white"
@@ -31,14 +31,14 @@
                         android:layout_marginStart="@dimen/_10sdp"
                         android:text="FORMULIR UPLOAD EVENT"
                         android:textColor="@color/greendark"
-                        android:textSize="@dimen/_18ssp"
+                        android:textSize="@dimen/_16ssp"
                         android:maxLines="1"
                         android:gravity="center"
                         android:textStyle="bold" />
                 </LinearLayout>
                 <ImageButton
                     android:id="@+id/eventback"
-                    android:layout_width="@dimen/_40sdp"
+                    android:layout_width="@dimen/_45sdp"
                     android:layout_height="@dimen/_50sdp"
                     android:layout_marginLeft="@dimen/_10sdp"
                     android:layout_gravity="center_vertical"
@@ -75,9 +75,9 @@
                     android:hint="Masukkan Namamu"
                     android:inputType="text"
                     android:paddingLeft="@dimen/_12sdp"
-                    android:paddingTop="@dimen/_12sdp"
+                    android:paddingTop="@dimen/_5sdp"
                     android:maxLines="1"
-                    android:paddingBottom="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_5sdp"
                     android:textSize="@dimen/_14sdp" />
 
                 <TextView
@@ -98,8 +98,8 @@
                     android:textSize="@dimen/_14sdp"
                     android:maxLines="1"
                     android:background="@drawable/bg_editext"
-                    android:paddingTop="@dimen/_12sdp"
-                    android:paddingBottom="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_5sdp"
                     android:paddingLeft="@dimen/_12sdp"/>
                 <TextView
                     android:layout_marginTop="@dimen/_15sdp"
@@ -119,8 +119,8 @@
                     android:textSize="@dimen/_14sdp"
                     android:maxLines="1"
                     android:background="@drawable/bg_editext"
-                    android:paddingTop="@dimen/_12sdp"
-                    android:paddingBottom="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_5sdp"
                     android:paddingLeft="@dimen/_12sdp"/>
                 <TableLayout
                     android:layout_width="match_parent"
@@ -155,18 +155,19 @@
 
                         <EditText
                             android:id="@+id/et_tanggalawalevent"
-                            android:layout_width="@dimen/_120sdp"
+                            android:layout_width="@dimen/_110sdp"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:background="@drawable/bg_editext"
                             android:ems="10"
+                            android:hint="Pilih Tanggal"
+                            android:inputType="text"
+                            android:paddingTop="@dimen/_5sdp"
+                            android:paddingBottom="@dimen/_5sdp"
                             android:textAlignment="center"
                             android:textColor="@color/black"
-                            android:inputType="text"
-                            android:hint="Pilih Tanggal"
-                            android:textSize="@dimen/_14sdp"
-                            android:background="@drawable/bg_editext"
-                            android:paddingTop="@dimen/_12sdp"
-                            android:paddingBottom="@dimen/_10sdp"
-                            android:layout_marginBottom="@dimen/_12sdp"/>
+                            android:textSize="@dimen/_14sdp" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -176,40 +177,18 @@
                             android:textSize="@dimen/_25ssp"/>
                         <EditText
                             android:id="@+id/et_tanggalakhirevent"
-                            android:layout_width="@dimen/_120sdp"
+                            android:layout_width="@dimen/_110sdp"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="text"
                             android:hint="Pilih Tanggal"
                             android:textSize="@dimen/_14sdp"
                             android:background="@drawable/bg_editext"
-                            android:paddingTop="@dimen/_12sdp"
-                            android:paddingBottom="@dimen/_12sdp"
+                            android:paddingTop="@dimen/_5sdp"
+                            android:paddingBottom="@dimen/_5sdp"
                             android:textAlignment="center"/>
                     </TableRow>
                 </TableLayout>
-
-<!--                <TextView-->
-<!--                    android:layout_marginTop="15dp"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Tanggal"-->
-<!--                    android:textSize="17sp"-->
-<!--                    />-->
-<!--                <EditText-->
-<!--                    android:id="@+id/et_tanggalevent"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:ems="10"-->
-<!--                    android:layout_marginTop="5dp"-->
-<!--                    android:inputType="text"-->
-<!--                    android:hint="Pilih Tanggal"-->
-<!--                    android:textSize="15dp"-->
-<!--                    android:background="@drawable/bg_editext"-->
-<!--                    android:paddingTop="10dp"-->
-<!--                    android:paddingBottom="10dp"-->
-<!--                    android:textAlignment="textStart"-->
-<!--                    android:paddingLeft="20dp"/>-->
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -220,17 +199,16 @@
                 <EditText
                     android:id="@+id/et_deskripsievent"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_150sdp"
+                    android:layout_height="@dimen/_120sdp"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:inputType="textMultiLine"
                     android:hint="Masukkan Deskripsi Kegiatan"
                     android:textSize="@dimen/_15sdp"
+                    android:paddingTop="@dimen/_10sdp"
                     android:background="@drawable/bg_editext"
-                    android:paddingTop="@dimen/_12sdp"
-                    android:paddingBottom="@dimen/_120sdp"
-                    android:paddingLeft="@dimen/_35sdp"
+                    android:paddingLeft="@dimen/_10sdp"
                     android:gravity="top|left"
-                    android:maxHeight="@dimen/_100sdp"
+                    android:maxHeight="@dimen/_70sdp"
                     android:maxLines="4"
                     android:maxLength="120" />
 
@@ -241,20 +219,22 @@
                     android:text="Link Pendaftaran (Opsional)"
                     android:textSize="@dimen/_15ssp"
                     />
+
                 <EditText
                     android:id="@+id/et_linkpendaftaranevent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:hint="Masukkan Link Pendaftaran"
-                    android:maxLines="1"
-                    android:textSize="@dimen/_14sdp"
                     android:background="@drawable/bg_editext"
-                    android:paddingTop="@dimen/_12sdp"
-                    android:paddingBottom="@dimen/_10sdp"
-                    android:paddingLeft="@dimen/_12sdp"/>
+                    android:ems="10"
+                    android:hint="Masukkan Link Pendaftaran"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/_12sdp"
+                    android:paddingTop="@dimen/_6sdp"
+                    android:paddingBottom="@dimen/_6sdp"
+                    android:textSize="@dimen/_14sdp" />
+
                 <TextView
                     android:layout_marginTop="@dimen/_15sdp"
                     android:layout_width="wrap_content"
@@ -295,7 +275,7 @@
                 <com.google.android.material.button.MaterialButton
                     android:layout_marginTop="@dimen/_50sdp"
                     android:layout_marginBottom="@dimen/_30sdp"
-                    android:id="@+id/button_kirimpinjam"
+                    android:id="@+id/button_kirimevent"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50sdp"
                     android:text="Kirim"

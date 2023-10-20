@@ -36,8 +36,8 @@ TextView textView1,textView2;
                 // Pindah ke activity berikutnya setelah tampilan splash selesai
                 Intent mainIntent = new Intent(SplashScreen.this, SelamatDatang.class);
                 startActivity(mainIntent);
-                overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
 
+                overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
                 finish();
             }
         }, 3000);

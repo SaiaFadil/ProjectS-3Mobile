@@ -8,7 +8,7 @@
     tools:context=".Activity.PinjamTempatList">
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"
+        android:layout_height="@dimen/_40sdp"
         android:layout_marginLeft="-20dp"
         android:layout_marginRight="-20dp"
         app:strokeWidth="@dimen/_1sdp"
@@ -23,21 +23,22 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center">
+
                 <TextView
                     android:id="@+id/judul"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:maxLines="1"
                     android:text="PINJAM TEMPAT"
                     android:textColor="@color/greendark"
-                    android:textSize="@dimen/_26ssp"
-                    android:maxLines="1"
-                    android:gravity="center"
+                    android:textSize="@dimen/_17ssp"
                     android:textStyle="bold" />
             </LinearLayout>
             <ImageButton
                 android:id="@+id/pinjamback"
-                android:layout_width="@dimen/_70sdp"
+                android:layout_width="@dimen/_45sdp"
                 android:layout_height="@dimen/_60sdp"
                 android:layout_marginLeft="@dimen/_15sdp"
                 android:layout_gravity="center_vertical"
@@ -58,9 +59,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PILIH GEDUNG/ TEMPAT"
+            android:text="PILIH GEDUNG/TEMPAT"
             android:gravity="center_horizontal"
-            android:textSize="@dimen/_25ssp"
+            android:textSize="@dimen/_18ssp"
             android:layout_margin="@dimen/_20sdp"
             android:textColor="@color/black"
             android:textStyle="bold"
@@ -69,7 +70,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardanjukladang"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_100sdp"
                 android:backgroundTint="@color/gray"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
@@ -100,14 +101,14 @@
                             android:text="1.Museum Anjuk Ladang"
                             android:textColor="@color/black"
                             android:textStyle="bold"
-                            android:textSize="@dimen/_18ssp"/>
+                            android:textSize="@dimen/_12ssp"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Jalan Gatot Subroto Ringin Anom Ringin Anom Kauman Timur, Kec. Nganjuk, Kabupaten Nganjuk, Jawa Timur 64411"
                             android:textColor="@color/black"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:textSize="@dimen/_14ssp"/>
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:textSize="@dimen/_10ssp"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -117,7 +118,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardbalaibudaya"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_100sdp"
                 android:backgroundTint="@color/gray"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
@@ -149,14 +150,14 @@
                             android:text="2.Balai Budaya"
                             android:textColor="@color/black"
                             android:textStyle="bold"
-                            android:textSize="@dimen/_18ssp"/>
+                            android:textSize="@dimen/_12ssp"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Mangundikaran, Mangun Dikaran, Kec. Nganjuk, Kabupaten Nganjuk, Jawa Timur 64419"
                             android:textColor="@color/black"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:textSize="@dimen/_14ssp"/>
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:textSize="@dimen/_10ssp"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -166,7 +167,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardsoetomo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_100sdp"
                 android:backgroundTint="@color/gray"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
@@ -198,14 +199,14 @@
                             android:text="3.Museum Dr. Soetomo"
                             android:textColor="@color/black"
                             android:textStyle="bold"
-                            android:textSize="@dimen/_18ssp"/>
+                            android:textSize="@dimen/_12ssp"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Sono, Ngepeh, Kec. Loceret, Kabupaten Nganjuk, Jawa Timur 64471"
                             android:textColor="@color/black"
                             android:layout_marginTop="@dimen/_10sdp"
-                            android:textSize="@dimen/_14ssp"/>
+                            android:textSize="@dimen/_10ssp"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -215,7 +216,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardsedudo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_100sdp"
                 android:backgroundTint="@color/gray"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
@@ -247,14 +248,14 @@
                             android:text="4.Air Terjun Sedudo"
                             android:textColor="@color/black"
                             android:textStyle="bold"
-                            android:textSize="@dimen/_18ssp"/>
+                            android:textSize="@dimen/_12ssp"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Jl. Sedudo, Hutan, Sawahan, Kec. Sawahan, Kabupaten Nganjuk, Jawa Timur 64475"
                             android:textColor="@color/black"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:textSize="@dimen/_14ssp"/>
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:textSize="@dimen/_10ssp"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -264,7 +265,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardgoamargotresno"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_100sdp"
                 android:backgroundTint="@color/gray"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
@@ -296,14 +297,14 @@
                             android:text="5.Goa Margo Tresno"
                             android:textColor="@color/black"
                             android:textStyle="bold"
-                            android:textSize="@dimen/_18ssp"/>
+                            android:textSize="@dimen/_12ssp"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Hutan, Ngluyu, Kec. Ngluyu, Kabupaten Nganjuk, Jawa Timur 64452"
                             android:textColor="@color/black"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:textSize="@dimen/_14ssp"/>
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:textSize="@dimen/_10ssp"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -313,16 +314,14 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardrorokuning"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_100sdp"
                 android:backgroundTint="@color/gray"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:padding="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_30sdp"
                 android:layout_marginTop="@dimen/_15sdp"
-                app:cardCornerRadius="@dimen/_10sdp"
-                >
-
+                app:cardCornerRadius="@dimen/_10sdp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -346,19 +345,16 @@
                             android:text="6.Air Terjun Roro Kuning"
                             android:textColor="@color/black"
                             android:textStyle="bold"
-                            android:textSize="@dimen/_18ssp"/>
+                            android:textSize="@dimen/_12ssp"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Nglarangan, Bajulan, Kec. Loceret, Kabupaten Nganjuk, Jawa Timur 64471"
                             android:textColor="@color/black"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:textSize="@dimen/_14ssp"/>
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:textSize="@dimen/_10ssp"/>
                     </LinearLayout>
-
                 </LinearLayout>
-
-
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>

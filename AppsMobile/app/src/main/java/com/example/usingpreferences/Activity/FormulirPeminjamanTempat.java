@@ -22,7 +22,7 @@ import java.util.Locale;
 
 public class FormulirPeminjamanTempat extends AppCompatActivity {
     private DatePickerDialog picker;
-private EditText etJamAwal,etJamAkhir;
+private EditText etTanggalAwal, etTanggalAkhir;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,61 +32,40 @@ private EditText etJamAwal,etJamAkhir;
         namatempat.setText(namaTempat);
         // Ambil data tanggal dari intent
         String tanggal = getIntent().getStringExtra("tanggal_awal");
-        EditText tanggalpinjam = findViewById(R.id.et_tanggalpinjam);
+        EditText tanggalpinjam = findViewById(R.id.et_tanggalawalpinjam);
         tanggalpinjam.setText(tanggal);
         // Cari EditText dengan ID et_tanggalawal
-        etJamAwal = findViewById(R.id.et_jamawalpinjam); // Inisialisasi EditText jam awal
-        etJamAkhir = findViewById(R.id.et_jamakhirpinjam); // Inisialisasi EditText jam akhir
+        etTanggalAwal = findViewById(R.id.et_tanggalawalpinjam); // Inisialisasi EditText jam awal
+        etTanggalAkhir = findViewById(R.id.et_tanggalakhirpinjam); // Inisialisasi EditText jam akhir
 
-        etJamAwal.setInputType(InputType.TYPE_NULL);
-        etJamAkhir.setInputType(InputType.TYPE_NULL);
+        etTanggalAwal.setInputType(InputType.TYPE_NULL);
+        etTanggalAkhir.setInputType(InputType.TYPE_NULL);
 
-        etJamAwal.setOnClickListener(new View.OnClickListener() {
+        etTanggalAkhir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Dapatkan waktu saat ini
+                // Dapatkan tanggal saat ini
                 final Calendar calendar = Calendar.getInstance();
-                int jamSaatIni = calendar.get(Calendar.HOUR_OF_DAY);
-                int menitSaatIni = calendar.get(Calendar.MINUTE);
+                int tahunSaatIni = calendar.get(Calendar.YEAR);
+                int bulanSaatIni = calendar.get(Calendar.MONTH);
+                int hariSaatIni = calendar.get(Calendar.DAY_OF_MONTH);
 
-                // Buat TimePickerDialog untuk memilih jam awal
-                TimePickerDialog timePickerDialog = new TimePickerDialog(FormulirPeminjamanTempat.this, new TimePickerDialog.OnTimeSetListener() {
+                // Buat DatePickerDialog untuk memilih tanggal akhir
+                DatePickerDialog datePickerDialog = new DatePickerDialog(FormulirPeminjamanTempat.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
-                    public void onTimeSet(TimePicker view, int jam, int menit) {
-                        // Format jam awal sesuai kebutuhan Anda (misalnya, "HH:mm")
-                        String jamAwalFormatted = String.format(Locale.getDefault(), "%02d:%02d", jam, menit);
-                        // Set teks pada EditText jam awal
-                        etJamAwal.setText(jamAwalFormatted);
+                    public void onDateSet(DatePicker view, int tahun, int bulan, int hari) {
+                        // Format tanggal akhir sesuai kebutuhan Anda (misalnya, "dd/MM/yyyy")
+                        String tanggalAkhirFormatted = String.format(Locale.getDefault(), "%02d/%02d/%04d", hari, bulan + 1, tahun);
+                        // Set teks pada EditText tanggal akhir
+                        etTanggalAkhir.setText(tanggalAkhirFormatted);
                     }
-                }, jamSaatIni, menitSaatIni, true); // true untuk menampilkan format 24 jam
+                }, tahunSaatIni, bulanSaatIni, hariSaatIni);
 
-                // Tampilkan dialog pemilihan jam awal
-                timePickerDialog.show();
+                // Tampilkan dialog pemilihan tanggal akhir
+                datePickerDialog.show();
             }
         });
-        etJamAkhir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Dapatkan waktu saat ini
-                final Calendar calendar = Calendar.getInstance();
-                int jamSaatIni = calendar.get(Calendar.HOUR_OF_DAY);
-                int menitSaatIni = calendar.get(Calendar.MINUTE);
 
-                // Buat TimePickerDialog untuk memilih jam akhir
-                TimePickerDialog timePickerDialog = new TimePickerDialog(FormulirPeminjamanTempat.this, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int jam, int menit) {
-                        // Format jam akhir sesuai kebutuhan Anda (misalnya, "HH:mm")
-                        String jamAkhirFormatted = String.format(Locale.getDefault(), "%02d:%02d", jam, menit);
-                        // Set teks pada EditText jam akhir
-                        etJamAkhir.setText(jamAkhirFormatted);
-                    }
-                }, jamSaatIni, menitSaatIni, true); // true untuk menampilkan format 24 jam
-
-                // Tampilkan dialog pemilihan jam akhir
-                timePickerDialog.show();
-            }
-        });
         MaterialButton btnkirimpinjam = findViewById(R.id.button_kirimpinjam);
 
         btnkirimpinjam.setOnClickListener(new View.OnClickListener() {

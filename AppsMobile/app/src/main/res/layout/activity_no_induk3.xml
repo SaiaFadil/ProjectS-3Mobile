@@ -8,7 +8,7 @@
     tools:context=".Activity.NoInduk3">
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_30sdp"
+        android:layout_height="@dimen/_40sdp"
         android:layout_marginLeft="-20dp"
         android:layout_marginRight="-10dp"
         android:backgroundTint="@color/white"
@@ -31,14 +31,14 @@
                     android:layout_marginStart="@dimen/_8sdp"
                     android:text="FORMULIR NOMOR INDUK SENIMAN"
                     android:textColor="@color/greendark"
-                    android:textSize="@dimen/_15ssp"
+                    android:textSize="@dimen/_13ssp"
                     android:maxLines="1"
                     android:gravity="center"
                     android:textStyle="bold" />
             </LinearLayout>
             <ImageButton
-                android:id="@+id/eventback"
-                android:layout_width="@dimen/_38sdp"
+                android:id="@+id/indukback"
+                android:layout_width="@dimen/_45sdp"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_marginLeft="@dimen/_15sdp"
                 android:layout_gravity="center_vertical"
@@ -62,7 +62,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nomor Induk Kependudukan"
-                android:textSize="@dimen/_15ssp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
                 />
 
             <EditText
@@ -76,8 +77,8 @@
                 android:inputType="number"
                 android:paddingLeft="@dimen/_12sdp"
                 android:maxLines="1"
-                android:paddingTop="@dimen/_12sdp"
-                android:paddingBottom="@dimen/_10sdp"
+                android:paddingTop="@dimen/_7sdp"
+                android:paddingBottom="@dimen/_7sdp"
                 android:textSize="@dimen/_15sdp" />
 
             <TextView
@@ -85,7 +86,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nama Lengkap"
-                android:textSize="@dimen/_15ssp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
                 />
             <EditText
                 android:id="@+id/editTextNamaLengkap"
@@ -98,20 +100,21 @@
                 android:textSize="@dimen/_14sdp"
                 android:maxLines="1"
                 android:background="@drawable/bg_editext"
-                android:paddingTop="@dimen/_12sdp"
-                android:paddingBottom="@dimen/_10sdp"
+                android:paddingTop="@dimen/_7sdp"
+                android:paddingBottom="@dimen/_7sdp"
                 android:paddingLeft="@dimen/_12sdp"/>
             <TextView
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Jenis Kelamin"
-                android:textSize="@dimen/_15ssp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
                 />
             <Spinner
                 android:id="@+id/gender_spinner"
                 android:layout_width="@dimen/_150sdp"
-                android:layout_height="@dimen/_40sdp"
+                android:layout_height="@dimen/_35sdp"
                 android:background="@drawable/bg_editext"
                 android:popupBackground="@color/gray"
                 android:padding="8dp"
@@ -119,6 +122,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:orientation="horizontal"
                 >
                 <TextView
@@ -126,14 +130,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tempat Lahir"
-                    android:textSize="@dimen/_15ssp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
                     />
                 <TextView
                     android:layout_marginTop="@dimen/_15sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tanggal Lahir"
-                    android:textSize="@dimen/_15ssp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
                     android:layout_marginLeft="@dimen/_62sdp"
                     />
             </LinearLayout>
@@ -153,8 +159,8 @@
                     android:hint="Contoh : NGANJUK"
                     android:textSize="@dimen/_12sdp"
                     android:background="@drawable/bg_editext"
-                    android:paddingTop="@dimen/_10sdp"
-                    android:paddingBottom="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_7sdp"
+                    android:paddingBottom="@dimen/_7sdp"
                     android:paddingLeft="@dimen/_12sdp"/>
 
                 <EditText
@@ -168,8 +174,8 @@
                     android:maxLines="1"
                     android:textSize="@dimen/_13sdp"
                     android:background="@drawable/bg_editext"
-                    android:paddingTop="@dimen/_10sdp"
-                    android:paddingBottom="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_7sdp"
+                    android:paddingBottom="@dimen/_7sdp"
                     android:paddingLeft="@dimen/_12sdp"/>
             </LinearLayout>
             <TextView
@@ -177,7 +183,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Alamat"
-                android:textSize="@dimen/_15ssp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
                 />
             <EditText
                 android:id="@+id/editTextAlamat"
@@ -190,15 +197,16 @@
                 android:textSize="@dimen/_14sdp"
                 android:maxLines="1"
                 android:background="@drawable/bg_editext"
-                android:paddingTop="@dimen/_12sdp"
-                android:paddingBottom="@dimen/_10sdp"
+                android:paddingTop="@dimen/_7sdp"
+                android:paddingBottom="@dimen/_7sdp"
                 android:paddingLeft="@dimen/_12sdp"/>
             <TextView
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="No.Handphone"
-                android:textSize="@dimen/_15ssp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
                 />
             <EditText
                 android:id="@+id/editTextNOHP"
@@ -211,15 +219,16 @@
                 android:hint="Masukkan No.Handphone Aktif"
                 android:textSize="@dimen/_14sdp"
                 android:background="@drawable/bg_editext"
-                android:paddingTop="@dimen/_12sdp"
-                android:paddingBottom="@dimen/_10sdp"
+                android:paddingTop="@dimen/_7sdp"
+                android:paddingBottom="@dimen/_7sdp"
                 android:paddingLeft="@dimen/_12sdp"/>
             <TextView
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nama Organisasi / *Optional"
-                android:textSize="@dimen/_15ssp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
                 />
             <EditText
                 android:id="@+id/editTextNamaOrganisasi"
@@ -232,15 +241,17 @@
                 android:hint="Masukkan Nama Organisasi ex :CSTeam"
                 android:textSize="@dimen/_14sdp"
                 android:background="@drawable/bg_editext"
-                android:paddingTop="@dimen/_12sdp"
-                android:paddingBottom="@dimen/_10sdp"
+                android:paddingTop="@dimen/_7sdp"
+                android:paddingBottom="@dimen/_7sdp"
                 android:paddingLeft="@dimen/_12sdp"/>
             <TextView
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Jumlah Anggota / Isi 1 jika tidak memiliki"
-                android:textSize="@dimen/_15ssp"
+
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13ssp"
                 />
             <EditText
                 android:id="@+id/editTextJmlAnggota"
@@ -253,8 +264,8 @@
                 android:hint="Masukkan Jumlah Anggota"
                 android:textSize="@dimen/_14sdp"
                 android:background="@drawable/bg_editext"
-                android:paddingTop="@dimen/_12sdp"
-                android:paddingBottom="@dimen/_10sdp"
+                android:paddingTop="@dimen/_7sdp"
+                android:paddingBottom="@dimen/_7sdp"
                 android:paddingLeft="@dimen/_12sdp"/>
 
             <com.google.android.material.button.MaterialButton
@@ -267,8 +278,8 @@
                 android:textSize="@dimen/_17ssp"
                 app:cornerRadius="@dimen/_10sdp"
                 android:shadowRadius="3"
-                android:layout_marginLeft="@dimen/_25sdp"
-                android:layout_marginRight="@dimen/_25sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 style="@style/Widget.MaterialComponents.Button.TextButton"

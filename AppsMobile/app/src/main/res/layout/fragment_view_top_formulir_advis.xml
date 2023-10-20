@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_marginLeft="-10dp"
         android:layout_marginRight="-10dp"
-        android:layout_height="@dimen/_30sdp"
+        android:layout_height="@dimen/_40sdp"
         android:id="@+id/cardjudulformulir"
         android:backgroundTint="@color/white"
         app:strokeWidth="@dimen/_1sdp"
@@ -21,8 +21,8 @@
 
         <ImageButton
             android:id="@+id/kembalikekonfirmasiadvis"
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_35sdp"
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_gravity="center_vertical"
             android:src="@drawable/ic_back"
@@ -33,13 +33,13 @@
 
         <TextView
             android:id="@+id/judulformadvis"
-            android:layout_width="350dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/_30sdp"
-            android:gravity="center"
+            android:layout_gravity="center_horizontal"
             android:text="FORMULIR SURAT ADVIS"
             android:textColor="@color/greendark"
-            android:textSize="@dimen/_15ssp"
+            android:textSize="@dimen/_16ssp"
+            android:gravity="center"
             android:textStyle="bold" />
     </com.google.android.material.card.MaterialCardView>
 

@@ -27,7 +27,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_55sdp"
+            android:layout_height="@dimen/_50sdp"
             android:layout_marginLeft="@dimen/_20sdp"
             android:layout_marginRight="@dimen/_20sdp"
             android:backgroundTint="@color/white"
@@ -54,7 +54,7 @@
                     android:layout_marginStart="@dimen/_10sdp"
                     android:text="Selamat Datang"
                     android:textColor="@color/greendark"
-                    android:textSize="@dimen/_12ssp"
+                    android:textSize="@dimen/_14ssp"
                     android:gravity="center"
                     android:textStyle="bold" />
                 <TextView
@@ -64,7 +64,7 @@
                     android:layout_marginStart="@dimen/_10sdp"
                     android:text="Namamu"
                     android:textColor="@color/greendark"
-                    android:textSize="@dimen/_12ssp"
+                    android:textSize="@dimen/_14ssp"
                     android:gravity="center"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -84,7 +84,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Layanan yang dikelola oleh\nDinas PORABUDPAR:"
-                android:textSize="@dimen/_12ssp"
+                android:textSize="@dimen/_14ssp"
                 android:textColor="@color/greendark"
                 android:fontFamily="sans-serif"
                 android:id="@+id/textpemberitahuanlayanan"
@@ -99,15 +99,15 @@
                 android:layout_marginLeft="@dimen/_20sdp"/>
             <TableLayout
                 android:layout_below="@+id/textpemberitahuanlayanan"
-                android:padding="@dimen/_20sdp"
                 android:id="@+id/tabellayout"
-                android:layout_marginTop="-10dp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_minus10sdp"
                     android:gravity="center_horizontal">
 
                     <LinearLayout
@@ -116,9 +116,12 @@
 
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/cardevent"
-                            android:layout_width="@dimen/_125sdp"
-                            android:layout_height="@dimen/_125sdp"
-                            android:backgroundTint="@color/greenwhite"
+                            android:layout_width="@dimen/_115sdp"
+                            android:layout_height="@dimen/_115sdp"
+                            android:backgroundTint="@color/white"
+                            app:strokeColor="@color/gray"
+                            app:strokeWidth="@dimen/_1sdp"
+                            android:layout_margin="@dimen/_12sdp"
                             app:cardElevation="@dimen/_8sdp"
                             app:cardMaxElevation="@dimen/_16sdp">
 
@@ -129,8 +132,8 @@
                                 android:orientation="vertical">
 
                                 <ImageView
-                                    android:layout_width="@dimen/_90sdp"
-                                    android:layout_height="@dimen/_90sdp"
+                                    android:layout_width="@dimen/_70sdp"
+                                    android:layout_height="@dimen/_70sdp"
                                     android:layout_marginLeft="@dimen/_10sdp"
                                     android:scaleType="fitXY"
                                     android:src="@drawable/calendar" />
@@ -141,15 +144,18 @@
                                     android:layout_marginTop="-10dp"
                                     android:text="Upload Event"
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_18ssp"
+                                    android:textSize="@dimen/_14ssp"
                                     android:textStyle="bold" />
                             </LinearLayout>
                         </com.google.android.material.card.MaterialCardView>
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/cardpinjam"
-                            android:layout_width="@dimen/_125sdp"
-                            android:layout_height="@dimen/_125sdp"
-                            android:backgroundTint="@color/greenwhite"
+                            android:layout_width="@dimen/_115sdp"
+                            android:layout_height="@dimen/_115sdp"
+                            android:backgroundTint="@color/white"
+                            app:strokeColor="@color/gray"
+                            app:strokeWidth="@dimen/_1sdp"
+                            android:layout_margin="@dimen/_12sdp"
                             app:cardElevation="@dimen/_8sdp"
                             android:layout_marginLeft="@dimen/_10sdp"
                             app:cardMaxElevation="@dimen/_16sdp">
@@ -161,8 +167,8 @@
                                 android:orientation="vertical">
 
                                 <ImageView
-                                    android:layout_width="@dimen/_90sdp"
-                                    android:layout_height="@dimen/_90sdp"
+                                    android:layout_width="@dimen/_70sdp"
+                                    android:layout_height="@dimen/_70sdp"
                                     android:layout_marginLeft="@dimen/_10sdp"
                                     android:scaleType="fitXY"
                                     android:src="@drawable/office" />
@@ -173,7 +179,7 @@
                                     android:layout_marginTop="-10dp"
                                     android:text="Pinjam Tempat"
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_18ssp"
+                                    android:textSize="@dimen/_14ssp"
                                     android:textStyle="bold" />
                             </LinearLayout>
                         </com.google.android.material.card.MaterialCardView>
@@ -182,7 +188,7 @@
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
                     android:gravity="center_horizontal">
 
                     <LinearLayout
@@ -190,9 +196,12 @@
 
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/cardinduk"
-                            android:layout_width="@dimen/_125sdp"
-                            android:layout_height="@dimen/_125sdp"
-                            android:backgroundTint="@color/greenwhite"
+                            android:layout_width="@dimen/_115sdp"
+                            android:layout_height="@dimen/_115sdp"
+                            android:backgroundTint="@color/white"
+                            app:strokeColor="@color/gray"
+                            app:strokeWidth="@dimen/_1sdp"
+                            android:layout_margin="@dimen/_12sdp"
                             app:cardElevation="@dimen/_8sdp"
                             app:cardMaxElevation="@dimen/_16sdp">
 
@@ -203,8 +212,8 @@
                                 android:orientation="vertical">
 
                                 <ImageView
-                                    android:layout_width="@dimen/_90sdp"
-                                    android:layout_height="@dimen/_90sdp"
+                                    android:layout_width="@dimen/_70sdp"
+                                    android:layout_height="@dimen/_70sdp"
                                     android:scaleType="fitXY"
                                     android:src="@drawable/woman" />
 
@@ -215,15 +224,18 @@
                                     android:text="Nomor Induk\nSeniman"
                                     android:textColor="@color/black"
                                     android:textAlignment="center"
-                                    android:textSize="@dimen/_18ssp"
+                                    android:textSize="@dimen/_14ssp"
                                     android:textStyle="bold" />
                             </LinearLayout>
                         </com.google.android.material.card.MaterialCardView>
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/cardizin"
-                            android:layout_width="@dimen/_125sdp"
-                            android:layout_height="@dimen/_125sdp"
-                            android:backgroundTint="@color/greenwhite"
+                            android:layout_width="@dimen/_115sdp"
+                            android:layout_height="@dimen/_115sdp"
+                            android:backgroundTint="@color/white"
+                            app:strokeColor="@color/gray"
+                            app:strokeWidth="@dimen/_1sdp"
+                            android:layout_margin="@dimen/_12sdp"
                             app:cardElevation="@dimen/_8sdp"
                             android:layout_marginLeft="@dimen/_10sdp"
                             app:cardMaxElevation="@dimen/_16sdp">
@@ -234,8 +246,8 @@
                                 android:orientation="vertical">
 
                                 <ImageView
-                                    android:layout_width="@dimen/_90sdp"
-                                    android:layout_height="@dimen/_90sdp"
+                                    android:layout_width="@dimen/_70sdp"
+                                    android:layout_height="@dimen/_70sdp"
                                     android:scaleType="fitXY"
                                     android:src="@drawable/letter" />
 
@@ -244,7 +256,8 @@
                                     android:layout_height="wrap_content"
                                     android:text="Surat Izin Pentas"
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_18ssp"
+                                    android:textSize="@dimen/_14ssp"
+                                    android:maxLines="1"
                                     android:textStyle="bold" />
                             </LinearLayout>
                         </com.google.android.material.card.MaterialCardView>
@@ -279,8 +292,9 @@
         android:id="@+id/card1"
         app:strokeColor="@color/greendark"
         app:strokeWidth="@dimen/_1sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_140sdp"
+        android:layout_height="@dimen/_120sdp"
         android:backgroundTint="@color/gray"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginEnd="@dimen/_20sdp"
@@ -292,13 +306,13 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
             android:padding="@dimen/_15sdp"
             android:gravity="left">
             <ImageView
-                android:layout_width="@dimen/_90sdp"
-                android:layout_height="@dimen/_110sdp"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_90sdp"
                 android:scaleType="fitXY"
                 android:src="@drawable/contohfotoevent1"/>
 
@@ -312,22 +326,26 @@
                     android:layout_height="wrap_content"
                     android:text="16 Oktober 2023"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_13ssp"/>
+                    android:textSize="@dimen/_14ssp"/>
                 <TextView
+                    android:id="@+id/juduleventhome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nganjuk Night Carnival"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:textSize="@dimen/_16ssp"/>
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:textSize="@dimen/_14ssp"/>
                 <TextView
+                    android:id="@+id/alamateventhome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Jl. Anjuk Ladang No.12, Ploso, Kec. Nganjuk, Kabupaten Nganjuk, Jawa Timur 64417"
                     android:textColor="@color/black"
+                    android:maxLines="3"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:textSize="@dimen/_13ssp"/>
+                    android:textSize="@dimen/_11ssp"/>
+
             </LinearLayout>
 
         </LinearLayout>
@@ -341,7 +359,7 @@
     <!--    Awal CardView Top-->
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_70sdp"
+        android:layout_height="@dimen/_50sdp"
         android:layout_marginLeft="-20dp"
         android:layout_marginRight="-20dp"
         android:backgroundTint="@color/white"
@@ -382,8 +400,8 @@
 
         <ImageButton
             android:id="@+id/keprofil"
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="@dimen/_65sdp"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_55sdp"
             android:scaleType="fitXY"
             android:backgroundTint="@color/white"
             android:layout_gravity="end|center_vertical"

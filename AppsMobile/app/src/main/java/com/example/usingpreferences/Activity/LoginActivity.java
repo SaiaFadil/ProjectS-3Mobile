@@ -20,6 +20,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.example.usingpreferences.API.APIRequestData;
 import com.example.usingpreferences.API.RetroServer;
@@ -44,7 +45,8 @@ public class LoginActivity extends AppCompatActivity {
     private TextInputEditText mViewUser, mViewPassword;
 
     private ProgressDialog progressDialog;
-    private Button loginbutton,registerbutton,lupapassword;
+    private Button loginbutton,lupapassword;
+    TextView registerbutton;
     private final boolean[] isPasswordVisible = {false};
     @SuppressLint("ResourceType")
     @Override

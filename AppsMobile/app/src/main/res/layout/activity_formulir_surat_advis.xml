@@ -37,11 +37,11 @@
                 android:hint="Masukkan Nomor Induk Seniman"
                 android:inputType="number"
                 android:paddingLeft="@dimen/_12sdp"
-                android:paddingTop="@dimen/_12sdp"
-                android:paddingBottom="@dimen/_10sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_5sdp"
                 android:textSize="@dimen/_14sdp" />
             <TextView
-                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nama Lengkap"
@@ -59,12 +59,12 @@
                 android:inputType="text"
                 android:maxLines="1"
                 android:paddingLeft="@dimen/_12sdp"
-                android:paddingTop="@dimen/_12sdp"
-                android:paddingBottom="@dimen/_10sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_5sdp"
                 android:textSize="@dimen/_14sdp" />
 
             <TextView
-                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Alamat"
@@ -82,12 +82,12 @@
                 android:inputType="text"
                 android:maxLines="1"
                 android:paddingLeft="@dimen/_12sdp"
-                android:paddingTop="@dimen/_12sdp"
-                android:paddingBottom="@dimen/_10sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_5sdp"
                 android:textSize="@dimen/_14sdp" />
 
             <TextView
-                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Untuk Pentas"
@@ -105,12 +105,12 @@
                 android:inputType="text"
                 android:maxLines="1"
                 android:paddingLeft="@dimen/_12sdp"
-                android:paddingTop="@dimen/_12sdp"
-                android:paddingBottom="@dimen/_10sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_5sdp"
                 android:textSize="@dimen/_14sdp" />
 
             <TextView
-                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tanggal Pentas"
@@ -128,11 +128,11 @@
                 android:hint="Pilih Tanggal"
                 android:maxLines="1"
                 android:paddingLeft="@dimen/_12sdp"
-                android:paddingTop="@dimen/_12sdp"
-                android:paddingBottom="@dimen/_10sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_5sdp"
                 android:textSize="@dimen/_14sdp" />
             <TextView
-                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Lokasi"
@@ -149,8 +149,8 @@
                 android:inputType="text"
                 android:maxLines="1"
                 android:paddingLeft="@dimen/_12sdp"
-                android:paddingTop="@dimen/_12sdp"
-                android:paddingBottom="@dimen/_10sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_5sdp"
                 android:textSize="@dimen/_14sdp" />
 
             <TextView
@@ -238,7 +238,7 @@
                 </TableRow>
             </TableLayout>
             <com.google.android.material.button.MaterialButton
-                android:layout_marginTop="@dimen/_50sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_20sdp"
                 android:id="@+id/btn_kirimformuliradvis"
                 android:layout_width="match_parent"
@@ -247,8 +247,8 @@
                 android:textSize="@dimen/_14ssp"
                 app:cornerRadius="@dimen/_12sdp"
                 android:shadowRadius="3"
-                android:layout_marginLeft="@dimen/_20sdp"
-                android:layout_marginRight="@dimen/_20sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 style="@style/Widget.MaterialComponents.Button.TextButton"

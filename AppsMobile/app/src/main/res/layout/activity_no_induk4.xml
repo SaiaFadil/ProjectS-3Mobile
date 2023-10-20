@@ -8,7 +8,7 @@
     tools:context=".Activity.NoInduk4">
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_30sdp"
+        android:layout_height="@dimen/_40sdp"
         android:layout_marginLeft="-20dp"
         android:layout_marginRight="-10dp"
         android:backgroundTint="@color/white"
@@ -37,8 +37,8 @@
                     android:textStyle="bold" />
             </LinearLayout>
             <ImageButton
-                android:id="@+id/eventback"
-                android:layout_width="@dimen/_38sdp"
+                android:id="@+id/indukback"
+                android:layout_width="@dimen/_45sdp"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_marginLeft="@dimen/_15sdp"
                 android:layout_gravity="center_vertical"
@@ -63,6 +63,7 @@
                 android:layout_height="wrap_content"
                 android:text="Surat Keterangan Dari Desa"
                 android:textSize="@dimen/_15ssp"
+                android:textColor="@color/black"
                 android:layout_marginTop="@dimen/_15sdp"
                 />
             <LinearLayout
@@ -89,6 +90,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/_14ssp"
+                    android:textColor="@color/black"
                     android:text="Gambar berformat PNG, JPG, SVG"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="@dimen/_8sdp" />
@@ -97,6 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Foto Kartu Tanda Penduduk"
+                android:textColor="@color/black"
                 android:textSize="@dimen/_15ssp"
                 android:layout_marginTop="@dimen/_10sdp"
                 />
@@ -132,6 +135,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Pass Foto"
+                android:textColor="@color/black"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:textSize="@dimen/_15ssp"
                 />
@@ -169,6 +173,7 @@
                 android:layout_height="wrap_content"
                 android:text="Setelah mengisi formulir dengan lengkap, anda menyetujui hal-hal berikut :"
                 android:textSize="@dimen/_15ssp"
+                android:textColor="@color/black"
                 android:layout_marginTop="@dimen/_40sdp"
                 />
             <TextView
@@ -176,6 +181,7 @@
                 android:layout_height="wrap_content"
                 android:text="1. Dokumen yang Anda Upload sudah sesuai dengan persyaratan yang berada diatas."
                 android:textSize="@dimen/_13ssp"
+                android:textColor="@color/black"
                 android:textAlignment="textStart"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginStart="@dimen/_15sdp"
@@ -186,6 +192,7 @@
                 android:text="2. Nomor Induk Seniman berlaku hanya 1 tahun setelah disetujui dan silahkan lakukan perpanjangan setelahnya."
                 android:textSize="@dimen/_13ssp"
                 android:textAlignment="textStart"
+                android:textColor="@color/black"
                 android:layout_marginTop="@dimen/_8sdp"
                 android:layout_marginStart="@dimen/_15sdp"
                 />
@@ -195,6 +202,7 @@
                 android:text="3. Apabila data tidak setujui silahkan lakukan pengajuan ulang."
                 android:textSize="@dimen/_13ssp"
                 android:textAlignment="textStart"
+                android:textColor="@color/black"
                 android:layout_marginTop="@dimen/_8sdp"
                 android:layout_marginStart="@dimen/_15sdp"
                 />

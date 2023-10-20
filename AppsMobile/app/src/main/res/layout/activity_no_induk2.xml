@@ -8,7 +8,7 @@
     tools:context=".Activity.NoInduk2">
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_30sdp"
+        android:layout_height="@dimen/_40sdp"
         android:layout_marginLeft="-20dp"
         android:layout_marginRight="-10dp"
         android:backgroundTint="@color/white"
@@ -37,8 +37,8 @@
                     android:textStyle="bold" />
             </LinearLayout>
             <ImageButton
-                android:id="@+id/eventback"
-                android:layout_width="@dimen/_40sdp"
+                android:id="@+id/indukback"
+                android:layout_width="@dimen/_45sdp"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_marginLeft="@dimen/_15sdp"
                 android:layout_gravity="center_vertical"
@@ -60,6 +60,7 @@
                 android:layout_marginTop="@dimen/_18sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="REGISTRASI NOMOR\nINDUK SENIMAN"
                 android:textAlignment="center"
                 android:textStyle="bold"
@@ -76,6 +77,7 @@
                 android:textSize="@dimen/_14ssp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="Untuk registrasi nomor induk seniman, anda dapat
 melengkapi formulir berikut ini"
                 android:textAlignment="center"

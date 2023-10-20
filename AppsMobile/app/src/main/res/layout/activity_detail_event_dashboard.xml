@@ -26,11 +26,11 @@
                 android:gravity="center">
 
                 <TextView
-                    android:id="@+id/judul"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="@dimen/_2sdp"
                     android:text="DETAIL EVENT"
+                    android:textAllCaps="true"
                     android:textColor="@color/greendark"
                     android:textSize="@dimen/_18ssp"
                     android:gravity="center"
