@@ -10,10 +10,6 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.usingpreferences.EditProfilActivity;
-import com.example.usingpreferences.GantiPasswordProfilActivity;
-import com.example.usingpreferences.InformasiProfilActivity;
-import com.example.usingpreferences.PusatBantuanProfil;
 import com.example.usingpreferences.R;
 import com.google.android.material.button.MaterialButton;
 
