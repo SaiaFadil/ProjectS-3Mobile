@@ -18,19 +18,19 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".InformasiProfilActivity"
+            android:name=".Activity.InformasiProfilActivity"
             android:exported="false" />
         <activity
-            android:name=".PusatBantuanProfil"
+            android:name=".Activity.PusatBantuanProfil"
             android:exported="false" />
         <activity
-            android:name=".GantiPasswordProfilActivity"
+            android:name=".Activity.GantiPasswordProfilActivity"
             android:exported="false" />
         <activity
-            android:name=".EditProfilActivity"
+            android:name=".Activity.EditProfilActivity"
             android:exported="false" />
         <activity
-            android:name=".DetailEventDashboard"
+            android:name=".Activity.DetailEventDashboard"
             android:exported="false" />
         <activity
             android:name=".Activity.ProfilActivity"
