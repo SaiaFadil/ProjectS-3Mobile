@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.usingpreferences.API.APIRequestData;
@@ -37,7 +38,8 @@ import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity {
     private TextInputEditText mViewNama,mViewNotlp,mViewEmail, mViewPassword, mViewPassword2;
-    private Button mBtnRegister,mBtnLogin;
+    private Button mBtnRegister;
+    TextView mBtnLogin;
     private ProgressDialog progressDialog;
     private Drawable icCircleGreen,icCircleRed ;
     private CheckBox tampilkansandi;
