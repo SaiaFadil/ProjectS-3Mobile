@@ -22,7 +22,8 @@
                 android:text="Daftarkan Akunmu"
                 android:textColor="@color/black"
                 android:layout_marginTop="@dimen/_20sdp"
-                android:textSize="@dimen/_35ssp"
+                android:textSize="@dimen/_24ssp"
+                android:maxLines="1"
                 android:textStyle="bold"
                 android:gravity="center_horizontal"
                 android:fontFamily="sans-serif"/>
@@ -31,12 +32,13 @@
                 android:layout_height="wrap_content"
                 android:text="Silahkan lengkapi pendaftaran akun"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_17ssp"
+                android:textSize="@dimen/_16ssp"
+                android:maxLines="1"
                 android:gravity="center_horizontal"
                 android:fontFamily="sans-serif"/>
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_250sdp"
+                android:layout_height="@dimen/_170sdp"
                 android:src="@drawable/anim3" />
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -44,7 +46,7 @@
                 android:hint="Masukkan Namamu"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_7sdp"
                 app:boxBackgroundColor="@android:color/transparent"
                 app:boxStrokeColor="@color/blue"
                 app:boxStrokeWidth="@dimen/_2sdp"
@@ -57,7 +59,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_namaSignup"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_50sdp"
+                    android:layout_height="@dimen/_40sdp"
                     android:inputType="text"
                     android:maxLines="1"
                     android:singleLine="true"
@@ -70,7 +72,7 @@
                 android:hint="Masukkan Nomor Teleponmu"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_7sdp"
                 app:boxBackgroundColor="@android:color/transparent"
                 app:boxStrokeColor="@color/blue"
                 app:boxStrokeWidth="@dimen/_2sdp"
@@ -83,7 +85,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_nohpSignup"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_50sdp"
+                    android:layout_height="@dimen/_40sdp"
                     android:inputType="phone"
                     android:maxLines="1"
                     android:singleLine="true"
@@ -96,7 +98,7 @@
                 android:hint="Masukkan Emailmu"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_7sdp"
                 app:boxBackgroundColor="@android:color/transparent"
                 app:boxStrokeColor="@color/blue"
                 app:boxStrokeWidth="@dimen/_2sdp"
@@ -109,7 +111,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_emailSignup"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_50sdp"
+                    android:layout_height="@dimen/_40sdp"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:singleLine="true"
@@ -123,7 +125,7 @@
             android:hint="Masukkan Kata Sandi"
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginRight="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_7sdp"
             app:boxBackgroundColor="@android:color/transparent"
             app:boxStrokeColor="@color/blue"
             app:boxStrokeWidth="@dimen/_2sdp"
@@ -136,7 +138,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_passwordSignup"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_50sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:singleLine="true"
@@ -150,7 +152,7 @@
                 android:hint="Konfirmasi Kata Sandi"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_7sdp"
                 app:boxBackgroundColor="@android:color/transparent"
                 app:boxStrokeColor="@color/greendark"
                 app:boxStrokeWidth="@dimen/_2sdp"
@@ -162,7 +164,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_passwordSignup2"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_50sdp"
+                    android:layout_height="@dimen/_40sdp"
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:singleLine="true"
@@ -188,7 +190,7 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_signupSignup"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_60sdp"
+                android:layout_height="@dimen/_50sdp"
                 android:text="Daftar"
                 android:textSize="@dimen/_20ssp"
                 android:fontFamily="sans-serif"
@@ -200,37 +202,48 @@
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:backgroundTint="@color/greendark"/>
 
+
+
+
+
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal">
+                    <LinearLayout
+                        android:layout_marginBottom="@dimen/_30sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Sudah punya akun?"
-                        android:textSize="@dimen/_12ssp"
-                        android:layout_marginLeft="@dimen/_80sdp"/>
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
 
-                    <Button
+                        <TextView
+                            android:layout_marginTop="@dimen/_3sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sudah punya akun?"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp" />
+                        <TextView
+                            android:id="@+id/button_signinsignin"
+                            android:layout_marginTop="@dimen/_3sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/blue"
+                            android:textStyle="bold"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:textSize="@dimen/_14ssp"
+                            android:text="Masuk Disini"/>
 
-                        android:id="@+id/button_signinsignin"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Masuk Disini"
-                        android:maxLines="1"
-                        android:layout_marginTop="@dimen/_minus3sdp"
-                        android:textAllCaps="false"
-                        android:textColor="@color/blue"
-                        android:layout_marginLeft="-5dp"
-                        android:textAlignment="textStart"
-                        android:layout_marginRight="@dimen/_60sdp"
-                        android:layout_weight="1"/>
+                    </LinearLayout>
                 </TableRow>
             </TableLayout>
+
+
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
