@@ -19,14 +19,12 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.usingpreferences.Activity.NoInduk1;
 import com.example.usingpreferences.Activity.NoInduk2;
 import com.example.usingpreferences.Activity.PinjamTempatList;
 import com.example.usingpreferences.Activity.ProfilActivity;
 import com.example.usingpreferences.Adapter.DashboardAdapter;
-import com.example.usingpreferences.DetailEventDashboard;
+import com.example.usingpreferences.Activity.DetailEventDashboard;
 import com.example.usingpreferences.KonfirmMenu.KonfirmasiAwalEvent;
 import com.example.usingpreferences.KonfirmMenu.KonfirmasiKeAdvis;
 import com.example.usingpreferences.R;
