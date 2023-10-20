@@ -34,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Akun yang telah dimasukkan berhasil terdaftar pada aplikasi"
-        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_50sdp"
         android:textSize="@dimen/_15ssp"
         android:textColor="@color/black"
         android:textAlignment="center"/>
@@ -45,7 +45,7 @@
     android:layout_height="@dimen/_50sdp"
     android:text="Kembali ke Halaman Login"
     android:textSize="@dimen/_14ssp"
-        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_marginTop="@dimen/_70sdp"
     android:shadowRadius="3"
     android:layout_marginLeft="@dimen/_10sdp"
     android:layout_marginRight="@dimen/_10sdp"
