@@ -293,7 +293,7 @@
                     android:gravity="top|left"
                     android:hint="Masukkan Deskripsi Kegiatan"
                     android:inputType="textMultiLine"
-                    android:maxHeight="@dimen/_100sdp"
+                    android:maxHeight="@dimen/_200sdp"
                     android:maxLength="120"
                     android:paddingLeft="@dimen/_12sdp"
                     android:paddingTop="@dimen/_5sdp"
