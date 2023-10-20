@@ -7,10 +7,10 @@
     >
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="@dimen/_40sdp"
         android:id="@+id/cardjudulstatus"
-        app:strokeColor="@color/gray"
-        app:strokeWidth="1dp"
+        app:strokeColor="@color/greendark"
+        app:strokeWidth="@dimen/_1sdp"
         android:layout_marginLeft="-20dp"
         android:layout_marginRight="-20dp"
         android:outlineAmbientShadowColor="@color/black"
@@ -20,12 +20,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/judul_menu_status"
-            android:textSize="30sp"
+            android:textSize="@dimen/_20ssp"
             android:textAllCaps="true"
             android:textColor="@color/greendark"
             android:textStyle="bold"
             android:gravity="center_horizontal"
-            android:layout_marginTop="13dp"/>
+            android:layout_gravity="center"/>
     </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>
