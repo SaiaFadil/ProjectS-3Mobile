@@ -9,35 +9,45 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"
+        android:layout_height="@dimen/_30sdp"
         android:layout_marginLeft="-20dp"
-        android:layout_marginRight="-20dp"
-        android:id="@+id/cardjudulprofil"
-        app:strokeColor="@color/gray"
+        android:layout_marginRight="-10dp"
         android:backgroundTint="@color/white"
         app:strokeWidth="@dimen/_1sdp"
-        android:outlineAmbientShadowColor="@color/black">
-
-        <ImageButton
-            android:id="@+id/kembalikelayanan"
-            android:layout_width="@dimen/_60sdp"
-            android:layout_height="@dimen/_55sdp"
-            android:layout_marginLeft="@dimen/_15sdp"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_back"
-            android:backgroundTint="@color/white"
-            android:scaleType="fitXY"/>
-
-        <TextView
-            android:id="@+id/judulformadvis"
+        app:strokeColor="@color/gray"
+        android:outlineAmbientShadowColor="@color/black"
+        >
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Surat Advis"
-            android:textAllCaps="true"
-            android:textColor="@color/greendark"
-            android:textSize="@dimen/_30ssp"
-            android:textStyle="bold"
-            android:gravity="center"/>
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/judul"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:text="SURAT ADVIS"
+                    android:textColor="@color/greendark"
+                    android:textSize="@dimen/_18ssp"
+                    android:maxLines="1"
+                    android:gravity="center"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <ImageButton
+                android:id="@+id/eventback"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_back"
+                android:backgroundTint="@color/white"
+                android:scaleType="fitXY"
+                />
+        </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>

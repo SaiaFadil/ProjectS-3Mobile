@@ -8,9 +8,9 @@
     tools:context=".Activity.NoInduk1">
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"
+        android:layout_height="@dimen/_30sdp"
         android:layout_marginLeft="-20dp"
-        android:layout_marginRight="-20dp"
+        android:layout_marginRight="-10dp"
         android:backgroundTint="@color/white"
         app:strokeWidth="@dimen/_1sdp"
         app:strokeColor="@color/gray"
@@ -24,22 +24,22 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center">
-
                 <TextView
                     android:id="@+id/judul"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="@dimen/_10sdp"
-                    android:text="Silahkan Pilih Menu"
+                    android:text="SILAHKAN PILIH MENU"
                     android:textColor="@color/greendark"
-                    android:textSize="@dimen/_25sdp"
+                    android:textSize="@dimen/_18ssp"
+                    android:maxLines="1"
                     android:gravity="center"
                     android:textStyle="bold" />
             </LinearLayout>
             <ImageButton
-                android:id="@+id/indukback"
-                android:layout_width="@dimen/_70sdp"
-                android:layout_height="@dimen/_60sdp"
+                android:id="@+id/eventback"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_50sdp"
                 android:layout_marginLeft="@dimen/_15sdp"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/ic_back"
@@ -58,13 +58,13 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/btnRegisInduk"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_100sdp"
+                android:layout_height="@dimen/_80sdp"
                 android:backgroundTint="@color/greendark"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:padding="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                app:cardCornerRadius="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_30sdp"
+                app:cardCornerRadius="@dimen/_8sdp"
                 >
 
                 <LinearLayout
@@ -72,13 +72,13 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="horizontal"
-                    android:padding="@dimen/_15sdp">
+                    android:padding="@dimen/_10sdp">
 
                     <ImageView
-                        android:layout_width="@dimen/_40sdp"
-                        android:layout_height="@dimen/_40sdp"
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_35sdp"
                         android:src="@drawable/regis"
-                        android:layout_marginStart="@dimen/_5sdp"/>
+                        android:layout_marginStart="@dimen/_3sdp"/>
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -91,7 +91,7 @@
                             android:layout_height="wrap_content"
                             android:text="Registrasi Nomor Induk Seniman"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_20ssp"
+                            android:textSize="@dimen/_18ssp"
                             android:layout_marginLeft="@dimen/_20sdp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -106,13 +106,13 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/btnPerpanjangInduk"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_100sdp"
+                android:layout_height="@dimen/_80sdp"
                 android:backgroundTint="@color/orange"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
-                android:padding="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                app:cardCornerRadius="@dimen/_10sdp"
+                android:padding="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_18sdp"
+                app:cardCornerRadius="@dimen/_8sdp"
                 >
 
                 <LinearLayout
@@ -120,13 +120,13 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="horizontal"
-                    android:padding="@dimen/_15sdp">
+                    android:padding="@dimen/_10sdp">
 
                     <ImageView
-                        android:layout_width="@dimen/_40sdp"
-                        android:layout_height="@dimen/_40sdp"
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_35sdp"
                         android:src="@drawable/perpanjang"
-                        android:layout_marginStart="@dimen/_5sdp"/>
+                        android:layout_marginStart="@dimen/_3sdp"/>
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -139,7 +139,7 @@
                             android:layout_height="wrap_content"
                             android:text="Perpanjangan Nomor Induk Seniman"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_20ssp"
+                            android:textSize="@dimen/_18ssp"
                             android:layout_marginLeft="@dimen/_20sdp"
                             android:textStyle="bold" />
                     </LinearLayout>

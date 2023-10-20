@@ -8,9 +8,9 @@
         tools:context=".Activity.FormulirPeminjamanTempat">
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_60sdp"
-            android:layout_marginLeft="-20dp"
-            android:layout_marginRight="-20dp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginLeft="-10dp"
+            android:layout_marginRight="-10dp"
             android:backgroundTint="@color/white"
             app:strokeWidth="@dimen/_1sdp"
             app:strokeColor="@color/gray"
@@ -28,19 +28,18 @@
                         android:id="@+id/judul"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:text="Formulir Peminjaman Tempat"
+                        android:text="FORMULIR PEMINJAMAN TEMPAT"
                         android:textColor="@color/greendark"
-                        android:textSize="@dimen/_20ssp"
+                        android:textSize="@dimen/_15ssp"
                         android:maxLines="1"
                         android:gravity="center"
                         android:textStyle="bold" />
                 </LinearLayout>
                 <ImageButton
                     android:id="@+id/pinjamback"
-                    android:layout_width="@dimen/_70sdp"
-                    android:layout_height="@dimen/_60sdp"
-                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/ic_back"
                     android:backgroundTint="@color/white"
@@ -62,7 +61,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nama Lengkap"
-                    android:textSize="@dimen/_17ssp"
+                    android:textSize="@dimen/_15ssp"
                     />
 
                 <EditText
@@ -74,18 +73,18 @@
                     android:ems="10"
                     android:hint="Masukkan Nama Lengkap"
                     android:inputType="text"
-                    android:paddingLeft="@dimen/_18sdp"
-                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingLeft="@dimen/_12sdp"
+                    android:paddingTop="@dimen/_12sdp"
                     android:maxLines="1"
                     android:paddingBottom="@dimen/_10sdp"
-                    android:textSize="@dimen/_15sdp" />
+                    android:textSize="@dimen/_14sdp" />
 
                 <TextView
                     android:layout_marginTop="@dimen/_15sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="No.KTP"
-                    android:textSize="@dimen/_17ssp"
+                    android:textSize="@dimen/_15ssp"
                     />
                 <EditText
                     android:id="@+id/et_ktppinjam"
@@ -95,12 +94,12 @@
                     android:ems="10"
                     android:inputType="number"
                     android:hint="Masukkan Nomor KTP"
-                    android:textSize="@dimen/_15sdp"
+                    android:textSize="@dimen/_14sdp"
                     android:maxLines="1"
                     android:background="@drawable/bg_editext"
-                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_12sdp"
                     android:paddingBottom="@dimen/_10sdp"
-                    android:paddingLeft="@dimen/_18sdp"/>
+                    android:paddingLeft="@dimen/_12sdp"/>
 
 
                 <TextView
@@ -108,7 +107,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Instansi"
-                    android:textSize="@dimen/_17ssp"
+                    android:textSize="@dimen/_15ssp"
                     />
                 <EditText
                     android:id="@+id/et_instansipinjam"
@@ -119,17 +118,17 @@
                     android:inputType="text"
                     android:maxLines="1"
                     android:hint="Masukkan Nama Instansi"
-                    android:textSize="@dimen/_15sdp"
+                    android:textSize="@dimen/_14sdp"
                     android:background="@drawable/bg_editext"
-                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_12sdp"
                     android:paddingBottom="@dimen/_10sdp"
-                    android:paddingLeft="@dimen/_18sdp"/>
+                    android:paddingLeft="@dimen/_12sdp"/>
                 <TextView
                     android:layout_marginTop="@dimen/_15sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nama Kegiatan"
-                    android:textSize="@dimen/_17ssp"
+                    android:textSize="@dimen/_15ssp"
                     />
                 <EditText
                     android:id="@+id/et_namakegiatanpinjam"
@@ -139,18 +138,18 @@
                     android:ems="10"
                     android:inputType="text"
                     android:hint="Masukkan Nama Kegiatan"
-                    android:textSize="@dimen/_15sdp"
+                    android:textSize="@dimen/_14sdp"
                     android:background="@drawable/bg_editext"
-                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_12sdp"
                     android:paddingBottom="@dimen/_10sdp"
                     android:maxLines="1"
-                    android:paddingLeft="@dimen/_18sdp"/>
+                    android:paddingLeft="@dimen/_12sdp"/>
                 <TextView
                     android:layout_marginTop="@dimen/_15sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Jumlah Peserta"
-                    android:textSize="@dimen/_17ssp"
+                    android:textSize="@dimen/_15ssp"
                     />
                 <EditText
                     android:id="@+id/et_jumlahpesertapinjam"
@@ -161,17 +160,17 @@
                     android:inputType="number"
                     android:hint="Masukkan Jumlah Peserta"
                     android:maxLines="1"
-                    android:textSize="@dimen/_15sdp"
+                    android:textSize="@dimen/_14sdp"
                     android:background="@drawable/bg_editext"
-                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_12sdp"
                     android:paddingBottom="@dimen/_10sdp"
-                    android:paddingLeft="@dimen/_18sdp"/>
+                    android:paddingLeft="@dimen/_12sdp"/>
                 <TextView
                     android:layout_marginTop="@dimen/_15sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tempat"
-                    android:textSize="@dimen/_17ssp"
+                    android:textSize="@dimen/_15ssp"
                     />
 
                 <EditText
@@ -183,19 +182,19 @@
                     android:maxLines="1"
                     android:inputType="number"
                     android:hint="Masukkan Gedung/Tempat"
-                    android:textSize="@dimen/_15sdp"
+                    android:textSize="@dimen/_14sdp"
                     android:background="@drawable/bg_editext"
-                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_12sdp"
                     android:enabled="false"
                     android:textColor="@color/black"
                     android:paddingBottom="@dimen/_10sdp"
-                    android:paddingLeft="@dimen/_18sdp"/>
+                    android:paddingLeft="@dimen/_12sdp"/>
                 <TextView
                     android:layout_marginTop="@dimen/_15sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tanggal"
-                    android:textSize="@dimen/_17ssp"
+                    android:textSize="@dimen/_15ssp"
                     />
 
                 <EditText
@@ -207,16 +206,17 @@
                     android:maxLines="1"
                     android:inputType="number"
                     android:hint="Masukkan Tanggal"
-                    android:textSize="@dimen/_15sdp"
+                    android:textSize="@dimen/_14sdp"
                     android:background="@drawable/bg_editext"
-                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_12sdp"
                     android:enabled="false"
                     android:textColor="@color/black"
                     android:paddingBottom="@dimen/_10sdp"
-                    android:paddingLeft="@dimen/_18sdp"/>
+                    android:paddingLeft="@dimen/_12sdp"/>
 
 
                 <TableLayout
+                    android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent">
 
@@ -226,49 +226,53 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Jam Awal"
+                            android:text="Tanggal Awal"
                         android:textAlignment="center"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/_14ssp" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="     "
                             android:textStyle="bold"
                             android:textAlignment="center"
-                            android:textSize="@dimen/_30ssp" />
+                            android:textSize="@dimen/_10ssp" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Jam Akhir"
+                            android:text="Tanggal Akhir"
                         android:textAlignment="center"
-                        android:textSize="@dimen/_16ssp" />
+                        android:textSize="@dimen/_14ssp" />
                     </TableRow>
                     <TableRow
                         android:gravity="center_horizontal">
-
                         <EditText
+                            android:layout_marginTop="@dimen/_5sdp"
                         android:id="@+id/et_jamawalpinjam"
-                        android:layout_width="@dimen/_130sdp"
+                        android:layout_width="@dimen/_120sdp"
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:inputType="text"
                         android:hint="Pilih Jam"
-                        android:textSize="@dimen/_15sdp"
+                        android:textSize="@dimen/_14sdp"
                         android:background="@drawable/bg_editext"
-                        android:paddingTop="@dimen/_10sdp"
-                        android:paddingBottom="@dimen/_10sdp" />
+                        android:paddingTop="@dimen/_12sdp"
+                        android:paddingBottom="@dimen/_12sdp" />
+
                         <TextView
+                            android:layout_marginTop="10dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="  -  "
-                            android:textStyle="bold"
                             android:textAlignment="center"
-                            android:textSize="@dimen/_30ssp" />
+                            android:textSize="@dimen/_25ssp"
+                            android:textStyle="bold" />
+
                         <EditText
+                            android:layout_marginTop="@dimen/_5sdp"
                             android:id="@+id/et_jamakhirpinjam"
-                        android:layout_width="@dimen/_130sdp"
+                        android:layout_width="@dimen/_120sdp"
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="text"
@@ -287,7 +291,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Deskripsi Kegiatan"
-                    android:textSize="@dimen/_17ssp"
+                    android:textSize="@dimen/_15ssp"
                     />
 
 
@@ -303,42 +307,42 @@
                     android:maxHeight="@dimen/_100sdp"
                     android:maxLength="120"
                     android:maxLines="4"
-                    android:paddingLeft="@dimen/_18sdp"
-                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingLeft="@dimen/_12sdp"
+                    android:paddingTop="@dimen/_12sdp"
                     android:paddingBottom="@dimen/_10sdp"
-                    android:textSize="@dimen/_15sdp" />
+                    android:textSize="@dimen/_14sdp" />
 
                 <TextView
                     android:layout_marginTop="@dimen/_15sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Surat Keterangan Dari Desa"
-                    android:textSize="@dimen/_17ssp"
+                    android:textSize="@dimen/_15ssp"
                     />
                 <LinearLayout
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_52sdp"
+                    android:layout_height="@dimen/_40sdp"
                     android:orientation="horizontal"
                     android:background="@drawable/corner_image">
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/selectFileButton2"
                         style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="@dimen/_70sdp"
+                        android:layout_width="@dimen/_95sdp"
                         android:layout_height="match_parent"
                         android:layout_marginTop="-5dp"
                         android:layout_marginBottom="-5dp"
                         android:backgroundTint="@color/greendark"
-                        android:text="Pilih\nFile"
+                        android:text="Pilih File"
                         android:textAllCaps="false"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_14ssp" />
+                        android:textSize="@dimen/_12ssp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/_17ssp"
+                        android:textSize="@dimen/_14ssp"
                         android:text="Pilih File"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="@dimen/_15sdp" />
@@ -349,9 +353,9 @@
                     android:layout_marginBottom="@dimen/_30sdp"
                     android:id="@+id/button_kirimpinjam"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_60sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:text="Lanjut"
-                    android:textSize="@dimen/_20ssp"
+                    android:textSize="@dimen/_14ssp"
                     app:cornerRadius="@dimen/_10sdp"
                     android:shadowRadius="3"
                     android:layout_marginLeft="@dimen/_20sdp"

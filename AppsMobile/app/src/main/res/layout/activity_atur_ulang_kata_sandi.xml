@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/_5sdp"
+    android:padding="@dimen/_2sdp"
     tools:context=".Activity.AturUlangKataSandi">
     <ScrollView
         android:layout_width="match_parent"
@@ -18,8 +18,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Atur Ulang Kata Sandi"
-        android:textSize="@dimen/_30ssp"
+        android:text="ATUR ULANG KATA SANDI"
+        android:textSize="@dimen/_22ssp"
         android:layout_marginTop="@dimen/_30sdp"
         android:gravity="center_horizontal"
         android:textStyle="bold"
@@ -30,13 +30,13 @@
         android:layout_height="wrap_content"
         android:text="Silahkan masukkan kata sandi baru"
         android:layout_marginTop="@dimen/_10sdp"
-        android:textSize="@dimen/_16ssp"
+        android:textSize="@dimen/_14ssp"
         android:textAlignment="center"/>
     <ImageView
-        android:layout_width="@dimen/_200sdp"
-        android:layout_height="@dimen/_200sdp"
+        android:layout_width="@dimen/_180sdp"
+        android:layout_height="@dimen/_180sdp"
         android:src="@drawable/anim8"
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_25sdp"
         android:layout_gravity="center"
         />
 
@@ -44,8 +44,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Masukkan Kata Sandi"
-        android:layout_marginLeft="@dimen/_5sdp"
-        android:layout_marginRight="@dimen/_5sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_20sdp"
         app:boxBackgroundColor="@android:color/transparent"
         app:boxStrokeColor="@color/greendark"
@@ -70,8 +70,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Masukkan Ulang Kata Sandi"
-        android:layout_marginLeft="@dimen/_5sdp"
-        android:layout_marginRight="@dimen/_5sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_5sdp"
         app:boxBackgroundColor="@android:color/transparent"
         app:boxStrokeColor="@color/greendark"

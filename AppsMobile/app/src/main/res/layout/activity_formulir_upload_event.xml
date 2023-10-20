@@ -8,9 +8,9 @@
         tools:context=".Activity.FormulirUploadEvent">
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_60sdp"
-            android:layout_marginLeft="-20dp"
-            android:layout_marginRight="-20dp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginLeft="-10dp"
+            android:layout_marginRight="-10dp"
             android:backgroundTint="@color/white"
             app:strokeWidth="@dimen/_1sdp"
             app:strokeColor="@color/gray"
@@ -29,18 +29,18 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/_10sdp"
-                        android:text="Formulir Upload Event"
+                        android:text="FORMULIR UPLOAD EVENT"
                         android:textColor="@color/greendark"
-                        android:textSize="@dimen/_23ssp"
+                        android:textSize="@dimen/_18ssp"
                         android:maxLines="1"
                         android:gravity="center"
                         android:textStyle="bold" />
                 </LinearLayout>
                 <ImageButton
                     android:id="@+id/eventback"
-                    android:layout_width="@dimen/_70sdp"
-                    android:layout_height="@dimen/_60sdp"
-                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/ic_back"
                     android:backgroundTint="@color/white"
@@ -48,8 +48,6 @@
                     />
             </RelativeLayout>
         </com.google.android.material.card.MaterialCardView>
-
-
     <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -64,7 +62,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nama Pengirim"
-                    android:textSize="@dimen/_17ssp"
+                    android:textSize="@dimen/_15ssp"
                     />
 
                 <EditText
@@ -76,18 +74,18 @@
                     android:ems="10"
                     android:hint="Masukkan Namamu"
                     android:inputType="text"
-                    android:paddingLeft="@dimen/_18sdp"
-                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingLeft="@dimen/_12sdp"
+                    android:paddingTop="@dimen/_12sdp"
                     android:maxLines="1"
                     android:paddingBottom="@dimen/_10sdp"
-                    android:textSize="@dimen/_15sdp" />
+                    android:textSize="@dimen/_14sdp" />
 
                 <TextView
                     android:layout_marginTop="@dimen/_15sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nama Event"
-                    android:textSize="@dimen/_17ssp"
+                    android:textSize="@dimen/_15ssp"
                     />
                 <EditText
                     android:id="@+id/et_namaeventevent"
@@ -97,18 +95,18 @@
                     android:ems="10"
                     android:inputType="text"
                     android:hint="Masukkan Nama Event"
-                    android:textSize="@dimen/_15sdp"
+                    android:textSize="@dimen/_14sdp"
                     android:maxLines="1"
                     android:background="@drawable/bg_editext"
-                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_12sdp"
                     android:paddingBottom="@dimen/_10sdp"
-                    android:paddingLeft="@dimen/_18sdp"/>
+                    android:paddingLeft="@dimen/_12sdp"/>
                 <TextView
                     android:layout_marginTop="@dimen/_15sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tempat"
-                    android:textSize="@dimen/_17ssp"
+                    android:textSize="@dimen/_15ssp"
                     />
                 <EditText
                     android:id="@+id/et_alamateventevent"
@@ -118,12 +116,12 @@
                     android:ems="10"
                     android:inputType="text"
                     android:hint="Masukkan Alamat Event"
-                    android:textSize="@dimen/_15sdp"
+                    android:textSize="@dimen/_14sdp"
                     android:maxLines="1"
                     android:background="@drawable/bg_editext"
-                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_12sdp"
                     android:paddingBottom="@dimen/_10sdp"
-                    android:paddingLeft="@dimen/_18sdp"/>
+                    android:paddingLeft="@dimen/_12sdp"/>
                 <TableLayout
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent">
@@ -136,7 +134,7 @@
                             android:layout_height="wrap_content"
                             android:text="Tanggal Awal"
                             android:textAlignment="center"
-                            android:textSize="@dimen/_16ssp"/>
+                            android:textSize="@dimen/_15ssp"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -149,7 +147,7 @@
                             android:layout_height="wrap_content"
                             android:text="Tanggal Akhir"
                             android:textAlignment="center"
-                            android:textSize="@dimen/_16ssp"/>
+                            android:textSize="@dimen/_15ssp"/>
                     </TableRow>
                     <TableRow
                         android:gravity="center_horizontal"
@@ -157,36 +155,36 @@
 
                         <EditText
                             android:id="@+id/et_tanggalawalevent"
-                            android:layout_width="@dimen/_130sdp"
+                            android:layout_width="@dimen/_120sdp"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
                             android:textColor="@color/black"
                             android:inputType="text"
                             android:hint="Pilih Tanggal"
-                            android:textSize="@dimen/_15sdp"
+                            android:textSize="@dimen/_14sdp"
                             android:background="@drawable/bg_editext"
-                            android:paddingTop="@dimen/_10sdp"
+                            android:paddingTop="@dimen/_12sdp"
                             android:paddingBottom="@dimen/_10sdp"
-                            android:layout_marginBottom="@dimen/_10sdp"/>
+                            android:layout_marginBottom="@dimen/_12sdp"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="  -  "
                             android:textStyle="bold"
                             android:textAlignment="center"
-                            android:textSize="@dimen/_30ssp"/>
+                            android:textSize="@dimen/_25ssp"/>
                         <EditText
                             android:id="@+id/et_tanggalakhirevent"
-                            android:layout_width="@dimen/_130sdp"
+                            android:layout_width="@dimen/_120sdp"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="text"
                             android:hint="Pilih Tanggal"
-                            android:textSize="@dimen/_15sdp"
+                            android:textSize="@dimen/_14sdp"
                             android:background="@drawable/bg_editext"
-                            android:paddingTop="@dimen/_10sdp"
-                            android:paddingBottom="@dimen/_10sdp"
+                            android:paddingTop="@dimen/_12sdp"
+                            android:paddingBottom="@dimen/_12sdp"
                             android:textAlignment="center"/>
                     </TableRow>
                 </TableLayout>
@@ -214,11 +212,10 @@
 <!--                    android:paddingLeft="20dp"/>-->
 
                 <TextView
-                    android:layout_marginTop="@dimen/_15sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Deskripsi Event"
-                    android:textSize="@dimen/_17ssp"
+                    android:textSize="@dimen/_15ssp"
                     />
                 <EditText
                     android:id="@+id/et_deskripsievent"
@@ -229,9 +226,9 @@
                     android:hint="Masukkan Deskripsi Kegiatan"
                     android:textSize="@dimen/_15sdp"
                     android:background="@drawable/bg_editext"
-                    android:paddingTop="@dimen/_10sdp"
-                    android:paddingBottom="@dimen/_10sdp"
-                    android:paddingLeft="@dimen/_18sdp"
+                    android:paddingTop="@dimen/_12sdp"
+                    android:paddingBottom="@dimen/_120sdp"
+                    android:paddingLeft="@dimen/_35sdp"
                     android:gravity="top|left"
                     android:maxHeight="@dimen/_100sdp"
                     android:maxLines="4"
@@ -242,7 +239,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Link Pendaftaran (Opsional)"
-                    android:textSize="@dimen/_17ssp"
+                    android:textSize="@dimen/_15ssp"
                     />
                 <EditText
                     android:id="@+id/et_linkpendaftaranevent"
@@ -253,43 +250,43 @@
                     android:inputType="number"
                     android:hint="Masukkan Link Pendaftaran"
                     android:maxLines="1"
-                    android:textSize="@dimen/_15sdp"
+                    android:textSize="@dimen/_14sdp"
                     android:background="@drawable/bg_editext"
-                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_12sdp"
                     android:paddingBottom="@dimen/_10sdp"
-                    android:paddingLeft="@dimen/_18sdp"/>
+                    android:paddingLeft="@dimen/_12sdp"/>
                 <TextView
                     android:layout_marginTop="@dimen/_15sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Poster Event"
-                    android:textSize="@dimen/_17ssp"
+                    android:textSize="@dimen/_15ssp"
                     />
 
                 <LinearLayout
-                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_52sdp"
+                    android:layout_height="@dimen/_40sdp"
                     android:orientation="horizontal"
                     android:background="@drawable/corner_image">
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/selectFileButton"
+                        android:id="@+id/selectFileButton2"
                         style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="@dimen/_70sdp"
+                        android:layout_width="@dimen/_95sdp"
                         android:layout_height="match_parent"
                         android:layout_marginTop="-5dp"
                         android:layout_marginBottom="-5dp"
                         android:backgroundTint="@color/greendark"
-                        android:text="Pilih\nFile"
+                        android:text="Pilih File"
                         android:textAllCaps="false"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_14ssp" />
+                        android:textSize="@dimen/_12ssp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/_17ssp"
+                        android:textSize="@dimen/_14ssp"
                         android:text="Pilih File"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="@dimen/_15sdp" />
@@ -298,15 +295,16 @@
                 <com.google.android.material.button.MaterialButton
                     android:layout_marginTop="@dimen/_50sdp"
                     android:layout_marginBottom="@dimen/_30sdp"
-                    android:id="@+id/button_kirimevent"
+                    android:id="@+id/button_kirimpinjam"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_60sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:text="Kirim"
-                    android:textSize="@dimen/_20ssp"
+                    android:textSize="@dimen/_14ssp"
                     app:cornerRadius="@dimen/_10sdp"
                     android:shadowRadius="3"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginRight="@dimen/_20sdp"
                     android:textAllCaps="false"
-
                     android:textColor="@color/white"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:backgroundTint="@color/greendark"/>

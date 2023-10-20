@@ -20,8 +20,8 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
-android:layout_marginTop="@dimen/_10sdp"
-        android:layout_height="@dimen/_60sdp"
+android:layout_marginTop="@dimen/_14sdp"
+        android:layout_height="@dimen/_50sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintLeft_toRightOf="parent"

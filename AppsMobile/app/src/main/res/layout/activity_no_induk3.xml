@@ -8,10 +8,9 @@
     tools:context=".Activity.NoInduk3">
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"
-        android:id="@+id/cardjudulnomorinduk"
+        android:layout_height="@dimen/_30sdp"
         android:layout_marginLeft="-20dp"
-        android:layout_marginRight="-20dp"
+        android:layout_marginRight="-10dp"
         android:backgroundTint="@color/white"
         app:strokeWidth="@dimen/_1sdp"
         app:strokeColor="@color/gray"
@@ -29,18 +28,18 @@
                     android:id="@+id/judul"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:text="Formulir Registrasi Nomor Induk Seniman"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:text="FORMULIR NOMOR INDUK SENIMAN"
                     android:textColor="@color/greendark"
-                    android:textSize="@dimen/_16ssp"
+                    android:textSize="@dimen/_15ssp"
                     android:maxLines="1"
                     android:gravity="center"
                     android:textStyle="bold" />
             </LinearLayout>
             <ImageButton
-                android:id="@+id/indukback"
-                android:layout_width="@dimen/_70sdp"
-                android:layout_height="@dimen/_60sdp"
+                android:id="@+id/eventback"
+                android:layout_width="@dimen/_38sdp"
+                android:layout_height="@dimen/_50sdp"
                 android:layout_marginLeft="@dimen/_15sdp"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/ic_back"
@@ -63,7 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nomor Induk Kependudukan"
-                android:textSize="@dimen/_17ssp"
+                android:textSize="@dimen/_15ssp"
                 />
 
             <EditText
@@ -75,9 +74,9 @@
                 android:ems="10"
                 android:hint="Masukkan Nomor Induk Kependudukan"
                 android:inputType="number"
-                android:paddingLeft="@dimen/_18sdp"
+                android:paddingLeft="@dimen/_12sdp"
                 android:maxLines="1"
-                android:paddingTop="@dimen/_10sdp"
+                android:paddingTop="@dimen/_12sdp"
                 android:paddingBottom="@dimen/_10sdp"
                 android:textSize="@dimen/_15sdp" />
 
@@ -86,7 +85,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nama Lengkap"
-                android:textSize="@dimen/_17ssp"
+                android:textSize="@dimen/_15ssp"
                 />
             <EditText
                 android:id="@+id/editTextNamaLengkap"
@@ -96,33 +95,27 @@
                 android:ems="10"
                 android:inputType="text"
                 android:hint="Masukkan Nama Lengkap sesuai KTP"
-                android:textSize="@dimen/_15sdp"
+                android:textSize="@dimen/_14sdp"
                 android:maxLines="1"
                 android:background="@drawable/bg_editext"
-                android:paddingTop="@dimen/_10sdp"
+                android:paddingTop="@dimen/_12sdp"
                 android:paddingBottom="@dimen/_10sdp"
-                android:paddingLeft="@dimen/_18sdp"/>
+                android:paddingLeft="@dimen/_12sdp"/>
             <TextView
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Jenis Kelamin"
-                android:textSize="@dimen/_17ssp"
+                android:textSize="@dimen/_15ssp"
                 />
             <Spinner
                 android:id="@+id/gender_spinner"
-                android:layout_width="@dimen/_175sdp"
+                android:layout_width="@dimen/_150sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:background="@drawable/bg_editext"
                 android:popupBackground="@color/gray"
+                android:padding="8dp"
                 />
-
-
-
-
-
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -133,15 +126,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tempat Lahir"
-                    android:textSize="@dimen/_17ssp"
+                    android:textSize="@dimen/_15ssp"
                     />
                 <TextView
                     android:layout_marginTop="@dimen/_15sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tanggal Lahir"
-                    android:textSize="@dimen/_17ssp"
-                    android:layout_marginLeft="@dimen/_50sdp"
+                    android:textSize="@dimen/_15ssp"
+                    android:layout_marginLeft="@dimen/_62sdp"
                     />
             </LinearLayout>
             <LinearLayout
@@ -158,11 +151,11 @@
                     android:maxLines="1"
                     android:inputType="text"
                     android:hint="Contoh : NGANJUK"
-                    android:textSize="@dimen/_15sdp"
+                    android:textSize="@dimen/_12sdp"
                     android:background="@drawable/bg_editext"
                     android:paddingTop="@dimen/_10sdp"
                     android:paddingBottom="@dimen/_10sdp"
-                    android:paddingLeft="@dimen/_18sdp"/>
+                    android:paddingLeft="@dimen/_12sdp"/>
 
                 <EditText
                     android:id="@+id/editTextTG"
@@ -173,18 +166,18 @@
                     android:ems="10"
                     android:hint="Pilih Tanggal"
                     android:maxLines="1"
-                    android:textSize="@dimen/_15sdp"
+                    android:textSize="@dimen/_13sdp"
                     android:background="@drawable/bg_editext"
                     android:paddingTop="@dimen/_10sdp"
                     android:paddingBottom="@dimen/_10sdp"
-                    android:paddingLeft="@dimen/_18sdp"/>
+                    android:paddingLeft="@dimen/_12sdp"/>
             </LinearLayout>
             <TextView
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Alamat"
-                android:textSize="@dimen/_17ssp"
+                android:textSize="@dimen/_15ssp"
                 />
             <EditText
                 android:id="@+id/editTextAlamat"
@@ -194,18 +187,18 @@
                 android:ems="10"
                 android:inputType="text"
                 android:hint="Masukkan Alamat Lengkap"
-                android:textSize="@dimen/_15sdp"
+                android:textSize="@dimen/_14sdp"
                 android:maxLines="1"
                 android:background="@drawable/bg_editext"
-                android:paddingTop="@dimen/_10sdp"
+                android:paddingTop="@dimen/_12sdp"
                 android:paddingBottom="@dimen/_10sdp"
-                android:paddingLeft="@dimen/_18sdp"/>
+                android:paddingLeft="@dimen/_12sdp"/>
             <TextView
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="No.Handphone"
-                android:textSize="@dimen/_17ssp"
+                android:textSize="@dimen/_15ssp"
                 />
             <EditText
                 android:id="@+id/editTextNOHP"
@@ -216,17 +209,17 @@
                 android:maxLines="1"
                 android:inputType="number"
                 android:hint="Masukkan No.Handphone Aktif"
-                android:textSize="@dimen/_15sdp"
+                android:textSize="@dimen/_14sdp"
                 android:background="@drawable/bg_editext"
-                android:paddingTop="@dimen/_10sdp"
+                android:paddingTop="@dimen/_12sdp"
                 android:paddingBottom="@dimen/_10sdp"
-                android:paddingLeft="@dimen/_18sdp"/>
+                android:paddingLeft="@dimen/_12sdp"/>
             <TextView
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nama Organisasi / *Optional"
-                android:textSize="@dimen/_17ssp"
+                android:textSize="@dimen/_15ssp"
                 />
             <EditText
                 android:id="@+id/editTextNamaOrganisasi"
@@ -237,17 +230,17 @@
                 android:maxLines="1"
                 android:inputType="text"
                 android:hint="Masukkan Nama Organisasi ex :CSTeam"
-                android:textSize="@dimen/_15sdp"
+                android:textSize="@dimen/_14sdp"
                 android:background="@drawable/bg_editext"
-                android:paddingTop="@dimen/_10sdp"
+                android:paddingTop="@dimen/_12sdp"
                 android:paddingBottom="@dimen/_10sdp"
-                android:paddingLeft="@dimen/_18sdp"/>
+                android:paddingLeft="@dimen/_12sdp"/>
             <TextView
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Jumlah Anggota / Isi 1 jika tidak memiliki"
-                android:textSize="@dimen/_17ssp"
+                android:textSize="@dimen/_15ssp"
                 />
             <EditText
                 android:id="@+id/editTextJmlAnggota"
@@ -258,26 +251,25 @@
                 android:ems="10"
                 android:inputType="number"
                 android:hint="Masukkan Jumlah Anggota"
-                android:textSize="@dimen/_15sdp"
+                android:textSize="@dimen/_14sdp"
                 android:background="@drawable/bg_editext"
-                android:paddingTop="@dimen/_10sdp"
+                android:paddingTop="@dimen/_12sdp"
                 android:paddingBottom="@dimen/_10sdp"
-                android:paddingLeft="@dimen/_18sdp"/>
+                android:paddingLeft="@dimen/_12sdp"/>
 
             <com.google.android.material.button.MaterialButton
                 android:layout_marginTop="@dimen/_50sdp"
                 android:layout_marginBottom="@dimen/_30sdp"
                 android:id="@+id/button_lanjutinduk"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_60sdp"
+                android:layout_height="@dimen/_50sdp"
                 android:text="Lanjut"
-                android:textSize="@dimen/_20ssp"
+                android:textSize="@dimen/_17ssp"
                 app:cornerRadius="@dimen/_10sdp"
                 android:shadowRadius="3"
-                android:layout_marginLeft="@dimen/_20sdp"
-                android:layout_marginRight="@dimen/_20sdp"
+                android:layout_marginLeft="@dimen/_25sdp"
+                android:layout_marginRight="@dimen/_25sdp"
                 android:textAllCaps="false"
-
                 android:textColor="@color/white"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:backgroundTint="@color/greendark"/>

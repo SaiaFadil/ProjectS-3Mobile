@@ -6,13 +6,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Activity.NoInduk4">
-
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"
-        android:id="@+id/cardjudulnomorinduk"
+        android:layout_height="@dimen/_30sdp"
         android:layout_marginLeft="-20dp"
-        android:layout_marginRight="-20dp"
+        android:layout_marginRight="-10dp"
         android:backgroundTint="@color/white"
         app:strokeWidth="@dimen/_1sdp"
         app:strokeColor="@color/gray"
@@ -30,18 +28,18 @@
                     android:id="@+id/judul"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:text="Formulir Upload Dokumen"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:text="FORMULIR UPLOAD DOKUMEN"
                     android:textColor="@color/greendark"
-                    android:textSize="@dimen/_25ssp"
-                    android:textStyle="bold"
+                    android:textSize="@dimen/_15ssp"
                     android:maxLines="1"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:textStyle="bold" />
             </LinearLayout>
             <ImageButton
-                android:id="@+id/indukback"
-                android:layout_width="@dimen/_70sdp"
-                android:layout_height="@dimen/_60sdp"
+                android:id="@+id/eventback"
+                android:layout_width="@dimen/_38sdp"
+                android:layout_height="@dimen/_50sdp"
                 android:layout_marginLeft="@dimen/_15sdp"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/ic_back"
@@ -58,19 +56,19 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginStart="@dimen/_200sdp"
-            android:layout_marginEnd="@dimen/_20sdp">
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Surat Keterangan Dari Desa"
-                android:textSize="@dimen/_17ssp"
-                android:layout_marginTop="@dimen/_25sdp"
+                android:textSize="@dimen/_15ssp"
+                android:layout_marginTop="@dimen/_15sdp"
                 />
             <LinearLayout
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_52sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:orientation="horizontal"
                 android:background="@drawable/corner_image">
 
@@ -85,12 +83,12 @@
                     android:text="Pilih File"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_14ssp" />
+                    android:textSize="@dimen/_13ssp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_17ssp"
+                    android:textSize="@dimen/_14ssp"
                     android:text="Gambar berformat PNG, JPG, SVG"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="@dimen/_8sdp" />
@@ -99,13 +97,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Foto Kartu Tanda Penduduk"
-                android:textSize="@dimen/_17ssp"
+                android:textSize="@dimen/_15ssp"
                 android:layout_marginTop="@dimen/_10sdp"
                 />
             <LinearLayout
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_52sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:orientation="horizontal"
                 android:background="@drawable/corner_image">
 
@@ -120,13 +118,13 @@
                     android:text="Pilih File"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_14ssp" />
+                    android:textSize="@dimen/_13ssp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Gambar berformat PNG, JPG, SVG"
-                    android:textSize="@dimen/_17ssp"
+                    android:textSize="@dimen/_14ssp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="@dimen/_8sdp" />
             </LinearLayout>
@@ -135,12 +133,12 @@
                 android:layout_height="wrap_content"
                 android:text="Pass Foto"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:textSize="@dimen/_17ssp"
+                android:textSize="@dimen/_15ssp"
                 />
             <LinearLayout
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_52sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:orientation="horizontal"
                 android:background="@drawable/corner_image">
 
@@ -155,12 +153,12 @@
                     android:text="Pilih File"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_14ssp" />
+                    android:textSize="@dimen/_13ssp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_17ssp"
+                    android:textSize="@dimen/_14ssp"
                     android:text="Gambar berformat PNG, JPG, SVG"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="@dimen/_8sdp" />
@@ -170,46 +168,46 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Setelah mengisi formulir dengan lengkap, anda menyetujui hal-hal berikut :"
-                android:textSize="@dimen/_18ssp"
-                android:layout_marginTop="@dimen/_50sdp"
+                android:textSize="@dimen/_15ssp"
+                android:layout_marginTop="@dimen/_40sdp"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1. Dokumen yang Anda Upload sudah sesuai dengan persyaratan yang berada diatas."
-                android:textSize="@dimen/_15ssp"
+                android:textSize="@dimen/_13ssp"
                 android:textAlignment="textStart"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_15sdp"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2. Nomor Induk Seniman berlaku hanya 1 tahun setelah disetujui dan silahkan lakukan perpanjangan setelahnya."
-                android:textSize="@dimen/_15ssp"
+                android:textSize="@dimen/_13ssp"
                 android:textAlignment="textStart"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_15sdp"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="3. Apabila data tidak setujui silahkan lakukan pengajuan ulang."
-                android:textSize="@dimen/_15ssp"
+                android:textSize="@dimen/_13ssp"
                 android:textAlignment="textStart"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_15sdp"
                 />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_kiriminduk"
-                android:layout_marginTop="@dimen/_50sdp"
+                android:layout_marginTop="@dimen/_40sdp"
                 android:layout_marginBottom="@dimen/_20sdp"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_70sdp"
+                android:layout_height="@dimen/_50sdp"
                 android:text="Kirim"
-                android:textSize="@dimen/_22ssp"
-                app:cornerRadius="@dimen/_10sdp"
+                android:textSize="@dimen/_18ssp"
+                app:cornerRadius="@dimen/_5sdp"
                 android:shadowRadius="3"
                 android:layout_marginLeft="@dimen/_20sdp"
                 android:layout_marginRight="@dimen/_20sdp"

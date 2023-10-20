@@ -29,18 +29,18 @@
                     android:id="@+id/judul"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:text="Detail Event"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:text="DETAIL EVENT"
                     android:textColor="@color/greendark"
-                    android:textSize="@dimen/_20ssp"
+                    android:textSize="@dimen/_18ssp"
                     android:gravity="center"
                     android:textStyle="bold" />
             </LinearLayout>
             <ImageButton
                 android:id="@+id/eventback"
-                android:layout_width="@dimen/_45sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_width="@dimen/_43sdp"
+                android:layout_height="@dimen/_43sdp"
+                android:layout_marginLeft="@dimen/_12sdp"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/ic_back"
                 android:backgroundTint="@color/white"
@@ -55,29 +55,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="@dimen/_20sdp">
+        android:padding="@dimen/_10sdp">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Judul Event"
-        android:textSize="@dimen/_25ssp"
+        android:textSize="@dimen/_18ssp"
         android:textStyle="bold"
         android:textColor="@color/black"
         />
         <ImageView
             android:layout_width="@dimen/_300sdp"
-            android:layout_height="@dimen/_150sdp"
+            android:layout_height="@dimen/_135sdp"
             android:src="@drawable/banner1"
             android:scaleType="fitXY"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/_10sdp"/>
+            android:layout_marginTop="@dimen/_8sdp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tanggal Event"
-            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_18sdp"
             android:textColor="@color/black"
-            android:textSize="@dimen/_14ssp"
+            android:textSize="@dimen/_15ssp"
             android:layout_gravity="center"
             android:layout_margin="@dimen/_10sdp"/>
         <TextView

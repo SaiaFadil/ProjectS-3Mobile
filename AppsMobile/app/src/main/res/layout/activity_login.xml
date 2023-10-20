@@ -18,36 +18,34 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Selamat Datang di\n--Nganjuk Elok-- "
-                android:textColor="@color/black"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:textSize="@dimen/_35ssp"
-                android:textStyle="bold"
-
-                android:layout_marginBottom="@dimen/_5sdp"
+                android:text="SELAMAT DATANG KE NGANJUK ELOK"
+                android:textSize="@dimen/_21ssp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:gravity="center_horizontal"
-                android:fontFamily="sans-serif"/>
+                android:textStyle="bold"
+                />
             <TextView
+                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Silahkan masuk dan lakukan aktivitas"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_17ssp"
+                android:textSize="@dimen/_14ssp"
                 android:gravity="center_horizontal"
                 android:fontFamily="sans-serif"/>
 
             <ImageView
-                android:layout_width="@dimen/_250sdp"
-                android:layout_height="@dimen/_250sdp"
+                android:layout_width="@dimen/_220sdp"
+                android:layout_height="@dimen/_220sdp"
                 android:src="@drawable/anim2"
-                android:layout_marginBottom="-30dp"
+                android:layout_marginBottom="-10dp"
                 android:scaleType="fitXY"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Masukkan Email"
-                android:layout_margin="@dimen/_10sdp"
+                android:layout_margin="@dimen/_7sdp"
                 app:boxBackgroundColor="@android:color/transparent"
                 app:boxStrokeColor="@color/greendark"
                 app:boxStrokeWidth="@dimen/_2sdp"
@@ -72,7 +70,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Masukkan Kata Sandi"
-                android:layout_margin="@dimen/_10sdp"
+                android:layout_margin="@dimen/_7sdp"
                 app:boxBackgroundColor="@android:color/transparent"
                 app:boxStrokeColor="@color/greendark"
                 app:boxStrokeWidth="@dimen/_2sdp"
@@ -100,7 +98,7 @@
                 android:id="@+id/btn_lupapassword"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_50sdp"
+                android:layout_height="@dimen/_35sdp"
                 android:text="Lupa kata sandi?"
                 android:textStyle="italic"
                 android:layout_gravity="right"
@@ -112,13 +110,13 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_siginSignin"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_60sdp"
+                android:layout_height="@dimen/_45sdp"
                 android:text="Masuk"
-                android:textSize="@dimen/_20ssp"
+                android:textSize="@dimen/_17ssp"
                 android:fontFamily="sans-serif"
                 android:shadowRadius="3"
-                android:layout_marginLeft="@dimen/_20sdp"
-                android:layout_marginRight="@dimen/_20sdp"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
                 android:textAllCaps="false"
                 android:shadowDy="7"
                 android:shadowDx="5"
@@ -131,18 +129,18 @@
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_horizontal">
 
                     <TextView
+                        android:layout_marginTop="@dimen/_3sdp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_80sdp"
                         android:text="Belum punya akun?"
-                        android:textSize="@dimen/_16ssp" />
+                        android:textSize="@dimen/_12ssp" />
 
                     <Button
                         android:id="@+id/button_signupSignin"
@@ -153,6 +151,7 @@
                         android:layout_marginRight="@dimen/_70sdp"
                         android:layout_weight="1"
                         android:text="Daftar Disini"
+                        android:textSize="@dimen/_11sdp"
                         android:maxLines="1"
                         android:textColor="@color/blue"
                         android:textAlignment="textStart"
@@ -177,6 +176,7 @@
                 android:layout_marginRight="@dimen/_30sdp"
                 android:layout_marginLeft="@dimen/_30sdp"
                 />
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

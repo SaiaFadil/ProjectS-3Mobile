@@ -17,26 +17,26 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Kode OTP"
-                android:textSize="@dimen/_35ssp"
-                android:layout_marginTop="@dimen/_30sdp"
+                android:text="KODE OTP"
+                android:textSize="@dimen/_22ssp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:gravity="center_horizontal"
                 android:textStyle="bold"
                 />
+
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Silahkan masukkan kode otp"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:textSize="@dimen/_20ssp"
+                android:textSize="@dimen/_17ssp"
                 android:textAlignment="center"/>
             <ImageView
                 android:id="@+id/gambaranimasi"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_300sdp"
                 android:src="@drawable/anim7"
-                android:layout_marginTop="@dimen/_30sdp"
                 />
 
             <!-- Kolom untuk kode OTP -->
@@ -46,7 +46,7 @@
                 android:orientation="horizontal"
                 android:gravity="center"
                 android:paddingRight="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_20sdp"
                 android:paddingLeft="@dimen/_20sdp">
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -64,22 +64,23 @@
                         android:layout_height="wrap_content"
                         android:inputType="number"
                         android:maxLength="6"
-                        android:textSize="@dimen/_33ssp"
+                        android:textSize="@dimen/_25ssp"
                         android:letterSpacing="1"
                         android:textAlignment="inherit"
-                        android:padding="@dimen/_10sdp"
-                        android:layout_marginLeft="@dimen/_10sdp"
-                        android:layout_marginRight="@dimen/_10sdp"/>
+                        android:padding="@dimen/_5sdp"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:layout_marginRight="@dimen/_8sdp"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_konfirmasiotpp"
+                android:id="@+id/cetakkodeqr"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_60sdp"
-                android:text="Lanjut"
-                android:textSize="@dimen/_16ssp"
-                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:text="LANJUT"
+                android:textSize="@dimen/_14ssp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
                 android:shadowRadius="3"
                 android:layout_marginLeft="@dimen/_20sdp"
                 android:layout_marginRight="@dimen/_20sdp"

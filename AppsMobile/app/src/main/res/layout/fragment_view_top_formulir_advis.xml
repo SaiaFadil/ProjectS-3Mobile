@@ -5,12 +5,13 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
     android:backgroundTint="@color/white">
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_marginLeft="-20dp"
-        android:layout_marginRight="-20dp"
-        android:layout_height="@dimen/_60sdp"
+        android:layout_marginLeft="-10dp"
+        android:layout_marginRight="-10dp"
+        android:layout_height="@dimen/_30sdp"
         android:id="@+id/cardjudulformulir"
         android:backgroundTint="@color/white"
         app:strokeWidth="@dimen/_1sdp"
@@ -20,25 +21,26 @@
 
         <ImageButton
             android:id="@+id/kembalikekonfirmasiadvis"
-            android:layout_width="@dimen/_60sdp"
-            android:layout_height="@dimen/_55sdp"
-            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
             android:layout_gravity="center_vertical"
             android:src="@drawable/ic_back"
             android:backgroundTint="@color/white"
             android:scaleType="fitXY"
 
             />
+
         <TextView
             android:id="@+id/judulformadvis"
-            android:layout_marginLeft="@dimen/_30sdp"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="match_parent"
-            android:text="Formulir Surat Advis"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:gravity="center"
+            android:text="FORMULIR SURAT ADVIS"
             android:textColor="@color/greendark"
-            android:textSize="@dimen/_25ssp"
-            android:textStyle="bold"
-            android:gravity="center"/>
+            android:textSize="@dimen/_15ssp"
+            android:textStyle="bold" />
     </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>

@@ -9,46 +9,44 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"
-        android:layout_marginLeft="@dimen/_minus20sdp"
-        android:layout_marginRight="@dimen/_minus20sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_marginLeft="-20dp"
+        android:layout_marginRight="-10dp"
         android:backgroundTint="@color/white"
         app:strokeWidth="@dimen/_1sdp"
         app:strokeColor="@color/gray"
-        android:outlineAmbientShadowColor="@color/black">
-
+        android:outlineAmbientShadowColor="@color/black"
+        >
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center">
-
                 <TextView
                     android:id="@+id/judul"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="@dimen/_10sdp"
-                    android:text="EVENT"
+                    android:text="Event"
                     android:textColor="@color/greendark"
-                    android:textSize="@dimen/_33ssp"
+                    android:textSize="@dimen/_18ssp"
                     android:maxLines="1"
                     android:gravity="center"
                     android:textStyle="bold" />
             </LinearLayout>
-
             <ImageButton
                 android:id="@+id/eventback"
-                android:layout_width="@dimen/_70sdp"
-                android:layout_height="@dimen/_60sdp"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_50sdp"
                 android:layout_marginLeft="@dimen/_15sdp"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/ic_back"
                 android:backgroundTint="@color/white"
-                android:scaleType="fitXY" />
+                android:scaleType="fitXY"
+                />
         </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -67,7 +65,7 @@
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_10sdp"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_20ssp"
+                android:textSize="@dimen/_17ssp"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:gravity="center_horizontal"
                 android:textStyle="bold" />
@@ -76,14 +74,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_300sdp"
                 android:src="@drawable/event1"
-                android:layout_marginTop="@dimen/_40sdp" />
+                />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Untuk pengajuan upload event, anda dapat melengkapi formulir berikut ini"
-                android:layout_marginTop="@dimen/_40sdp"
-                android:textSize="@dimen/_16ssp"
+                android:layout_marginTop="@dimen/_28sdp"
+                android:textSize="@dimen/_14ssp"
                 android:paddingLeft="@dimen/_30sdp"
                 android:maxLines="2"
                 android:paddingRight="@dimen/_30sdp"
@@ -96,7 +94,7 @@
                 android:layout_height="@dimen/_60sdp"
                 android:text="Lanjut"
                 android:textSize="@dimen/_16ssp"
-                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_12sdp"
                 android:shadowRadius="3"
                 android:layout_marginLeft="@dimen/_20sdp"
                 android:layout_marginRight="@dimen/_20sdp"
