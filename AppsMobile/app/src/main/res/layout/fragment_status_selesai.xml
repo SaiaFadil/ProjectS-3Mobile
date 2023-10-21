@@ -64,7 +64,7 @@
                                 android:text="Nama "
                                 android:textColor="@color/black"
                                 android:layout_marginTop="@dimen/_5sdp"
-                                android:textSize="@dimen/_16ssp"/>
+                                android:textSize="@dimen/_12ssp"/>
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="wrap_content"
