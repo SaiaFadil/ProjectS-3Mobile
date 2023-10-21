@@ -37,5 +37,8 @@ public class DetailEventDashboard extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }   public void onBackPressed(){
+        finish();
+        overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
     }
 }
