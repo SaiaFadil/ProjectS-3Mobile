@@ -77,7 +77,7 @@
                     android:paddingTop="@dimen/_5sdp"
                     android:maxLines="1"
                     android:paddingBottom="@dimen/_6sdp"
-                    android:textSize="@dimen/_14sdp" />
+                    android:textSize="@dimen/_12sdp" />
 
                 <TextView
                     android:textColor="@color/black"
@@ -187,7 +187,7 @@
                     android:maxLines="1"
                     android:inputType="number"
                     android:hint="Masukkan Gedung/Tempat"
-                    android:textSize="@dimen/_14sdp"
+                    android:textSize="@dimen/_12sdp"
                     android:background="@drawable/bg_editext"
                     android:paddingTop="@dimen/_5sdp"
                     android:enabled="false"
@@ -245,7 +245,7 @@
                             android:paddingBottom="@dimen/_5sdp"
                             android:textAlignment="center"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_14sdp" />
+                            android:textSize="@dimen/_12sdp" />
 
                         <TextView
                     android:textColor="@color/black"
@@ -265,7 +265,7 @@
                         android:ems="10"
                         android:inputType="text"
                         android:hint="Pilih Tanggal"
-                        android:textSize="@dimen/_15sdp"
+                        android:textSize="@dimen/_12sdp"
                         android:background="@drawable/bg_editext"
                         android:paddingTop="@dimen/_5sdp"
                         android:paddingBottom="@dimen/_5sdp"
@@ -298,7 +298,7 @@
                     android:paddingLeft="@dimen/_12sdp"
                     android:paddingTop="@dimen/_5sdp"
                     android:paddingBottom="@dimen/_6sdp"
-                    android:textSize="@dimen/_14sdp" />
+                    android:textSize="@dimen/_12sdp" />
 
                 <TextView
                     android:textColor="@color/black"
