@@ -9,8 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.usingpreferences.Activity.FormStatusDiproses;
 import com.example.usingpreferences.Activity.FormStatusDiterima;
 import com.example.usingpreferences.Activity.FormStatusDitolak;
+import com.example.usingpreferences.Activity.FormStatusDiajukan;
 import com.google.android.material.card.MaterialCardView;
 import com.example.usingpreferences.R;
 
@@ -69,6 +71,17 @@ public class StatusSemua extends Fragment {
 
         MaterialCardView cardditerima = view.findViewById(R.id.cardDiterima);
         MaterialCardView cardditolak = view.findViewById(R.id.cardditolak);
+        MaterialCardView carddiajukan = view.findViewById(R.id.cardDiajukan);
+        MaterialCardView carddiproses = view.findViewById(R.id.cardproses);
+        carddiproses.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pindah = new Intent(getActivity(), FormStatusDiproses.class);
+                startActivity(pindah);
+                getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+
+            }
+        });
         cardditerima.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,6 +101,26 @@ public class StatusSemua extends Fragment {
             }
         });
 
+
+        carddiajukan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pindah = new Intent(getActivity(), FormStatusDitolak.class);
+                startActivity(pindah);
+                getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+
+            }
+        });
+
+        carddiajukan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pindah = new Intent(getActivity(), FormStatusDiajukan.class);
+                startActivity(pindah);
+                getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+
+            }
+        });
 
         return view;
     }
