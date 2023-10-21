@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".Activity.FormStatusDiproses">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:id="@+id/cardjudulstatus"
+            android:layout_marginLeft="-10dp"
+            android:layout_marginRight="-10dp"
+            android:backgroundTint="@color/white"
+            app:strokeWidth="@dimen/_1sdp"
+            app:strokeColor="@color/gray"
+            android:outlineAmbientShadowColor="@color/black"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/judul"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="STATUS"
+                        android:textColor="@color/greendark"
+                        android:textSize="@dimen/_18ssp"
+                        android:gravity="center"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <ImageButton
+                    android:id="@+id/statusback"
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_back"
+                    android:backgroundTint="@color/white"
+                    android:scaleType="fitXY"
+                    />
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="@dimen/_1sdp"
+                    android:backgroundTint="@color/white"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    app:cardElevation="@dimen/_10sdp"
+                    app:cardMaxElevation="@dimen/_20sdp">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/green">
+                        <TextView
+                            android:layout_marginTop="@dimen/_7sdp"
+                            android:layout_marginBottom="@dimen/_7sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Surat Advis"
+                            android:textStyle="bold"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_15ssp"
+                            />
+                    </androidx.cardview.widget.CardView>
+
+
+                    <LinearLayout
+                        android:layout_marginTop="@dimen/_40sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginEnd="@dimen/_20sdp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Tanggal"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_15ssp"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="  :  "
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_15ssp"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="19 september 2023"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_15ssp"
+                                />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nomor Induk Seniman"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_15ssp"
+                            />
+
+                        <EditText
+                            android:id="@+id/et_induksenimanadvis"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_3sdp"
+                            android:background="@drawable/bg_editext"
+                            android:ems="10"
+                            android:hint="Masukkan Nomor Induk Seniman"
+                            android:inputType="number"
+                            android:paddingLeft="@dimen/_12sdp"
+                            android:paddingTop="@dimen/_12sdp"
+                            android:paddingBottom="@dimen/_10sdp"
+                            android:textSize="@dimen/_12sdp" />
+                        <TextView
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nama Lengkap"
+                            android:textSize="@dimen/_15ssp"
+                            android:textColor="@color/black"
+                            />
+
+                        <EditText
+                            android:id="@+id/et_namalengkapadvis"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_3sdp"
+                            android:background="@drawable/bg_editext"
+                            android:ems="10"
+                            android:hint="Masukkan Nama Lengkap Sesuai KTP"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:paddingLeft="@dimen/_12sdp"
+                            android:paddingTop="@dimen/_12sdp"
+                            android:paddingBottom="@dimen/_10sdp"
+                            android:textSize="@dimen/_12sdp" />
+
+
+
+                        <TextView
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Alamat"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"
+                            />
+
+                        <EditText
+                            android:id="@+id/et_alamatadvis"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:background="@drawable/bg_editext"
+                            android:ems="10"
+                            android:hint="Masukkan Alamatmu"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:paddingLeft="@dimen/_12sdp"
+                            android:paddingTop="@dimen/_12sdp"
+                            android:paddingBottom="@dimen/_10sdp"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <TextView
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nama Pentas"
+                            android:textSize="@dimen/_14ssp"
+                            />
+
+                        <EditText
+                            android:id="@+id/et_namapentasadvis"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:background="@drawable/bg_editext"
+                            android:ems="10"
+                            android:hint="Masukkan Nama Pentasmu"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:paddingLeft="@dimen/_12sdp"
+                            android:paddingTop="@dimen/_12sdp"
+                            android:paddingBottom="@dimen/_10sdp"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <TextView
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tanggal Pentas"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"                            />
+
+
+                        <EditText
+                            android:id="@+id/et_tanggalpentasadvis"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:background="@drawable/bg_editext"
+                            android:ems="10"
+                            android:hint="Pilih Tanggal"
+                            android:maxLines="1"
+                            android:paddingLeft="@dimen/_12sdp"
+                            android:paddingTop="@dimen/_12sdp"
+                            android:paddingBottom="@dimen/_10sdp"
+                            android:textSize="@dimen/_12sdp" />
+                        <TextView
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lokasi"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_15ssp"
+                            />
+
+
+                        <EditText
+                            android:id="@+id/et_lokasiadvis"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:background="@drawable/bg_editext"
+                            android:ems="10"
+                            android:hint="Masukkan Tempat"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:paddingLeft="@dimen/_12sdp"
+                            android:paddingTop="@dimen/_12sdp"
+                            android:paddingBottom="@dimen/_10sdp"
+                            android:textSize="@dimen/_12sdp" />
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_marginBottom="@dimen/_20sdp"
+                            android:backgroundTint="@color/yellow">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Diproses"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_14ssp"
+                                android:textStyle="bold" />
+                        </androidx.cardview.widget.CardView>
+
+
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_190sdp"
+                    android:src="@drawable/animproses"
+                    android:layout_marginTop="@dimen/_8sdp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Permintaan anda sedang diproses\nHarap tunggu notifikasi selanjutnya!"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:textSize="@dimen/_16ssp"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginRight="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_30sdp"
+                    android:textAlignment="center"/>
+
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
