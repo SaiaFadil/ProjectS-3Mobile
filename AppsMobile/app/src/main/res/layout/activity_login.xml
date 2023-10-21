@@ -193,18 +193,27 @@
 
             </LinearLayout>
 
-            <com.google.android.gms.common.SignInButton
-                android:id="@+id/googleSignInButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:visibility="visible"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:textAlignment="center"
-                android:layout_marginRight="@dimen/_30sdp"
-                android:layout_marginLeft="@dimen/_30sdp"
-                />
 
+            <Button
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:id="@+id/logingoogle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:text="Masuk Dengan Akun Google"
+                android:textSize="@dimen/_12ssp"
+                android:drawableLeft="@drawable/gogle"
+                android:paddingLeft="@dimen/_20sdp"
+                android:paddingRight="@dimen/_30sdp"
+                app:cornerRadius="@dimen/_10sdp"
+                android:shadowRadius="3"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                app:strokeColor="@color/black"
+                app:strokeWidth="@dimen/_1sdp"
+                app:backgroundTint="@color/white" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
