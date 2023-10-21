@@ -8,6 +8,7 @@ import com.example.usingpreferences.MenuFragment.StatusDitolak;
 import com.example.usingpreferences.MenuFragment.StatusProses;
 import com.example.usingpreferences.MenuFragment.StatusSelesai;
 import com.example.usingpreferences.MenuFragment.StatusSemua;
+import com.example.usingpreferences.MenuFragment.StatusDiajukan;
 
 public class StatusTabAdapter  extends FragmentPagerAdapter {
 
@@ -21,10 +22,12 @@ public class StatusTabAdapter  extends FragmentPagerAdapter {
             case 0:
                 return new StatusSemua();
             case 1:
-                return new StatusProses();
+                return new StatusDiajukan();
             case 2:
-                return new StatusSelesai();
+                return new StatusProses();
             case 3:
+                return new StatusSelesai();
+            case 4:
                 return new StatusDitolak();
             default:
                 return null;
@@ -33,7 +36,7 @@ public class StatusTabAdapter  extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 4;
+        return 5;
     }
 
     @Override
@@ -42,10 +45,12 @@ public class StatusTabAdapter  extends FragmentPagerAdapter {
             case 0:
                 return "Semua";
             case 1:
-                return "Proses";
+                return "Diajukan";
             case 2:
-                return "Selesai";
+                return "Proses";
             case 3:
+                return "Selesai";
+            case 4:
                 return "Ditolak";
             default:
                 return null;
