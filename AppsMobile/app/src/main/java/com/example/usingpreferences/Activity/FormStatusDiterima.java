@@ -24,7 +24,8 @@ public class FormStatusDiterima extends AppCompatActivity {
             }
         });
 
-    }public void onBackPressed(){
-
+    }   public void onBackPressed(){
+        finish();
+        overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
     }
 }
