@@ -8,7 +8,7 @@
     tools:context=".MenuFragment.StatusProses">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardditolak"
+        android:id="@+id/cardproses"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:strokeColor="@color/black"
@@ -64,7 +64,7 @@
                                 android:text="Nama "
                                 android:textColor="@color/black"
                                 android:layout_marginTop="@dimen/_5sdp"
-                                android:textSize="@dimen/_16ssp"/>
+                                android:textSize="@dimen/_12ssp"/>
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="wrap_content"
