@@ -85,16 +85,7 @@ public class ProfilActivity extends AppCompatActivity {
             }
         });
 
-        MaterialButton Informasi = findViewById(R.id.informasi);
-        Informasi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent pindah = new Intent(ProfilActivity.this, InformasiProfilActivity.class);
-                startActivity(pindah);
-                overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
 
-            }
-        });
 
     }
     public void onBackPressed(){
