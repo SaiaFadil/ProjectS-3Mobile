@@ -139,7 +139,7 @@
                             android:paddingLeft="@dimen/_12sdp"
                             android:paddingTop="@dimen/_12sdp"
                             android:paddingBottom="@dimen/_10sdp"
-                            android:textSize="@dimen/_14sdp" />
+                            android:textSize="@dimen/_12sdp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -163,7 +163,7 @@
                             android:paddingLeft="@dimen/_12sdp"
                             android:paddingTop="@dimen/_12sdp"
                             android:paddingBottom="@dimen/_10sdp"
-                            android:textSize="@dimen/_14sdp" />
+                            android:textSize="@dimen/_12sdp" />
 
 
                         <TextView
@@ -187,7 +187,7 @@
                             android:paddingLeft="@dimen/_12sdp"
                             android:paddingTop="@dimen/_12sdp"
                             android:paddingBottom="@dimen/_10sdp"
-                            android:textSize="@dimen/_14sdp" />
+                            android:textSize="@dimen/_12sdp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -210,7 +210,7 @@
                             android:paddingLeft="@dimen/_12sdp"
                             android:paddingTop="@dimen/_12sdp"
                             android:paddingBottom="@dimen/_10sdp"
-                            android:textSize="@dimen/_14sdp" />
+                            android:textSize="@dimen/_12sdp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -233,7 +233,7 @@
                             android:paddingLeft="@dimen/_12sdp"
                             android:paddingTop="@dimen/_12sdp"
                             android:paddingBottom="@dimen/_10sdp"
-                            android:textSize="@dimen/_14sdp" />
+                            android:textSize="@dimen/_12sdp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -257,7 +257,7 @@
                             android:paddingLeft="@dimen/_12sdp"
                             android:paddingTop="@dimen/_12sdp"
                             android:paddingBottom="@dimen/_10sdp"
-                            android:textSize="@dimen/_14sdp" />
+                            android:textSize="@dimen/_12sdp" />
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
