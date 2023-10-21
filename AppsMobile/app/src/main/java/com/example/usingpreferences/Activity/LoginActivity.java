@@ -55,8 +55,6 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         SharedPreferences sharedPreferences = getSharedPreferences("prefLogin", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-
-
         progressDialog = new ProgressDialog(LoginActivity.this);
         progressDialog.setTitle("Loading...");
         progressDialog.setMessage("Sabar");
@@ -148,7 +146,6 @@ public class LoginActivity extends AppCompatActivity {
                                     public void run() {
                                         // Tutup ProgressDialog
                                         progressDialog.dismiss();
-
                                         // Simpan semua data pengguna ke SharedPreferences
                                         ModelUsers user = response.body().getData().get(0);
                                         editor.putString("id_user", String.valueOf(user.getId_user()));
