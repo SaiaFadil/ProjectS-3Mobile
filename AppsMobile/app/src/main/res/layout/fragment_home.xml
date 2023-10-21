@@ -81,6 +81,7 @@
                 />
         </com.google.android.material.card.MaterialCardView>
             <TextView
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Layanan yang dikelola oleh\nDinas PORABUDPAR:"
@@ -284,6 +285,7 @@
 
             <!--            Komponen di bawah ini nanti akan di ganti Recview-->
 <LinearLayout
+    android:id="@+id/layoutevent"
     android:layout_below="@+id/tv_eventTerkini"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -338,6 +340,134 @@
                     android:textSize="@dimen/_14ssp"/>
                 <TextView
                     android:id="@+id/alamateventhome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jl. Anjuk Ladang No.12, Ploso, Kec. Nganjuk, Kabupaten Nganjuk, Jawa Timur 64417"
+                    android:textColor="@color/black"
+                    android:maxLines="3"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textSize="@dimen/_11ssp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card2"
+        app:strokeColor="@color/greendark"
+        app:strokeWidth="@dimen/_1sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_120sdp"
+        android:backgroundTint="@color/gray"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:outlineAmbientShadowColor="@color/greendark"
+        app:cardElevation="@dimen/_10sdp"
+        app:cardMaxElevation="@dimen/_20sdp"
+        app:cardCornerRadius="@dimen/_10sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="@dimen/_15sdp"
+            android:gravity="left">
+            <ImageView
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_90sdp"
+                android:scaleType="fitXY"
+                android:src="@drawable/contohfotoevent1"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="@dimen/_10sdp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="16 Oktober 2023"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"/>
+                <TextView
+                    android:id="@+id/juduleventhome2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nganjuk Night Carnival"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:textSize="@dimen/_14ssp"/>
+                <TextView
+                    android:id="@+id/alamateventhome2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jl. Anjuk Ladang No.12, Ploso, Kec. Nganjuk, Kabupaten Nganjuk, Jawa Timur 64417"
+                    android:textColor="@color/black"
+                    android:maxLines="3"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textSize="@dimen/_11ssp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card3"
+        app:strokeColor="@color/greendark"
+        app:strokeWidth="@dimen/_1sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_120sdp"
+        android:backgroundTint="@color/gray"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:outlineAmbientShadowColor="@color/greendark"
+        app:cardElevation="@dimen/_10sdp"
+        app:cardMaxElevation="@dimen/_20sdp"
+        app:cardCornerRadius="@dimen/_10sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="@dimen/_15sdp"
+            android:gravity="left">
+            <ImageView
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_90sdp"
+                android:scaleType="fitXY"
+                android:src="@drawable/contohfotoevent1"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="@dimen/_10sdp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="16 Oktober 2023"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"/>
+                <TextView
+                    android:id="@+id/juduleventhome1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nganjuk Night Carnival"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:textSize="@dimen/_14ssp"/>
+                <TextView
+                    android:id="@+id/alamateventhome1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Jl. Anjuk Ladang No.12, Ploso, Kec. Nganjuk, Kabupaten Nganjuk, Jawa Timur 64417"
