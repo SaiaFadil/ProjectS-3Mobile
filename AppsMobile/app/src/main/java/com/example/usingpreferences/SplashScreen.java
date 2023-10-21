@@ -11,23 +11,26 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.ScaleAnimation;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.usingpreferences.KonfirmMenu.SelamatDatang;
 
 public class SplashScreen extends AppCompatActivity {
 TextView textView1,textView2;
+private ImageView logodisporabudpar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         textView1 = findViewById(R.id.text1);
         textView2 = findViewById(R.id.text2);
-
+        logodisporabudpar = findViewById(R.id.logodisporabudpar);
         // Memuat animasi dari XML
         Animation fadeFromTopAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in);
 
         // Menerapkan animasi ke ImageView
+        logodisporabudpar.startAnimation(fadeFromTopAnimation);
         textView1.startAnimation(fadeFromTopAnimation);
         textView2.startAnimation(fadeFromTopAnimation);
         new Handler().postDelayed(new Runnable() {
