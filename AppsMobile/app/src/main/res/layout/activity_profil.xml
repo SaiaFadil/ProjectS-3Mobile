@@ -147,17 +147,6 @@
                     android:drawableEnd="@drawable/arrowright"
                     android:backgroundTint="@color/white"/>
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/informasi"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
-                    android:text="Informasi"
-                    android:textSize="@dimen/_15ssp"
-                    android:textAllCaps="false"
-                    android:textColor="@color/black"
-                    android:textAlignment="viewStart"
-                    android:drawableEnd="@drawable/arrowright"
-                    android:backgroundTint="@color/white"/>
 
                 <com.google.android.material.button.MaterialButton
                     android:layout_marginTop="@dimen/_30sdp"
