@@ -1,5 +1,6 @@
 package com.example.usingpreferences.MenuFragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,7 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.usingpreferences.Activity.FormStatusDiajukan;
+import com.example.usingpreferences.Activity.FormStatusDiproses;
 import com.example.usingpreferences.R;
+import com.google.android.material.card.MaterialCardView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,7 +64,18 @@ public class StatusProses extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_status_proses, container, false);
+        View view =  inflater.inflate(R.layout.fragment_status_proses, container, false);
+        MaterialCardView cardproses = view.findViewById(R.id.cardproses);
+
+        cardproses.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pindah = new Intent(getActivity(), FormStatusDiproses.class);
+                startActivity(pindah);
+                getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+
+            }
+        });
+        return view;
     }
 }
