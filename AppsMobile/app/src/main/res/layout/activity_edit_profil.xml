@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".Activity.EditProfilActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.EditProfilActivity">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
@@ -13,88 +13,102 @@
         android:layout_marginLeft="-10dp"
         android:layout_marginRight="-10dp"
         android:backgroundTint="@color/white"
-        app:strokeWidth="@dimen/_1sdp"
-        app:strokeColor="@color/gray"
         android:outlineAmbientShadowColor="@color/black"
-        >
+        app:strokeColor="@color/gray"
+        app:strokeWidth="@dimen/_1sdp">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="@dimen/_5sdp"
+                    android:gravity="center"
                     android:text="Edit Profil"
                     android:textAllCaps="true"
                     android:textColor="@color/greendark"
                     android:textSize="@dimen/_18sdp"
-                    android:gravity="center"
                     android:textStyle="bold" />
             </LinearLayout>
+
             <ImageButton
                 android:id="@+id/profilback"
                 android:layout_width="@dimen/_43sdp"
                 android:layout_height="@dimen/_43sdp"
-                android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_back"
+                android:layout_marginLeft="@dimen/_10sdp"
                 android:backgroundTint="@color/white"
                 android:scaleType="fitXY"
-                />
+                android:src="@drawable/ic_back" />
         </RelativeLayout>
 
     </com.google.android.material.card.MaterialCardView>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/_15sdp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="@dimen/_15sdp">
+
                 <ImageView
                     android:id="@+id/imgProfil"
                     android:layout_width="@dimen/_95sdp"
                     android:layout_height="@dimen/_95sdp"
-                    android:scaleType="fitXY"
-                    android:layout_marginBottom="@dimen/_5sdp"
                     android:layout_gravity="center"
-                    android:src="@drawable/profilimagefull"
-                    android:contentDescription="Profil"/>
-   <com.google.android.material.button.MaterialButton
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="Ubah Foto"
-       android:maxLines="1"
-       android:backgroundTint="@color/white"
-       android:textColor="@color/black"
-       android:textSize="@dimen/_10ssp"
-       android:drawableLeft="@drawable/ic_kamera"
-       android:elevation="@dimen/_10sdp"
-       app:strokeWidth="@dimen/_1sdp"
-       app:strokeColor="@color/greendark"
-       android:layout_gravity="center_horizontal"
-       android:textStyle="bold"/>
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:contentDescription="Profil"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/profilimagefull" />
 
-                <TextView
-                    android:textColor="@color/black"
-                    android:layout_marginTop="@dimen/_8sdp"
+                <com.google.android.material.button.MaterialButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nama"
+                    android:layout_gravity="center_horizontal"
+                    android:backgroundTint="@color/white"
+                    android:drawableLeft="@drawable/ic_kamera"
+                    android:elevation="@dimen/_10sdp"
+                    android:maxLines="1"
+                    android:text="Ubah Foto"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
                     android:textStyle="bold"
+                    app:strokeColor="@color/greendark"
+                    app:strokeWidth="@dimen/_1sdp" />
+
+                <TextView
+                    android:id="@+id/iduseredit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="id_user"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Nama"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/_15ssp"
-                    />
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/namalengkapedit"
@@ -104,20 +118,21 @@
                     android:background="@drawable/bg_editext"
                     android:ems="10"
                     android:inputType="text"
-                    android:paddingLeft="@dimen/_15sdp"
                     android:maxLines="1"
-                    android:paddingTop="@dimen/_2sdp"
+                    android:paddingLeft="@dimen/_15sdp"
+                    android:paddingTop="@dimen/_8sdp"
                     android:paddingBottom="@dimen/_8sdp"
-                    android:textSize="@dimen/_15sdp" />
- <TextView
                     android:textColor="@color/black"
-                    android:layout_marginTop="@dimen/_5sdp"
+                    android:textSize="@dimen/_14sdp" />
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:text="No Telepon"
-                    android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/_15ssp"
-                    />
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/teleponedit"
@@ -127,130 +142,168 @@
                     android:background="@drawable/bg_editext"
                     android:ems="10"
                     android:inputType="number"
-                    android:paddingLeft="@dimen/_15sdp"
                     android:maxLines="1"
-                    android:paddingTop="@dimen/_2sdp"
+                    android:paddingLeft="@dimen/_15sdp"
+                    android:paddingTop="@dimen/_8sdp"
                     android:paddingBottom="@dimen/_8sdp"
-                    android:textSize="@dimen/_15sdp" />
-                <TextView
                     android:textColor="@color/black"
-                    android:layout_marginTop="@dimen/_5sdp"
+                    android:textSize="@dimen/_14sdp" />
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:text="Jenis Kelamin"
-                    android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/_15ssp"
-                    />
+                    android:textStyle="bold" />
+
                 <Spinner
-                    android:id="@+id/gender_spinner"
+                    android:id="@+id/gender_spinneredit"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_33sdp"
+                    android:paddingLeft="@dimen/_10sdp"
                     android:background="@drawable/bg_editext"
                     android:popupBackground="@color/gray"
-                    />
-<TableLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <TableRow
-        android:gravity="center_horizontal">
-        <LinearLayout
+                    android:textSize="@dimen/_14ssp"/>
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TableRow android:gravity="center_horizontal">
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
-            <TextView
-                    android:textColor="@color/black"
-                                    android:layout_marginTop="@dimen/_5sdp"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Tempat Lahir"
-                                    android:textStyle="bold"
-                                    android:textSize="@dimen/_15ssp"
-                                    />
 
-            <EditText
-                android:id="@+id/tempatlahiredit"
-                android:layout_width="@dimen/_130sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_marginTop="@dimen/_2sdp"
-                android:background="@drawable/bg_editext"
-                android:ems="10"
-                android:inputType="text"
-                android:maxLines="1"
-                android:paddingLeft="@dimen/_18sdp"
-                android:paddingTop="@dimen/_5sdp"
-                android:paddingBottom="@dimen/_10sdp"
-                android:textSize="@dimen/_15sdp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:text="Tempat Lahir"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_15ssp"
+                                android:textStyle="bold" />
 
-        </LinearLayout>
-        <LinearLayout
+                            <EditText
+                                android:id="@+id/tempatlahiredit"
+                                android:layout_width="@dimen/_130sdp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:background="@drawable/bg_editext"
+                                android:ems="10"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:textAlignment="center"
+                                android:paddingTop="@dimen/_6sdp"
+                                android:paddingBottom="@dimen/_6sdp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_marginLeft="@dimen/_10sdp"
                             android:orientation="vertical">
 
-            <TextView
-                    android:textColor="@color/black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:text="Tanggal Lahir"
-                android:textStyle="bold"
-                android:textSize="@dimen/_15ssp" />
-            <EditText
-                android:id="@+id/tanggaledit"
-                                    android:layout_width="@dimen/_130sdp"
-                                    android:layout_height="@dimen/_30sdp"
-                                    android:layout_marginTop="@dimen/_2sdp"
-                                    android:ems="10"
-                                    android:maxLines="1"
-                                    android:textSize="@dimen/_15sdp"
-                                    android:background="@drawable/bg_editext"
-                                    android:paddingTop="@dimen/_5sdp"
-                                    android:paddingBottom="@dimen/_10sdp"
-                                    android:paddingLeft="@dimen/_18sdp"
-                android:paddingRight="@dimen/_10sdp"
-                android:drawableEnd="@drawable/ic_kalender"/>
-           </LinearLayout>
-    </TableRow>
-</TableLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:text="Tanggal Lahir"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_15ssp"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/tanggaledit"
+                                android:layout_width="@dimen/_130sdp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:background="@drawable/bg_editext"
+                                android:drawableEnd="@drawable/ic_kalender"
+                                android:ems="10"
+                                android:maxLines="1"
+                                android:paddingLeft="@dimen/_15sdp"
+                                android:paddingRight="@dimen/_10sdp"
+                                android:paddingTop="@dimen/_5sdp"
+                                android:paddingBottom="@dimen/_5sdp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp"/>
+                        </LinearLayout>
+                    </TableRow>
+                </TableLayout>
 
                 <TextView
-                    android:textColor="@color/black"
-                    android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:text="Email"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
-                    />
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_17ssp"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/emailedit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:background="@drawable/bg_editext"
                     android:ems="10"
                     android:inputType="textEmailAddress"
-                    android:paddingLeft="18dp"
                     android:maxLines="1"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:textSize="15dp" />
-                <com.google.android.material.button.MaterialButton
-                    android:layout_marginTop="10dp"
-                    android:id="@+id/simpanedit"
-                    android:layout_gravity="end"
-                    android:layout_width="145dp"
-                    android:layout_height="60dp"
-                    android:text="Simpan"
-                    android:textSize="20sp"
-                    app:cornerRadius="10dp"
-                    android:shadowRadius="3"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:backgroundTint="@color/greenold"/>
+                    android:paddingLeft="@dimen/_18sdp"
+                    android:paddingTop="@dimen/_8sdp"
+                    android:paddingBottom="@dimen/_8sdp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:orientation="horizontal">
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_marginTop="@dimen/_30sdp"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        android:id="@+id/bataledit"
+                        android:layout_width="@dimen/_110sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:text="Batal"
+                        android:visibility="invisible"
+                        android:layout_gravity="right"
+                        android:textSize="@dimen/_16ssp"
+                        app:cornerRadius="@dimen/_12sdp"
+                        android:shadowRadius="3"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:backgroundTint="@color/red"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="         "
+                        android:textSize="@dimen/_14ssp"/>
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_marginTop="@dimen/_30sdp"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        android:id="@+id/simpanedit"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:text="Simpan"
+                        android:layout_gravity="left"
+                        android:textSize="@dimen/_16ssp"
+                        app:cornerRadius="@dimen/_12sdp"
+                        android:shadowRadius="3"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:backgroundTint="@color/greenold"/>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

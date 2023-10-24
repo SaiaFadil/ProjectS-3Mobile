@@ -72,6 +72,7 @@ public class HomeFragment extends Fragment {
         viewPager = view.findViewById(R.id.viewPager);
         DashboardAdapter adapter = new DashboardAdapter(getChildFragmentManager());
         viewPager.setAdapter(adapter);
+        viewPager.setCurrentItem(1);
         linearpager = view.findViewById(R.id.linear1);
         tv_eventTerkini = view.findViewById(R.id.tv_eventTerkini);
         textpemberitahuanlayanan = view.findViewById(R.id.textpemberitahuanlayanan);
@@ -132,10 +133,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
-        String namaLengkap = sharedPreferences.getString("nama_lengkap", "");
-        tv_namauser.setText(namaLengkap);
-        tv_namausertengah.setText(namaLengkap);
+        ShowData();
         ImageButton keprofil = view.findViewById(R.id.keprofil);
         ImageButton keprofiltengah = view.findViewById(R.id.keprofiltengah);
         keprofil.setOnClickListener(new View.OnClickListener() {
@@ -177,5 +175,20 @@ public class HomeFragment extends Fragment {
                 }
             }
         });
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // Panggil ShowData setiap kali fragment diresume untuk memastikan tampilan selalu diperbarui
+        ShowData();
+    }
+
+    private void ShowData() {
+        SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
+        String namaLengkap = sharedPreferences.getString("nama_lengkap", "");
+
+        tv_namauser.setText(namaLengkap);
+        tv_namausertengah.setText(namaLengkap);
     }
 }

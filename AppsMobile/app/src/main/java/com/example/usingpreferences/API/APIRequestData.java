@@ -1,5 +1,6 @@
 package com.example.usingpreferences.API;
 
+import com.example.usingpreferences.DataModel.ModelUpdateProfil;
 import com.example.usingpreferences.DataModel.ResponseModelUsers;
 import com.example.usingpreferences.DataModel.UserResponse;
 
@@ -34,6 +35,18 @@ public interface APIRequestData {
             @Field("email") String email,
             @Field("password") String password
     );
+    @FormUrlEncoded
+    @POST("UpdateProfil.php")
+    Call<ModelUpdateProfil> updateUser(
+            @Field("id_user") String idUser,
+            @Field("nama_lengkap") String namaLengkap,
+            @Field("no_telpon") String noTelpon,
+            @Field("jenis_kelamin") String selectedGender,
+            @Field("tanggal_lahir") String tanggalLahir,
+            @Field("tempat_lahir") String tempatLahir,
+            @Field("email") String emailteks
+    );
+
 
 
 

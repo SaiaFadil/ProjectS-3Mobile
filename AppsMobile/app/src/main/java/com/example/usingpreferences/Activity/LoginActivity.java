@@ -55,6 +55,8 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SharedPreferences sharedPreferences = getSharedPreferences("prefLogin", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         setContentView(R.layout.activity_login);
         googleUsers = new GoogleUsers(this);
         Button logingoogle = findViewById(R.id.logingoogle);
@@ -65,8 +67,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        SharedPreferences sharedPreferences = getSharedPreferences("prefLogin", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+
         progressDialog = new ProgressDialog(LoginActivity.this);
         progressDialog.setTitle("Loading...");
         progressDialog.setMessage("Sabar");
@@ -207,7 +208,8 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
+        SharedPreferences sharedPreferences = getSharedPreferences("prefLogin", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         googleUsers.onActivityResult(requestCode, resultCode, data);
 
         if (googleUsers.isAccountSelected()){
@@ -218,7 +220,23 @@ public class LoginActivity extends AppCompatActivity {
                     if (response.body() != null && response.body().getStatus().equalsIgnoreCase("success")) {
 
                         Toast.makeText(getApplicationContext(), "Login berhasil", Toast.LENGTH_SHORT).show();
+                        // Simpan semua data pengguna ke SharedPreferences
+                        ModelUsers user = response.body().getData();
+                        editor.putString("id_user", String.valueOf(user.getId_user()));
+                        editor.putString("nama_lengkap", user.getNama_lengkap());
+                        editor.putString("no_telpon", user.getNo_telpon());
+                        editor.putString("tanggal_lahir", user.getTanggal_lahir());
+                        editor.putString("tempat_lahir", user.getTempat_lahir());
+                        editor.putString("role", user.getRole());
+                        editor.putString("email", user.getEmail());
+                        editor.putString("password", user.getPassword());
+                        editor.putString("verifikasi", user.getVerifikasi());
+                        editor.apply();
+                        Intent pindah = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(pindah);
+                        overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
 
+                        bersihkan();
 
                         // jajalen login
                         startActivity(new Intent(LoginActivity.this, MainActivity.class)); // iki ne sg salah
@@ -235,7 +253,6 @@ public class LoginActivity extends AppCompatActivity {
             });
         }
     }
-
 
 
     private void bersihkan(){

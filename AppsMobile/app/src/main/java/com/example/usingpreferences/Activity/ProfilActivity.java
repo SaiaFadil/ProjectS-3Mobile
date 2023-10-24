@@ -30,23 +30,16 @@ public class ProfilActivity extends AppCompatActivity {
 
             }
         });
-        SharedPreferences sharedPreferences = ProfilActivity.this.getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
-        String namaLengkap = sharedPreferences.getString("nama_lengkap", "");
-        String email = sharedPreferences.getString("email", "");
-        String notelpon = sharedPreferences.getString("no_telpon","");
 
         tvEmail = findViewById(R.id.tv_Emaillengkap);
         tvNama = findViewById(R.id.tv_namalengkap);
         tvNotelp = findViewById(R.id.tv_telponlengkap);
-
-        tvEmail.setText(email);
-        tvNama.setText(namaLengkap);
-        tvNotelp.setText(notelpon);
+        ShowData();
         kembali = findViewById(R.id.kembaliprofil);
         kembali.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             finish();
+                finish();
                 overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
 
 
@@ -88,6 +81,25 @@ public class ProfilActivity extends AppCompatActivity {
 
 
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Panggil ShowData setiap kali aktivitas diresume untuk memastikan tampilan selalu diperbarui
+        ShowData();
+    }
+
+    private void ShowData() {
+        SharedPreferences sharedPreferences = this.getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
+        String namaLengkap = sharedPreferences.getString("nama_lengkap", "");
+        String email = sharedPreferences.getString("email", "");
+        String notelpon = sharedPreferences.getString("no_telpon", "");
+
+        tvEmail.setText(email);
+        tvNama.setText(namaLengkap);
+        tvNotelp.setText(notelpon);
+    }
+
     public void onBackPressed(){
         finish();
         overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
