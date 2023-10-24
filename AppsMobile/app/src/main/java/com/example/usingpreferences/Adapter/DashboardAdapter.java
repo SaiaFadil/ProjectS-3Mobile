@@ -9,9 +9,19 @@ import com.example.usingpreferences.R;
 
 public class DashboardAdapter extends FragmentStatePagerAdapter {
 
+<<<<<<< Updated upstream
     public DashboardAdapter(FragmentManager fm) {
         super(fm);
     }
+=======
+        private static final int NUM_PAGES = 4;
+        private static final int[] BANNER_IMAGES = {
+                R.drawable.banner1,
+                R.drawable.banner4,
+                R.drawable.banner2,
+                R.drawable.banner3
+        };
+>>>>>>> Stashed changes
 
     @Override
     public Fragment getItem(int position) {

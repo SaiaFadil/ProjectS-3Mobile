@@ -261,6 +261,7 @@
                     android:paddingBottom="@dimen/_8sdp"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14sdp" />
+<<<<<<< Updated upstream
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -305,6 +306,52 @@
                         android:backgroundTint="@color/greenold"/>
                 </LinearLayout>
             </LinearLayout>
+=======
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:layout_marginTop="@dimen/_20sdp"
+    android:orientation="horizontal">
+                <com.google.android.material.button.MaterialButton
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:id="@+id/bataledit"
+                    android:layout_width="@dimen/_110sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:text="Batal"
+                    android:visibility="invisible"
+                    android:layout_gravity="right"
+                    android:textSize="@dimen/_16ssp"
+                    app:cornerRadius="@dimen/_12sdp"
+                    android:shadowRadius="3"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:backgroundTint="@color/red"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="         "
+        android:textSize="@dimen/_14ssp"/>
+                <com.google.android.material.button.MaterialButton
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:id="@+id/simpanedit"
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:text="Simpan"
+                    android:layout_gravity="left"
+                    android:textSize="@dimen/_16ssp"
+                    app:cornerRadius="@dimen/_12sdp"
+                    android:shadowRadius="3"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:backgroundTint="@color/greenold"/>
+</LinearLayout>
+</LinearLayout>
+>>>>>>> Stashed changes
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -180,7 +180,11 @@ public class EditProfilActivity extends AppCompatActivity {
                                 // Tampilkan ProgressDialog sebelum penghapusan
 
 
+<<<<<<< Updated upstream
                                 APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
+=======
+                                APIRequestData ardData = RetroServer.konekRetrofit().create(APIRequestData.class);
+>>>>>>> Stashed changes
                                 Call<ModelUpdateProfil> call = ardData.updateUser(idUser, namaLengkap, noTelpon, selectedGender, tanggalLahir, tempatLahir, emailteks);
                                 call.enqueue(new Callback<ModelUpdateProfil>() {
                                     @Override

@@ -3,7 +3,24 @@ package com.example.usingpreferences.DataModel;
 public class ModelUsers {
 
     private int id_user;
-    private String nama_lengkap, no_telpon, tanggal_lahir, tempat_lahir, role, email, password, verifikasi;
+    private String nama_lengkap;
+    private String no_telpon;
+    private String tanggal_lahir;
+    private String tempat_lahir;
+    private String role;
+    private String email;
+    private String password;
+    private String verifikasi;
+
+    public String getJenis_kelamin() {
+        return jenis_kelamin;
+    }
+
+    public void setJenis_kelamin(String jenis_kelamin) {
+        this.jenis_kelamin = jenis_kelamin;
+    }
+
+    private String jenis_kelamin;
 
     public int getId_user() {
         return id_user;

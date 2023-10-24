@@ -83,7 +83,6 @@ public class RegisterActivity extends AppCompatActivity {
         mViewEmail.setFilters(new InputFilter[] { noWhiteSpaceFilter });
         mViewPassword.setFilters(new InputFilter[] { noWhiteSpaceFilter });
         mViewPassword2.setFilters(new InputFilter[] { noWhiteSpaceFilter });
-
         mBtnRegister = findViewById(R.id.button_signupSignup);
         mBtnLogin = findViewById(R.id.button_signinsignin);
         tampilkansandi = findViewById(R.id.checkboxpw);
