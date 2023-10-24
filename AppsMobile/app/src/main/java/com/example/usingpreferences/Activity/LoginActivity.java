@@ -212,37 +212,7 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         googleUsers.onActivityResult(requestCode, resultCode, data);
 
-<<<<<<< Updated upstream
         if (googleUsers.isAccountSelected()){
-=======
-                if (response.body().kode == 1){
-                    progressDialog.show();
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            // Tutup ProgressDialog
-                            progressDialog.dismiss();
-                            // Simpan semua data pengguna ke SharedPreferences
-                            ModelUsers user = response.body().getData().get(0);
-                            editor.putString("id_user", String.valueOf(user.getId_user()));
-                            editor.putString("nama_lengkap", user.getNama_lengkap());
-                            editor.putString("no_telpon", user.getNo_telpon());
-                            editor.putString("jenis_kelamin", user.getJenis_kelamin());
-                            editor.putString("tanggal_lahir", user.getTanggal_lahir());
-                            editor.putString("tempat_lahir", user.getTempat_lahir());
-                            editor.putString("role", user.getRole());
-                            editor.putString("email", user.getEmail());
-                            editor.putString("password", user.getPassword());
-                            editor.putString("verifikasi", user.getVerifikasi());
-                            editor.apply();
-                            Intent pindah = new Intent(LoginActivity.this,MainActivity.class);
-                            startActivity(pindah);
-                            overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
-                        }
-                    }, 2000);
-                    bersihkan();
->>>>>>> Stashed changes
-
             RetroServer.getInstance().google_login(googleUsers.getUserData().getEmail()).enqueue(new Callback<UserResponse>() {
                 @Override
                 public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {

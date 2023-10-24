@@ -177,7 +177,7 @@
                 </com.google.android.material.card.MaterialCardView>
                 <com.google.android.material.card.MaterialCardView
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:id="@+id/cardwebsite"
+                        android:id="@+id/cardwebsite"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_35sdp"
                     android:backgroundTint="@color/greendark"
@@ -193,11 +193,12 @@
                             android:src="@drawable/ic_browser"
                             />
                         <TextView
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="www."
+                            android:text="www.disporabudpar.nganjukkab.go.id"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_14ssp"
+                            android:textSize="@dimen/_12ssp"
                             android:layout_marginLeft="@dimen/_10sdp"
                             android:gravity="center_vertical"/>
                     </LinearLayout>
