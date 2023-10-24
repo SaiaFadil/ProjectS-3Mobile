@@ -72,7 +72,6 @@ public class HomeFragment extends Fragment {
         viewPager = view.findViewById(R.id.viewPager);
         DashboardAdapter adapter = new DashboardAdapter(getChildFragmentManager());
         viewPager.setAdapter(adapter);
-        viewPager.setCurrentItem(100000);
         linearpager = view.findViewById(R.id.linear1);
         tv_eventTerkini = view.findViewById(R.id.tv_eventTerkini);
         textpemberitahuanlayanan = view.findViewById(R.id.textpemberitahuanlayanan);

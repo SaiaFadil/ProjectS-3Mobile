@@ -1,6 +1,7 @@
 package com.example.usingpreferences.API;
 
 import com.example.usingpreferences.DataModel.ResponseModelUsers;
+import com.example.usingpreferences.DataModel.UserResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -20,7 +21,11 @@ public interface APIRequestData {
             @Field("password") String password
     );
 
-
+    @FormUrlEncoded
+    @POST("login_google.php")
+    Call<UserResponse> google_login(
+            @Field("email") String email
+    );
     @FormUrlEncoded
     @POST("Register.php")
     Call<ResponseModelUsers> register(

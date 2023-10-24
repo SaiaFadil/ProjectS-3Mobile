@@ -293,7 +293,7 @@ public class RegisterActivity extends AppCompatActivity {
                 } else {
                     //disini ntar buat kondisi yg nyangkut database
 
-                    APIRequestData ardData = RetroServer.konekRetrofit().create(APIRequestData.class);
+                    APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
                     Call<ResponseModelUsers> getRegisterResponse = ardData.register(mViewNama.getText().toString(), mViewNotlp.getText().toString(), mViewEmail.getText().toString(), mViewPassword.getText().toString());
                     getRegisterResponse.enqueue(new Callback<ResponseModelUsers>() {
                         @Override

@@ -36,7 +36,7 @@ private TextInputEditText emailkode;
                 }else if(!email.endsWith("@gmail.com")){
                     emailkode.setError("Email Tidak Valid!");
                 }else{
-                    APIRequestData ardData = RetroServer.konekRetrofit().create(APIRequestData.class);
+                    APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
 //                    Call<ResponseModelUsers> getLoginResponse = ardData.
                     Intent pindah = new Intent(LupaKatasandi.   this, KodeOtp.class);
                     startActivity(pindah);
