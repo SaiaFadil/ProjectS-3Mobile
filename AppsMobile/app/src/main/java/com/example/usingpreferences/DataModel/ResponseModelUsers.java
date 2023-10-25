@@ -1,13 +1,23 @@
 package com.example.usingpreferences.DataModel;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class ResponseModelUsers {
 
+    @Expose
+    @SerializedName("kode")
     public int kode;
 
+    @Expose
+    @SerializedName("pesan")
     public String pesan;
-    private List<ModelUsers> data;
+
+    @Expose
+    @SerializedName("data")
+    private ModelUsers data;
 
 
     public int getKode() {
@@ -26,11 +36,11 @@ public class ResponseModelUsers {
         this.pesan = pesan;
     }
 
-    public List<ModelUsers> getData() {
+    public ModelUsers getData() {
         return data;
     }
 
-    public void setData(List<ModelUsers> data) {
+    public void setData(ModelUsers data) {
         this.data = data;
     }
 

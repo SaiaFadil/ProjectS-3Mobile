@@ -1,53 +1,39 @@
 <?php
 require('Koneksi.php');
 
-// Menerima data dari aplikasi Android
-$em = $_POST['email']; // 'email' harus sesuai dengan key yang dikirim dari Android
-$pas = $_POST['password']; // 'password' harus sesuai dengan key yang dikirim dari Android
+header("Content-Type: application/json");
 
-$perintah = "SELECT * FROM `users` WHERE email = '$em';";
-$eksekusi = mysqli_query($konek, $perintah);
-$cek = mysqli_affected_rows($konek);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    
+    // Lakukan sanitasi input untuk mencegah SQL injection (gunakan prepared statement jika memungkinkan)
+    $email = mysqli_real_escape_string($konek, $email);
+    $password = mysqli_real_escape_string($konek, $password);
+    
+    $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password' LIMIT 1";
+    $result = $konek->query($sql);
 
-$response = array();
+    if ($result->num_rows == 1) {
+        $user = $result->fetch_assoc();
+        $role_db = $user['role'];
 
-if ($cek > 0) {
-    $ambil = mysqli_fetch_object($eksekusi);
-    $password_db = $ambil->password;
-    $role_db = $ambil->role;
-    if ($pas == $password_db) {
         if ($role_db == 'masyarakat') {
-
-            // Password benar
             $response["kode"] = 1;
             $response["pesan"] = "Data Tersedia";
-            $response["data"] = array();
-            $F["id_user"] = $ambil->id_user;
-            $F["nama_lengkap"] = $ambil->nama_lengkap;
-            $F["no_telpon"] = $ambil->no_telpon;
-            $F["tanggal_lahir"] = $ambil->tanggal_lahir;
-            $F["tempat_lahir"] = $ambil->tempat_lahir;
-            $F["role"] = $ambil->role;
-            $F["email"] = $ambil->email;
-            $F["password"] = $ambil->password;
-            $F["verifikasi"] = $ambil->verifikasi;
-            array_push($response["data"], $F);
+            $response["data"] = $user;
         } else {
             $response["kode"] = 3;
             $response["pesan"] = "User Bukan Masyarakat";
         }
     } else {
-        // Password salah
         $response["kode"] = 2;
-        $response["pesan"] = "Password Salah";
+        $response["pesan"] = "Email atau Password Salah";
     }
 } else {
-    // Email tidak ditemukan di database
-    $response["kode"] = 0;
-    $response["pesan"] = "Data Tidak Tersedia";
+    $response = array("kode" => 2, "pesan" => "Metode tidak valid");
 }
 
 echo json_encode($response);
 mysqli_close($konek);
-
 ?>

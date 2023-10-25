@@ -284,9 +284,9 @@ public class EditProfilActivity extends AppCompatActivity {
         nama_lengkap.setText(namaLengkapget);
         no_telpon.setText(noteleponget);
 
-        if (jeniskelaminget.equals("laki-laki")) {
+        if (jeniskelaminget.endsWith("aki-laki")) {
             genderSpinner.setSelection(1);
-        } else if (jeniskelaminget.equals("perempuan")) {
+        } else if (jeniskelaminget.endsWith("erempuan")) {
             genderSpinner.setSelection(2);
         }
         tempat_lahir.setText(tempatlahirget);

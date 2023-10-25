@@ -15,6 +15,7 @@ if($cek > 0){
         $F["id_user"] = $ambil->id_user;
         $F["nama_lengkap"] = $ambil->nama_lengkap;
         $F["no_telpon"] = $ambil->no_telpon;
+        $F["jenis_kelamin"] = $ambil->jenis_kelamin;
         $F["tanggal_lahir"] = $ambil->tanggal_lahir;
         $F["tempat_lahir"] = $ambil->tempat_lahir;
         $F["role"] = $ambil->role;

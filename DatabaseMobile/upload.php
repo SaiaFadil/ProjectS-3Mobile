@@ -24,21 +24,6 @@
 
    echo json_encode($response);
      }
- }else if($action == "base64") {
-  $photo = htmlspecialchars($_POST['photo']);
-
-  $photo = str_replace('data:image/png;base64,', '', $photo);
-  $photo = str_replace(' ', '+', $photo);
-
-  $data = base64_decode($photo);
-  $file = uniqid() . '.png';
-
-  file_put_contents($file, $data);
-
-  $response["success"] = TRUE;
-  $response["message"] = "Upload Successfull";
-  
-  echo json_encode($response);
  }
 
 ?>

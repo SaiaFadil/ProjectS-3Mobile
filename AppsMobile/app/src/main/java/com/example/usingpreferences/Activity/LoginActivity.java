@@ -49,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private Button loginbutton,lupapassword;
     TextView registerbutton;
+    TextView tekserror;
     private final boolean[] isPasswordVisible = {false};
     @SuppressLint("ResourceType")
     @Override
@@ -57,6 +58,7 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("prefLogin", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         setContentView(R.layout.activity_login);
+        tekserror = findViewById(R.id.texterror);
         googleUsers = new GoogleUsers(this);
         Button logingoogle = findViewById(R.id.logingoogle);
         logingoogle.setOnClickListener(new View.OnClickListener() {
@@ -65,8 +67,6 @@ public class LoginActivity extends AppCompatActivity {
                 startActivityForResult(googleUsers.getIntent(), GoogleUsers.REQUEST_CODE);
             }
         });
-
-
         progressDialog = new ProgressDialog(LoginActivity.this);
         progressDialog.setTitle("Loading...");
         progressDialog.setMessage("Harap Tunggu");
@@ -93,8 +93,6 @@ public class LoginActivity extends AppCompatActivity {
         };
         mViewPassword.setFilters(new InputFilter[]{noWhiteSpaceFilter});
         mViewUser.setFilters(new InputFilter[]{noWhiteSpaceFilter});
-
-
         lupapassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -159,7 +157,7 @@ public class LoginActivity extends AppCompatActivity {
                                         // Tutup ProgressDialog
                                         progressDialog.dismiss();
                                         // Simpan semua data pengguna ke SharedPreferences
-                                        ModelUsers user = response.body().getData().get(0);
+                                        ModelUsers user = response.body().getData();
                                         editor.putString("id_user", String.valueOf(user.getId_user()));
                                         editor.putString("nama_lengkap", user.getNama_lengkap());
                                         editor.putString("no_telpon", user.getNo_telpon());
@@ -183,7 +181,7 @@ public class LoginActivity extends AppCompatActivity {
                             }else if (response.body().kode == 2) {
                                 mViewPassword.requestFocus();
                                 Toast.makeText(LoginActivity.this, "Password Salah!!", Toast.LENGTH_SHORT).show();
-                            }else if(response.body().kode == 3 ){
+                            }else if(response.body().kode == 3){
                                 mViewUser.requestFocus();
                                 Toast.makeText(LoginActivity.this, "Akun Admin Tidak dapat login ke Aplikasi Mobile", Toast.LENGTH_SHORT).show();
                             }
@@ -192,6 +190,7 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onFailure(Call<ResponseModelUsers> call, Throwable t) {
                             Toast.makeText(LoginActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                            t.printStackTrace();
                         }
                     });
 
@@ -200,8 +199,6 @@ public class LoginActivity extends AppCompatActivity {
             }
 
         });
-//Kode agar fullscreen
-
     }
 
     @Override
@@ -210,54 +207,59 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("prefLogin", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         googleUsers.onActivityResult(requestCode, resultCode, data);
+        APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
+        Call<ResponseModelUsers> getLoginResponse = ardData.google_login(googleUsers.getUserData().getEmail());
+        getLoginResponse.enqueue(new Callback<ResponseModelUsers>() {
+            @Override
+            public void onResponse(Call<ResponseModelUsers> call, Response<ResponseModelUsers> response) {
+                if (response.body().getKode() == 1) {
+                    Toast.makeText(getApplicationContext(), "Login berhasil", Toast.LENGTH_SHORT).show();
+                    // Simpan semua data pengguna ke SharedPreferences
+                    ModelUsers user = response.body().getData();
+                    editor.putString("id_user", String.valueOf(user.getId_user()));
+                    editor.putString("nama_lengkap", user.getNama_lengkap());
+                    editor.putString("no_telpon", user.getNo_telpon());
+                    editor.putString("tanggal_lahir", user.getTanggal_lahir());
+                    editor.putString("tempat_lahir", user.getTempat_lahir());
+                    editor.putString("role", user.getRole());
+                    editor.putString("email", user.getEmail());
+                    editor.putString("password", user.getPassword());
+                    editor.putString("verifikasi", user.getVerifikasi());
+                    editor.apply();
+                    Intent pindah = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(pindah);
 
-        if (googleUsers.isAccountSelected()){
-            RetroServer.getInstance().google_login(googleUsers.getUserData().getEmail()).enqueue(new Callback<ResponseModelUsers>() {
-                @Override
-                public void onResponse(Call<ResponseModelUsers> call, Response<ResponseModelUsers> response) {
-                    if (response.body() != null && response.body().getKode() == 1) {
+                    overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
 
-                        Toast.makeText(getApplicationContext(), "Login berhasil", Toast.LENGTH_SHORT).show();
-                        // Simpan semua data pengguna ke SharedPreferences
-                        ModelUsers user = (ModelUsers) response.body().getData();
-                        editor.putString("id_user", String.valueOf(user.getId_user()));
-                        editor.putString("nama_lengkap", user.getNama_lengkap());
-                        editor.putString("no_telpon", user.getNo_telpon());
-                        editor.putString("tanggal_lahir", user.getTanggal_lahir());
-                        editor.putString("tempat_lahir", user.getTempat_lahir());
-                        editor.putString("role", user.getRole());
-                        editor.putString("email", user.getEmail());
-                        editor.putString("password", user.getPassword());
-                        editor.putString("verifikasi", user.getVerifikasi());
-                        editor.apply();
-                        Intent pindah = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(pindah);
+                    bersihkan();
 
-                        overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                } else if (response.body().getKode() == 2){
+                    Toast.makeText(getApplicationContext(), response.body().getPesan(), Toast.LENGTH_SHORT).show();
+                }else if (response.body().getKode() == 0){
+                    startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+                    Toast.makeText(getApplicationContext(), response.body().getPesan(), Toast.LENGTH_SHORT).show();
 
-                        bersihkan();
+                }else if (response.body().getKode() == 3){
+                    Toast.makeText(getApplicationContext(), response.body().getPesan(), Toast.LENGTH_SHORT).show();
 
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                    } else if (response.body() != null && response.body().getKode() == 2){
-                        Toast.makeText(getApplicationContext(), response.body().getPesan(), Toast.LENGTH_SHORT).show();
-                    }else if (response.body() != null && response.body().getKode() == 0){
-                        startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
-                        Toast.makeText(getApplicationContext(), response.body().getPesan(), Toast.LENGTH_SHORT).show();
-
-                    }else if (response.body() != null && response.body().getKode() == 3){
-                        startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
-                        overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
-
-                    }
+                }else{
+                    Toast.makeText(LoginActivity.this, "Kesalahannn", Toast.LENGTH_SHORT).show();
                 }
+            }
 
-                @Override
-                public void onFailure(Call<ResponseModelUsers> call, Throwable t) {
-                    t.printStackTrace();
-                }
-            });
-        }
+            @Override
+            public void onFailure(Call<ResponseModelUsers> call, Throwable t) {
+                t.printStackTrace();
+                tekserror.setVisibility(View.VISIBLE);
+                tekserror.setText(t.getMessage());
+            }
+        });
     }
+
+
+
+
 
 
     private void bersihkan(){

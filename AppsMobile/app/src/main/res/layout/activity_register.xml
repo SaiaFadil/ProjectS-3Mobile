@@ -59,7 +59,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_namaSignup"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
+                    android:layout_height="wrap_content"
                     android:inputType="text"
                     android:maxLines="1"
                     android:singleLine="true"
@@ -85,7 +85,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_nohpSignup"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
+                    android:layout_height="wrap_content"
                     android:inputType="phone"
                     android:maxLines="1"
                     android:singleLine="true"
@@ -111,7 +111,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_emailSignup"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
+                    android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:singleLine="true"
@@ -138,7 +138,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_passwordSignup"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_40sdp"
+                android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:singleLine="true"
@@ -164,7 +164,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_passwordSignup2"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
+                    android:layout_height="wrap_content"
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:singleLine="true"
