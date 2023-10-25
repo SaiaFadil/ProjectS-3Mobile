@@ -2,7 +2,6 @@ package com.example.usingpreferences.API;
 
 import com.example.usingpreferences.DataModel.ModelUpdateProfil;
 import com.example.usingpreferences.DataModel.ResponseModelUsers;
-import com.example.usingpreferences.DataModel.UserResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -24,7 +23,7 @@ public interface APIRequestData {
 
     @FormUrlEncoded
     @POST("login_google.php")
-    Call<UserResponse> google_login(
+    Call<ResponseModelUsers> google_login(
             @Field("email") String email
     );
     @FormUrlEncoded

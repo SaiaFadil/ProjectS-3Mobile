@@ -28,7 +28,6 @@ import com.example.usingpreferences.API.RetroServer;
 import com.example.usingpreferences.API.google.GoogleUsers;
 import com.example.usingpreferences.DataModel.ModelUsers;
 import com.example.usingpreferences.DataModel.ResponseModelUsers;
-import com.example.usingpreferences.DataModel.UserResponse;
 import com.example.usingpreferences.MenuFragment.HomeFragment;
 import com.example.usingpreferences.R;
 import com.google.android.gms.auth.api.Auth;
@@ -213,14 +212,14 @@ public class LoginActivity extends AppCompatActivity {
         googleUsers.onActivityResult(requestCode, resultCode, data);
 
         if (googleUsers.isAccountSelected()){
-            RetroServer.getInstance().google_login(googleUsers.getUserData().getEmail()).enqueue(new Callback<UserResponse>() {
+            RetroServer.getInstance().google_login(googleUsers.getUserData().getEmail()).enqueue(new Callback<ResponseModelUsers>() {
                 @Override
-                public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
-                    if (response.body() != null && response.body().getStatus().equalsIgnoreCase("success")) {
+                public void onResponse(Call<ResponseModelUsers> call, Response<ResponseModelUsers> response) {
+                    if (response.body() != null && response.body().getKode() == 1) {
 
                         Toast.makeText(getApplicationContext(), "Login berhasil", Toast.LENGTH_SHORT).show();
                         // Simpan semua data pengguna ke SharedPreferences
-                        ModelUsers user = response.body().getData();
+                        ModelUsers user = (ModelUsers) response.body().getData();
                         editor.putString("id_user", String.valueOf(user.getId_user()));
                         editor.putString("nama_lengkap", user.getNama_lengkap());
                         editor.putString("no_telpon", user.getNo_telpon());
@@ -233,20 +232,27 @@ public class LoginActivity extends AppCompatActivity {
                         editor.apply();
                         Intent pindah = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(pindah);
+
                         overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
 
                         bersihkan();
 
-                        // jajalen login
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class)); // iki ne sg salah
-                    } else {
-                        Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    } else if (response.body() != null && response.body().getKode() == 2){
+                        Toast.makeText(getApplicationContext(), response.body().getPesan(), Toast.LENGTH_SHORT).show();
+                    }else if (response.body() != null && response.body().getKode() == 0){
                         startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+                        Toast.makeText(getApplicationContext(), response.body().getPesan(), Toast.LENGTH_SHORT).show();
+
+                    }else if (response.body() != null && response.body().getKode() == 3){
+                        startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+                        overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+
                     }
                 }
 
                 @Override
-                public void onFailure(Call<UserResponse> call, Throwable t) {
+                public void onFailure(Call<ResponseModelUsers> call, Throwable t) {
                     t.printStackTrace();
                 }
             });
