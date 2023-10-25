@@ -12,13 +12,7 @@ public class DashboardAdapter extends FragmentStatePagerAdapter {
     public DashboardAdapter(FragmentManager fm) {
         super(fm);
     }
-        private static final int NUM_PAGES = 4;
-        private static final int[] BANNER_IMAGES = {
-                R.drawable.banner1,
-                R.drawable.banner4,
-                R.drawable.banner2,
-                R.drawable.banner3
-        };
+
 
     @Override
     public Fragment getItem(int position) {
@@ -33,6 +27,8 @@ public class DashboardAdapter extends FragmentStatePagerAdapter {
             return BannerFragment.newInstance(R.drawable.banner2);
         } else if (newPosition == 3) {
             return BannerFragment.newInstance(R.drawable.banner3);
+        } else if (newPosition == 4) {
+            return BannerFragment.newInstance(R.drawable.banner5);
         }
 
         return null;
@@ -42,6 +38,6 @@ public class DashboardAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 4; // Jumlah gambar yang dapat digeser
+        return 5; // Jumlah gambar yang dapat digeser
     }
 }
