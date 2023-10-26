@@ -310,9 +310,6 @@ public class RegisterActivity extends AppCompatActivity {
 
                                         // Buat Intent
                                         Intent pindah = new Intent(RegisterActivity.this, BerhasilDaftar.class);
-
-                                        // Kirim email ke LoginActivity
-                                        pindah.putExtra("email", email);
                                         startActivity(pindah);
                                         overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
 

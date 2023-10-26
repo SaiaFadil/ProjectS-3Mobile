@@ -133,7 +133,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        ShowData();
+//        ShowData();
         ImageButton keprofil = view.findViewById(R.id.keprofil);
         ImageButton keprofiltengah = view.findViewById(R.id.keprofiltengah);
         keprofil.setOnClickListener(new View.OnClickListener() {
@@ -170,7 +170,7 @@ public class HomeFragment extends Fragment {
                     cardviewatas.setVisibility(View.GONE);
                     cardviewtengah.setVisibility(View.VISIBLE);
                 }
-                if (posisiY < 70) {
+                if (posisiY < 50) {
                     layoutevent.startAnimation(fadeIndown);
                 }
             }
@@ -181,7 +181,7 @@ public class HomeFragment extends Fragment {
         super.onResume();
 
         // Panggil ShowData setiap kali fragment diresume untuk memastikan tampilan selalu diperbarui
-        ShowData();
+//        ShowData();
     }
 
     private void ShowData() {

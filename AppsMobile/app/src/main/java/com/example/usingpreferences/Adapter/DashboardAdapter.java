@@ -22,13 +22,13 @@ public class DashboardAdapter extends FragmentStatePagerAdapter {
         if (newPosition == 0) {
             return BannerFragment.newInstance(R.drawable.banner1);
         } else if (newPosition == 1) {
-            return BannerFragment.newInstance(R.drawable.banner4);
-        } else if (newPosition == 2) {
             return BannerFragment.newInstance(R.drawable.banner2);
+        } else if (newPosition == 2) {
+            return BannerFragment.newInstance(R.drawable.banner4);
         } else if (newPosition == 3) {
-            return BannerFragment.newInstance(R.drawable.banner3);
-        } else if (newPosition == 4) {
             return BannerFragment.newInstance(R.drawable.banner5);
+        } else if (newPosition == 4) {
+            return BannerFragment.newInstance(R.drawable.banner3);
         }
 
         return null;

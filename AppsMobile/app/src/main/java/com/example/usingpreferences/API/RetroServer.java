@@ -18,15 +18,6 @@ public class RetroServer {
                                // http:// ip internetmu /HufflePuff/DatabaseMobile/
 
 
-//    public static final String BASE_URL = "http://172.16.106.70/pertama/";
-
-
-//    public static final String BASE_URL = "http://172.16.106.58/arenafinder/";
-
-
-    public static final String SUCCESSFUL_RESPONSE = "success";
-
-
     @NonNull
     public static APIRequestData getInstance(){
         return getConnection().create(APIRequestData.class);

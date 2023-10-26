@@ -27,6 +27,16 @@ public class PusatBantuanProfil extends AppCompatActivity {
                 overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
             }
         });
+         MaterialCardView cardinstagram = findViewById(R.id.cardinstagram);
+        cardinstagram.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String linkig = "https://instagram.com/dinasporabudpar_nganjuk?igshid=NHR2dHVlYmo2eTJr";
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(linkig));
+                startActivity(intent);
+                overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+            }
+        });
         ImageButton profilback = findViewById(R.id.profilback);
         profilback.setOnClickListener(new View.OnClickListener() {
             @Override

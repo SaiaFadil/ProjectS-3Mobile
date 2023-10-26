@@ -10,7 +10,7 @@ import com.example.usingpreferences.MenuFragment.StatusSelesai;
 import com.example.usingpreferences.MenuFragment.StatusSemua;
 import com.example.usingpreferences.MenuFragment.StatusDiajukan;
 
-public class StatusTabAdapter  extends FragmentPagerAdapter {
+public class StatusTabAdapter extends FragmentPagerAdapter {
 
     public StatusTabAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);

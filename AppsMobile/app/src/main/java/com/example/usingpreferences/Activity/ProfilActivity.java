@@ -34,7 +34,7 @@ public class ProfilActivity extends AppCompatActivity {
         tvEmail = findViewById(R.id.tv_Emaillengkap);
         tvNama = findViewById(R.id.tv_namalengkap);
         tvNotelp = findViewById(R.id.tv_telponlengkap);
-        ShowData();
+//        ShowData();
         kembali = findViewById(R.id.kembaliprofil);
         kembali.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,7 +85,6 @@ public class ProfilActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        // Panggil ShowData setiap kali aktivitas diresume untuk memastikan tampilan selalu diperbarui
         ShowData();
     }
 

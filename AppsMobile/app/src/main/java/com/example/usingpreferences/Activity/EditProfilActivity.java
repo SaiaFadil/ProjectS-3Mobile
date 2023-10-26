@@ -115,11 +115,10 @@ public class EditProfilActivity extends AppCompatActivity {
                 ShowData();
             }
         });
-        ShowData();//Tampil
+        ShowData();
         simpanupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Ambil data dari input pengguna
                 String idUser = id_user.getText().toString().trim();
                 String namaLengkap = nama_lengkap.getText().toString().trim();
                 String noTelpon = no_telpon.getText().toString().trim();
@@ -128,7 +127,6 @@ public class EditProfilActivity extends AppCompatActivity {
                 String emailteks = email.getText().toString().trim();
                 String selectedGender = genderSpinner.getSelectedItem().toString();
 
-                // Ambil data dari SharedPreferences
                 SharedPreferences sharedPreferences = EditProfilActivity.this.getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
                 String idUserShared = sharedPreferences.getString("id_user", "");
                 String namaLengkapShared = sharedPreferences.getString("nama_lengkap", "");
@@ -138,10 +136,6 @@ public class EditProfilActivity extends AppCompatActivity {
                 String emailShared = sharedPreferences.getString("email", "");
                 String selectedGenderShared = sharedPreferences.getString("jenis_kelamin", "");
 
-
-
-
-                // Mulai validasi
                 if (idUser.equals(idUserShared) &&
                         namaLengkap.equals(namaLengkapShared) &&
                         noTelpon.equals(noTelponShared) &&
@@ -149,11 +143,8 @@ public class EditProfilActivity extends AppCompatActivity {
                         tanggalLahir.equals(tanggalLahirShared) &&
                         emailteks.equals(emailShared) &&
                         selectedGender.equals(selectedGenderShared)) {
-
-                    // Tidak ada perubahan
                     Toast.makeText(EditProfilActivity.this, "Tidak ada perubahan", Toast.LENGTH_SHORT).show();
                 } else {
-                    // Ada perubahan, lanjutkan dengan pembaruan data
                     if (idUser.isEmpty() || namaLengkap.isEmpty() || noTelpon.isEmpty() || tempatLahir.isEmpty() ||
                             tanggalLahir.isEmpty() || emailteks.isEmpty() || selectedGender.equals("Pilih Jenis Kelamin")) {
 
@@ -170,8 +161,6 @@ public class EditProfilActivity extends AppCompatActivity {
                     } else if (noTelpon.length() >= 15) {
                         no_telpon.setError("No Telpon Maksimum 15");
                     } else {
-
-
                         AlertDialog.Builder builder = new AlertDialog.Builder(EditProfilActivity.this);
                         builder.setMessage("Apakah Anda Yakin Mengubah Profil Anda?");
                         builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
@@ -208,8 +197,7 @@ public class EditProfilActivity extends AppCompatActivity {
                                                                         editor.putString("email", emailteks);
                                                                         editor.putString("jenis_kelamin", selectedGender);
 
-                                                                        editor.apply(); // Simpan perubahan
-                                                                        // Panggil ShowData untuk menampilkan data yang telah diperbarui
+                                                                        editor.apply();
                                                                         ShowData();
                                                                         dialog.dismiss();
                                                                     }
@@ -259,8 +247,9 @@ public class EditProfilActivity extends AppCompatActivity {
                     }
                 }
             }
-        });
 
+        });
+//
 
 
     }
@@ -295,6 +284,4 @@ public class EditProfilActivity extends AppCompatActivity {
 
 
     }
-
-
 }

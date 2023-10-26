@@ -20,7 +20,8 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:text="SELAMAT DATANG KE\n --NGANJUK ELOK--"
-                android:textSize="@dimen/_28ssp"
+                android:textSize="@dimen/_20ssp"
+                android:fontFamily="@font/robotomedium"
                 android:layout_marginTop="@dimen/_25sdp"
                 android:gravity="center_horizontal"
                 android:textStyle="bold"
@@ -58,7 +59,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_emailSignin"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
+                    android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:singleLine="true"
@@ -82,7 +83,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_passwordSignin"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
+                    android:layout_height="wrap_content"
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:singleLine="true"
