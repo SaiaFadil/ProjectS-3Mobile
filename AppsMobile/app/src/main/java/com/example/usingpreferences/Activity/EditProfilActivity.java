@@ -59,8 +59,7 @@ public class EditProfilActivity extends AppCompatActivity {
         nama_lengkap = findViewById(R.id.namalengkapedit);
         no_telpon = findViewById(R.id.teleponedit);
         genderSpinner = findViewById(R.id.gender_spinneredit);
-        float textSize = getResources().getDimension(com.intuit.ssp.R.dimen._14ssp);
-        genderSpinner.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+//        float textSize = getResources().getDimension(com.intuit.ssp.R.dimen._14ssp);
         tempat_lahir = findViewById(R.id.tempatlahiredit);
         email = findViewById(R.id.emailedit);
         tanggallahiredit = findViewById(R.id.tanggaledit);

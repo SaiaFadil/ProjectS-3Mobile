@@ -268,12 +268,62 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Peta Wisata Kabupaten Nganjuk"
+                android:textSize="@dimen/_16ssp"
+                android:textColor="@color/greendark"
+                android:fontFamily="sans-serif"
+                android:id="@+id/petanganjukteks"
+                android:layout_below="@+id/tabellayout"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:shadowColor="#50000000"
+                android:shadowDx="2"
+                android:shadowDy="5"
+                android:shadowRadius="4"
+                android:layout_marginBottom="-10dp"
+            />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/petanganjukgambar"
+                android:layout_below="@+id/petanganjukteks"
+                app:strokeColor="@color/graydark"
+                app:strokeWidth="@dimen/_1sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100sdp"
+                android:backgroundTint="@color/gray"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:outlineAmbientShadowColor="@color/greendark"
+                app:cardElevation="@dimen/_10sdp"
+                app:cardMaxElevation="@dimen/_20sdp"
+                app:cardCornerRadius="@dimen/_10sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="left">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/homepeta"/>
+
+
+                </LinearLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+                  <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="Event Terkini"
                 android:textSize="@dimen/_16ssp"
                 android:textColor="@color/greendark"
                 android:fontFamily="sans-serif"
                 android:id="@+id/tv_eventTerkini"
-                android:layout_below="@+id/tabellayout"
+                android:layout_below="@+id/petanganjukgambar"
                 android:textStyle="bold"
                 android:layout_marginLeft="@dimen/_20sdp"
                 android:shadowColor="#50000000"

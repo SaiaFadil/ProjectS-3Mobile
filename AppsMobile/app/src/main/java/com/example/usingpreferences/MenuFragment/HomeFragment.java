@@ -3,6 +3,7 @@ package com.example.usingpreferences.MenuFragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +38,7 @@ public class HomeFragment extends Fragment {
     ScrollView scrollView;
     MaterialCardView card1;
     LinearLayout layoutevent,linearpager;
+    MaterialCardView petanganjukgambar;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
@@ -86,6 +88,8 @@ public class HomeFragment extends Fragment {
         cardinduk = view.findViewById(R.id.cardinduk);
         cardizin = view.findViewById(R.id.cardizin);
         card1 = view.findViewById(R.id.card1);
+        TextView petanganjukteks = view.findViewById(R.id.petanganjukteks);
+        petanganjukgambar = view.findViewById(R.id.petanganjukgambar);
         layoutevent = view.findViewById(R.id.layoutevent);
         layoutdown = AnimationUtils.loadAnimation(requireContext(), R.anim.layout_in);
         fadeIn = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_in);
@@ -97,6 +101,17 @@ public class HomeFragment extends Fragment {
         cardinduk.startAnimation(fadeIndown);
         cardizin.startAnimation(fadeIndown);
         cardviewtengah.startAnimation(fadeIndown);
+        petanganjukteks.startAnimation(fadeIndown);
+        petanganjukgambar.startAnimation(fadeIndown);
+        petanganjukgambar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String linkmap = "https://www.google.com/maps/d/embed?mid=1IYUlu0sTwMb5QQ10uwPV8sjADGdAvBEk&ehbc=2E312F";
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(linkmap));
+                getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+                startActivity(intent);
+            }
+        });
         card1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -171,6 +186,9 @@ public class HomeFragment extends Fragment {
                     cardviewtengah.setVisibility(View.VISIBLE);
                 }
                 if (posisiY < 70) {
+                    petanganjukgambar.startAnimation(fadeIndown);
+                }
+                if (posisiY < 100) {
                     layoutevent.startAnimation(fadeIndown);
                 }
             }
