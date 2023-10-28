@@ -196,6 +196,7 @@
                                 android:ems="10"
                                 android:inputType="text"
                                 android:maxLines="1"
+                                android:paddingLeft="@dimen/_15sdp"
                                 android:textAlignment="textStart"
                                 android:paddingTop="@dimen/_6sdp"
                                 android:paddingBottom="@dimen/_6sdp"

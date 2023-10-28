@@ -2,7 +2,9 @@ package com.example.usingpreferences.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -45,16 +47,14 @@ public class ProfilActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ProfilActivity.this,LoginActivity.class));
-                overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
 
+                ClearDataOnLogout();
             }
         });
 
         tvEmail = findViewById(R.id.tv_Emaillengkap);
         tvNama = findViewById(R.id.tv_namalengkap);
         tvNotelp = findViewById(R.id.tv_telponlengkap);
-//        ShowData();
         kembali = findViewById(R.id.kembaliprofil);
         kembali.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +76,8 @@ public class ProfilActivity extends AppCompatActivity {
             }
         });
 
+
+
         MaterialButton GantiPassword = findViewById(R.id.GantiPassword);
         GantiPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +88,8 @@ public class ProfilActivity extends AppCompatActivity {
 
             }
         });
+
+
 
         MaterialButton PusatBantuan = findViewById(R.id.pusatbantuan);
         PusatBantuan.setOnClickListener(new View.OnClickListener() {
@@ -113,12 +117,44 @@ public class ProfilActivity extends AppCompatActivity {
         String namaLengkap = sharedPreferences.getString("nama_lengkap", "");
         String email = sharedPreferences.getString("email", "");
         String notelpon = sharedPreferences.getString("no_telpon", "");
-
         tvEmail.setText(email);
         tvNama.setText(namaLengkap);
         tvNotelp.setText(notelpon);
     }
+private void ClearDataOnLogout(){
 
+    AlertDialog.Builder builder = new AlertDialog.Builder(ProfilActivity.this);
+    builder.setMessage("Apakah Anda Yakin ingin Keluar Aplikasi Anda?");
+    builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            SharedPreferences sharedPreferencesedit = ProfilActivity.this.getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferencesedit.edit();
+            editor.putString("id_user", null);
+            editor.putString("nama_lengkap", null);
+            editor.putString("no_telpon", null);
+            editor.putString("jenis_kelamin", null);
+            editor.putString("tempat_lahir", null);
+            editor.putString("tanggal_lahir", null);
+            editor.putString("email", null);
+            editor.putString("password", null);
+            editor.apply();
+            startActivity(new Intent(ProfilActivity.this, LoginActivity.class));
+            overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+        }
+
+    });
+    builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            dialog.dismiss();
+        }
+    });
+
+    AlertDialog alertDialog = builder.create();
+    alertDialog.show();
+
+}
     public void onBackPressed(){
         finish();
         overridePendingTransition(R.anim.layout_in, R.anim.layout_out);

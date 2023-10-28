@@ -59,4 +59,8 @@ public class TentangKamiActivity extends AppCompatActivity {
         });
 
     }
+    public void onBackPressed(){
+        finish();
+        overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+    }
 }

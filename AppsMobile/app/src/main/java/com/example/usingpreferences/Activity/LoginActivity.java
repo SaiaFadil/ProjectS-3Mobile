@@ -163,17 +163,19 @@ public class LoginActivity extends AppCompatActivity {
                                         editor.putString("no_telpon", user.getNo_telpon());
                                         editor.putString("tanggal_lahir", user.getTanggal_lahir());
                                         editor.putString("tempat_lahir", user.getTempat_lahir());
+                                        editor.putString("jenis_kelamin", user.getJenis_kelamin());
                                         editor.putString("role", user.getRole());
                                         editor.putString("email", user.getEmail());
                                         editor.putString("password", user.getPassword());
                                         editor.putString("verifikasi", user.getVerifikasi());
                                         editor.apply();
+                                        bersihkan();
                                         Intent pindah = new Intent(LoginActivity.this,MainActivity.class);
                                         startActivity(pindah);
                                         overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
                                     }
                                 }, 2000);
-                                bersihkan();
+
 
                             }else if (response.body().kode == 0) {
                                 mViewUser.requestFocus();
@@ -219,6 +221,7 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putString("id_user", String.valueOf(user.getId_user()));
                     editor.putString("nama_lengkap", user.getNama_lengkap());
                     editor.putString("no_telpon", user.getNo_telpon());
+                    editor.putString("jenis_kelamin", user.getJenis_kelamin());
                     editor.putString("tanggal_lahir", user.getTanggal_lahir());
                     editor.putString("tempat_lahir", user.getTempat_lahir());
                     editor.putString("role", user.getRole());

@@ -15,6 +15,7 @@ import android.text.InputFilter;
 import android.text.InputType;
 import android.text.Spanned;
 import android.text.TextWatcher;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -58,6 +59,8 @@ public class EditProfilActivity extends AppCompatActivity {
         nama_lengkap = findViewById(R.id.namalengkapedit);
         no_telpon = findViewById(R.id.teleponedit);
         genderSpinner = findViewById(R.id.gender_spinneredit);
+        float textSize = getResources().getDimension(com.intuit.ssp.R.dimen._14ssp);
+        genderSpinner.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
         tempat_lahir = findViewById(R.id.tempatlahiredit);
         email = findViewById(R.id.emailedit);
         tanggallahiredit = findViewById(R.id.tanggaledit);
