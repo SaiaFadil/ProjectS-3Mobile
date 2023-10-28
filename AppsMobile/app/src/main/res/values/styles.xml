@@ -8,5 +8,9 @@
 <!--        <item name="app:itemIconTint">@color/greendark</item>-->
 <!--        <item name="app:itemTextColor">@color/greendark</item>-->
     </style>
+    <style name="circularImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 
 </resources>

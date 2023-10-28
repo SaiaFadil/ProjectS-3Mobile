@@ -29,6 +29,7 @@ import com.example.usingpreferences.KonfirmMenu.KonfirmasiAwalEvent;
 import com.example.usingpreferences.KonfirmMenu.KonfirmasiKeAdvis;
 import com.example.usingpreferences.R;
 import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.imageview.ShapeableImageView;
 
 public class HomeFragment extends Fragment {
 
@@ -149,8 +150,8 @@ public class HomeFragment extends Fragment {
         });
 
         ShowData();
-        ImageButton keprofil = view.findViewById(R.id.keprofil);
-        ImageButton keprofiltengah = view.findViewById(R.id.keprofiltengah);
+        ShapeableImageView keprofil = view.findViewById(R.id.keprofil);
+        ShapeableImageView keprofiltengah = view.findViewById(R.id.keprofiltengah);
         keprofil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

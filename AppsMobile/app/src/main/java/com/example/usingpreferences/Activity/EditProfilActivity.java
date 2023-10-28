@@ -17,6 +17,8 @@ import android.text.Spanned;
 import android.text.TextWatcher;
 import android.util.TypedValue;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
@@ -43,9 +45,14 @@ public class EditProfilActivity extends AppCompatActivity {
     private DatePickerDialog picker;
     private EditText tanggallahiredit;
     private Spinner genderSpinner;
+    private Animation fadeIndown,fadeOutdown;
+
     private EditText nama_lengkap, no_telpon, tempat_lahir, email;
     private TextView id_user;
     MaterialButton simpanupdate, batalupdate;
+    boolean isSingleCharacterAdded = false;
+
+
     private ProgressDialog progressDialog;
 
     @Override
@@ -67,8 +74,12 @@ public class EditProfilActivity extends AppCompatActivity {
         progressDialog.setTitle("Loading...");
         progressDialog.setMessage("Harap Tunggu");
         progressDialog.setCancelable(false);
+        batalupdate.setVisibility(View.INVISIBLE);
         progressDialog.setIcon(R.drawable.logonganjuk);
+        fadeIndown = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in_down);
+        fadeOutdown = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out_down);
 // Deklarasi TextWatcher
+
         TextWatcher textWatcher = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -76,13 +87,23 @@ public class EditProfilActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                checkForChanges();
+                if (i2 == 1 && !isSingleCharacterAdded) {
+                    isSingleCharacterAdded = true;
+                    checkForChanges();
+                } else if(i2 > 1 && !isSingleCharacterAdded){
+                    isSingleCharacterAdded = false;
+                    checkForChangesNoAnim();
+                }
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
             }
         };
+
+
+
+
 
         nama_lengkap.addTextChangedListener(textWatcher);
         no_telpon.addTextChangedListener(textWatcher);
@@ -92,7 +113,12 @@ public class EditProfilActivity extends AppCompatActivity {
         genderSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                checkForChanges(); // Panggil checkForChanges ketika pengguna memilih opsi pada Spinner
+                if (position == 0){
+//                    nothing
+                }else {
+                checkForChanges();
+                    
+                }
             }
 
             @Override
@@ -149,6 +175,9 @@ public class EditProfilActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ShowData();
+                isSingleCharacterAdded = false;
+                batalupdate.setVisibility(View.INVISIBLE);
+                batalupdate.startAnimation(fadeOutdown);
             }
         });
         ShowData();//Tampil
@@ -163,6 +192,7 @@ public class EditProfilActivity extends AppCompatActivity {
                 String tanggalLahir = tanggallahiredit.getText().toString().trim();
                 String emailteks = email.getText().toString().trim();
                 String selectedGender = genderSpinner.getSelectedItem().toString();
+                int posisi_lama = 0;
 
                 // Ambil data dari SharedPreferences
                 SharedPreferences sharedPreferences = EditProfilActivity.this.getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
@@ -172,19 +202,27 @@ public class EditProfilActivity extends AppCompatActivity {
                 String tempatLahirShared = sharedPreferences.getString("tempat_lahir", "");
                 String tanggalLahirShared = sharedPreferences.getString("tanggal_lahir", "");
                 String emailShared = sharedPreferences.getString("email", "");
-                String selectedGenderShared = sharedPreferences.getString("jenis_kelamin", "");
+                String jeniskelamin = sharedPreferences.getString("jenis_kelamin", "");
 
 
 
 
                 // Mulai validasi
+
+                if (jeniskelamin.endsWith("aki-laki")) {
+                    posisi_lama = 1;
+                } else if (jeniskelamin.endsWith("erempuan")) {
+                    posisi_lama = 2;
+                }
+                int posisi_spinner = genderSpinner.getSelectedItemPosition();
+
                 if (idUser.equals(idUserShared) &&
                         namaLengkap.equals(namaLengkapShared) &&
                         noTelpon.equals(noTelponShared) &&
                         tempatLahir.equals(tempatLahirShared) &&
                         tanggalLahir.equals(tanggalLahirShared) &&
                         emailteks.equals(emailShared) &&
-                        selectedGender.equals(selectedGenderShared)) {
+                        (posisi_spinner == posisi_lama))  {
 
                     // Tidak ada perubahan
                     Toast.makeText(EditProfilActivity.this, "Tidak ada perubahan", Toast.LENGTH_SHORT).show();
@@ -371,8 +409,53 @@ public class EditProfilActivity extends AppCompatActivity {
                 emailteks.equals(emailShared) &&
                 (posisi_spinner == posisi_lama)) {
             batalupdate.setVisibility(View.INVISIBLE);
+            batalupdate.startAnimation(fadeOutdown);
+
+        } else {
+            batalupdate.startAnimation(fadeIndown);
+            batalupdate.setVisibility(View.VISIBLE);
+
+        }
+    }
+    private void checkForChangesNoAnim() {
+        String idUser = id_user.getText().toString().trim();
+        String namaLengkap = nama_lengkap.getText().toString().trim();
+        String noTelpon = no_telpon.getText().toString().trim();
+        String tempatLahir = tempat_lahir.getText().toString().trim();
+        String tanggalLahir = tanggallahiredit.getText().toString().trim();
+        String emailteks = email.getText().toString().trim();
+        int posisi_lama = 0;
+
+        // Ambil data dari SharedPreferences
+        SharedPreferences sharedPreferences = EditProfilActivity.this.getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
+        String idUserShared = sharedPreferences.getString("id_user", "");
+        String namaLengkapShared = sharedPreferences.getString("nama_lengkap", "");
+        String noTelponShared = sharedPreferences.getString("no_telpon", "");
+        String tempatLahirShared = sharedPreferences.getString("tempat_lahir", "");
+        String tanggalLahirShared = sharedPreferences.getString("tanggal_lahir", "");
+        String emailShared = sharedPreferences.getString("email", "");
+        String jeniskelamin = sharedPreferences.getString("jenis_kelamin", "");
+
+
+        if (jeniskelamin.endsWith("aki-laki")) {
+            posisi_lama = 1;
+        } else if (jeniskelamin.endsWith("erempuan")) {
+            posisi_lama = 2;
+        }
+        int posisi_spinner = genderSpinner.getSelectedItemPosition();
+
+        if (idUser.equals(idUserShared) &&
+                namaLengkap.equals(namaLengkapShared) &&
+                noTelpon.equals(noTelponShared) &&
+                tempatLahir.equals(tempatLahirShared) &&
+                tanggalLahir.equals(tanggalLahirShared) &&
+                emailteks.equals(emailShared) &&
+                (posisi_spinner == posisi_lama)) {
+            batalupdate.setVisibility(View.INVISIBLE);
+
         } else {
             batalupdate.setVisibility(View.VISIBLE);
+
         }
     }
 

@@ -67,7 +67,11 @@
                 android:orientation="vertical"
                 android:padding="@dimen/_15sdp">
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
+                    app:strokeWidth="@dimen/_1sdp"
+                    app:strokeColor="@color/greendark"
+                    app:shapeAppearanceOverlay="@style/circularImageView"
+                    android:padding="@dimen/_1sdp"
                     android:id="@+id/imgProfil"
                     android:layout_width="@dimen/_95sdp"
                     android:layout_height="@dimen/_95sdp"
@@ -75,7 +79,7 @@
                     android:layout_marginBottom="@dimen/_5sdp"
                     android:contentDescription="Profil"
                     android:scaleType="fitXY"
-                    android:src="@drawable/profilimagefull" />
+                    android:src="@drawable/logodisporabudpar" />
 
                 <TextView
                     android:id="@+id/iduserdetail"

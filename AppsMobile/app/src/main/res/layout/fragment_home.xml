@@ -69,15 +69,19 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <ImageButton
+            <com.google.android.material.imageview.ShapeableImageView
+                app:strokeWidth="@dimen/_1sdp"
+                app:strokeColor="@color/greendark"
+                app:shapeAppearanceOverlay="@style/circularImageView"
+                android:padding="@dimen/_1sdp"
                 android:id="@+id/keprofiltengah"
-                android:layout_width="@dimen/_60sdp"
-                android:layout_height="@dimen/_55sdp"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:scaleType="fitXY"
                 android:backgroundTint="@color/white"
                 android:layout_gravity="end|center_vertical"
-                android:layout_marginRight="@dimen/_10sdp"
-                android:src="@drawable/profilimagefull"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:src="@drawable/logodisporabudpar"
                 />
         </com.google.android.material.card.MaterialCardView>
             <TextView
@@ -578,15 +582,19 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <ImageButton
+        <com.google.android.material.imageview.ShapeableImageView
+            app:strokeWidth="@dimen/_1sdp"
+            app:strokeColor="@color/greendark"
+            app:shapeAppearanceOverlay="@style/circularImageView"
+            android:padding="@dimen/_1sdp"
             android:id="@+id/keprofil"
-            android:layout_width="@dimen/_60sdp"
-            android:layout_height="@dimen/_55sdp"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
             android:scaleType="fitXY"
             android:backgroundTint="@color/white"
             android:layout_gravity="end|center_vertical"
             android:layout_marginRight="@dimen/_30sdp"
-            android:src="@drawable/profilimagefull"
+            android:src="@drawable/logodisporabudpar"
             />
     </com.google.android.material.card.MaterialCardView>
     <!--    Akhir cardview TOP  -->

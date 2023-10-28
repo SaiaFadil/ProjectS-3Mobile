@@ -70,14 +70,19 @@
 
                         </com.google.android.material.card.MaterialCardView>
                     </LinearLayout>
-                    <ImageView
+                    <com.google.android.material.imageview.ShapeableImageView
+                        app:strokeWidth="@dimen/_1sdp"
+                        app:strokeColor="@color/greendark"
+                        app:shapeAppearanceOverlay="@style/circularImageView"
+                        android:padding="@dimen/_1sdp"
                         android:id="@+id/imgProfil"
                         android:layout_width="@dimen/_70sdp"
                         android:layout_height="@dimen/_70sdp"
                         android:scaleType="fitXY"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/profilimagefull"
-                        android:contentDescription="Profil"/>
+                        android:src="@drawable/logodisporabudpar"
+                        android:contentDescription="Profil" />
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
