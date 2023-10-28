@@ -13,12 +13,14 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager.widget.ViewPager;
 import com.example.usingpreferences.Activity.DetailEventDashboard;
 import com.example.usingpreferences.Activity.NoInduk2;
@@ -32,11 +34,13 @@ import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.imageview.ShapeableImageView;
 
 public class HomeFragment extends Fragment {
-
+    private SwipeRefreshLayout swipeRefreshLayout;
+    private ProgressBar progressBar;
     TextView tv_namauser, tv_namausertengah,textpemberitahuanlayanan,tv_eventTerkini;
-    private Animation fadeIn,fadeIndown,layoutdown;
+    private Animation fadeIn,fadeIndown,layoutdown,layoutin;
     CardView cardviewatas, cardviewtengah, cardizin, cardevent, cardpinjam, cardinduk;
     ScrollView scrollView;
+    private TextView petanganjukteks;
     MaterialCardView card1;
     LinearLayout layoutevent,linearpager;
     MaterialCardView petanganjukgambar;
@@ -72,6 +76,21 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        swipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayout);
+        progressBar = view.findViewById(R.id.progressBar);
+
+        fadeIndown = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_in_down);
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                MulaiAnimasi();
+                ShowData();
+                progressBar.setVisibility(View.GONE);
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+
         viewPager = view.findViewById(R.id.viewPager);
         DashboardAdapter adapter = new DashboardAdapter(getChildFragmentManager());
         viewPager.setAdapter(adapter);
@@ -89,21 +108,28 @@ public class HomeFragment extends Fragment {
         cardinduk = view.findViewById(R.id.cardinduk);
         cardizin = view.findViewById(R.id.cardizin);
         card1 = view.findViewById(R.id.card1);
-        TextView petanganjukteks = view.findViewById(R.id.petanganjukteks);
+        petanganjukteks = view.findViewById(R.id.petanganjukteks);
         petanganjukgambar = view.findViewById(R.id.petanganjukgambar);
         layoutevent = view.findViewById(R.id.layoutevent);
         layoutdown = AnimationUtils.loadAnimation(requireContext(), R.anim.layout_in);
         fadeIn = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_in);
-        fadeIndown = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_in_down);
-        tv_eventTerkini.startAnimation(fadeIndown);
-        textpemberitahuanlayanan.startAnimation(fadeIndown);
-        cardpinjam.startAnimation(fadeIndown);
-        cardevent.startAnimation(fadeIndown);
-        cardinduk.startAnimation(fadeIndown);
-        cardizin.startAnimation(fadeIndown);
-        cardviewtengah.startAnimation(fadeIndown);
-        petanganjukteks.startAnimation(fadeIndown);
-        petanganjukgambar.startAnimation(fadeIndown);
+
+
+        scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                // Check if the user has scrolled to the top of the ScrollView
+                if (scrollY == 0) {
+                    // At the top, enable swipe refresh
+                    swipeRefreshLayout.setEnabled(true);
+                } else {
+                    // Not at the top, disable swipe refresh
+                    swipeRefreshLayout.setEnabled(false);
+
+                }
+            }
+        });
+
         petanganjukgambar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -178,6 +204,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onScrollChanged() {
                 int posisiY = scrollView.getScrollY();
+
+
+
                 if (posisiY > 470) {
                     cardviewatas.setVisibility(View.VISIBLE);
                     cardviewtengah.setVisibility(View.INVISIBLE);
@@ -202,7 +231,18 @@ public class HomeFragment extends Fragment {
         // Panggil ShowData setiap kali fragment diresume untuk memastikan tampilan selalu diperbarui
         ShowData();
     }
-
+private void MulaiAnimasi(){
+    tv_eventTerkini.startAnimation(fadeIndown);
+    textpemberitahuanlayanan.startAnimation(fadeIndown);
+    cardpinjam.startAnimation(fadeIndown);
+    cardevent.startAnimation(fadeIndown);
+    cardinduk.startAnimation(fadeIndown);
+    cardizin.startAnimation(fadeIndown);
+    cardviewtengah.startAnimation(fadeIn);
+    cardviewtengah.setVisibility(View.VISIBLE);
+    petanganjukteks.startAnimation(fadeIndown);
+    petanganjukgambar.startAnimation(fadeIndown);
+}
     private void ShowData() {
         SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
         String namaLengkap = sharedPreferences.getString("nama_lengkap", "");
