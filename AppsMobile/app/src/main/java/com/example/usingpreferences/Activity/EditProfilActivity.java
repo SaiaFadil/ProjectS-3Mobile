@@ -87,11 +87,9 @@ public class EditProfilActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (i2 == 1 && !isSingleCharacterAdded) {
-                    isSingleCharacterAdded = true;
+                if (batalupdate.getVisibility() == View.INVISIBLE) {
                     checkForChanges();
-                } else if(i2 > 1 && !isSingleCharacterAdded){
-                    isSingleCharacterAdded = false;
+                } else if (batalupdate.getVisibility() == View.VISIBLE) {
                     checkForChangesNoAnim();
                 }
             }
@@ -100,6 +98,7 @@ public class EditProfilActivity extends AppCompatActivity {
             public void afterTextChanged(Editable editable) {
             }
         };
+
 
 
 
@@ -285,6 +284,8 @@ public class EditProfilActivity extends AppCompatActivity {
                                                                         editor.apply(); // Simpan perubahan
                                                                         // Panggil ShowData untuk menampilkan data yang telah diperbarui
                                                                         ShowData();
+                                                                        batalupdate.setVisibility(View.INVISIBLE);
+                                                                        batalupdate.startAnimation(fadeOutdown);
                                                                         dialog.dismiss();
                                                                     }
                                                                 });
@@ -452,6 +453,7 @@ public class EditProfilActivity extends AppCompatActivity {
                 emailteks.equals(emailShared) &&
                 (posisi_spinner == posisi_lama)) {
             batalupdate.setVisibility(View.INVISIBLE);
+            batalupdate.startAnimation(fadeOutdown);
 
         } else {
             batalupdate.setVisibility(View.VISIBLE);
