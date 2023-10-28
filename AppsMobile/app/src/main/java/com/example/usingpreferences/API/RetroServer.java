@@ -13,9 +13,10 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 public class RetroServer {
 
-    public static final String BASE_URL = "http://172.16.106.110/HufflePuff/DatabaseMobile/";
+    public static final String BASE_URL = "http://192.168.1.10/HufflePuff/DatabaseMobile/";
 
-                               // http:// ip internetmu /HufflePuff/DatabaseMobile/
+
+    public static final String SUCCESSFUL_RESPONSE = "success";
 
 
     @NonNull

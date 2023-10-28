@@ -1,269 +1,269 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.FormulirPeminjamanTempat">
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".Activity.FormulirPeminjamanTempat">
-        <com.google.android.material.card.MaterialCardView
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginLeft="-10dp"
+        android:layout_marginRight="-10dp"
+        android:backgroundTint="@color/white"
+        app:strokeWidth="@dimen/_1sdp"
+        app:strokeColor="@color/gray"
+        android:outlineAmbientShadowColor="@color/black"
+        >
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_marginLeft="-10dp"
-            android:layout_marginRight="-10dp"
-            android:backgroundTint="@color/white"
-            app:strokeWidth="@dimen/_1sdp"
-            app:strokeColor="@color/gray"
-            android:outlineAmbientShadowColor="@color/black"
-            >
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center">
-                    <TextView
-                        android:id="@+id/judul"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="FORMULIR PEMINJAMAN TEMPAT"
-                        android:textColor="@color/greendark"
-                        android:textSize="@dimen/_13ssp"
-                        android:gravity="center"
-                        android:textStyle="bold" />
-                </LinearLayout>
-                <ImageButton
-                    android:id="@+id/pinjamback"
-                    android:layout_width="@dimen/_45sdp"
-                    android:layout_height="@dimen/_50sdp"
-                    android:layout_marginLeft="@dimen/_10sdp"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/ic_back"
-                    android:backgroundTint="@color/white"
-                    android:scaleType="fitXY"
-                    />
-            </RelativeLayout>
-        </com.google.android.material.card.MaterialCardView>
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_20sdp">
+                android:gravity="center">
                 <TextView
-                    android:textColor="@color/black"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nama Lengkap"
-                    android:textSize="@dimen/_15ssp"
-                    />
-
-                <EditText
-                    android:id="@+id/et_namalengkappinjam"
+                    android:id="@+id/judul"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:background="@drawable/bg_editext"
-                    android:ems="10"
-                    android:hint="Masukkan Nama Lengkap"
-                    android:inputType="text"
-                    android:paddingLeft="@dimen/_12sdp"
-                    android:paddingTop="@dimen/_5sdp"
-                    android:maxLines="1"
-                    android:paddingBottom="@dimen/_6sdp"
-                    android:textSize="@dimen/_12sdp" />
+                    android:layout_height="match_parent"
+                    android:text="FORMULIR PEMINJAMAN TEMPAT"
+                    android:textColor="@color/greendark"
+                    android:textSize="@dimen/_13ssp"
+                    android:gravity="center"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <ImageButton
+                android:id="@+id/pinjamback"
+                android:layout_width="@dimen/_45sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_back"
+                android:backgroundTint="@color/white"
+                android:scaleType="fitXY"
+                />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp">
+            <TextView
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Lengkap"
+                android:textSize="@dimen/_15ssp"
+                />
 
-                <TextView
-                    android:textColor="@color/black"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="No.KTP"
-                    android:textSize="@dimen/_15ssp"
-                    />
-                <EditText
-                    android:id="@+id/et_ktppinjam"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:hint="Masukkan Nomor KTP"
-                    android:textSize="@dimen/_14sdp"
-                    android:maxLines="1"
-                    android:background="@drawable/bg_editext"
-                    android:paddingTop="@dimen/_5sdp"
-                    android:paddingBottom="@dimen/_6sdp"
-                    android:paddingLeft="@dimen/_12sdp"/>
+            <EditText
+                android:id="@+id/et_namalengkappinjam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/bg_editext"
+                android:ems="10"
+                android:hint="Masukkan Nama Lengkap"
+                android:inputType="text"
+                android:paddingLeft="@dimen/_12sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:maxLines="1"
+                android:paddingBottom="@dimen/_6sdp"
+                android:textSize="@dimen/_12sdp" />
 
-
-                <TextView
-                    android:textColor="@color/black"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Instansi"
-                    android:textSize="@dimen/_15ssp"
-                    />
-                <EditText
-                    android:id="@+id/et_instansipinjam"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:hint="Masukkan Nama Instansi"
-                    android:textSize="@dimen/_14sdp"
-                    android:background="@drawable/bg_editext"
-                    android:paddingTop="@dimen/_5sdp"
-                    android:paddingBottom="@dimen/_6sdp"
-                    android:paddingLeft="@dimen/_12sdp"/>
-                <TextView
-                    android:textColor="@color/black"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nama Kegiatan"
-                    android:textSize="@dimen/_15ssp"
-                    />
-                <EditText
-                    android:id="@+id/et_namakegiatanpinjam"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:hint="Masukkan Nama Kegiatan"
-                    android:textSize="@dimen/_14sdp"
-                    android:background="@drawable/bg_editext"
-                    android:paddingTop="@dimen/_5sdp"
-                    android:paddingBottom="@dimen/_6sdp"
-                    android:maxLines="1"
-                    android:paddingLeft="@dimen/_12sdp"/>
-                <TextView
-                    android:textColor="@color/black"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Jumlah Peserta"
-                    android:textSize="@dimen/_15ssp"
-                    />
-                <EditText
-                    android:id="@+id/et_jumlahpesertapinjam"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:hint="Masukkan Jumlah Peserta"
-                    android:maxLines="1"
-                    android:textSize="@dimen/_14sdp"
-                    android:background="@drawable/bg_editext"
-                    android:paddingTop="@dimen/_5sdp"
-                    android:paddingBottom="@dimen/_6sdp"
-                    android:paddingLeft="@dimen/_12sdp"/>
-                <TextView
-                    android:textColor="@color/black"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tempat"
-                    android:textSize="@dimen/_15ssp"
-                    />
-
-                <EditText
-                    android:id="@+id/et_tempatpinjam"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:ems="10"
-                    android:maxLines="1"
-                    android:inputType="number"
-                    android:hint="Masukkan Gedung/Tempat"
-                    android:textSize="@dimen/_12sdp"
-                    android:background="@drawable/bg_editext"
-                    android:paddingTop="@dimen/_5sdp"
-                    android:enabled="false"
-                    android:textColor="@color/black"
-                    android:paddingBottom="@dimen/_6sdp"
-                    android:paddingLeft="@dimen/_12sdp"/>
+            <TextView
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No.KTP"
+                android:textSize="@dimen/_15ssp"
+                />
+            <EditText
+                android:id="@+id/et_ktppinjam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="Masukkan Nomor KTP"
+                android:textSize="@dimen/_14sdp"
+                android:maxLines="1"
+                android:background="@drawable/bg_editext"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_6sdp"
+                android:paddingLeft="@dimen/_12sdp"/>
 
 
+            <TextView
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Instansi"
+                android:textSize="@dimen/_15ssp"
+                />
+            <EditText
+                android:id="@+id/et_instansipinjam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:ems="10"
+                android:inputType="text"
+                android:maxLines="1"
+                android:hint="Masukkan Nama Instansi"
+                android:textSize="@dimen/_14sdp"
+                android:background="@drawable/bg_editext"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_6sdp"
+                android:paddingLeft="@dimen/_12sdp"/>
+            <TextView
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Kegiatan"
+                android:textSize="@dimen/_15ssp"
+                />
+            <EditText
+                android:id="@+id/et_namakegiatanpinjam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="Masukkan Nama Kegiatan"
+                android:textSize="@dimen/_14sdp"
+                android:background="@drawable/bg_editext"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_6sdp"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/_12sdp"/>
+            <TextView
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jumlah Peserta"
+                android:textSize="@dimen/_15ssp"
+                />
+            <EditText
+                android:id="@+id/et_jumlahpesertapinjam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="Masukkan Jumlah Peserta"
+                android:maxLines="1"
+                android:textSize="@dimen/_14sdp"
+                android:background="@drawable/bg_editext"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_6sdp"
+                android:paddingLeft="@dimen/_12sdp"/>
+            <TextView
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tempat"
+                android:textSize="@dimen/_15ssp"
+                />
 
-                <TableLayout
-                    android:layout_marginTop="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="fill_parent">
+            <EditText
+                android:id="@+id/et_tempatpinjam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:ems="10"
+                android:maxLines="1"
+                android:inputType="number"
+                android:hint="Masukkan Gedung/Tempat"
+                android:textSize="@dimen/_12sdp"
+                android:background="@drawable/bg_editext"
+                android:paddingTop="@dimen/_5sdp"
+                android:enabled="false"
+                android:textColor="@color/black"
+                android:paddingBottom="@dimen/_6sdp"
+                android:paddingLeft="@dimen/_12sdp"/>
 
-                    <TableRow
-                        android:gravity="center_horizontal">
 
-                        <TextView
-                    android:textColor="@color/black"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Tanggal Awal"
+
+            <TableLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent">
+
+                <TableRow
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tanggal Awal"
                         android:textAlignment="center"
                         android:textSize="@dimen/_14ssp" />
-                        <TextView
-                    android:textColor="@color/black"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="     "
-                            android:textStyle="bold"
-                            android:textAlignment="center"
-                            android:textSize="@dimen/_10ssp" />
-                        <TextView
-                    android:textColor="@color/black"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Tanggal Akhir"
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="     "
+                        android:textStyle="bold"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/_10ssp" />
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tanggal Akhir"
                         android:textAlignment="center"
                         android:textSize="@dimen/_14ssp" />
-                    </TableRow>
-                    <TableRow
-                        android:gravity="center_horizontal">
+                </TableRow>
+                <TableRow
+                    android:gravity="center_horizontal">
 
-                        <EditText
-                            android:id="@+id/et_tanggalawalpinjam"
-                            android:layout_width="@dimen/_110sdp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_2sdp"
-                            android:background="@drawable/bg_editext"
-                            android:ems="10"
-                            android:enabled="false"
-                            android:layout_marginBottom="@dimen/_10sdp"
-                            android:hint="Pilih Tanggal"
-                            android:inputType="text"
-                            android:paddingTop="@dimen/_5sdp"
-                            android:paddingBottom="@dimen/_5sdp"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_12sdp" />
-
-                        <TextView
-                    android:textColor="@color/black"
-                            android:layout_marginTop="@dimen/_2sdp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="  -  "
-                            android:textAlignment="center"
-                            android:textSize="@dimen/_25ssp"
-                            android:textStyle="bold" />
-
-                        <EditText
-                            android:layout_marginTop="@dimen/_2sdp"
-                            android:id="@+id/et_tanggalakhirpinjam"
+                    <EditText
+                        android:id="@+id/et_tanggalawalpinjam"
                         android:layout_width="@dimen/_110sdp"
                         android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:background="@drawable/bg_editext"
+                        android:ems="10"
+                        android:enabled="false"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:hint="Pilih Tanggal"
+                        android:inputType="text"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_5sdp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="  -  "
+                        android:textAlignment="center"
+                        android:textSize="@dimen/_25ssp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:id="@+id/et_tanggalakhirpinjam"
+                        android:layout_width="@dimen/_110sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
                         android:ems="10"
                         android:inputType="text"
                         android:hint="Pilih Tanggal"
@@ -272,90 +272,90 @@
                         android:paddingTop="@dimen/_5sdp"
                         android:paddingBottom="@dimen/_5sdp"
                         android:textAlignment="center" />
-                    </TableRow>
-                </TableLayout>
+                </TableRow>
+            </TableLayout>
 
 
-                <TextView
-                    android:textColor="@color/black"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Deskripsi Kegiatan"
-                    android:textSize="@dimen/_15ssp"
-                    />
+            <TextView
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Deskripsi Kegiatan"
+                android:textSize="@dimen/_15ssp"
+                />
 
 
-                <EditText
-                    android:id="@+id/et_deskripsipinjam"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:background="@drawable/bg_editext"
-                    android:gravity="top|left"
-                    android:hint="Masukkan Deskripsi Kegiatan"
-                    android:inputType="textMultiLine"
-                    android:maxHeight="@dimen/_200sdp"
-                    android:maxLength="120"
-                    android:paddingLeft="@dimen/_12sdp"
-                    android:paddingTop="@dimen/_5sdp"
-                    android:paddingBottom="@dimen/_6sdp"
-                    android:textSize="@dimen/_12sdp" />
+            <EditText
+                android:id="@+id/et_deskripsipinjam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/bg_editext"
+                android:gravity="top|left"
+                android:hint="Masukkan Deskripsi Kegiatan"
+                android:inputType="textMultiLine"
+                android:maxHeight="@dimen/_200sdp"
+                android:maxLength="120"
+                android:paddingLeft="@dimen/_12sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_6sdp"
+                android:textSize="@dimen/_12sdp" />
 
-                <TextView
-                    android:textColor="@color/black"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Surat Keterangan Dari Desa"
-                    android:textSize="@dimen/_15ssp"
-                    />
-                <LinearLayout
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
-                    android:orientation="horizontal"
-                    android:background="@drawable/corner_image">
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/selectFileButton2"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="@dimen/_95sdp"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="-5dp"
-                        android:layout_marginBottom="-5dp"
-                        android:backgroundTint="@color/greendark"
-                        android:text="Pilih File"
-                        android:textAllCaps="false"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_12ssp" />
-
-                    <TextView
-                    android:textColor="@color/black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/_14ssp"
-                        android:text="Pilih File"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="@dimen/_15sdp" />
-                </LinearLayout>
+            <TextView
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Surat Keterangan Dari Desa"
+                android:textSize="@dimen/_15ssp"
+                />
+            <LinearLayout
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:orientation="horizontal"
+                android:background="@drawable/corner_image">
 
                 <com.google.android.material.button.MaterialButton
-                    android:layout_marginTop="@dimen/_50sdp"
-                    android:layout_marginBottom="@dimen/_30sdp"
-                    android:id="@+id/button_kirimpinjam"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_50sdp"
-                    android:text="Lanjut"
-                    android:textSize="@dimen/_14ssp"
-                    app:cornerRadius="@dimen/_10sdp"
-                    android:shadowRadius="3"
-                    android:layout_marginLeft="@dimen/_20sdp"
-                    android:layout_marginRight="@dimen/_20sdp"
+                    android:id="@+id/selectFileButton2"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="@dimen/_95sdp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="-5dp"
+                    android:layout_marginBottom="-5dp"
+                    android:backgroundTint="@color/greendark"
+                    android:text="Pilih File"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:backgroundTint="@color/greendark"/>
+                    android:textSize="@dimen/_12ssp" />
+
+                <TextView
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_14ssp"
+                    android:text="Pilih File"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/_15sdp" />
             </LinearLayout>
-        </ScrollView>
-    </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_marginTop="@dimen/_50sdp"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:id="@+id/button_kirimpinjam"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:text="Lanjut"
+                android:textSize="@dimen/_14ssp"
+                app:cornerRadius="@dimen/_10sdp"
+                android:shadowRadius="3"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:backgroundTint="@color/greendark"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

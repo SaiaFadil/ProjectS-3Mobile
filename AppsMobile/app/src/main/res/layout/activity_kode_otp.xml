@@ -52,28 +52,17 @@
                 android:layout_marginTop="@dimen/_20sdp"
                 android:paddingLeft="@dimen/_20sdp">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="0dp"
+                <in.aabhasjindal.otptextview.OtpTextView
+                    android:id="@+id/kode_otp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:layout_weight="1"
-                    app:boxStrokeColor="@android:color/black"
-                    app:boxStrokeWidthFocused="@dimen/_2sdp"
-                    app:boxStrokeWidth="@dimen/_1sdp">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/otp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:maxLength="6"
-                        android:textSize="@dimen/_25ssp"
-                        android:letterSpacing="1"
-                        android:textAlignment="inherit"
-                        android:padding="@dimen/_5sdp"
-                        android:layout_marginLeft="@dimen/_8sdp"
-                        android:layout_marginRight="@dimen/_8sdp"/>
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:textColor="@color/black"
+                    app:height="@dimen/_35sdp"
+                    app:width="@dimen/_40sdp"
+                    app:bar_enabled="true"
+                    app:bar_height="@dimen/_2sdp"
+                    app:length="6"
+                    app:otp_text_size="@dimen/_15sdp"/>
 
             </LinearLayout>
             <com.google.android.material.button.MaterialButton

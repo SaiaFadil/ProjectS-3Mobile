@@ -214,6 +214,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(Call<ResponseModelUsers> call, Response<ResponseModelUsers> response) {
                 if (response.body().getKode() == 1) {
                     Toast.makeText(getApplicationContext(), "Login berhasil", Toast.LENGTH_SHORT).show();
+                    // Simpan semua data pengguna ke SharedPreferences
                     ModelUsers user = response.body().getData();
                     editor.putString("id_user", String.valueOf(user.getId_user()));
                     editor.putString("nama_lengkap", user.getNama_lengkap());

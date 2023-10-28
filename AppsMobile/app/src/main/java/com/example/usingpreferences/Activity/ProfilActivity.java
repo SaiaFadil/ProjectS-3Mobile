@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.usingpreferences.R;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.card.MaterialCardView;
 
 public class ProfilActivity extends AppCompatActivity {
     private ImageButton kembali;
@@ -21,6 +22,25 @@ public class ProfilActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profil);
+        MaterialButton TentangKami = findViewById(R.id.TentangKami);
+        TentangKami.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ProfilActivity.this,TentangKamiActivity.class));
+                overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+
+            }
+        });
+         MaterialCardView ProfilLengkap = findViewById(R.id.ProfilLengkap);
+        ProfilLengkap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ProfilActivity.this,DetailProfilActivity.class));
+                overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+
+            }
+        });
+
         MaterialButton logout = findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +65,7 @@ public class ProfilActivity extends AppCompatActivity {
 
             }
         });
-        MaterialButton EditProfil = findViewById(R.id.EditProfil);
+        MaterialCardView EditProfil = findViewById(R.id.EditProfil);
         EditProfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

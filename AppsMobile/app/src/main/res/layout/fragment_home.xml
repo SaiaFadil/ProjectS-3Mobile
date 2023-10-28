@@ -62,7 +62,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
-                    android:text="Evita Nur Sianturi"
+                    android:text="Namamu"
                     android:textColor="@color/greendark"
                     android:textSize="@dimen/_14ssp"
                     android:gravity="center"
@@ -117,7 +117,6 @@
 
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/cardevent"
-                            android:padding="@dimen/_10sdp"
                             android:layout_width="@dimen/_115sdp"
                             android:layout_height="@dimen/_115sdp"
                             android:backgroundTint="@color/white"
@@ -146,13 +145,12 @@
                                     android:layout_marginTop="-10dp"
                                     android:text="Upload Event"
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_12ssp"
+                                    android:textSize="@dimen/_14ssp"
                                     android:textStyle="bold" />
                             </LinearLayout>
                         </com.google.android.material.card.MaterialCardView>
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/cardpinjam"
-                            android:padding="@dimen/_10sdp"
                             android:layout_width="@dimen/_115sdp"
                             android:layout_height="@dimen/_115sdp"
                             android:backgroundTint="@color/white"
@@ -182,7 +180,7 @@
                                     android:layout_marginTop="-10dp"
                                     android:text="Pinjam Tempat"
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_12ssp"
+                                    android:textSize="@dimen/_14ssp"
                                     android:textStyle="bold" />
                             </LinearLayout>
                         </com.google.android.material.card.MaterialCardView>
@@ -199,7 +197,6 @@
 
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/cardinduk"
-                            android:padding="@dimen/_10sdp"
                             android:layout_width="@dimen/_115sdp"
                             android:layout_height="@dimen/_115sdp"
                             android:backgroundTint="@color/white"
@@ -228,13 +225,12 @@
                                     android:text="Nomor Induk\nSeniman"
                                     android:textColor="@color/black"
                                     android:textAlignment="center"
-                                    android:textSize="@dimen/_12ssp"
+                                    android:textSize="@dimen/_14ssp"
                                     android:textStyle="bold" />
                             </LinearLayout>
                         </com.google.android.material.card.MaterialCardView>
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/cardizin"
-                            android:padding="@dimen/_10sdp"
                             android:layout_width="@dimen/_115sdp"
                             android:layout_height="@dimen/_115sdp"
                             android:backgroundTint="@color/white"
@@ -261,7 +257,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="Surat Izin Pentas"
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_12ssp"
+                                    android:textSize="@dimen/_14ssp"
                                     android:maxLines="1"
                                     android:textStyle="bold" />
                             </LinearLayout>

@@ -69,33 +69,6 @@
                     android:textStyle="bold" />
                 <com.google.android.material.card.MaterialCardView
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:id="@+id/cardtelepon"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
-                    android:backgroundTint="@color/greendark"
-                    >
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:paddingLeft="@dimen/_20sdp"
-                        android:orientation="horizontal">
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/ic_call"
-                            />
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="(+62)"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_14ssp"
-                            android:layout_marginLeft="@dimen/_10sdp"
-                            android:gravity="center_vertical"/>
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_marginTop="@dimen/_10sdp"
                     android:id="@+id/cardwhatsapp"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_35sdp"
@@ -114,34 +87,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="Whatsapp Kami"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_14ssp"
-                            android:layout_marginLeft="@dimen/_10sdp"
-                            android:gravity="center_vertical"/>
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:id="@+id/cardinstagram"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
-                    android:backgroundTint="@color/greendark"
-                    >
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:paddingLeft="@dimen/_20sdp"
-                        android:orientation="horizontal">
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/ic_ig"
-                            />
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="Disparporabud@gmai.com"
+                            android:text="Whatsapp"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_14ssp"
                             android:layout_marginLeft="@dimen/_10sdp"
@@ -168,7 +114,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="@disparporabud.nganjuk"
+                            android:text="Email"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_14ssp"
                             android:layout_marginLeft="@dimen/_10sdp"
@@ -196,9 +142,37 @@
 
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="www.disporabudpar.nganjukkab.go.id"
+                            android:text="Website"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_12ssp"
+                            android:textSize="@dimen/_14ssp"
+                            android:layout_marginLeft="@dimen/_15sdp"
+                            android:gravity="center_vertical"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:id="@+id/cardalamat"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:backgroundTint="@color/greendark"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="@dimen/_20sdp"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/_minus3sdp"
+                            android:src="@drawable/kantorgmbar"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Alamat Kantor"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_14ssp"
                             android:layout_marginLeft="@dimen/_10sdp"
                             android:gravity="center_vertical"/>
                     </LinearLayout>

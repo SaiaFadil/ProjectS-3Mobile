@@ -28,6 +28,8 @@ import com.example.usingpreferences.API.APIRequestData;
 import com.example.usingpreferences.API.RetroServer;
 import com.example.usingpreferences.DataModel.ModelUsers;
 import com.example.usingpreferences.DataModel.ResponseModelUsers;
+import com.example.usingpreferences.DataModel.VerifyResponse;
+import com.example.usingpreferences.DataModel.VerifyUtil;
 import com.example.usingpreferences.KonfirmMenu.BerhasilDaftar;
 import com.example.usingpreferences.R;
 import com.google.android.material.textfield.TextInputEditText;
@@ -37,19 +39,18 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity {
-    private TextInputEditText mViewNama,mViewNotlp,mViewEmail, mViewPassword, mViewPassword2;
+    private TextInputEditText mViewNama, mViewNotlp, mViewEmail, mViewPassword, mViewPassword2;
     private Button mBtnRegister;
     TextView mBtnLogin;
+    private TextView tekserror;
     private ProgressDialog progressDialog;
-    private Drawable icCircleGreen,icCircleRed ;
+    private Drawable icCircleGreen, icCircleRed;
     private CheckBox tampilkansandi;
     private final boolean[] isPasswordVisible = {false};
-    private void setDrawablepw1(Drawable drawable) {
-        mViewPassword.setCompoundDrawablesWithIntrinsicBounds(null, null, drawable, null);
-    }
-    private void setDrawablepw2(Drawable drawable) {
-        mViewPassword2.setCompoundDrawablesWithIntrinsicBounds(null, null, drawable, null);
-    }
+
+    private void setDrawablepw1(Drawable drawable) {mViewPassword.setCompoundDrawablesWithIntrinsicBounds(null, null, drawable, null);}
+
+    private void setDrawablepw2(Drawable drawable) {mViewPassword2.setCompoundDrawablesWithIntrinsicBounds(null, null, drawable, null);}
 
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -57,7 +58,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
+        tekserror = findViewById(R.id.texterror);
         // Inisialisasi EditText
         mViewNama = findViewById(R.id.et_namaSignup);
         mViewEmail = findViewById(R.id.et_emailSignup);
@@ -68,7 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
 // Membuat InputFilter untuk menghilangkan spasi
         InputFilter noWhiteSpaceFilter = new InputFilter() {
             @Override
-            public CharSequence filter(CharSequence source, int start, int end,Spanned dest, int dstart, int dend) {
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
                 for (int i = start; i < end; i++) {
                     if (Character.isWhitespace(source.charAt(i))) {
                         return ""; //gantiin spasi dengan string kosong
@@ -79,17 +80,17 @@ public class RegisterActivity extends AppCompatActivity {
         };
 
 // mengnetapkan InputFilter ke setiap EditText
-        mViewNotlp.setFilters(new InputFilter[] { noWhiteSpaceFilter });
-        mViewEmail.setFilters(new InputFilter[] { noWhiteSpaceFilter });
-        mViewPassword.setFilters(new InputFilter[] { noWhiteSpaceFilter });
-        mViewPassword2.setFilters(new InputFilter[] { noWhiteSpaceFilter });
+        mViewNotlp.setFilters(new InputFilter[]{noWhiteSpaceFilter});
+        mViewEmail.setFilters(new InputFilter[]{noWhiteSpaceFilter});
+        mViewPassword.setFilters(new InputFilter[]{noWhiteSpaceFilter});
+        mViewPassword2.setFilters(new InputFilter[]{noWhiteSpaceFilter});
         mBtnRegister = findViewById(R.id.button_signupSignup);
         mBtnLogin = findViewById(R.id.button_signinsignin);
         tampilkansandi = findViewById(R.id.checkboxpw);
-        mViewPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-        mViewPassword.setImeOptions(EditorInfo.IME_ACTION_NEXT);
-        mViewPassword2.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         tampilkansandi.setChecked(false);
+        mViewPassword.setImeOptions(EditorInfo.IME_ACTION_NEXT);
+        mViewPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        mViewPassword2.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         progressDialog = new ProgressDialog(RegisterActivity.this);
         progressDialog.setTitle("Sedang Mendaftarkan...");
         progressDialog.setMessage("Sabar ya");
@@ -219,7 +220,6 @@ public class RegisterActivity extends AppCompatActivity {
                 View focus = null;
 
 
-
                 String user = mViewNama.getText().toString();
                 String notlp = mViewNotlp.getText().toString().trim();
                 String email = mViewEmail.getText().toString();
@@ -290,53 +290,68 @@ public class RegisterActivity extends AppCompatActivity {
                     tampilkansandi.setChecked(true);
 
                 } else {
-                    //disini ntar buat kondisi yg nyangkut database
 
-                    APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
-                    Call<ResponseModelUsers> getRegisterResponse = ardData.register(mViewNama.getText().toString(), mViewNotlp.getText().toString(), mViewEmail.getText().toString(), mViewPassword.getText().toString());
-                    getRegisterResponse.enqueue(new Callback<ResponseModelUsers>() {
-                        @Override
-                        public void onResponse(Call<ResponseModelUsers> call, Response<ResponseModelUsers> response) {
-
-                            if (response.body().kode == 1) {
-
-                                progressDialog.show();
-                                new Handler().postDelayed(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        // Tutup ProgressDialog
-                                        progressDialog.dismiss();
-                                        String email = mViewEmail.getText().toString();
-
-                                        // Buat Intent
-                                        Intent pindah = new Intent(RegisterActivity.this, BerhasilDaftar.class);
-                                        startActivity(pindah);
-                                        overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
-
-                                    }
-                                }, 2000);
-
-                                bersihkan();
-                            } else if (response.body().kode == 0) {
-                                Toast.makeText(RegisterActivity.this, "Email Sudah Pernah Terdaftar!!", Toast.LENGTH_SHORT).show();
-                            } else if (response.body().kode == 2) {
-                                Toast.makeText(RegisterActivity.this, "Registrasi Gagal", Toast.LENGTH_SHORT).show();
-                            }
-
-                        }
-
-                        @Override
-                        public void onFailure(Call<ResponseModelUsers> call, Throwable t) {
-                            Toast.makeText(RegisterActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                    sendOtp();
 
 
                 }//ini kurung akhir dari else yg di statement pengecekan ketika memasukkan data
             }
         });//ini akhir dari fungsi tmbol registrasi di klik
     }
-    private void bersihkan(){
+
+    private void sendOtp() {
+
+        RetroServer.getInstance().sendEmail(
+                mViewEmail.getText().toString(), "SignUp", "new", "27")
+                .enqueue(new Callback<VerifyResponse>() {
+            @Override
+            public void onResponse(Call<VerifyResponse> call, Response<VerifyResponse> response) {
+
+                if (response.body() != null && response.body().getStatus().equalsIgnoreCase("success")) {
+                    Toast.makeText(RegisterActivity.this, "OTP Terkirim", Toast.LENGTH_SHORT).show();
+                    progressDialog.show();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            // Tutup ProgressDialog
+                            progressDialog.dismiss();
+                            String email = mViewEmail.getText().toString();
+
+                            VerifyUtil util = new VerifyUtil(RegisterActivity.this, response.body().getData());
+
+                            // Buat Intent
+                            Intent pindah = new Intent(RegisterActivity.this, KodeOtp.class);
+
+                            // Kirim email ke LoginActivity
+                            pindah.putExtra("email", email);
+                            pindah.putExtra("otp", response.body().getData().getOtp());
+                            pindah.putExtra("nama_lengkap", mViewNama.getText().toString() );
+                            pindah.putExtra("no_telpon", mViewNotlp.getText().toString());
+                            pindah.putExtra("password", mViewPassword.getText().toString());
+                            startActivity(pindah);
+                            overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+//                            bersihkan();
+
+                        }
+                    }, 2000);
+                } else {
+                    Toast.makeText(RegisterActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<VerifyResponse> call, Throwable t) {
+                Toast.makeText(RegisterActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                tekserror.setVisibility(View.VISIBLE);
+                tekserror.setText(t.getMessage());
+
+            }
+        });
+
+    }
+
+    private void bersihkan() {
 
         mViewNama.setText(null);
         mViewNotlp.setText(null);

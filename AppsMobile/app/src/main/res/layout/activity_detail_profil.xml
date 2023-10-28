@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.DetailProfilActivity">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginLeft="-10dp"
+        android:layout_marginRight="-10dp"
+        android:backgroundTint="@color/white"
+        android:outlineAmbientShadowColor="@color/black"
+        app:strokeColor="@color/gray"
+        app:strokeWidth="@dimen/_1sdp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:gravity="center"
+                    android:text="Detail Profil"
+                    android:textAllCaps="true"
+                    android:textColor="@color/greendark"
+                    android:textSize="@dimen/_18sdp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/profilback"
+                android:layout_width="@dimen/_43sdp"
+                android:layout_height="@dimen/_43sdp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:backgroundTint="@color/white"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_back" />
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_15sdp">
+
+                <ImageView
+                    android:id="@+id/imgProfil"
+                    android:layout_width="@dimen/_95sdp"
+                    android:layout_height="@dimen/_95sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:contentDescription="Profil"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/profilimagefull" />
+
+                <TextView
+                    android:id="@+id/iduserdetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="id_user"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="Nama"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="No Telepon"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="Jenis Kelamin"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="Tanggal Lahir"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="Email"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="Tempat Lahir"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+
+
+                        
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="   :  "
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="   :  "
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="   :  "
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="   :  "
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="   :  "
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="   :  "
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:text="dfhvuybidfuvybiuhfbeeeeyyvouy"
+                            android:fontFamily="@font/robotoregular"
+                            android:id="@+id/namalengkapdetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp" />
+                         <TextView
+                            android:text="dfhvuybidfuvybiuhfbeeeeyyvouy"
+                            android:fontFamily="@font/robotoregular"
+                            android:id="@+id/telepondetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"  />
+                         <TextView
+                            android:text="dfhvuybidfuvybiuhfbeeeeyyvouy"
+                            android:fontFamily="@font/robotoregular"
+                            android:id="@+id/jeniskelamindetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"  />
+                         <TextView
+                            android:text="dfhvuybidfuvybiuhfbeeeeyyvouy"
+                            android:fontFamily="@font/robotoregular"
+                            android:id="@+id/tempatlahirdetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp" />
+                         <TextView
+                            android:text="dfhvuybidfuvybiuhfbeeeeyyvouy"
+                            android:fontFamily="@font/robotoregular"
+                            android:id="@+id/tanggaldetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"  />
+                         <TextView
+                            android:text="dfhvuybidfuvybiuhfbeeeeyyvouy"
+                            android:fontFamily="@font/robotoregular"
+                            android:id="@+id/emaildetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

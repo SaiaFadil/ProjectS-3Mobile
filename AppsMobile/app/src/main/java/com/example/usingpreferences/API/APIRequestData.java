@@ -2,6 +2,7 @@ package com.example.usingpreferences.API;
 
 import com.example.usingpreferences.DataModel.ModelUpdateProfil;
 import com.example.usingpreferences.DataModel.ResponseModelUsers;
+import com.example.usingpreferences.DataModel.VerifyResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -47,6 +48,22 @@ public interface APIRequestData {
             @Field("tanggal_lahir") String tanggalLahir,
             @Field("tempat_lahir") String tempatLahir,
             @Field("email") String emailteks
+    );
+    @FormUrlEncoded
+    @POST("updatepasswordprofil.php")
+    Call<ModelUpdateProfil> updatePasswordProfil(
+            @Field("id_user") String idUser,
+            @Field("password") String password
+
+    );
+
+    @FormUrlEncoded
+    @POST("mail.php")
+    Call<VerifyResponse> sendEmail(
+            @Field("email") String email,
+            @Field("type") String type,
+            @Field("action") String action,
+            @Field("id_user") String idUser
     );
 
 
