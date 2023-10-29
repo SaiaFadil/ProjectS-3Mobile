@@ -35,13 +35,13 @@ require 'EmailSender.php';
         if ($action === "new") {
             // Buat query SQL untuk memasukkan data baru
             $sql = "INSERT INTO verifikasi ( `email`, `kode_otp`, `link`, `deskripsi`, `created_at`, `updated_at`, `id_user`) 
-                    VALUES ('$email', '$otp', '', '$type', NOW(), NOW(),  $iduser)";
+                    VALUES ('$email', '$otp', '', '$type', NOW(), '',  $iduser)";
             $result = $konek->query($sql);
         }
         // update kode otp
         else if ($action === "update") {
             // Ambil data OTP sebelumnya
-            $sql = "SELECT * FROM verifikasi WHERE email = '$email' ORDER BY created_at DESC LIMIT 1";
+            $sql = "SELECT * FROM verifikasi WHERE email = '$email' ORDER BY created_at DESC LIMIT 1 ";
             $result = $konek->query($sql);
 
             // Ambil data OTP
@@ -54,7 +54,7 @@ require 'EmailSender.php';
             // cek kode otp lama berhasil didapatkan atau tidak
             if (isset($oldOtp)) {
                 // Buat query SQL untuk memperbarui data
-                $sql = "UPDATE verifikasi  SET kode_otp = '$otp', deskripsi = '$type'
+                $sql = "UPDATE verifikasi  SET kode_otp = '$otp', deskripsi = '$type',updated_at = NOW()
                         WHERE email = '$email' AND kode_otp = '$oldOtp'";
                 $result = $konek->query($sql);
             }
