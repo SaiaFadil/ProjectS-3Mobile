@@ -49,7 +49,7 @@ public class AturUlangKataSandi extends AppCompatActivity {
         tampilkansandi.setChecked(false);
         password = findViewById(R.id.et_passwordLupakatasandi);
         konfirmasipassword = findViewById(R.id.et_konfirmasipasswordLupakatasandi);
-        email = getIntent().getStringExtra("email");
+        email = getIntent().getStringExtra("emaillupa");
         password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         konfirmasipassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         tampilkansandi.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
