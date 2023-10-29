@@ -53,7 +53,8 @@ public interface APIRequestData {
     @POST("updatepasswordprofil.php")
     Call<ModelUpdateProfil> updatePasswordProfil(
             @Field("id_user") String idUser,
-            @Field("password") String password
+            @Field("password_lama") String passwordlama,
+            @Field("password_baru") String passwordbaru
 
     );
 
