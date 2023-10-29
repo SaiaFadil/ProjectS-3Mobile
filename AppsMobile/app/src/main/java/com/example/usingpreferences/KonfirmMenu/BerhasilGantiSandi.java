@@ -1,11 +1,11 @@
 package com.example.usingpreferences.KonfirmMenu;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.usingpreferences.Activity.LoginActivity;
 import com.example.usingpreferences.R;
@@ -25,6 +25,8 @@ private Button kembalilogin;
                 Intent pindah = new Intent(BerhasilGantiSandi.this, LoginActivity.class);
                 startActivity(pindah);
                 finish();
+
+                overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
             }
         });
     }
