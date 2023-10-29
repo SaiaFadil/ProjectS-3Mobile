@@ -64,7 +64,7 @@ public class KodeOtp extends AppCompatActivity {
 
         konfir.setEnabled(false);
         util = new VerifyUtil(this);
-
+util.setEmail(email);
         totalSeconds = 10;
         Log.e("OTP", "" + totalSeconds);
         updateSecond();
