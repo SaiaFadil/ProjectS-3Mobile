@@ -1,7 +1,6 @@
 package com.example.usingpreferences.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,7 +8,10 @@ import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.usingpreferences.API.APIRequestData;
 import com.example.usingpreferences.API.RetroServer;
@@ -18,7 +20,6 @@ import com.example.usingpreferences.DataModel.VerifyResponse;
 import com.example.usingpreferences.DataModel.VerifyUtil;
 import com.example.usingpreferences.KonfirmMenu.BerhasilDaftar;
 import com.example.usingpreferences.R;
-import com.google.android.material.textfield.TextInputEditText;
 
 import in.aabhasjindal.otptextview.OTPListener;
 import in.aabhasjindal.otptextview.OtpTextView;
@@ -37,6 +38,9 @@ public class KodeOtp extends AppCompatActivity {
     private int totalSeconds;
 
     private VerifyUtil util;
+    private TextView tulisansalah;
+    private ProgressDialog progressDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +48,12 @@ public class KodeOtp extends AppCompatActivity {
         setContentView(R.layout.activity_kode_otp);
         konfir = findViewById(R.id.button_konfirmasiotpp);
         inputotp = findViewById(R.id.kode_otp);
-
+        tulisansalah = findViewById(R.id.tulisansalah);
+        progressDialog = new ProgressDialog(KodeOtp.this);
+        progressDialog.setTitle("Sedang Mengirim Ulang OTP...");
+        progressDialog.setMessage("Mohon Tunggu...");
+        progressDialog.setCancelable(false);
+        progressDialog.setIcon(R.drawable.logonganjuk);
         email = getIntent().getStringExtra("email");
         otp = getIntent().getStringExtra("otp");
         nama_lengkap = getIntent().getStringExtra("nama_lengkap");
@@ -64,27 +73,33 @@ public class KodeOtp extends AppCompatActivity {
         konfir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tulisansalah.setVisibility(View.INVISIBLE);
+                inputotp.setOTP(null);
+                progressDialog.show();
+
+                // Kembalikan totalSeconds ke nilai awal
+                totalSeconds = 0;
+
                 RetroServer.getInstance().sendEmail(
-                        util.getEmail(), "SignUp", "update", "27"
+                        util.getEmail(), "SignUp", "update", "1"
                 ).enqueue(new Callback<VerifyResponse>() {
                     @Override
                     public void onResponse(Call<VerifyResponse> call, Response<VerifyResponse> response) {
-
-                        if (response.body() != null && response.body().getStatus().equalsIgnoreCase("success")) {
-                            Toast.makeText(KodeOtp.this, "OTP Terkirim", Toast.LENGTH_SHORT).show();
-                            konfir.setEnabled(false);
-
-                            util = new VerifyUtil(KodeOtp.this, response.body().getData());
-                            Log.e("TES", "resend 1 : " + response.body().getData().getResend());
-                            Log.e("TES", "resend : " + util.getResendSeconds());
-                            totalSeconds = Integer.parseInt(response.body().getData().getResend()) * 60;
-                            updateSecond();
-                            otp = util.getOtp();
-
-                        } else {
-                            Toast.makeText(KodeOtp.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                progressDialog.dismiss();
+                                if (response.body() != null && response.body().getStatus().equalsIgnoreCase("success")) {
+                                    Toast.makeText(KodeOtp.this, "OTP Terkirim", Toast.LENGTH_SHORT).show();
+                                    konfir.setEnabled(false);
+                                    totalSeconds = totalSeconds + 60;
+                                    util = new VerifyUtil(KodeOtp.this, response.body().getData());
+                                    otp = util.getOtp();
+                                } else {
+                                    Toast.makeText(KodeOtp.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        }, 2000);
                     }
 
                     @Override
@@ -94,6 +109,7 @@ public class KodeOtp extends AppCompatActivity {
                 });
             }
         });
+
 
         inputotp.setOtpListener(new OTPListener() {
             @Override
@@ -106,7 +122,7 @@ public class KodeOtp extends AppCompatActivity {
                 Log.e("OTP COM ", otp);
                 if (KodeOtp.this.otp.equals(inputotp.getOTP())) {
                     APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
-                    Call<ResponseModelUsers> getRegisterResponse = ardData.register(nama_lengkap, no_telpon,email, password);
+                    Call<ResponseModelUsers> getRegisterResponse = ardData.register(nama_lengkap, no_telpon, email, password);
                     getRegisterResponse.enqueue(new Callback<ResponseModelUsers>() {
                         @Override
                         public void onResponse(Call<ResponseModelUsers> call, Response<ResponseModelUsers> response) {
@@ -118,8 +134,6 @@ public class KodeOtp extends AppCompatActivity {
                                 pindah.putExtra("email", email);
                                 startActivity(pindah);
                                 overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
-                            } else if (response.body().kode == 0) {
-                                Toast.makeText(KodeOtp.this, "Email Sudah Pernah Terdaftar!!", Toast.LENGTH_SHORT).show();
                             } else if (response.body().kode == 2) {
                                 Toast.makeText(KodeOtp.this, "Registrasi Gagal", Toast.LENGTH_SHORT).show();
                             }
@@ -133,7 +147,7 @@ public class KodeOtp extends AppCompatActivity {
                     });
 
                 } else {
-                    Toast.makeText(KodeOtp.this, "OTP SALAH", Toast.LENGTH_SHORT).show();
+                    tulisansalah.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -156,21 +170,20 @@ public class KodeOtp extends AppCompatActivity {
 
     private void updateSecond() {
         Handler handler = new Handler(Looper.getMainLooper());
-
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
                 if (KodeOtp.this.totalSeconds > 0) {
+                    handler.postDelayed(this, 1000);
                     updateButtonName();
                     KodeOtp.this.totalSeconds--;
-                    handler.postDelayed(this, 1000);
-                } else {
+                } else if (KodeOtp.this.totalSeconds == 0){
                     konfir.setText(("Kirim Ulang"));
                     konfir.setEnabled(true);
+                    handler.postDelayed(this, 1000);
                 }
             }
         };
         handler.post(runnable);
     }
-
 }
