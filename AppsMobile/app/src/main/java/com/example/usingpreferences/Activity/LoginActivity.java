@@ -1,15 +1,9 @@
 package com.example.usingpreferences.Activity;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.InputFilter;
@@ -17,25 +11,21 @@ import android.text.InputType;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.WindowManager;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.usingpreferences.API.APIRequestData;
 import com.example.usingpreferences.API.RetroServer;
 import com.example.usingpreferences.API.google.GoogleUsers;
 import com.example.usingpreferences.DataModel.ModelUsers;
 import com.example.usingpreferences.DataModel.ResponseModelUsers;
-import com.example.usingpreferences.MenuFragment.HomeFragment;
 import com.example.usingpreferences.R;
-import com.google.android.gms.auth.api.Auth;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.SignInButton;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.material.textfield.TextInputEditText;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -166,7 +156,7 @@ public class LoginActivity extends AppCompatActivity {
                                         editor.putString("jenis_kelamin", user.getJenis_kelamin());
                                         editor.putString("role", user.getRole());
                                         editor.putString("email", user.getEmail());
-                                        editor.putString("password", user.getPassword());
+                                        editor.putString("password",mViewPassword.getText().toString());
                                         editor.putString("verifikasi", user.getVerifikasi());
                                         editor.apply();
                                         bersihkan();
