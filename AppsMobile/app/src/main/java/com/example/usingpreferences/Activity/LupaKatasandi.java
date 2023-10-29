@@ -101,7 +101,7 @@ public class LupaKatasandi extends AppCompatActivity {
 
                             String email = emailkode.getText().toString();
                             Intent pindah = new Intent(LupaKatasandi.this, KodeOtpLupa.class);
-                            pindah.putExtra("email", email);
+                            pindah.putExtra("emailupa", email);
                             pindah.putExtra("otp", response.body().getData().getOtp());
                             startActivity(pindah);
                             finish();
