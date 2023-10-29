@@ -98,16 +98,10 @@ private TextView id_user;
                         String passwordbaru = pwbaruganti.getText().toString().trim();
                         String konfirmasipassword = konfirpwbaruganti.getText().toString().trim();
 
-                        // Ambil data dari SharedPreferences
-                        SharedPreferences sharedPreferences = GantiPasswordProfilActivity.this.getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
-                        String passwordShared = sharedPreferences.getString("password", "");
-
                             // Ada perubahan, lanjutkan dengan pembaruan data
                             if (idUser.isEmpty() || passwordlama.isEmpty() || passwordbaru.isEmpty() || konfirmasipassword.isEmpty()) {
                                 Toast.makeText(GantiPasswordProfilActivity.this, "Semua kolom harus diisi", Toast.LENGTH_SHORT).show();
-                            } else if (!passwordlama.equals(passwordShared)) {
-                                pwlamaganti.setError("Password Lama Salah!");
-                                pwlamaganti.requestFocus();
+
                             } else if (passwordbaru.length() < 8) {
                                 pwbaruganti.setError("Kata Sandi minimal 8 karakter");
                                 pwbaruganti.requestFocus();
@@ -129,7 +123,7 @@ private TextView id_user;
                                         APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
                                         SharedPreferences sharedPreferences = GantiPasswordProfilActivity.this.getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
                                         String password_lama = sharedPreferences.getString("password", "");
-                                        Call<ModelUpdateProfil> call = ardData.updatePasswordProfil(idUser, password_lama,passwordbaru);
+                                        Call<ModelUpdateProfil> call = ardData.updatePasswordProfil(idUser, passwordlama,passwordbaru);
                                         call.enqueue(new Callback<ModelUpdateProfil>() {
                                             @Override
                                             public void onResponse(Call<ModelUpdateProfil> call, Response<ModelUpdateProfil> response) {
@@ -137,9 +131,9 @@ private TextView id_user;
                                                     ModelUpdateProfil result = response.body();
                                                     if (result != null && result.getKode() == 1) {
                                                         progressDialog.show();
-
                                                         SharedPreferences sharedPreferencesedit = GantiPasswordProfilActivity.this.getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
                                                         SharedPreferences.Editor editor = sharedPreferencesedit.edit();
+
                                                         editor.putString("id_user", idUser);
                                                         editor.putString("password", passwordbaru);
                                                         editor.apply();
@@ -168,12 +162,13 @@ private TextView id_user;
 
                                                         dialog.dismiss();
 
-                                                    } else {
-                                                        // Update gagal
-                                                        Toast.makeText(GantiPasswordProfilActivity.this, "Update gagal", Toast.LENGTH_SHORT).show();
-                                                    }
+                                                    } else if (result != null && result.getKode() == 3){
+                                                        dialog.dismiss();
+                                                        pwlamaganti.setError("Password Lama Salah!");
+                                                        pwlamaganti.requestFocus();
+                                                        }
                                                 } else {
-                                                    // Kesalahan saat komunikasi dengan server
+                                                    dialog.dismiss();
                                                     Toast.makeText(GantiPasswordProfilActivity.this, "" + response, Toast.LENGTH_SHORT).show();
                                                 }
                                             }
