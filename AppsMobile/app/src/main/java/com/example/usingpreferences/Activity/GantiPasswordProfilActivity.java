@@ -1,7 +1,5 @@
 package com.example.usingpreferences.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -18,6 +16,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.usingpreferences.API.APIRequestData;
 import com.example.usingpreferences.API.RetroServer;
@@ -127,7 +127,9 @@ private TextView id_user;
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
                                         APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
-                                        Call<ModelUpdateProfil> call = ardData.updatePasswordProfil(idUser, passwordbaru);
+                                        SharedPreferences sharedPreferences = GantiPasswordProfilActivity.this.getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
+                                        String password_lama = sharedPreferences.getString("password", "");
+                                        Call<ModelUpdateProfil> call = ardData.updatePasswordProfil(idUser, password_lama,passwordbaru);
                                         call.enqueue(new Callback<ModelUpdateProfil>() {
                                             @Override
                                             public void onResponse(Call<ModelUpdateProfil> call, Response<ModelUpdateProfil> response) {
@@ -179,6 +181,7 @@ private TextView id_user;
                                             @Override
                                             public void onFailure(Call<ModelUpdateProfil> call, Throwable t) {
                                                 // Kesalahan jaringan atau kesalahan lainnya
+                                                t.printStackTrace();
                                                 Toast.makeText(GantiPasswordProfilActivity.this, "Kesalahan: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                                             }
                                         });
