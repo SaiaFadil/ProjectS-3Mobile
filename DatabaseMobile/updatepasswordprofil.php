@@ -2,6 +2,7 @@
 require('Koneksi.php');
 
 header("Content-Type: application/json");
+
 // Menerima data dari aplikasi Android
 $iduser = $_POST['id_user'];
 $passwordLama = $_POST['password_lama'];
@@ -15,8 +16,7 @@ $response = array();
 
 if ($jumlah_cek > 0) {
     $user = $eksekusi_cek->fetch_assoc();
-        $hashedPasswordFromDatabase = $user['password'];
-
+    $hashedPasswordFromDatabase = $user['password'];
 
     // Memeriksa apakah password lama yang dikirimkan oleh pengguna cocok dengan password yang ada di database
     if (password_verify($passwordLama, $hashedPasswordFromDatabase)) {
