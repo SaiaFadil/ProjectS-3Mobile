@@ -41,11 +41,11 @@ class EmailSender {
             $mail->addAddress($email);
             $mail->Subject = "$otp adalah Kode OTP Anda";
 
-            // if ($type === "SignUp") {
+            if ($type === "SignUp") {
                 $mail->Body = 'Gunakan kode otp berikut untuk memverifikasi akun anda: ' . $otp;
-            // } else if ($type === "ForgotPass") {
-            //     $mail->Body = 'Gunakan kode otp berikut untuk mengganti password anda: ' . $otp;
-            // }
+            } else if ($type === "ForgotPass") {
+                $mail->Body = 'Gunakan kode otp berikut untuk mengganti password anda: ' . $otp;
+            }
 
             // kirim email
             $mail->send();
