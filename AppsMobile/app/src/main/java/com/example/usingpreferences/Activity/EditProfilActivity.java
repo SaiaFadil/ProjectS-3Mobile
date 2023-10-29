@@ -1,7 +1,5 @@
 package com.example.usingpreferences.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
@@ -15,7 +13,6 @@ import android.text.InputFilter;
 import android.text.InputType;
 import android.text.Spanned;
 import android.text.TextWatcher;
-import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -28,10 +25,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.usingpreferences.API.APIRequestData;
 import com.example.usingpreferences.API.RetroServer;
 import com.example.usingpreferences.DataModel.ModelUpdateProfil;
-import com.example.usingpreferences.DataModel.ModelUsers;
 import com.example.usingpreferences.R;
 import com.google.android.material.button.MaterialButton;
 
@@ -251,7 +249,7 @@ public class EditProfilActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 // Tampilkan ProgressDialog sebelum penghapusan
-
+                                progressDialog.show();
 
                                 APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
                                 Call<ModelUpdateProfil> call = ardData.updateUser(idUser, namaLengkap, noTelpon, selectedGender, tanggalLahir, tempatLahir, emailteks);
@@ -261,7 +259,7 @@ public class EditProfilActivity extends AppCompatActivity {
                                         if (response.isSuccessful()) {
                                             ModelUpdateProfil result = response.body();
                                             if (result != null && result.getKode() == 1) {
-                                                progressDialog.show();
+
                                                 new Handler().postDelayed(new Runnable() {
                                                     @Override
                                                     public void run() {
@@ -272,7 +270,6 @@ public class EditProfilActivity extends AppCompatActivity {
 
                                                                         SharedPreferences sharedPreferencesedit = EditProfilActivity.this.getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
                                                                         SharedPreferences.Editor editor = sharedPreferencesedit.edit();
-
                                                                         editor.putString("id_user", idUser);
                                                                         editor.putString("nama_lengkap", namaLengkap);
                                                                         editor.putString("no_telpon", noTelpon);
@@ -280,10 +277,10 @@ public class EditProfilActivity extends AppCompatActivity {
                                                                         editor.putString("tanggal_lahir", tanggalLahir);
                                                                         editor.putString("email", emailteks);
                                                                         editor.putString("jenis_kelamin", selectedGender);
-
                                                                         editor.apply(); // Simpan perubahan
                                                                         // Panggil ShowData untuk menampilkan data yang telah diperbarui
                                                                         ShowData();
+                                                                        progressDialog.dismiss();
                                                                         batalupdate.setVisibility(View.INVISIBLE);
                                                                         batalupdate.startAnimation(fadeOutdown);
                                                                         dialog.dismiss();
@@ -303,9 +300,11 @@ public class EditProfilActivity extends AppCompatActivity {
 
                                             } else {
                                                 // Update gagal
+                                                progressDialog.dismiss();
                                                 Toast.makeText(EditProfilActivity.this, "Update gagal", Toast.LENGTH_SHORT).show();
                                             }
                                         } else {
+                                            progressDialog.dismiss();
                                             // Kesalahan saat komunikasi dengan server
                                             Toast.makeText(EditProfilActivity.this, "" + response, Toast.LENGTH_SHORT).show();
                                         }
@@ -314,6 +313,7 @@ public class EditProfilActivity extends AppCompatActivity {
                                     @Override
                                     public void onFailure(Call<ModelUpdateProfil> call, Throwable t) {
                                         // Kesalahan jaringan atau kesalahan lainnya
+                                        progressDialog.dismiss();
                                         Toast.makeText(EditProfilActivity.this, "Kesalahan: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                                     }
                                 });
