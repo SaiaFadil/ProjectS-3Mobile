@@ -1,5 +1,6 @@
 package com.example.usingpreferences.API;
 
+import com.example.usingpreferences.DataModel.CekEmailModel;
 import com.example.usingpreferences.DataModel.ModelUpdateProfil;
 import com.example.usingpreferences.DataModel.ResponseModelUsers;
 import com.example.usingpreferences.DataModel.VerifyResponse;
@@ -55,6 +56,19 @@ public interface APIRequestData {
             @Field("id_user") String idUser,
             @Field("password_lama") String passwordlama,
             @Field("password_baru") String passwordbaru
+
+    );
+ @FormUrlEncoded
+    @POST("updatepasswordlupa.php")
+    Call<ModelUpdateProfil> updatePasswordLupa(
+            @Field("email") String email,
+            @Field("password_baru") String passwordbaru
+
+    );
+ @FormUrlEncoded
+    @POST("cekemail.php")
+    Call<CekEmailModel> cekemail(
+            @Field("email") String email
 
     );
 
