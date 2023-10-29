@@ -25,9 +25,11 @@ private Button kembalilogin;
                 Intent pindah = new Intent(BerhasilGantiSandi.this, LoginActivity.class);
                 startActivity(pindah);
                 finish();
-
                 overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
             }
         });
+    }
+    public void onBackPressed(){
+
     }
 }
