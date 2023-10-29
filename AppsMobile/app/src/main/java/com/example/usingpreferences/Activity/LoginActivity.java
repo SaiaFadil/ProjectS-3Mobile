@@ -226,11 +226,12 @@ public class LoginActivity extends AppCompatActivity {
 
                     bersihkan();
 
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 } else if (response.body().getKode() == 2){
                     Toast.makeText(getApplicationContext(), response.body().getPesan(), Toast.LENGTH_SHORT).show();
                 }else if (response.body().getKode() == 0){
-                    startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+                    Intent pindah = new Intent(LoginActivity.this,RegisterActivity.class);
+                    startActivity(pindah);
+                    overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
                     Toast.makeText(getApplicationContext(), response.body().getPesan(), Toast.LENGTH_SHORT).show();
 
                 }else if (response.body().getKode() == 3){
