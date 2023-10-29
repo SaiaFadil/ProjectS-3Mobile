@@ -12,7 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
  
     if ($result->num_rows == 1) {
         $user = $result->fetch_assoc();
-      
         $role_db = $user['role'];
 
             if ($role_db == 'masyarakat') {
