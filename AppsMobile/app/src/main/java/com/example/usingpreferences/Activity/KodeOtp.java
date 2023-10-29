@@ -76,10 +76,7 @@ public class KodeOtp extends AppCompatActivity {
                 tulisansalah.setVisibility(View.INVISIBLE);
                 inputotp.setOTP(null);
                 progressDialog.show();
-
-                // Kembalikan totalSeconds ke nilai awal
                 totalSeconds = 0;
-
                 RetroServer.getInstance().sendEmail(
                         util.getEmail(), "SignUp", "update", "1"
                 ).enqueue(new Callback<VerifyResponse>() {
