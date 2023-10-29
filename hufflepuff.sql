@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2023 at 02:00 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Waktu pembuatan: 29 Okt 2023 pada 09.22
+-- Versi server: 10.4.28-MariaDB
+-- Versi PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_events`
+-- Struktur dari tabel `detail_events`
 --
 
 CREATE TABLE `detail_events` (
@@ -40,7 +40,7 @@ CREATE TABLE `detail_events` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `detail_events`
+-- Dumping data untuk tabel `detail_events`
 --
 
 INSERT INTO `detail_events` (`id_detail`, `nama_event`, `deskripsi`, `kategori`, `tempat_event`, `tanggal_awal`, `tanggal_akhir`, `link_pendaftaran`, `poster_event`) VALUES
@@ -56,7 +56,7 @@ INSERT INTO `detail_events` (`id_detail`, `nama_event`, `deskripsi`, `kategori`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `events`
+-- Struktur dari tabel `events`
 --
 
 CREATE TABLE `events` (
@@ -70,7 +70,7 @@ CREATE TABLE `events` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `events`
+-- Dumping data untuk tabel `events`
 --
 
 INSERT INTO `events` (`id_event`, `nama_pengirim`, `status`, `catatan`, `id_detail`, `id_sewa`, `id_user`) VALUES
@@ -86,7 +86,7 @@ INSERT INTO `events` (`id_event`, `nama_pengirim`, `status`, `catatan`, `id_deta
 -- --------------------------------------------------------
 
 --
--- Table structure for table `list_tempat`
+-- Struktur dari tabel `list_tempat`
 --
 
 CREATE TABLE `list_tempat` (
@@ -98,7 +98,7 @@ CREATE TABLE `list_tempat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `list_tempat`
+-- Dumping data untuk tabel `list_tempat`
 --
 
 INSERT INTO `list_tempat` (`id_tempat`, `nama_tempat`, `alamat_tempat`, `deskripsi_tempat`, `foto_tempat`) VALUES
@@ -112,7 +112,7 @@ INSERT INTO `list_tempat` (`id_tempat`, `nama_tempat`, `alamat_tempat`, `deskrip
 -- --------------------------------------------------------
 
 --
--- Table structure for table `refresh_token`
+-- Struktur dari tabel `refresh_token`
 --
 
 CREATE TABLE `refresh_token` (
@@ -127,7 +127,7 @@ CREATE TABLE `refresh_token` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `refresh_token`
+-- Dumping data untuk tabel `refresh_token`
 --
 
 INSERT INTO `refresh_token` (`id_token`, `email`, `token`, `device`, `number`, `created_at`, `updated_at`, `id_user`) VALUES
@@ -141,7 +141,7 @@ INSERT INTO `refresh_token` (`id_token`, `email`, `token`, `device`, `number`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `seniman`
+-- Struktur dari tabel `seniman`
 --
 
 CREATE TABLE `seniman` (
@@ -167,7 +167,7 @@ CREATE TABLE `seniman` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `seniman`
+-- Dumping data untuk tabel `seniman`
 --
 
 INSERT INTO `seniman` (`id_seniman`, `nik`, `nomor_induk`, `nama_seniman`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `alamat_seniman`, `no_telpon`, `nama_organisasi`, `jumlah_anggota`, `ktp_seniman`, `pass_foto`, `surat_keterangan`, `tgl_pembuatan`, `tgl_berlaku`, `status`, `catatan`, `id_user`) VALUES
@@ -181,7 +181,7 @@ INSERT INTO `seniman` (`id_seniman`, `nik`, `nomor_induk`, `nama_seniman`, `jeni
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sewa_tempat`
+-- Struktur dari tabel `sewa_tempat`
 --
 
 CREATE TABLE `sewa_tempat` (
@@ -203,7 +203,7 @@ CREATE TABLE `sewa_tempat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `sewa_tempat`
+-- Dumping data untuk tabel `sewa_tempat`
 --
 
 INSERT INTO `sewa_tempat` (`id_sewa`, `nik_sewa`, `nama_peminjam`, `nama_tempat`, `deskripsi_sewa_tempat`, `nama_kegiatan_sewa`, `jumlah_peserta`, `instansi`, `surat_ket_sewa`, `tgl_awal_peminjaman`, `tgl_akhir_peminjaman`, `status`, `catatan`, `id_tempat`, `id_user`) VALUES
@@ -221,7 +221,7 @@ INSERT INTO `sewa_tempat` (`id_sewa`, `nik_sewa`, `nama_peminjam`, `nama_tempat`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `surat_advis`
+-- Struktur dari tabel `surat_advis`
 --
 
 CREATE TABLE `surat_advis` (
@@ -237,10 +237,17 @@ CREATE TABLE `surat_advis` (
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data untuk tabel `surat_advis`
+--
+
+INSERT INTO `surat_advis` (`id_advis`, `nomor_induk`, `nama_advis`, `alamat_advis`, `deskripsi_advis`, `tgl_advis`, `tempat_advis`, `status`, `catatan`, `id_user`) VALUES
+(1, 'DLG2023001', 'Seni Tari', 'Nganjuk', 'Pentas Seni Tari dalam rangka lomba akhir tahun', '0000-00-00', 'Kabupaten', '', '', 1);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -258,10 +265,11 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id_user`, `nama_lengkap`, `no_telpon`, `jenis_kelamin`, `tanggal_lahir`, `tempat_lahir`, `role`, `email`, `password`, `foto`, `verifikasi`) VALUES
+(1, 'akun pemulihan', '089999999999', 'laki-laki', '2023-10-29', 'Nganjuk', 'super admin', 'akunceer1satu@gmail.com', '1', NULL, 0),
 (32, 'amirzan fikri', '088884144', 'laki-laki', '2000-12-12', 'indonesia', 'masyarakat', 'amirzanfikri5@gmail.com', '$2y$10$q6qLZmxecCFOQJ0nKYKjOuyZMwyv5xj0CrY0A.ehKTeTMwW2ERo2m', NULL, 1),
 (33, 'event admin', '088112223392590', 'perempuan', '2023-10-06', 'planet matahari', 'admin event', 'AdminEvent1@gmail.com', '$2y$10$GwXkmSLqY.Xx.QbXB9gqlezrPBwMT/i3.0CWJkDQyDC1UTvT.AcKm', NULL, 1),
 (34, 'admin pentas', '08626268661886', 'perempuan', '2023-10-07', 'jerman', 'admin pentas', 'AdminPentas@gmail.com', '$2y$10$vr/ZoXhq2wtgZDpSIqNxtuzGjBiChSPqk7iw/TCioOKZQ0O7BsBem', NULL, 1),
@@ -270,12 +278,15 @@ INSERT INTO `users` (`id_user`, `nama_lengkap`, `no_telpon`, `jenis_kelamin`, `t
 (37, 'super admin', '0881122233', 'laki-laki', '2023-10-07', 'planet jupiter', 'super admin', 'SuperAdmin@gmail.com', '$2y$10$FiZNvFMIYLIAUGqNiN9VQeKaA6vTzr/7.nXJMn9KEN/67nFksrlsS', NULL, 1),
 (38, 'admin', '0888151515', 'perempuan', '2023-10-13', 'akhirat', 'super admin', 'Admin@gmail.com', '$2y$10$tz2Qd71cf4ZKyk02vz4Ye.smoiw/N1/38KlzpgFNJwWK9VEP9rv6a', NULL, 1),
 (41, 'joko', '0881122233', 'laki-laki', '2023-10-13', 'akhirat', 'admin tempat', 'random@gmail.com', '$2y$10$0RlQ7RJ9U1nN7E1YuUkhnOaTYbcANSNIEYzUumq.xCz0g1CjrgKLm', '/41.jpg', 1),
-(42, 'asep', '0881122233', 'laki-laki', '2023-10-14', 'akhirat', 'super admin', 'terserah@gmail.com', '$2y$10$xOVWc1Q8CvI1kSsco0qfs.enMFFOHuZdws.otsKPWyBrncw7RAQDS', '/42.jpg', 1);
+(42, 'asep', '0881122233', 'laki-laki', '2023-10-14', 'akhirat', 'super admin', 'terserah@gmail.com', '$2y$10$xOVWc1Q8CvI1kSsco0qfs.enMFFOHuZdws.otsKPWyBrncw7RAQDS', '/42.jpg', 1),
+(49, 'fadil', '0854213346433', 'laki-laki', '0000-00-00', '', 'masyarakat', 'fadillahwahyunugraha@gmail.com', '$2y$10$cy9eBMwt8J8jRIlJTQaTmOxv/lwcB3oUM1Oa/ZFtSRKsYyeM0cWeu', NULL, 0),
+(50, 'fadil', '085322552555', 'laki-laki', '0000-00-00', '', 'masyarakat', 'dappganzzshop@gmail.com', '$2y$10$05x4.7quHSxTfY2yVJKj/.ix6UhkItNwuusYNezU12nHvxfHQOjfy', NULL, 0),
+(51, 'fadill', '0854331364616', 'laki-laki', '0000-00-00', '', 'masyarakat', 'akunceer3tiga@gmail.com', '$2y$10$zUs5P8eP9XhMBT8GUNPUHe0k/1W9qZvCIO6YC.5dQkcETv0WrYerq', NULL, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `verifikasi`
+-- Struktur dari tabel `verifikasi`
 --
 
 CREATE TABLE `verifikasi` (
@@ -286,21 +297,90 @@ CREATE TABLE `verifikasi` (
   `deskripsi` enum('password','email') NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `id_user` int(11) NOT NULL
+  `id_user` int(11) DEFAULT NULL,
+  `resend` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `verifikasi`
+--
+
+INSERT INTO `verifikasi` (`id_verifikasi`, `email`, `kode_otp`, `link`, `deskripsi`, `created_at`, `updated_at`, `id_user`, `resend`) VALUES
+(16, 'fadillahwahyunugraha@gmail.com', 842591, '', '', '2023-10-29 03:04:07', '2023-10-29 03:04:07', 1, 0),
+(17, 'fadillahwahyunugraha@gmail.com', 234926, '', '', '2023-10-29 03:16:23', '2023-10-29 03:16:23', 1, 0),
+(18, 'fadillahwahyunugraha@gmail.com', 578716, '', '', '2023-10-29 03:23:12', '2023-10-29 03:23:12', 1, 0),
+(19, 'fadillahwahyunugraha@gmail.com', 657362, '', '', '2023-10-29 03:32:52', '2023-10-29 03:32:52', 1, 0),
+(20, 'fadillahwahyunugraha@gmail.com', 550530, '', '', '2023-10-29 03:44:07', '2023-10-29 03:44:07', 1, 0),
+(21, 'fadillahwahyunugraha@gmail.com', 36817, '', '', '2023-10-29 03:59:04', '2023-10-29 03:59:04', 1, 0),
+(22, 'fadillahwahyunugraha@gmail.com', 132160, '', '', '2023-10-29 04:01:33', '2023-10-29 03:59:35', 1, 0),
+(23, 'fadillahwahyunugraha@gmail.com', 173255, '', '', '2023-10-29 04:41:48', '2023-10-29 04:41:48', 1, 0),
+(24, 'fadillahwahyunugraha@gmail.com', 398272, '', '', '2023-10-29 04:43:14', '2023-10-29 04:43:14', 1, 0),
+(25, 'fadillahwahyunugraha@gmail.com', 21834, '', '', '2023-10-29 04:46:21', '2023-10-29 04:46:21', 1, 0),
+(26, 'fadillahwahyunugraha@gmail.com', 783639, '', '', '2023-10-29 04:46:35', '2023-10-29 04:46:35', 1, 0),
+(27, 'fadillahwahyunugraha@gmail.com', 515200, '', '', '2023-10-29 04:50:01', '2023-10-29 04:50:01', 1, 0),
+(28, 'fadillahwahyunugraha@gmail.com', 886880, '', '', '2023-10-29 04:51:41', '2023-10-29 04:51:41', 1, 0),
+(29, 'fadillahwahyunugraha@gmail.com', 443627, '', '', '2023-10-29 05:03:50', '2023-10-29 05:03:50', 1, 0),
+(30, 'fadillahwahyunugraha@gmail.com', 669355, '', '', '2023-10-29 05:06:22', '2023-10-29 05:05:38', 1, 0),
+(31, 'akunceer2dua@gmail.com', 391800, '', '', '2023-10-29 05:14:06', '2023-10-29 05:14:06', 1, 0),
+(32, 'fadillahwahyunugraha@gmail.com', 690630, '', '', '2023-10-29 05:36:17', '2023-10-29 05:34:49', 1, 0),
+(33, 'akunceer1satu@gmail.com', 116979, '', '', '2023-10-29 05:40:08', '2023-10-29 05:40:08', 1, 0),
+(34, 'fadillahwahyunugraha@gmail.com', 460363, '', '', '2023-10-29 05:41:37', '2023-10-29 05:41:37', 1, 0),
+(35, 'fadillahwahyunugraha@gmail.com', 403344, '', '', '2023-10-29 05:44:07', '2023-10-29 05:44:07', 1, 0),
+(36, 'fadillahwahyunugraha@gmail.com', 800036, '', '', '2023-10-29 05:45:47', '2023-10-29 05:45:47', 1, 0),
+(37, 'fadillahwahyunugraha@gmail.com', 716098, '', '', '2023-10-29 05:48:29', '2023-10-29 05:48:29', 1, 0),
+(38, 'dappganzzshop@gmail.com', 579203, '', '', '2023-10-29 06:07:18', '2023-10-29 06:07:18', 1, 0),
+(39, 'dappganzzshop@gmail.com', 355052, '', '', '2023-10-29 06:10:26', '2023-10-29 06:10:26', 1, 0),
+(40, 'dappganzzshop@gmail.com', 965112, '', '', '2023-10-29 06:41:00', '2023-10-29 06:11:48', 1, 0),
+(41, 'fadillahwahyunugraha@gmail.com', 735719, '', '', '2023-10-29 06:19:05', '2023-10-29 06:19:05', 1, 0),
+(42, 'fadillahwahyunugraha@gmail.com', 400253, '', '', '2023-10-29 06:32:33', '2023-10-29 06:32:33', 1, 0),
+(43, 'fadillahwahyunugraha@gmail.com', 95422, '', '', '2023-10-29 06:33:32', '2023-10-29 06:33:32', 1, 0),
+(44, 'fadillahwahyunugraha@gmail.com', 187580, '', '', '2023-10-29 06:37:11', '2023-10-29 06:37:11', 1, 0),
+(45, 'fadillahwahyunugraha@gmail.com', 853831, '', '', '2023-10-29 06:39:48', '2023-10-29 06:39:48', 1, 0),
+(46, 'dreamteampkmkc@gmail.com', 425006, '', '', '2023-10-29 06:51:04', '2023-10-29 06:48:24', 1, 0),
+(47, 'akunceer3tiga@gmail.com', 961583, '', '', '2023-10-29 06:53:55', '2023-10-29 06:53:25', 1, 0),
+(48, 'akunceer3tiga@gmail.com', 612727, '', '', '2023-10-29 06:57:12', '2023-10-29 06:57:12', 1, 0),
+(49, 'akunceer3tiga@gmail.com', 999750, '', '', '2023-10-29 06:59:20', '2023-10-29 06:59:02', 1, 0),
+(50, 'akunceer3tiga@gmail.com', 99096, '', '', '2023-10-29 07:01:28', '2023-10-29 07:01:10', 1, 0),
+(51, 'akunceer3tiga@gmail.com', 351241, '', '', '2023-10-29 07:05:29', '2023-10-29 07:04:50', 1, 0),
+(52, 'akunceer3tiga@gmail.com', 674379, '', '', '2023-10-29 07:08:38', '2023-10-29 07:08:07', 1, 0),
+(53, 'akunceer3tiga@gmail.com', 805587, '', '', '2023-10-29 07:13:06', '2023-10-29 07:12:37', 1, 0),
+(54, 'akunceer3tiga@gmail.com', 570886, '', '', '2023-10-29 07:15:26', '2023-10-29 07:14:57', 1, 0),
+(55, 'akunceer3tiga@gmail.com', 262438, '', '', '2023-10-29 07:17:07', '2023-10-29 07:16:38', 1, 0),
+(56, 'akunceer3tiga@gmail.com', 424420, '', '', '2023-10-29 07:24:10', '2023-10-29 07:19:45', 1, 0),
+(57, 'akunceer3tiga@gmail.com', 409349, '', '', '2023-10-29 07:25:45', '2023-10-29 07:25:26', 1, 0),
+(58, 'akunceer2dua@gmail.com', 972634, '', '', '2023-10-29 07:27:45', '2023-10-29 07:26:51', 1, 0),
+(59, 'dappganzz4@gmail.com', 358633, '', '', '2023-10-29 07:32:17', '2023-10-29 07:30:52', 1, 0),
+(60, 'akunceer3tiga@gmail.com', 144729, '', '', '2023-10-29 07:35:54', '2023-10-29 07:34:54', 1, 0),
+(61, 'akunceer5lima@gmail.com', 725946, '', '', '2023-10-29 07:38:00', '2023-10-29 07:37:42', 1, 0),
+(62, 'akunceer5lima@gmail.com', 502975, '', '', '2023-10-29 07:37:42', '2023-10-29 07:37:42', 1, 0),
+(63, 'dappganzz4@gmail.com', 988935, '', '', '2023-10-29 07:41:26', '2023-10-29 07:41:09', 1, 0),
+(64, 'akunceer2dua@gmail.com', 6929, '', '', '2023-10-29 08:08:09', '2023-10-29 07:42:17', 1, 0),
+(65, 'fadillahwahyunugraha@gmail.com', 764400, '', '', '2023-10-29 07:46:44', '2023-10-29 07:46:44', 1, 0),
+(66, 'fadillahwahyunugraha@gmail.com', 650294, '', '', '2023-10-29 07:52:29', '2023-10-29 07:52:29', 1, 0),
+(67, 'fadillahwahyunugraha@gmail.com', 365577, '', '', '2023-10-29 07:54:55', '2023-10-29 07:54:55', 1, 0),
+(68, 'fadillahwahyunugraha@gmail.com', 490032, '', '', '2023-10-29 07:55:48', '2023-10-29 07:55:48', 1, 0),
+(69, 'fadillahwahyunugraha@gmail.com', 235892, '', '', '2023-10-29 07:58:05', '2023-10-29 07:58:05', 1, 0),
+(70, 'fadillahwahyunugraha@gmail.com', 427155, '', '', '2023-10-29 07:59:55', '2023-10-29 07:59:55', 1, 0),
+(71, 'fadillahwahyunugraha@gmail.com', 627068, '', '', '2023-10-29 08:04:30', '2023-10-29 08:04:30', 1, 0),
+(72, 'fadillahwahyunugraha@gmail.com', 613704, '', '', '2023-10-29 08:05:55', '2023-10-29 08:05:55', 1, 0),
+(73, 'fadillahwahyunugraha@gmail.com', 946566, '', '', '2023-10-29 08:06:06', '2023-10-29 08:06:06', 1, 0),
+(74, 'fadillahwahyunugraha@gmail.com', 24483, '', '', '2023-10-29 08:07:53', '2023-10-29 08:07:53', 1, 0),
+(75, 'fadillahwahyunugraha@gmail.com', 181058, '', '', '2023-10-29 08:11:15', '2023-10-29 08:11:15', 1, 0),
+(76, 'akunceer3tiga@gmail.com', 631855, '', '', '2023-10-29 08:14:50', '2023-10-29 08:12:28', 1, 0),
+(77, 'fadillahwahyunugraha@gmail.com', 405856, '', '', '2023-10-29 08:14:22', '2023-10-29 08:14:22', 1, 0);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `detail_events`
+-- Indeks untuk tabel `detail_events`
 --
 ALTER TABLE `detail_events`
   ADD PRIMARY KEY (`id_detail`);
 
 --
--- Indexes for table `events`
+-- Indeks untuk tabel `events`
 --
 ALTER TABLE `events`
   ADD PRIMARY KEY (`id_event`),
@@ -308,140 +388,140 @@ ALTER TABLE `events`
   ADD KEY `sewaFK` (`id_sewa`);
 
 --
--- Indexes for table `list_tempat`
+-- Indeks untuk tabel `list_tempat`
 --
 ALTER TABLE `list_tempat`
   ADD PRIMARY KEY (`id_tempat`);
 
 --
--- Indexes for table `refresh_token`
+-- Indeks untuk tabel `refresh_token`
 --
 ALTER TABLE `refresh_token`
   ADD PRIMARY KEY (`id_token`),
   ADD KEY `tokenFK` (`id_user`);
 
 --
--- Indexes for table `seniman`
+-- Indeks untuk tabel `seniman`
 --
 ALTER TABLE `seniman`
   ADD PRIMARY KEY (`id_seniman`),
   ADD KEY `senimanFK` (`id_user`);
 
 --
--- Indexes for table `sewa_tempat`
+-- Indeks untuk tabel `sewa_tempat`
 --
 ALTER TABLE `sewa_tempat`
   ADD PRIMARY KEY (`id_sewa`);
 
 --
--- Indexes for table `surat_advis`
+-- Indeks untuk tabel `surat_advis`
 --
 ALTER TABLE `surat_advis`
   ADD PRIMARY KEY (`id_advis`),
   ADD KEY `advisFK` (`id_user`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Indexes for table `verifikasi`
+-- Indeks untuk tabel `verifikasi`
 --
 ALTER TABLE `verifikasi`
   ADD PRIMARY KEY (`id_verifikasi`),
   ADD KEY `verifyfk` (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `detail_events`
+-- AUTO_INCREMENT untuk tabel `detail_events`
 --
 ALTER TABLE `detail_events`
   MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `events`
+-- AUTO_INCREMENT untuk tabel `events`
 --
 ALTER TABLE `events`
   MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `list_tempat`
+-- AUTO_INCREMENT untuk tabel `list_tempat`
 --
 ALTER TABLE `list_tempat`
   MODIFY `id_tempat` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `refresh_token`
+-- AUTO_INCREMENT untuk tabel `refresh_token`
 --
 ALTER TABLE `refresh_token`
   MODIFY `id_token` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
--- AUTO_INCREMENT for table `seniman`
+-- AUTO_INCREMENT untuk tabel `seniman`
 --
 ALTER TABLE `seniman`
   MODIFY `id_seniman` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `sewa_tempat`
+-- AUTO_INCREMENT untuk tabel `sewa_tempat`
 --
 ALTER TABLE `sewa_tempat`
   MODIFY `id_sewa` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `surat_advis`
+-- AUTO_INCREMENT untuk tabel `surat_advis`
 --
 ALTER TABLE `surat_advis`
-  MODIFY `id_advis` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_advis` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
--- AUTO_INCREMENT for table `verifikasi`
+-- AUTO_INCREMENT untuk tabel `verifikasi`
 --
 ALTER TABLE `verifikasi`
-  MODIFY `id_verifikasi` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_verifikasi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `events`
+-- Ketidakleluasaan untuk tabel `events`
 --
 ALTER TABLE `events`
   ADD CONSTRAINT `eventFK` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `sewaFK` FOREIGN KEY (`id_sewa`) REFERENCES `sewa_tempat` (`id_sewa`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `refresh_token`
+-- Ketidakleluasaan untuk tabel `refresh_token`
 --
 ALTER TABLE `refresh_token`
   ADD CONSTRAINT `tokenFK` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `seniman`
+-- Ketidakleluasaan untuk tabel `seniman`
 --
 ALTER TABLE `seniman`
   ADD CONSTRAINT `senimanFK` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `surat_advis`
+-- Ketidakleluasaan untuk tabel `surat_advis`
 --
 ALTER TABLE `surat_advis`
   ADD CONSTRAINT `advisFK` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `verifikasi`
+-- Ketidakleluasaan untuk tabel `verifikasi`
 --
 ALTER TABLE `verifikasi`
   ADD CONSTRAINT `verifyfk` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION;
