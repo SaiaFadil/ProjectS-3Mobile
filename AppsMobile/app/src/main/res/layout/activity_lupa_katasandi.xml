@@ -19,7 +19,7 @@
                 android:layout_height="wrap_content"
                 android:text="LUPA KATA SANDI"
                 android:textSize="@dimen/_21ssp"
-                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_20sdp"
                 android:gravity="center_horizontal"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -35,7 +35,7 @@
         android:textAlignment="center"/>
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_200sdp"
+        android:layout_height="@dimen/_180sdp"
         android:src="@drawable/anim5"
         android:layout_marginTop="@dimen/_50sdp"
         />
@@ -57,7 +57,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_emailLupakatasandi"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
+            android:layout_height="wrap_content"
             android:imeOptions="actionNext"
             android:inputType="textEmailAddress"
             android:maxLines="1"
