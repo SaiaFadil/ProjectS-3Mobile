@@ -14,8 +14,7 @@ $response = array();
 
 if ($jumlah_cek > 0) {
     $user = $eksekusi_cek->fetch_assoc();
-        $hashedPasswordFromDatabase = $user['password'];
-
+    
 
         // Enkripsi password baru
         $passwordBaruHashed = password_hash($passwordBaru, PASSWORD_DEFAULT);
