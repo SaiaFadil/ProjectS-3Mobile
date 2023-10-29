@@ -1,11 +1,10 @@
 package com.example.usingpreferences.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,17 +19,16 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.usingpreferences.API.APIRequestData;
 import com.example.usingpreferences.API.RetroServer;
-import com.example.usingpreferences.DataModel.ModelUsers;
-import com.example.usingpreferences.DataModel.ResponseModelUsers;
+import com.example.usingpreferences.DataModel.CekEmailModel;
 import com.example.usingpreferences.DataModel.VerifyResponse;
 import com.example.usingpreferences.DataModel.VerifyUtil;
-import com.example.usingpreferences.KonfirmMenu.BerhasilDaftar;
 import com.example.usingpreferences.R;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -92,8 +90,8 @@ public class RegisterActivity extends AppCompatActivity {
         mViewPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         mViewPassword2.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         progressDialog = new ProgressDialog(RegisterActivity.this);
-        progressDialog.setTitle("Sedang Mendaftarkan...");
-        progressDialog.setMessage("Sabar ya");
+        progressDialog.setTitle("Data Sedang Diproses...");
+        progressDialog.setMessage("Mohon Tunggu...");
         progressDialog.setCancelable(false);
         progressDialog.setIcon(R.drawable.logonganjuk);
         icCircleGreen = getResources().getDrawable(R.drawable.ic_circle_green);
@@ -285,14 +283,48 @@ public class RegisterActivity extends AppCompatActivity {
                 } else if (!TextUtils.equals(password, confirmPassword)) {
                     mViewPassword2.setError("Kata Sandi tidak cocok");
                     focus = mViewPassword2;
-
                     mViewPassword2.requestFocus();
                     tampilkansandi.setChecked(true);
 
                 } else {
+                    progressDialog.show();
+                    APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
+                    Call<CekEmailModel> getLoginResponse = ardData.cekemail(mViewEmail.getText().toString());
+                    getLoginResponse.enqueue(new Callback<CekEmailModel>() {
+                        @Override
+                        public void onResponse(Call<CekEmailModel> call, Response<CekEmailModel> response) {
 
-                    sendOtp();
+                            if (response.body().getKode() == 0){
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                    sendOtp();
+                                    }
+                                }, 1000);
 
+
+                            }else if (response.body().getKode() == 1) {
+                                progressDialog.dismiss();
+                                mViewEmail.requestFocus();
+                                AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+                                builder.setMessage("Email Sudah Pernah Digunakan!!")
+                                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int id) {
+
+                                            }
+                                        });
+                                                AlertDialog dialog1 = builder.create();
+                                                dialog1.show();
+                                                progressDialog.dismiss();                            }
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<CekEmailModel> call, Throwable t) {
+                            t.printStackTrace();
+                            progressDialog.dismiss();
+                        }
+                    });
 
                 }//ini kurung akhir dari else yg di statement pengecekan ketika memasukkan data
             }
@@ -301,8 +333,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void sendOtp() {
 
-        RetroServer.getInstance().sendEmail(
-                mViewEmail.getText().toString(), "SignUp", "new", "27")
+        RetroServer.getInstance().sendEmail(mViewEmail.getText().toString(), "SignUp", "new", "1")
                 .enqueue(new Callback<VerifyResponse>() {
             @Override
             public void onResponse(Call<VerifyResponse> call, Response<VerifyResponse> response) {
