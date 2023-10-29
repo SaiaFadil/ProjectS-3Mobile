@@ -6,22 +6,23 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
+
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager.widget.ViewPager;
+
 import com.example.usingpreferences.Activity.DetailEventDashboard;
 import com.example.usingpreferences.Activity.NoInduk2;
 import com.example.usingpreferences.Activity.PinjamTempatList;
@@ -44,6 +45,8 @@ public class HomeFragment extends Fragment {
     MaterialCardView card1;
     LinearLayout layoutevent,linearpager;
     MaterialCardView petanganjukgambar;
+    private MotionEvent event;
+    private float startY;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
@@ -81,9 +84,11 @@ public class HomeFragment extends Fragment {
 
         fadeIndown = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_in_down);
 
+
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+
                 MulaiAnimasi();
                 ShowData();
                 progressBar.setVisibility(View.GONE);
@@ -223,6 +228,22 @@ public class HomeFragment extends Fragment {
                 }
             }
         });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    private int dpToPx(int dp) {
+        final float scale = getResources().getDisplayMetrics().density;
+        return (int) (dp * scale + 0.5f);
     }
     @Override
     public void onResume() {
