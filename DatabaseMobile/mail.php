@@ -54,7 +54,7 @@ require 'EmailSender.php';
             // cek kode otp lama berhasil didapatkan atau tidak
             if (isset($oldOtp)) {
                 // Buat query SQL untuk memperbarui data
-                $sql = "UPDATE verifikasi  SET kode_otp = '$otp', type = '$type'
+                $sql = "UPDATE verifikasi  SET kode_otp = '$otp', deskripsi = '$type'
                         WHERE email = '$email' AND kode_otp = '$oldOtp'";
                 $result = $konek->query($sql);
             }
