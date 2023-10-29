@@ -53,11 +53,12 @@ public class KodeOtpLupa extends AppCompatActivity {
         konfir = findViewById(R.id.button_konfirmasiotpp);
         inputotp = findViewById(R.id.kode_otp);
         tulisansalah = findViewById(R.id.tulisansalah);
-        email = getIntent().getStringExtra("email");
+        email = getIntent().getStringExtra("emailupa");
         otp = getIntent().getStringExtra("otp");
         Log.e("OTP ", otp.toString());
         konfir.setEnabled(false);
         util = new VerifyUtil(this);
+        util.setEmail(email);
         totalSeconds = 10;
         Log.e("OTP", "" + totalSeconds);
         updateSecond();
@@ -81,24 +82,23 @@ public class KodeOtpLupa extends AppCompatActivity {
                                 progressDialog.dismiss();
                                 if (response.body() != null && response.body().getStatus().equalsIgnoreCase("success")) {
                                     Toast.makeText(KodeOtpLupa.this, "OTP Terkirim", Toast.LENGTH_SHORT).show();
+
                                     konfir.setEnabled(false);
                                     totalSeconds = totalSeconds + 60;
                                     util = new VerifyUtil(KodeOtpLupa.this,response.body().getData());
                                     otp = util.getOtp();
                                     updateSecond();
 
+
                                 } else {
                                     Toast.makeText(KodeOtpLupa.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
-
                             }
                         }, 2000);
                     }
-
                     @Override
                     public void onFailure(Call<VerifyResponse> call, Throwable t) {
                         progressDialog.dismiss();
-
                         Toast.makeText(KodeOtpLupa.this, t.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -116,8 +116,9 @@ public class KodeOtpLupa extends AppCompatActivity {
                 Log.e("OTP COM ", otp);
                 if (KodeOtpLupa.this.otp.equals(inputotp.getOTP())) {
                     String emailambil = email;
+                    util.setOtp(null);
                     Intent pindah = new Intent(KodeOtpLupa.this, AturUlangKataSandi.class);
-                    pindah.putExtra("email", emailambil);
+                    pindah.putExtra("emaillupa", emailambil);
                     startActivity(pindah);
                     overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
 
