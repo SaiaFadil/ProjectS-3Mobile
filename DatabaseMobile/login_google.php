@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
     } else {
         $response["kode"] = 0;
-        $response["pesan"] = "Data Tidak Tersedia";
+        $response["pesan"] = "Akun Belum Terdaftar";
     }
 } else {
     $response = array("kode" => 3, "pesan" => "Metode tidak valid");
