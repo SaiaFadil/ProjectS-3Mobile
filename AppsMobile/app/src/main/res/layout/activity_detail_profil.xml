@@ -121,6 +121,7 @@
                             android:textSize="@dimen/_14ssp"
                             android:textStyle="bold" />
                         <TextView
+                            android:id="@+id/jeniskelaminteks"
                             android:fontFamily="@font/robotoregular"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -129,15 +130,29 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/_14ssp"
                             android:textStyle="bold" />
+
                         <TextView
-                            android:fontFamily="@font/robotoregular"
+                            android:id="@+id/tempatlahirteks"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10sdp"
+                            android:fontFamily="@font/robotoregular"
+                            android:text="Tempat Lahir"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tgllahirteks"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:fontFamily="@font/robotoregular"
                             android:text="Tanggal Lahir"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_14ssp"
                             android:textStyle="bold" />
+
                         <TextView
                             android:fontFamily="@font/robotoregular"
                             android:layout_width="wrap_content"
@@ -147,18 +162,8 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/_14ssp"
                             android:textStyle="bold" />
-                        <TextView
-                            android:fontFamily="@font/robotoregular"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:text="Tempat Lahir"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_14ssp"
-                            android:textStyle="bold" />
 
 
-                        
                     </LinearLayout>
 
                     <LinearLayout
@@ -184,6 +189,7 @@
                             android:textSize="@dimen/_14ssp"
                             android:textStyle="bold" />
                         <TextView
+                            android:id="@+id/titil1"
                             android:fontFamily="@font/robotoregular"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -193,6 +199,7 @@
                             android:textSize="@dimen/_14ssp"
                             android:textStyle="bold" />
                         <TextView
+                            android:id="@+id/titil2"
                             android:fontFamily="@font/robotoregular"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -202,6 +209,7 @@
                             android:textSize="@dimen/_14ssp"
                             android:textStyle="bold" />
                         <TextView
+                            android:id="@+id/titil3"
                             android:fontFamily="@font/robotoregular"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -260,6 +268,7 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/_14ssp"  />
                          <TextView
+
                             android:text="dfhvuybidfuvybiuhfbeeeeyyvouy"
                             android:fontFamily="@font/robotoregular"
                             android:id="@+id/tempatlahirdetail"
