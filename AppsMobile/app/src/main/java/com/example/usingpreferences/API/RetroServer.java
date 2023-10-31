@@ -1,10 +1,10 @@
 package com.example.usingpreferences.API;
+
 import androidx.annotation.NonNull;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.net.URI;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -13,7 +13,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 public class RetroServer {
 
-    public static final String BASE_URL = "http://192.168.1.10/HufflePuff/DatabaseMobile/";
+    public static final String BASE_URL = "http://192.168.90.152/HufflePuff/DatabaseMobile/";
+//    public static final String BASE_URL = "http://192.168.0.109/HufflePuff/DatabaseMobile/";
 
 
     public static final String SUCCESSFUL_RESPONSE = "success";

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 29, 2023 at 12:10 PM
+-- Generation Time: Oct 31, 2023 at 12:03 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -75,15 +75,15 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`id_event`, `nama_pengirim`, `status`, `catatan`, `id_detail`, `id_sewa`, `id_user`) VALUES
-(2, 'kareppp ', 'proses', '', 2, NULL, 32),
+(2, 'kareppp ', 'ditolak', 'terserah', 2, NULL, 32),
 (3, 'kareppp ', 'diterima', '', 3, NULL, 32),
 (4, 'kareppp ', 'ditolak', 'erorr lah ', 4, NULL, 32),
 (5, 'kareppp ', 'diajukan', NULL, 5, NULL, 32),
 (6, 'kareppp ', 'diterima', '', 6, NULL, 32),
-(7, 'kareppp ', 'diajukan', NULL, 7, NULL, 32),
+(7, 'kareppp ', 'proses', NULL, 7, NULL, 32),
 (8, 'kareppp ', 'diajukan', NULL, 8, NULL, 32),
 (9, 'kareppp ', 'diajukan', NULL, 9, NULL, 32),
-(10, 'kareppp ', 'diajukan', NULL, 10, NULL, 32);
+(10, 'kareppp ', 'proses', NULL, 10, NULL, 32);
 
 -- --------------------------------------------------------
 
@@ -114,6 +114,22 @@ INSERT INTO `list_tempat` (`id_tempat`, `nama_tempat`, `alamat_tempat`, `deskrip
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `perpanjangan`
+--
+
+CREATE TABLE `perpanjangan` (
+  `id_perpanjangan` int(11) NOT NULL,
+  `ktp_seniman` varchar(20) NOT NULL,
+  `pass_foto` varchar(20) NOT NULL,
+  `surat_keterangan` varchar(20) NOT NULL,
+  `status` enum('diajukan','proses','diterima','ditolak') DEFAULT NULL,
+  `catatan` text DEFAULT NULL,
+  `id_seniman` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `refresh_token`
 --
 
@@ -136,9 +152,9 @@ INSERT INTO `refresh_token` (`id_token`, `email`, `token`, `device`, `number`, `
 (28, 'amirzanfikri5@gmail.com', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjozMiwibmFtYV9sZW5na2FwIjoiYW1pcnphbiBmaWtyaSIsIm5vX3RlbHBvbiI6IiIsImplbmlzX2tlbGFtaW4iOiJsYWtpLWxha2kiLCJ0YW5nZ2FsX2xhaGlyIjoiMDAwMC0wMC0wMCIsInRlbXBhdF9sYWhpciI6IiIsImVtYWlsIjoiYW1pcnphbmZpa3JpNUBnbWFpbC5jb20iLCJyb2xlIjoiIiwibnVtYmVyIjozLCJleHAiOjE2OTcxNzIwNDR9._i3Wl0s4I3ElWbN4PJYx3H3Wvl9GDjdtY5joQA_7qdE', 'website', 1, '2023-10-13 03:40:44', '2023-10-13 03:40:44', 32),
 (29, 'amirzanfikri5@gmail.com', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjozMiwibmFtYV9sZW5na2FwIjoiYW1pcnphbiBmaWtyaSIsIm5vX3RlbHBvbiI6IiIsImplbmlzX2tlbGFtaW4iOiJsYWtpLWxha2kiLCJ0YW5nZ2FsX2xhaGlyIjoiMDAwMC0wMC0wMCIsInRlbXBhdF9sYWhpciI6IiIsImVtYWlsIjoiYW1pcnphbmZpa3JpNUBnbWFpbC5jb20iLCJyb2xlIjoibWFzeWFyYWthdCIsIm51bWJlciI6MywiZXhwIjoxNjk3MTg4MzUxfQ.6BForsGt966s-MOF8drOomQf6amRzfNqzXlx7Q7T_7U', 'website', 2, '2023-10-13 08:12:31', '2023-10-13 08:12:31', 32),
 (58, 'Admin@gmail.com', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjozOCwibmFtYV9sZW5na2FwIjoiYWRtaW4iLCJub190ZWxwb24iOiIwODg4MTUxNTE1IiwiamVuaXNfa2VsYW1pbiI6InBlcmVtcHVhbiIsInRhbmdnYWxfbGFoaXIiOiIyMDIzLTEwLTEzIiwidGVtcGF0X2xhaGlyIjoiYWtoaXJhdCIsImVtYWlsIjoiQWRtaW5AZ21haWwuY29tIiwicm9sZSI6InN1cGVyIGFkbWluIiwibnVtYmVyIjoxLCJleHAiOjMzOTQ4NTE3MjZ9.mEa9weCsbqwvHu32E0Ww-2hihlciOBsfJgOGqJkdozA', 'website', 1, '2023-10-16 02:41:03', '2023-10-16 02:41:03', 38),
-(117, 'SuperAdmin@gmail.com', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjozNywibmFtYV9sZW5na2FwIjoic3VwZXIgYWRtaW4iLCJub190ZWxwb24iOiIwODgxMTIyMjMzIiwiamVuaXNfa2VsYW1pbiI6Imxha2ktbGFraSIsInRhbmdnYWxfbGFoaXIiOiIyMDIzLTEwLTA3IiwidGVtcGF0X2xhaGlyIjoicGxhbmV0IGp1cGl0ZXIiLCJlbWFpbCI6IlN1cGVyQWRtaW5AZ21haWwuY29tIiwicm9sZSI6InN1cGVyIGFkbWluIiwibnVtYmVyIjozLCJleHAiOjMzOTY3NTY3MjB9.SbT5QJ70t64uVL2sTThvHScKoUtbP-KApPzstMF74ng', 'website', 1, '2023-10-27 03:16:00', '2023-10-27 03:16:00', 37),
-(118, 'SuperAdmin@gmail.com', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjozNywibmFtYV9sZW5na2FwIjoic3VwZXIgYWRtaW4iLCJub190ZWxwb24iOiIwODgxMTIyMjMzIiwiamVuaXNfa2VsYW1pbiI6Imxha2ktbGFraSIsInRhbmdnYWxfbGFoaXIiOiIyMDIzLTEwLTA3IiwidGVtcGF0X2xhaGlyIjoicGxhbmV0IGp1cGl0ZXIiLCJlbWFpbCI6IlN1cGVyQWRtaW5AZ21haWwuY29tIiwicm9sZSI6InN1cGVyIGFkbWluIiwibnVtYmVyIjozLCJleHAiOjE2OTg0MTM2MDR9.w0B-2qVs0D7J9WlzzeHtHNDayHT0OOo3UAI3aObSsqs', 'website', 2, '2023-10-27 12:33:24', '2023-10-27 12:33:24', 37),
-(119, 'SuperAdmin@gmail.com', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjozNywibmFtYV9sZW5na2FwIjoic3VwZXIgYWRtaW4iLCJub190ZWxwb24iOiIwODgxMTIyMjMzIiwiamVuaXNfa2VsYW1pbiI6Imxha2ktbGFraSIsInRhbmdnYWxfbGFoaXIiOiIyMDIzLTEwLTA3IiwidGVtcGF0X2xhaGlyIjoicGxhbmV0IGp1cGl0ZXIiLCJlbWFpbCI6IlN1cGVyQWRtaW5AZ21haWwuY29tIiwicm9sZSI6InN1cGVyIGFkbWluIiwibnVtYmVyIjozLCJleHAiOjE2OTg0MTcyMjV9.DObGQa81i8ikpwIRFbjHNiptbIZBxpMYdxHZ66esw-M', 'website', 3, '2023-10-27 13:33:45', '2023-10-27 13:33:45', 37);
+(142, 'SuperAdmin@gmail.com', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjozNywibmFtYV9sZW5na2FwIjoic3VwZXIgYWRtaW4iLCJub190ZWxwb24iOiIwODgxMTIyMjMzIiwiamVuaXNfa2VsYW1pbiI6Imxha2ktbGFraSIsInRhbmdnYWxfbGFoaXIiOiIyMDIzLTEwLTA3IiwidGVtcGF0X2xhaGlyIjoicGxhbmV0IGp1cGl0ZXIiLCJlbWFpbCI6IlN1cGVyQWRtaW5AZ21haWwuY29tIiwicm9sZSI6InN1cGVyIGFkbWluIiwiZm90byI6IlwvMzcuanBnIiwibnVtYmVyIjozLCJleHAiOjMzOTc0NjM3NTZ9.Ob4tfUv2q2VNxwcozlGYZ_o79rNz9vJ2wDL9vdYPpqw', 'website', 1, '2023-10-31 05:27:58', '2023-10-31 05:27:58', 37),
+(143, 'SuperAdmin@gmail.com', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjozNywibmFtYV9sZW5na2FwIjoic3VwZXIgYWRtaW4iLCJub190ZWxwb24iOiIwODgxMTIyMjMzIiwiamVuaXNfa2VsYW1pbiI6Imxha2ktbGFraSIsInRhbmdnYWxfbGFoaXIiOiIyMDIzLTEwLTA3IiwidGVtcGF0X2xhaGlyIjoicGxhbmV0IGp1cGl0ZXIiLCJlbWFpbCI6IlN1cGVyQWRtaW5AZ21haWwuY29tIiwicm9sZSI6InN1cGVyIGFkbWluIiwiZm90byI6IlwvMzcuanBnIiwibnVtYmVyIjozLCJleHAiOjE2OTg3Mzk0NTd9.ujTqOpUcnapNWGr5Sq48rwE1ByCW8AT7nl-yfqVjqVM', 'website', 2, '2023-10-31 07:04:17', '2023-10-31 07:04:17', 37),
+(144, 'SuperAdmin@gmail.com', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjozNywibmFtYV9sZW5na2FwIjoic3VwZXIgYWRtaW4iLCJub190ZWxwb24iOiIwODgxMTIyMjMzIiwiamVuaXNfa2VsYW1pbiI6Imxha2ktbGFraSIsInRhbmdnYWxfbGFoaXIiOiIyMDIzLTEwLTA3IiwidGVtcGF0X2xhaGlyIjoicGxhbmV0IGp1cGl0ZXIiLCJlbWFpbCI6IlN1cGVyQWRtaW5AZ21haWwuY29tIiwicm9sZSI6InN1cGVyIGFkbWluIiwiZm90byI6IlwvMzcuanBnIiwibnVtYmVyIjozLCJleHAiOjE2OTg3NDU2MzF9.pcdEiud5y3sBiAYIkk-k5ZbKTmScAXJIsocE6JYqwk8', 'website', 3, '2023-10-31 08:47:11', '2023-10-31 08:47:11', 37);
 
 -- --------------------------------------------------------
 
@@ -152,6 +168,8 @@ CREATE TABLE `seniman` (
   `nomor_induk` varchar(20) NOT NULL,
   `nama_seniman` varchar(30) NOT NULL,
   `jenis_kelamin` enum('laki-laki','perempuan') NOT NULL,
+  `kategori` enum('campursari','dalang','jaranan','karawitan','mc','ludruk','organisasi kesenian musik','organisasi','pramugrari tayup','sanggar','sinden','vocalis','waranggono') NOT NULL,
+  `kecamatan` enum('bagor','baron','berbek','gondang','jatikalen','kertosono','lengkong','loceret','nganjuk','ngetos','ngluyu','ngronggot','pace','patianrowo','prambon','rejoso','sawahan','sukomoro','tanjunganom','wilangan') NOT NULL,
   `tempat_lahir` varchar(30) NOT NULL,
   `tanggal_lahir` date NOT NULL,
   `alamat_seniman` varchar(50) NOT NULL,
@@ -172,16 +190,16 @@ CREATE TABLE `seniman` (
 -- Dumping data for table `seniman`
 --
 
-INSERT INTO `seniman` (`id_seniman`, `nik`, `nomor_induk`, `nama_seniman`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `alamat_seniman`, `no_telpon`, `nama_organisasi`, `jumlah_anggota`, `ktp_seniman`, `pass_foto`, `surat_keterangan`, `tgl_pembuatan`, `tgl_berlaku`, `status`, `catatan`, `id_user`) VALUES
-(1, 990155150, '4607', 'joko', 'laki-laki', 'planet mars', '2023-10-19', 'tersraahhvhh', '089999', 'nnivnanvnvonao', '1001', '/1.jpeg', '/1.png', '/1.pdf', '2023-10-22', '2023-10-22', 'diterima', '', 32),
-(2, 2147483647, '7869', 'santi', 'perempuan', 'nganjuk', '2023-10-27', 'isvnnvisivnsv', '088861616', 'random', '121', '/2.png', '/2.jpeg', '/2.pdf', '2023-10-22', '2023-10-22', 'diterima', '', 32),
-(3, 2147483647, '3167', 'ranti', 'perempuan', 'nganjuk', '2017-04-27', 'isvnnvisivnsv', '088861616', 'random', '121', '/3.png', '/3.jpeg', '/3.pdf', '2023-10-22', '2023-10-22', 'proses', '', 32),
-(5, 2147483647, '9664', 'yanti', 'perempuan', 'planet mars', '2023-10-21', 'planet matahari', '089999', 'terserah lah', '121', '/5.jpg', '/5.jpg', '/5.pdf', '2023-10-24', '2023-10-24', 'diajukan', '', 32),
-(6, 2147483647, '5559', 'asep', 'laki-laki', 'planet mars', '2016-03-21', 'planet matahari', '089999', 'terserah lah', '121', '/6.jpg', '/6.jpg', '/6.pdf', '2023-10-24', '2023-10-24', 'diajukan', NULL, 32),
-(7, 2147483647, '5170', 'rana', 'perempuan', 'planet mars', '2016-05-05', 'planet matahari', '089999', 'terserah lah', '121', '/7.jpg', '/7.jpg', '/7.pdf', '2023-10-24', '2023-10-24', 'diajukan', NULL, 32),
-(8, 990155150, '4265', 'eka', 'perempuan', 'planet mars', '2023-10-24', 'planet jupiter ', '0888414144', 'gabut', '121', '/8.jpg', '/8.jpg', '/8.pdf', '2023-10-29', '2023-10-29', 'diajukan', NULL, 32),
-(9, 990155150, '1936', 'eka', 'perempuan', 'planet mars', '2023-10-24', 'planet jupiter ', '0888414144', 'gabut', '121', '/9.jpg', '/9.jpg', '/9.pdf', '2023-10-29', '2023-10-29', 'diajukan', NULL, 32),
-(10, 990155150, '4449', 'eka', 'perempuan', 'planet mars', '2023-10-24', 'planet jupiter ', '0888414144', 'gabut', '121', '/10.jpg', '/10.jpg', '/10.pdf', '2023-10-29', '2023-10-29', 'diajukan', NULL, 32);
+INSERT INTO `seniman` (`id_seniman`, `nik`, `nomor_induk`, `nama_seniman`, `jenis_kelamin`, `kategori`, `kecamatan`, `tempat_lahir`, `tanggal_lahir`, `alamat_seniman`, `no_telpon`, `nama_organisasi`, `jumlah_anggota`, `ktp_seniman`, `pass_foto`, `surat_keterangan`, `tgl_pembuatan`, `tgl_berlaku`, `status`, `catatan`, `id_user`) VALUES
+(1, 990155150, '4607', 'joko', 'laki-laki', '', 'nganjuk', 'planet mars', '2023-10-19', 'tersraahhvhh', '089999', 'nnivnanvnvonao', '1001', '/1.jpeg', '/1.png', '/1.pdf', '2023-10-22', '2023-10-22', 'diterima', '', 32),
+(2, 2147483647, '7869', 'santi', 'perempuan', '', 'nganjuk', 'nganjuk', '2023-10-27', 'isvnnvisivnsv', '088861616', 'random', '121', '/2.png', '/2.jpeg', '/2.pdf', '2023-10-22', '2023-10-22', 'diterima', '', 32),
+(3, 2147483647, '3167', 'ranti', 'perempuan', '', 'nganjuk', 'nganjuk', '2017-04-27', 'isvnnvisivnsv', '088861616', 'random', '121', '/3.png', '/3.jpeg', '/3.pdf', '2023-10-22', '2023-10-22', 'diterima', NULL, 32),
+(5, 2147483647, '9664', 'yanti', 'perempuan', '', 'nganjuk', 'planet mars', '2023-10-21', 'planet matahari', '089999', 'terserah lah', '121', '/5.jpg', '/5.jpg', '/5.pdf', '2023-10-24', '2023-10-24', 'proses', NULL, 32),
+(6, 2147483647, '5559', 'asep', 'laki-laki', '', 'nganjuk', 'planet mars', '2016-03-21', 'planet matahari', '089999', 'terserah lah', '121', '/6.jpg', '/6.jpg', '/6.pdf', '2023-10-24', '2023-10-24', 'diajukan', NULL, 32),
+(7, 2147483647, '5170', 'rana', 'perempuan', '', 'nganjuk', 'planet mars', '2016-05-05', 'planet matahari', '089999', 'terserah lah', '121', '/7.jpg', '/7.jpg', '/7.pdf', '2023-10-24', '2023-10-24', 'proses', NULL, 32),
+(8, 990155150, '4265', 'eka', 'perempuan', '', 'nganjuk', 'planet mars', '2023-10-24', 'planet jupiter ', '0888414144', 'gabut', '121', '/8.jpg', '/8.jpg', '/8.pdf', '2023-10-29', '2023-10-29', 'diajukan', NULL, 32),
+(9, 990155150, '1936', 'eka', 'perempuan', '', 'nganjuk', 'planet mars', '2023-10-24', 'planet jupiter ', '0888414144', 'gabut', '121', '/9.jpg', '/9.jpg', '/9.pdf', '2023-10-29', '2023-10-29', 'proses', NULL, 32),
+(10, 990155150, '4449', 'eka', 'perempuan', '', 'nganjuk', 'planet mars', '2023-10-24', 'planet jupiter ', '0888414144', 'gabut', '121', '/10.jpg', '/10.jpg', '/10.pdf', '2023-10-29', '2023-10-29', 'ditolak', 'terserah', 32);
 
 -- --------------------------------------------------------
 
@@ -214,14 +232,14 @@ CREATE TABLE `sewa_tempat` (
 INSERT INTO `sewa_tempat` (`id_sewa`, `nik_sewa`, `nama_peminjam`, `nama_tempat`, `deskripsi_sewa_tempat`, `nama_kegiatan_sewa`, `jumlah_peserta`, `instansi`, `surat_ket_sewa`, `tgl_awal_peminjaman`, `tgl_akhir_peminjaman`, `status`, `catatan`, `id_tempat`, `id_user`) VALUES
 (10, 2147483647, 'juniorr', 'china', 'ayo turu', 'turu massal', 1224, 'karate', '/2023/10/10.pdf', '2023-10-29 11:28:00', '2023-10-29 11:30:00', 'diterima', '', 2, 32),
 (11, 2147483647, 'juniorr', 'jerman barat', 'ayo turu', 'turu massal', 1224, 'karate', '2023/10/11.pdf', '2023-10-29 11:28:00', '2023-10-29 11:30:00', 'ditolak', 'erorr lah ', 2, 32),
-(12, 2147483647, 'indro', 'jerman amerika', 'random people', 'nyileh panggonan', 1224, 'organisasi', '/2023/11/12.pdf', '2023-11-04 15:44:00', '2023-11-09 15:44:00', 'diajukan', NULL, 2, 32),
-(13, 2147483647, 'indro', 'jerman amerika', 'random people', 'nyileh panggonan', 1224, 'organisasi', '/2023/11/13.pdf', '2023-11-04 15:44:00', '2023-11-09 15:44:00', 'diajukan', NULL, 2, 32),
+(12, 2147483647, 'indro', 'jerman amerika', 'random people', 'nyileh panggonan', 1224, 'organisasi', '/2023/11/12.pdf', '2023-11-04 15:44:00', '2023-11-09 15:44:00', 'diterima', NULL, 2, 32),
+(13, 2147483647, 'indro', 'jerman amerika', 'random people', 'nyileh panggonan', 1224, 'organisasi', '/2023/11/13.pdf', '2023-11-04 15:44:00', '2023-11-09 15:44:00', 'proses', NULL, 2, 32),
 (14, 2147483647, 'indro', 'jerman amerika', 'random people', 'nyileh panggonan', 1224, 'organisasi', '/2023/11/14.pdf', '2023-11-04 15:44:00', '2023-11-09 15:44:00', 'diajukan', NULL, 2, 32),
-(15, 2147483647, 'indro', 'jerman amerika', 'random people', 'nyileh panggonan', 1224, 'organisasi', '/2023/11/15.pdf', '2023-11-04 15:44:00', '2023-11-09 15:44:00', 'diajukan', NULL, 2, 32),
-(16, 2147483647, 'indro', 'jerman amerika', 'random people', 'nyileh panggonan', 1224, 'organisasi', '/2023/11/16.pdf', '2023-11-04 15:44:00', '2023-11-09 15:44:00', 'diajukan', NULL, 2, 32),
-(17, 2147483647, 'indro', 'jerman amerika', 'random people', 'nyileh panggonan', 1224, 'organisasi', '/2023/11/17.pdf', '2023-11-04 15:44:00', '2023-11-09 15:44:00', 'diajukan', NULL, 2, 32),
-(18, 2147483647, 'indro', 'jerman amerika', 'random people', 'nyileh panggonan', 1224, 'organisasi', '/2023/11/18.pdf', '2023-11-04 15:44:00', '2023-11-09 15:44:00', 'diajukan', NULL, 2, 32),
-(19, 2147483647, 'indro', 'jerman amerika', 'random people', 'nyileh panggonan', 1224, 'organisasi', '/2023/11/19.pdf', '2023-11-04 15:44:00', '2023-11-09 15:44:00', 'diajukan', NULL, 2, 32);
+(15, 2147483647, 'indro', 'jerman amerika', 'random people', 'nyileh panggonan', 1224, 'organisasi', '/2023/11/15.pdf', '2023-11-04 15:44:00', '2023-11-09 15:44:00', 'proses', NULL, 2, 32),
+(16, 2147483647, 'indro', 'jerman amerika', 'random people', 'nyileh panggonan', 1224, 'organisasi', '/2023/11/16.pdf', '2023-11-04 15:44:00', '2023-11-09 15:44:00', 'diterima', NULL, 2, 32),
+(17, 2147483647, 'indro', 'jerman amerika', 'random people', 'nyileh panggonan', 1224, 'organisasi', '/2023/11/17.pdf', '2023-11-04 15:44:00', '2023-11-09 15:44:00', 'ditolak', 'terserah', 2, 32),
+(18, 2147483647, 'indro', 'jerman amerika', 'random people', 'nyileh panggonan', 1224, 'organisasi', '/2023/11/18.pdf', '2023-11-04 15:44:00', '2023-11-09 15:44:00', 'ditolak', 'terserah', 2, 32),
+(19, 2147483647, 'indro', 'jerman amerika', 'random people', 'nyileh panggonan', 1224, 'organisasi', '/2023/11/19.pdf', '2023-11-04 15:44:00', '2023-11-09 15:44:00', 'diterima', NULL, 2, 32);
 
 -- --------------------------------------------------------
 
@@ -249,15 +267,19 @@ CREATE TABLE `surat_advis` (
 
 INSERT INTO `surat_advis` (`id_advis`, `nomor_induk`, `nama_advis`, `alamat_advis`, `deskripsi_advis`, `tgl_advis`, `tempat_advis`, `status`, `catatan`, `id_user`, `id_seniman`) VALUES
 (3, '4607', 'asep joko michael ', 'nganjuk indonesia', 'wayang nggolek  ', '2023-11-15', 'planet mars indonesia', 'diterima', '', 32, 1),
-(4, '4607', 'asep joko michael ', 'nganjuk indonesia', 'wayang nggolek  ', '2023-11-15', 'planet mars indonesia', 'proses', '', 32, 1),
-(5, '4607', 'johnn michael robbin', 'nganjuk indonesia', 'wayang nggolek  ', '2023-11-15', 'planet mars indonesia', 'diajukan', NULL, 32, 1),
-(6, '4607', 'asep joko michael ', 'nganjuk indonesia', 'wayang nggolek  ', '2023-11-15', 'planet mars indonesia', 'proses', '', 32, 1),
-(7, '4607', 'asep joko michael ', 'nganjuk indonesia', 'wayang nggolek  ', '2023-11-15', 'planet mars indonesia', 'diajukan', NULL, 32, 1),
-(8, '4607', 'asep joko michael ', 'nganjuk indonesia', 'wayang nggolek  ', '2023-11-15', 'planet mars indonesia', 'diajukan', NULL, 32, 1),
+(4, '4607', 'asep joko michael ', 'nganjuk indonesia', 'wayang nggolek  ', '2023-11-15', 'planet mars indonesia', 'ditolak', 'terserah', 32, 1),
+(5, '4607', 'johnn michael robbin', 'nganjuk indonesia', 'wayang nggolek  ', '2023-11-15', 'planet mars indonesia', 'diterima', NULL, 32, 1),
+(6, '4607', 'asep joko michael ', 'nganjuk indonesia', 'wayang nggolek  ', '2023-11-15', 'planet mars indonesia', 'diterima', NULL, 32, 1),
+(7, '4607', 'asep joko michael ', 'nganjuk indonesia', 'wayang nggolek  ', '2023-11-15', 'planet mars indonesia', 'proses', NULL, 32, 1),
+(8, '4607', 'asep joko michael ', 'nganjuk indonesia', 'wayang nggolek  ', '2023-11-15', 'planet mars indonesia', 'proses', NULL, 32, 1),
 (9, '4607', 'asep joko michael ', 'nganjuk indonesia', 'wayang nggolek  ', '2023-11-15', 'planet mars indonesia', 'ditolak', 'erorr lah ', 32, 1),
 (10, '4607', 'asep joko michael ', 'nganjuk indonesia', 'wayang nggolek  ', '2023-11-15', 'planet mars indonesia', 'ditolak', 'erorr lah ', 32, 1),
 (11, '4607', 'asep joko michael ', 'nganjuk indonesia', 'wayang nggolek  ', '2023-11-15', 'planet mars indonesia', 'diterima', '', 32, 1),
-(12, '4607', 'asep joko michael ', 'nganjuk indonesia', 'wayang nggolek  ', '2023-11-15', 'planet mars indonesia', 'diterima', '', 32, 1);
+(12, '4607', 'asep joko michael ', 'nganjuk indonesia', 'wayang nggolek  ', '2023-11-15', 'planet mars indonesia', 'diterima', '', 32, 1),
+(13, '4607', 'asep joko michael ', 'nganjuk indonesia', 'wayang nggolek  ', '2023-11-15', 'planet mars indonesia', 'diajukan', NULL, 32, 1),
+(14, '4607', 'asep joko michael ', 'nganjuk indonesia', 'wayang nggolek  ', '2023-11-15', 'planet mars indonesia', 'proses', NULL, 32, 1),
+(15, '4607', 'asep joko michael ', 'nganjuk indonesia', 'wayang nggolek  ', '2023-11-15', 'planet mars indonesia', 'proses', NULL, 32, 1),
+(16, '4607', 'asep joko michael ', 'nganjuk indonesia', 'wayang nggolek  ', '2023-11-15', 'planet mars indonesia', 'ditolak', 'terserah', 32, 1);
 
 -- --------------------------------------------------------
 
@@ -272,7 +294,7 @@ CREATE TABLE `users` (
   `jenis_kelamin` enum('laki-laki','perempuan') NOT NULL,
   `tanggal_lahir` date NOT NULL,
   `tempat_lahir` varchar(45) NOT NULL,
-  `role` enum('super admin','admin event','admin pentas','admin seniman','admin tempat','masyarakat') NOT NULL,
+  `role` enum('super admin','admin event','admin seniman','admin tempat','masyarakat') NOT NULL,
   `email` varchar(45) NOT NULL,
   `password` varchar(191) NOT NULL,
   `foto` varchar(45) DEFAULT NULL,
@@ -285,14 +307,13 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id_user`, `nama_lengkap`, `no_telpon`, `jenis_kelamin`, `tanggal_lahir`, `tempat_lahir`, `role`, `email`, `password`, `foto`, `verifikasi`) VALUES
 (32, 'amirzan fikri', '088884144', 'laki-laki', '2000-12-12', 'indonesia', 'masyarakat', 'amirzanfikri5@gmail.com', '$2y$10$q6qLZmxecCFOQJ0nKYKjOuyZMwyv5xj0CrY0A.ehKTeTMwW2ERo2m', NULL, 1),
-(33, 'event admin', '088112223392590', 'perempuan', '2023-10-06', 'planet matahari', 'admin event', 'AdminEvent1@gmail.com', '$2y$10$GwXkmSLqY.Xx.QbXB9gqlezrPBwMT/i3.0CWJkDQyDC1UTvT.AcKm', NULL, 1),
-(34, 'admin pentas', '08626268661886', 'perempuan', '2023-10-07', 'jerman', 'admin pentas', 'AdminPentas@gmail.com', '$2y$10$vr/ZoXhq2wtgZDpSIqNxtuzGjBiChSPqk7iw/TCioOKZQ0O7BsBem', NULL, 1),
+(33, 'event admin', '088112223392590', 'perempuan', '2023-10-06', 'planet matahari', 'admin tempat', 'AdminEvent1@gmail.com', '$2y$10$WjZyxPJNkjsC56Sg4844mObDz/j/CI05JEFu1tkqwoI4DoNdUJO1C', NULL, 1),
+(34, 'admin pentas', '08626268661886', 'perempuan', '2023-10-07', 'jerman', 'admin seniman', 'AdminPentas@gmail.com', '$2y$10$Kto5k8p0BsjvY.EfXhRoQedVqwoq1UmhDF.GQ.GJkewv5nAgBjFyi', NULL, 1),
 (35, 'admin tempat', '089095295929505', 'laki-laki', '2023-10-06', 'planet jupiter', 'admin tempat', 'AdminTempat@gmail.com', '$2y$10$de7R3BL2pZRX9QX/TFufF.4BOtqkJOpML2PShgYQRYpDVC2cE2.du', NULL, 1),
-(36, 'admin seniman', '08881515157751', 'laki-laki', '2023-10-07', 'akhirat', 'admin seniman', 'AdminSeniman@gmail.com', '$2y$10$bamAD6WkuqxHBFn7U.GQFupabPM03xXRZFEXpPqITn49QuJU7fhCC', NULL, 1),
-(37, 'super admin', '0881122233', 'laki-laki', '2023-10-07', 'planet jupiter', 'super admin', 'SuperAdmin@gmail.com', '$2y$10$FiZNvFMIYLIAUGqNiN9VQeKaA6vTzr/7.nXJMn9KEN/67nFksrlsS', NULL, 1),
+(36, 'admin seniman', '08881515157751', 'laki-laki', '2023-10-07', 'akhirat', 'admin seniman', 'AdminSeniman@gmail.com', '$2y$10$bamAD6WkuqxHBFn7U.GQFupabPM03xXRZFEXpPqITn49QuJU7fhCC', '/36.jpeg', 1),
+(37, 'super admin', '0881122233', 'laki-laki', '2023-10-07', 'planet jupiter', 'super admin', 'SuperAdmin@gmail.com', '$2y$10$M1fEjUm7I3i7z8bMOSzYm.9WzkGl9rHV8Av5soEhKgXbkkvt8VbO2', '/37.jpg', 1),
 (38, 'admin', '0888151515', 'perempuan', '2023-10-13', 'akhirat', 'super admin', 'Admin@gmail.com', '$2y$10$tz2Qd71cf4ZKyk02vz4Ye.smoiw/N1/38KlzpgFNJwWK9VEP9rv6a', NULL, 1),
-(41, 'joko', '0881122233', 'laki-laki', '2023-10-13', 'akhirat', 'admin tempat', 'random@gmail.com', '$2y$10$0RlQ7RJ9U1nN7E1YuUkhnOaTYbcANSNIEYzUumq.xCz0g1CjrgKLm', '/41.jpg', 1),
-(42, 'asep', '0881122233', 'laki-laki', '2023-10-14', 'akhirat', 'super admin', 'terserah@gmail.com', '$2y$10$xOVWc1Q8CvI1kSsco0qfs.enMFFOHuZdws.otsKPWyBrncw7RAQDS', '/42.jpg', 1);
+(41, 'joko', '0881122233', 'laki-laki', '2023-10-13', 'akhirat', 'admin tempat', 'random@gmail.com', '$2y$10$0RlQ7RJ9U1nN7E1YuUkhnOaTYbcANSNIEYzUumq.xCz0g1CjrgKLm', '/41.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -306,10 +327,18 @@ CREATE TABLE `verifikasi` (
   `kode_otp` int(6) NOT NULL,
   `link` varchar(50) NOT NULL,
   `deskripsi` enum('password','email') NOT NULL,
+  `send` int(1) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `verifikasi`
+--
+
+INSERT INTO `verifikasi` (`id_verifikasi`, `email`, `kode_otp`, `link`, `deskripsi`, `send`, `created_at`, `updated_at`, `id_user`) VALUES
+(1, 'amirzanfikri5@gmail.com', 681257, 'beb527e9e2e0358831eb8189c6568ea94d805dc435a69c19b8', 'password', 0, '2023-10-30 03:06:28', '2023-10-30 03:06:28', 32);
 
 --
 -- Indexes for dumped tables
@@ -334,6 +363,13 @@ ALTER TABLE `events`
 --
 ALTER TABLE `list_tempat`
   ADD PRIMARY KEY (`id_tempat`);
+
+--
+-- Indexes for table `perpanjangan`
+--
+ALTER TABLE `perpanjangan`
+  ADD PRIMARY KEY (`id_perpanjangan`),
+  ADD KEY `senimanPFK` (`id_seniman`);
 
 --
 -- Indexes for table `refresh_token`
@@ -396,13 +432,19 @@ ALTER TABLE `events`
 -- AUTO_INCREMENT for table `list_tempat`
 --
 ALTER TABLE `list_tempat`
-  MODIFY `id_tempat` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_tempat` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `perpanjangan`
+--
+ALTER TABLE `perpanjangan`
+  MODIFY `id_perpanjangan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `refresh_token`
 --
 ALTER TABLE `refresh_token`
-  MODIFY `id_token` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
+  MODIFY `id_token` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
 
 --
 -- AUTO_INCREMENT for table `seniman`
@@ -420,19 +462,19 @@ ALTER TABLE `sewa_tempat`
 -- AUTO_INCREMENT for table `surat_advis`
 --
 ALTER TABLE `surat_advis`
-  MODIFY `id_advis` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_advis` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `verifikasi`
 --
 ALTER TABLE `verifikasi`
-  MODIFY `id_verifikasi` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_verifikasi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -444,6 +486,12 @@ ALTER TABLE `verifikasi`
 ALTER TABLE `events`
   ADD CONSTRAINT `eventFK` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `sewaFK` FOREIGN KEY (`id_sewa`) REFERENCES `sewa_tempat` (`id_sewa`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `perpanjangan`
+--
+ALTER TABLE `perpanjangan`
+  ADD CONSTRAINT `senimanPFK` FOREIGN KEY (`id_seniman`) REFERENCES `seniman` (`id_seniman`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `refresh_token`
