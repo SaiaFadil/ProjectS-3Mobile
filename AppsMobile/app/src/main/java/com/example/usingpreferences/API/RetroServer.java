@@ -13,7 +13,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 public class RetroServer {
 
-    public static final String BASE_URL = "http://192.168.90.152/HufflePuff/DatabaseMobile/";
+    public static final String BASE_URL = "http://172.16.110.118/HufflePuff/DatabaseMobile/";
 //    public static final String BASE_URL = "http://192.168.0.109/HufflePuff/DatabaseMobile/";
 
 
