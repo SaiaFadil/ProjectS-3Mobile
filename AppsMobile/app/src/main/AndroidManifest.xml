@@ -84,7 +84,7 @@
             android:name=".Activity.NoInduk4"
             android:exported="false" />
         <activity
-            android:name=".Activity.NoInduk3"
+            android:name=".SplashScreen"
             android:exported="false" />
         <activity
             android:name=".Activity.NoInduk2"
@@ -120,7 +120,7 @@
             android:name=".Activity.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".Activity.NoInduk3"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

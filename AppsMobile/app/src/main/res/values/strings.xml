@@ -17,6 +17,33 @@
         <item>Laki-laki</item>
         <item>Perempuan</item>
     </string-array>
+    <string-array name="tipe_seniman_array">
+        <item>Pilih Tipe Seniman</item>
+        <item>Perseorangan</item>
+        <item>Organisasi</item>
+    </string-array>
+    <string-array name="kecamatan_array">
+        <item>Pilih Kecamatan</item>
+        <item>Nganjuk</item>
+        <item>Ngetos</item>
+        <item>Berbek</item>
+        <item>Loceret</item>
+        <item>Pace</item>
+        <item>Prambon</item>
+        <item>Ngronggot</item>
+        <item>Kertosono</item>
+        <item>Patianrowo</item>
+        <item>Baron</item>
+        <item>Tanjunganom</item>
+        <item>Sukomoro</item>
+        <item>Bagor</item>
+        <item>Wilangan</item>
+        <item>Rejoso</item>
+        <item>Gondang</item>
+        <item>Ngluyu</item>
+        <item>Lengkong</item>
+        <item>Jatikalen</item>
+    </string-array>
 
 
 </resources>
