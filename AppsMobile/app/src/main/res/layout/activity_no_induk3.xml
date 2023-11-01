@@ -6,284 +6,461 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Activity.NoInduk3">
+
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
         android:layout_marginLeft="-20dp"
         android:layout_marginRight="-10dp"
         android:backgroundTint="@color/white"
-        app:strokeWidth="@dimen/_1sdp"
-        app:strokeColor="@color/gray"
         android:outlineAmbientShadowColor="@color/black"
-        >
+        app:strokeColor="@color/gray"
+        app:strokeWidth="@dimen/_1sdp">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/judul"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="@dimen/_8sdp"
+                    android:gravity="center"
+                    android:maxLines="1"
                     android:text="FORMULIR NOMOR INDUK SENIMAN"
                     android:textColor="@color/greendark"
                     android:textSize="@dimen/_13ssp"
-                    android:maxLines="1"
-                    android:gravity="center"
                     android:textStyle="bold" />
             </LinearLayout>
+
             <ImageButton
                 android:id="@+id/indukback"
                 android:layout_width="@dimen/_45sdp"
                 android:layout_height="@dimen/_50sdp"
-                android:layout_marginLeft="@dimen/_15sdp"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_back"
+                android:layout_marginLeft="@dimen/_15sdp"
                 android:backgroundTint="@color/white"
                 android:scaleType="fitXY"
-                />
+                android:src="@drawable/ic_back" />
         </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginEnd="@dimen/_20sdp">
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:orientation="vertical">
+
             <TextView
-                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:text="Nomor Induk Kependudukan"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_14ssp"
-                />
+                android:textSize="@dimen/_14ssp" />
 
-            <EditText
-                android:id="@+id/editTextNIK"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:background="@drawable/bg_editext"
-                android:ems="10"
-                android:hint="Masukkan Nomor Induk Kependudukan"
-                android:inputType="number"
-                android:paddingLeft="@dimen/_12sdp"
-                android:maxLines="1"
-                android:paddingTop="@dimen/_7sdp"
-                android:paddingBottom="@dimen/_7sdp"
-                android:textSize="@dimen/_12sdp" />
+                app:boxBackgroundColor="@android:color/transparent"
+                app:boxStrokeWidth="@dimen/_1sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_3sdp"
+                app:boxCornerRadiusTopStart="@dimen/_3sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_3sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_3sdp"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextNIK"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:paddingLeft="@dimen/_12sdp"
+                    android:paddingTop="@dimen/_7sdp"
+                    android:paddingBottom="@dimen/_7sdp"
+                    android:textSize="@dimen/_12sdp"
+                    android:hint="Masukkan Nomor Induk Kependudukan"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
 
             <TextView
-                android:layout_marginTop="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:text="Nama Lengkap"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_14ssp"
-                />
-            <EditText
-                android:id="@+id/editTextNamaLengkap"
+                android:textSize="@dimen/_14ssp" />
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:ems="10"
-                android:inputType="text"
-                android:hint="Masukkan Nama Lengkap sesuai KTP"
-                android:textSize="@dimen/_12sdp"
-                android:maxLines="1"
-                android:background="@drawable/bg_editext"
-                android:paddingTop="@dimen/_7sdp"
-                android:paddingBottom="@dimen/_7sdp"
-                android:paddingLeft="@dimen/_12sdp"/>
+                app:boxBackgroundColor="@android:color/transparent"
+                app:boxStrokeWidth="@dimen/_1sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_3sdp"
+                app:boxCornerRadiusTopStart="@dimen/_3sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_3sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_3sdp"
+                android:hint="Masukan Nama Lengkap Sesuai KTP"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextNamaLengkap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:ems="10"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:imeActionId="6"
+                    android:imeActionLabel="Sign In"
+                    android:imeOptions="actionDone"
+                    android:paddingLeft="@dimen/_12sdp"
+                    android:paddingTop="@dimen/_7sdp"
+                    android:paddingBottom="@dimen/_7sdp"
+                    android:textSize="@dimen/_12sdp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
             <TextView
-                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:text="Jenis Kelamin"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_14ssp"
-                />
+                android:textSize="@dimen/_14ssp" />
+
             <Spinner
                 android:id="@+id/gender_spinner"
                 android:layout_width="@dimen/_150sdp"
                 android:layout_height="@dimen/_35sdp"
                 android:background="@drawable/bg_editext"
-                android:popupBackground="@color/gray"
+                android:entries="@array/jenis_kelamin_array"
                 android:padding="8dp"
-                />
+                android:popupBackground="@color/gray" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:orientation="horizontal"
-                >
+                android:orientation="horizontal">
+
                 <TextView
-                    android:layout_marginTop="@dimen/_15sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
                     android:text="Tempat Lahir"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_14ssp"
-                    />
+                    android:textSize="@dimen/_14ssp" />
+
                 <TextView
-                    android:layout_marginTop="@dimen/_15sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_62sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
                     android:text="Tanggal Lahir"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_14ssp"
-                    android:layout_marginLeft="@dimen/_62sdp"
-                    />
+                    android:textSize="@dimen/_14ssp" />
             </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <EditText
-                    android:id="@+id/editTextTL"
-                    android:layout_width="@dimen/_130sdp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:ems="10"
-                    android:maxLines="1"
-                    android:inputType="text"
-                    android:hint="Contoh : NGANJUK"
-                    android:textSize="@dimen/_12sdp"
-                    android:background="@drawable/bg_editext"
-                    android:paddingTop="@dimen/_7sdp"
-                    android:paddingBottom="@dimen/_7sdp"
-                    android:paddingLeft="@dimen/_12sdp"/>
-
-                <EditText
-                    android:id="@+id/editTextTG"
+                android:orientation="horizontal">
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:layout_marginLeft="@dimen/_20sdp"
-                    android:ems="10"
-                    android:hint="Pilih Tanggal"
-                    android:maxLines="1"
-                    android:textSize="@dimen/_12sdp"
+                    app:boxBackgroundColor="@android:color/transparent"
+                    app:boxStrokeWidth="@dimen/_1sdp"
+                    app:boxCornerRadiusTopEnd="@dimen/_3sdp"
+                    app:boxCornerRadiusTopStart="@dimen/_3sdp"
+                    app:boxCornerRadiusBottomEnd="@dimen/_3sdp"
+                    app:boxCornerRadiusBottomStart="@dimen/_3sdp"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextTL"
+                        android:layout_width="@dimen/_130sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:ems="10"
+                        android:hint="Contoh: NGANJUK"
+                        android:textAllCaps="true"
+                        android:inputType="text"
+                        android:maxLength="10"
+                        android:maxLines="1"
+                        android:paddingLeft="@dimen/_12sdp"
+                        android:paddingTop="@dimen/_7sdp"
+                        android:paddingBottom="@dimen/_7sdp"
+                        android:textSize="@dimen/_10sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundColor="@android:color/transparent"
+                    app:boxStrokeWidth="@dimen/_1sdp"
+                    app:boxCornerRadiusTopEnd="@dimen/_3sdp"
+                    app:boxCornerRadiusTopStart="@dimen/_3sdp"
+                    app:boxCornerRadiusBottomEnd="@dimen/_3sdp"
+                    app:boxCornerRadiusBottomStart="@dimen/_3sdp"
+
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextTG"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:ems="10"
+                        android:hint="Pilih Tanggal Lahir"
+                        android:gravity="center"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:paddingLeft="@dimen/_12sdp"
+                        android:paddingTop="@dimen/_7sdp"
+                        android:paddingBottom="@dimen/_7sdp"
+                        android:textSize="@dimen/_10sdp"
+                        android:onClick="onButtonClick"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="Kecamatan"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <Spinner
+                    android:id="@+id/kecamatan_spinner"
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="@dimen/_35sdp"
                     android:background="@drawable/bg_editext"
+                    android:padding="8dp"
+                    android:popupBackground="@color/gray" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="Alamat Lengkap"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="@android:color/transparent"
+                app:boxStrokeWidth="@dimen/_1sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_3sdp"
+                app:boxCornerRadiusTopStart="@dimen/_3sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_3sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_3sdp"
+                app:counterEnabled="true"
+                app:counterMaxLength="120"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextAlamat"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_80sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:ems="10"
+                    android:maxLength="120"
+                    android:hint="Masukkan Alamat Lengkap"
+                    android:inputType="textMultiLine"
+                    android:lines="8"
+                    android:maxLines="6"
+                    android:gravity="top|start"
+                    android:paddingLeft="@dimen/_12sdp"
                     android:paddingTop="@dimen/_7sdp"
                     android:paddingBottom="@dimen/_7sdp"
-                    android:paddingLeft="@dimen/_12sdp"/>
-            </LinearLayout>
-            <TextView
-                android:layout_marginTop="@dimen/_15sdp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Alamat"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_14ssp"
-                />
-            <EditText
-                android:id="@+id/editTextAlamat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:ems="10"
-                android:inputType="text"
-                android:hint="Masukkan Alamat Lengkap"
-                android:textSize="@dimen/_12sdp"
-                android:maxLines="1"
-                android:background="@drawable/bg_editext"
-                android:paddingTop="@dimen/_7sdp"
-                android:paddingBottom="@dimen/_7sdp"
-                android:paddingLeft="@dimen/_12sdp"/>
-            <TextView
-                android:layout_marginTop="@dimen/_15sdp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="No.Handphone"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_14ssp"
-                />
-            <EditText
-                android:id="@+id/editTextNOHP"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:ems="10"
-                android:maxLines="1"
-                android:inputType="number"
-                android:hint="Masukkan No.Handphone Aktif"
-                android:textSize="@dimen/_12sdp"
-                android:background="@drawable/bg_editext"
-                android:paddingTop="@dimen/_7sdp"
-                android:paddingBottom="@dimen/_7sdp"
-                android:paddingLeft="@dimen/_12sdp"/>
-            <TextView
-                android:layout_marginTop="@dimen/_15sdp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nama Organisasi / *Optional"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_14ssp"
-                />
-            <EditText
-                android:id="@+id/editTextNamaOrganisasi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:ems="10"
-                android:maxLines="1"
-                android:inputType="text"
-                android:hint="Masukkan Nama Organisasi ex :CSTeam"
-                android:textSize="@dimen/_12sdp"
-                android:background="@drawable/bg_editext"
-                android:paddingTop="@dimen/_7sdp"
-                android:paddingBottom="@dimen/_7sdp"
-                android:paddingLeft="@dimen/_12sdp"/>
-            <TextView
-                android:layout_marginTop="@dimen/_15sdp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Jumlah Anggota / Isi 1 jika tidak memiliki"
+                    android:textSize="@dimen/_12sdp" />
 
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="Nomor Telepon"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_13ssp"
-                />
-            <EditText
-                android:id="@+id/editTextJmlAnggota"
+                android:textSize="@dimen/_14ssp" />
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:maxLines="1"
-                android:ems="10"
-                android:inputType="number"
-                android:hint="Masukkan Jumlah Anggota"
-                android:textSize="@dimen/_12sdp"
+                app:boxBackgroundColor="@android:color/transparent"
+                app:boxStrokeWidth="@dimen/_1sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_3sdp"
+                app:boxCornerRadiusTopStart="@dimen/_3sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_3sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_3sdp"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextNOHP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:ems="10"
+                    android:maxLength="14"
+                    android:hint="Masukkan No.Handphone Aktif"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/_12sdp"
+                    android:paddingTop="@dimen/_7sdp"
+                    android:paddingBottom="@dimen/_7sdp"
+                    android:textSize="@dimen/_12sdp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="Tipe Seniman"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp" />
+
+            <Spinner
+                android:id="@+id/tipeSeniman_spinner"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="@dimen/_35sdp"
                 android:background="@drawable/bg_editext"
-                android:paddingTop="@dimen/_7sdp"
-                android:paddingBottom="@dimen/_7sdp"
-                android:paddingLeft="@dimen/_12sdp"/>
+                android:padding="8dp"
+                android:popupBackground="@color/gray" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview_organisasi"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/transparent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:text="Nama Organisasi"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxBackgroundColor="@android:color/transparent"
+                        app:boxStrokeWidth="@dimen/_1sdp"
+                        app:boxCornerRadiusTopEnd="@dimen/_3sdp"
+                        app:boxCornerRadiusTopStart="@dimen/_3sdp"
+                        app:boxCornerRadiusBottomEnd="@dimen/_3sdp"
+                        app:boxCornerRadiusBottomStart="@dimen/_3sdp"
+
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editTextNamaOrganisasi"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:ems="10"
+                            android:hint="Masukkan Nama Organisasi ex :CSTeam"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:paddingLeft="@dimen/_12sdp"
+                            android:paddingTop="@dimen/_7sdp"
+                            android:paddingBottom="@dimen/_7sdp"
+                            android:textSize="@dimen/_12sdp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:text="Jumlah Anggota"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_13ssp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxBackgroundColor="@android:color/transparent"
+                        app:boxStrokeWidth="@dimen/_1sdp"
+                        app:boxCornerRadiusTopEnd="@dimen/_3sdp"
+                        app:boxCornerRadiusTopStart="@dimen/_3sdp"
+                        app:boxCornerRadiusBottomEnd="@dimen/_3sdp"
+                        app:boxCornerRadiusBottomStart="@dimen/_3sdp"
+
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editTextJmlAnggota"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:ems="10"
+                            android:hint="Masukkan Jumlah Anggota"
+                            android:inputType="number"
+                            android:maxLines="1"
+                            android:paddingLeft="@dimen/_12sdp"
+                            android:paddingTop="@dimen/_7sdp"
+                            android:paddingBottom="@dimen/_7sdp"
+                            android:textSize="@dimen/_12sdp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
             <com.google.android.material.button.MaterialButton
-                android:layout_marginTop="@dimen/_50sdp"
-                android:layout_marginBottom="@dimen/_30sdp"
                 android:id="@+id/button_lanjutinduk"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"
-                android:text="Lanjut"
-                android:textSize="@dimen/_17ssp"
-                app:cornerRadius="@dimen/_10sdp"
-                android:shadowRadius="3"
                 android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_50sdp"
                 android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:backgroundTint="@color/greendark"
+                android:shadowRadius="3"
+                android:text="Lanjut"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:backgroundTint="@color/greendark"/>
+                android:textSize="@dimen/_17ssp"
+                app:cornerRadius="@dimen/_10sdp" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

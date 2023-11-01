@@ -7,171 +7,174 @@
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".Activity.RegisterActivity">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="@dimen/_5sdp">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:fontFamily="sans-serif"
+                android:gravity="center_horizontal"
+                android:maxLines="1"
                 android:text="Daftarkan Akunmu"
                 android:textColor="@color/black"
-                android:layout_marginTop="@dimen/_20sdp"
                 android:textSize="@dimen/_24ssp"
-                android:maxLines="1"
-                android:textStyle="bold"
-                android:gravity="center_horizontal"
-                android:fontFamily="sans-serif"/>
+                android:textStyle="bold" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:gravity="center_horizontal"
+                android:maxLines="1"
                 android:text="Silahkan lengkapi pendaftaran akun"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_16ssp"
-                android:maxLines="1"
-                android:gravity="center_horizontal"
-                android:fontFamily="sans-serif"/>
+                android:textSize="@dimen/_16ssp" />
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_170sdp"
                 android:src="@drawable/anim3" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Masukkan Namamu"
                 android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:hint="Masukkan Namamu"
                 app:boxBackgroundColor="@android:color/transparent"
-                app:boxStrokeColor="@color/blue"
-                app:boxStrokeWidth="@dimen/_2sdp"
-                app:boxCornerRadiusTopEnd="@dimen/_5sdp"
-                app:boxCornerRadiusTopStart="@dimen/_5sdp"
                 app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
                 app:boxCornerRadiusBottomStart="@dimen/_5sdp"
-                >
+                app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+                app:boxCornerRadiusTopStart="@dimen/_5sdp"
+                app:boxStrokeColor="@color/blue"
+                app:boxStrokeWidth="@dimen/_2sdp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_namaSignup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
                     android:inputType="text"
                     android:maxLines="1"
-                    android:singleLine="true"
-                    android:imeOptions="actionNext" />
+                    android:singleLine="true" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Masukkan Nomor Teleponmu"
                 android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:hint="Masukkan Nomor Teleponmu"
                 app:boxBackgroundColor="@android:color/transparent"
-                app:boxStrokeColor="@color/blue"
-                app:boxStrokeWidth="@dimen/_2sdp"
-                app:boxCornerRadiusTopEnd="@dimen/_5sdp"
-                app:boxCornerRadiusTopStart="@dimen/_5sdp"
                 app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
                 app:boxCornerRadiusBottomStart="@dimen/_5sdp"
-                >
+                app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+                app:boxCornerRadiusTopStart="@dimen/_5sdp"
+                app:boxStrokeColor="@color/blue"
+                app:boxStrokeWidth="@dimen/_2sdp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_nohpSignup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
                     android:inputType="phone"
                     android:maxLines="1"
-                    android:singleLine="true"
-                    android:imeOptions="actionNext" />
+                    android:singleLine="true" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Masukkan Emailmu"
                 android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:hint="Masukkan Emailmu"
                 app:boxBackgroundColor="@android:color/transparent"
-                app:boxStrokeColor="@color/blue"
-                app:boxStrokeWidth="@dimen/_2sdp"
-                app:boxCornerRadiusTopEnd="@dimen/_5sdp"
-                app:boxCornerRadiusTopStart="@dimen/_5sdp"
                 app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
                 app:boxCornerRadiusBottomStart="@dimen/_5sdp"
-                >
+                app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+                app:boxCornerRadiusTopStart="@dimen/_5sdp"
+                app:boxStrokeColor="@color/blue"
+                app:boxStrokeWidth="@dimen/_2sdp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_emailSignup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
-                    android:singleLine="true"
-                    android:imeOptions="actionNext"
-                    />
+                    android:singleLine="true" />
 
-            </com.google.android.material.textfield.TextInputLayout> 
-            <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Masukkan Kata Sandi"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_7sdp"
-            app:boxBackgroundColor="@android:color/transparent"
-            app:boxStrokeColor="@color/blue"
-            app:boxStrokeWidth="@dimen/_2sdp"
-            app:boxCornerRadiusTopEnd="@dimen/_5sdp"
-            app:boxCornerRadiusTopStart="@dimen/_5sdp"
-            app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
-            app:boxCornerRadiusBottomStart="@dimen/_5sdp"
-            >
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_passwordSignup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:imeOptions="actionNext"
-                />
-
-        </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Konfirmasi Kata Sandi"
                 android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:hint="Masukkan Kata Sandi"
                 app:boxBackgroundColor="@android:color/transparent"
-                app:boxStrokeColor="@color/greendark"
-                app:boxStrokeWidth="@dimen/_2sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_5sdp"
                 app:boxCornerRadiusTopEnd="@dimen/_5sdp"
                 app:boxCornerRadiusTopStart="@dimen/_5sdp"
+                app:boxStrokeColor="@color/blue"
+                app:boxStrokeWidth="@dimen/_2sdp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_passwordSignup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:hint="Konfirmasi Kata Sandi"
+                app:boxBackgroundColor="@android:color/transparent"
                 app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
-                app:boxCornerRadiusBottomStart="@dimen/_5sdp">
+                app:boxCornerRadiusBottomStart="@dimen/_5sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+                app:boxCornerRadiusTopStart="@dimen/_5sdp"
+                app:boxStrokeColor="@color/greendark"
+                app:boxStrokeWidth="@dimen/_2sdp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_passwordSignup2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPassword"
-                    android:maxLines="1"
-                    android:singleLine="true"
                     android:imeActionId="6"
                     android:imeActionLabel="Sign In"
                     android:imeOptions="actionDone"
-                    />
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:singleLine="true" />
 
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -180,63 +183,62 @@
                 android:id="@+id/checkboxpw"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tampilkan Kata Sandi"
                 android:layout_gravity="left"
                 android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_marginBottom="@dimen/_30sdp"/>
-
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:text="Tampilkan Kata Sandi" />
 
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_signupSignup"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"
-                android:text="Lanjut"
-                android:textSize="@dimen/_20ssp"
-                android:fontFamily="sans-serif"
-                android:shadowRadius="3"
                 android:layout_marginLeft="@dimen/_20sdp"
                 android:layout_marginRight="@dimen/_20sdp"
+                android:backgroundTint="@color/greendark"
+                android:fontFamily="sans-serif"
+                android:shadowRadius="3"
+                android:text="Lanjut"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:backgroundTint="@color/greendark"/>
-
-
-
+                android:textSize="@dimen/_20ssp" />
 
 
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_horizontal">
+
                     <LinearLayout
-                        android:layout_marginBottom="@dimen/_30sdp"
-                        android:layout_marginTop="@dimen/_20sdp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_30sdp"
                         android:orientation="horizontal">
 
                         <TextView
-                            android:layout_marginTop="@dimen/_3sdp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_3sdp"
                             android:text="Sudah punya akun?"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_14ssp" />
+
                         <TextView
                             android:id="@+id/button_signinsignin"
-                            android:layout_marginTop="@dimen/_3sdp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/blue"
-                            android:textStyle="bold"
                             android:layout_marginLeft="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_3sdp"
+                            android:text="Masuk Disini"
+                            android:textColor="@color/blue"
                             android:textSize="@dimen/_14ssp"
-                            android:text="Masuk Disini"/>
+                            android:textStyle="bold" />
 
                     </LinearLayout>
                 </TableRow>
@@ -248,11 +250,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_20sdp"
-                android:textSize="@dimen/_14ssp"
                 android:text="ehrjhnerfhnerhnfernfjerneirnfnhernf"
                 android:textColor="@color/red"
-                android:visibility="gone"
-                />
+                android:textSize="@dimen/_14ssp"
+                android:visibility="gone" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
