@@ -1,9 +1,6 @@
 package com.example.usingpreferences.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
@@ -11,7 +8,8 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TimePicker;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.usingpreferences.KonfirmMenu.PengajuanBerhasilTerkirim;
 import com.example.usingpreferences.R;
@@ -37,7 +35,6 @@ private EditText etTanggalAwal, etTanggalAkhir;
         // Cari EditText dengan ID et_tanggalawal
         etTanggalAwal = findViewById(R.id.et_tanggalawalpinjam); // Inisialisasi EditText jam awal
         etTanggalAkhir = findViewById(R.id.et_tanggalakhirpinjam); // Inisialisasi EditText jam akhir
-
         etTanggalAwal.setInputType(InputType.TYPE_NULL);
         etTanggalAkhir.setInputType(InputType.TYPE_NULL);
 

@@ -24,7 +24,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.usingpreferences.Activity.DetailEventDashboard;
-import com.example.usingpreferences.Activity.NoInduk2;
+import com.example.usingpreferences.Activity.NoInduk1;
 import com.example.usingpreferences.Activity.PinjamTempatList;
 import com.example.usingpreferences.Activity.ProfilActivity;
 import com.example.usingpreferences.Adapter.DashboardAdapter;
@@ -168,7 +168,7 @@ public class HomeFragment extends Fragment {
         cardinduk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), NoInduk2.class));
+                startActivity(new Intent(getActivity(), NoInduk1.class));
                 getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
             }
         });

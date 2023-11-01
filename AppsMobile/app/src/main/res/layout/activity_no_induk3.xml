@@ -71,18 +71,10 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:boxBackgroundColor="@android:color/transparent"
-                app:boxStrokeWidth="@dimen/_1sdp"
-                app:boxCornerRadiusTopEnd="@dimen/_3sdp"
-                app:boxCornerRadiusTopStart="@dimen/_3sdp"
-                app:boxCornerRadiusBottomEnd="@dimen/_3sdp"
-                app:boxCornerRadiusBottomStart="@dimen/_3sdp"
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
+         
+               <EditText
+                   android:paddingRight="@dimen/_10sdp"
+                    android:background="@drawable/bg_editext"
                     android:id="@+id/editTextNIK"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -98,7 +90,6 @@
                     android:hint="Masukkan Nomor Induk Kependudukan"
                     />
 
-            </com.google.android.material.textfield.TextInputLayout>
 
 
             <TextView
@@ -109,19 +100,9 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:boxBackgroundColor="@android:color/transparent"
-                app:boxStrokeWidth="@dimen/_1sdp"
-                app:boxCornerRadiusTopEnd="@dimen/_3sdp"
-                app:boxCornerRadiusTopStart="@dimen/_3sdp"
-                app:boxCornerRadiusBottomEnd="@dimen/_3sdp"
-                app:boxCornerRadiusBottomStart="@dimen/_3sdp"
-                android:hint="Masukan Nama Lengkap Sesuai KTP"
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
+               <EditText
+                   android:paddingRight="@dimen/_10sdp"
+                    android:background="@drawable/bg_editext"
                     android:id="@+id/editTextNamaLengkap"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -137,7 +118,6 @@
                     android:paddingBottom="@dimen/_7sdp"
                     android:textSize="@dimen/_12sdp" />
 
-            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -187,18 +167,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:boxBackgroundColor="@android:color/transparent"
-                    app:boxStrokeWidth="@dimen/_1sdp"
-                    app:boxCornerRadiusTopEnd="@dimen/_3sdp"
-                    app:boxCornerRadiusTopStart="@dimen/_3sdp"
-                    app:boxCornerRadiusBottomEnd="@dimen/_3sdp"
-                    app:boxCornerRadiusBottomStart="@dimen/_3sdp"
-                    >
+               
+                   <EditText
+                   android:paddingRight="@dimen/_10sdp"
+                       android:layout_marginRight="@dimen/_5sdp"
 
-                    <com.google.android.material.textfield.TextInputEditText
+                       android:background="@drawable/bg_editext"
                         android:id="@+id/editTextTL"
                         android:layout_width="@dimen/_130sdp"
                         android:layout_height="wrap_content"
@@ -214,22 +188,10 @@
                         android:paddingBottom="@dimen/_7sdp"
                         android:textSize="@dimen/_10sdp" />
 
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_marginLeft="@dimen/_10sdp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:boxBackgroundColor="@android:color/transparent"
-                    app:boxStrokeWidth="@dimen/_1sdp"
-                    app:boxCornerRadiusTopEnd="@dimen/_3sdp"
-                    app:boxCornerRadiusTopStart="@dimen/_3sdp"
-                    app:boxCornerRadiusBottomEnd="@dimen/_3sdp"
-                    app:boxCornerRadiusBottomStart="@dimen/_3sdp"
-
-                    >
-
-                    <com.google.android.material.textfield.TextInputEditText
+            
+                   <EditText
+                   android:paddingRight="@dimen/_10sdp"
+                    android:background="@drawable/bg_editext"
                         android:id="@+id/editTextTG"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -239,13 +201,13 @@
                         android:gravity="center"
                         android:inputType="text"
                         android:maxLines="1"
+                       android:layout_marginLeft="@dimen/_5sdp"
                         android:paddingLeft="@dimen/_12sdp"
                         android:paddingTop="@dimen/_7sdp"
                         android:paddingBottom="@dimen/_7sdp"
                         android:textSize="@dimen/_10sdp"
                         android:onClick="onButtonClick"
                         />
-                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
             </androidx.cardview.widget.CardView>
             <TextView
@@ -278,20 +240,10 @@
                 android:text="Alamat Lengkap"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp" />
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:boxBackgroundColor="@android:color/transparent"
-                app:boxStrokeWidth="@dimen/_1sdp"
-                app:boxCornerRadiusTopEnd="@dimen/_3sdp"
-                app:boxCornerRadiusTopStart="@dimen/_3sdp"
-                app:boxCornerRadiusBottomEnd="@dimen/_3sdp"
-                app:boxCornerRadiusBottomStart="@dimen/_3sdp"
-                app:counterEnabled="true"
-                app:counterMaxLength="120"
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
+          
+               <EditText
+                   android:paddingRight="@dimen/_10sdp"
+                    android:background="@drawable/bg_editext"
                     android:id="@+id/editTextAlamat"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_80sdp"
@@ -308,7 +260,6 @@
                     android:paddingBottom="@dimen/_7sdp"
                     android:textSize="@dimen/_12sdp" />
 
-            </com.google.android.material.textfield.TextInputLayout>
 
 
             <TextView
@@ -319,18 +270,9 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:boxBackgroundColor="@android:color/transparent"
-                app:boxStrokeWidth="@dimen/_1sdp"
-                app:boxCornerRadiusTopEnd="@dimen/_3sdp"
-                app:boxCornerRadiusTopStart="@dimen/_3sdp"
-                app:boxCornerRadiusBottomEnd="@dimen/_3sdp"
-                app:boxCornerRadiusBottomStart="@dimen/_3sdp"
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
+               <EditText
+                   android:paddingRight="@dimen/_10sdp"
+                    android:background="@drawable/bg_editext"
                     android:id="@+id/editTextNOHP"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -344,7 +286,6 @@
                     android:paddingTop="@dimen/_7sdp"
                     android:paddingBottom="@dimen/_7sdp"
                     android:textSize="@dimen/_12sdp" />
-            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -381,19 +322,10 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/_14ssp" />
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:boxBackgroundColor="@android:color/transparent"
-                        app:boxStrokeWidth="@dimen/_1sdp"
-                        app:boxCornerRadiusTopEnd="@dimen/_3sdp"
-                        app:boxCornerRadiusTopStart="@dimen/_3sdp"
-                        app:boxCornerRadiusBottomEnd="@dimen/_3sdp"
-                        app:boxCornerRadiusBottomStart="@dimen/_3sdp"
 
-                        >
-
-                        <com.google.android.material.textfield.TextInputEditText
+                       <EditText
+                   android:paddingRight="@dimen/_10sdp"
+                    android:background="@drawable/bg_editext"
                             android:id="@+id/editTextNamaOrganisasi"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -406,7 +338,6 @@
                             android:paddingTop="@dimen/_7sdp"
                             android:paddingBottom="@dimen/_7sdp"
                             android:textSize="@dimen/_12sdp" />
-                    </com.google.android.material.textfield.TextInputLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -416,19 +347,11 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/_13ssp" />
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:boxBackgroundColor="@android:color/transparent"
-                        app:boxStrokeWidth="@dimen/_1sdp"
-                        app:boxCornerRadiusTopEnd="@dimen/_3sdp"
-                        app:boxCornerRadiusTopStart="@dimen/_3sdp"
-                        app:boxCornerRadiusBottomEnd="@dimen/_3sdp"
-                        app:boxCornerRadiusBottomStart="@dimen/_3sdp"
+                   
 
-                        >
-
-                        <com.google.android.material.textfield.TextInputEditText
+                       <EditText
+                   android:paddingRight="@dimen/_10sdp"
+                    android:background="@drawable/bg_editext"
                             android:id="@+id/editTextJmlAnggota"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -441,7 +364,6 @@
                             android:paddingTop="@dimen/_7sdp"
                             android:paddingBottom="@dimen/_7sdp"
                             android:textSize="@dimen/_12sdp" />
-                    </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 

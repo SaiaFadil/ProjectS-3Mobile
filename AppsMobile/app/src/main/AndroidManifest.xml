@@ -84,7 +84,7 @@
             android:name=".Activity.NoInduk4"
             android:exported="false" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".Activity.NoInduk3"
             android:exported="false" />
         <activity
             android:name=".Activity.NoInduk2"
@@ -97,7 +97,7 @@
             android:exported="false" />
         <activity
             android:name=".KonfirmMenu.BerhasilDaftar"
-            android:exported="false" />
+               android:exported="false" />
         <activity
             android:name=".Activity.KodeOtp"
             android:exported="false" />
@@ -120,11 +120,10 @@
             android:name=".Activity.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.NoInduk3"
+            android:name=".SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

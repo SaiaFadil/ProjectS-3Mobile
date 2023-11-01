@@ -1,11 +1,7 @@
 package com.example.usingpreferences.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;
@@ -13,37 +9,28 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.usingpreferences.DataShared;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import com.example.usingpreferences.R;
-import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Calendar;
 
 public class NoInduk3 extends AppCompatActivity {
 
     private DatePickerDialog picker;
-    private TextInputEditText tanggalinduk;
-    private TextInputEditText editTextNIK;
-    private TextInputEditText editTextNamaLengkap;
+    private EditText tanggalinduk,editTextNIK,editTextNamaLengkap,editTextTL,editTextAlamat,editTextNOHP,editTextNamaOrganisasi,editTextJmlAnggota;
+    private Spinner tipeSeniman_spinner;
     private Spinner gender_spinner;
-    private TextInputEditText editTextTL;
     private EditText editTextTG;
     private Spinner kecamatan_spinner;
-    private TextInputEditText editTextAlamat;
-    private TextInputEditText editTextNOHP;
-    private Spinner tipeSeniman_spinner;
-    private TextInputEditText editTextNamaOrganisasi;
-    private TextInputEditText editTextJmlAnggota;
 
 
     @Override
@@ -93,7 +80,7 @@ public class NoInduk3 extends AppCompatActivity {
         });
 
         //Set the minimum length pada editTextNIK
-        TextInputEditText editText = findViewById(R.id.editTextNIK);
+        EditText editText = findViewById(R.id.editTextNIK);
 
         int minLength = 16;  // Set your desired minimum character limit
         int maxLength = 16; // Set your desired maximum character limit
@@ -130,7 +117,7 @@ public class NoInduk3 extends AppCompatActivity {
         });
 
         //Set the text minimum pada editTextJmlAnggota:
-        TextInputEditText textInputEditText = findViewById(R.id.editTextJmlAnggota);
+        EditText textInputEditText = findViewById(R.id.editTextJmlAnggota);
 
         final int minNumber = 4; // Set your desired minimum numeric value
 

@@ -75,9 +75,10 @@
                 android:hint="Masukkan Nomor Induk Kependudukan"
                 android:inputType="number"
                 android:paddingLeft="@dimen/_18sdp"
+                android:paddingRight="@dimen/_10sdp"
                 android:paddingTop="@dimen/_10sdp"
                 android:paddingBottom="@dimen/_10sdp"
-                android:textSize="@dimen/_15sdp" />
+                android:textSize="@dimen/_14ssp" />
 
             <TextView
                 android:layout_marginTop="@dimen/_15sdp"
@@ -94,8 +95,9 @@
                 android:ems="10"
                 android:inputType="text"
                 android:hint="Masukkan Nama Lengkap sesuai KTP"
-                android:textSize="@dimen/_15sdp"
+                android:textSize="@dimen/_14ssp"
                 android:background="@drawable/bg_editext"
+                android:paddingRight="@dimen/_10sdp"
                 android:paddingTop="@dimen/_10sdp"
                 android:paddingBottom="@dimen/_10sdp"
                 android:paddingLeft="@dimen/_18sdp"/>
@@ -112,9 +114,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:ems="10"
-                android:inputType="number"
+                android:inputType="text"
+                android:paddingRight="@dimen/_10sdp"
                 android:hint="Masukan Nomor Induk Seniman Lama"
-                android:textSize="@dimen/_15sdp"
+                android:textSize="@dimen/_14ssp"
                 android:background="@drawable/bg_editext"
                 android:paddingTop="@dimen/_10sdp"
                 android:paddingBottom="@dimen/_10sdp"
@@ -149,7 +152,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_17ssp"
+                    android:textSize="@dimen/_14ssp"
+                    android:textColor="@color/black"
                     android:text="Gambar berformat PNG, JPG, SVG"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="@dimen/_8sdp" />
@@ -185,8 +189,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Gambar berformat PNG, JPG, SVG"
-                    android:textSize="@dimen/_17ssp"
-                    android:layout_gravity="center_vertical"
+
+                    android:textSize="@dimen/_14ssp"
+                    android:textColor="@color/black"                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="@dimen/_8sdp" />
             </LinearLayout>
             <TextView
@@ -219,8 +224,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_17ssp"
-                    android:text="Gambar berformat PNG, JPG, SVG"
+
+                    android:textSize="@dimen/_14ssp"
+                    android:textColor="@color/black"                    android:text="Gambar berformat PNG, JPG, SVG"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="@dimen/_8sdp" />
             </LinearLayout>

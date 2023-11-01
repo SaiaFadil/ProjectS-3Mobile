@@ -28,7 +28,6 @@ import com.example.usingpreferences.API.APIRequestData;
 import com.example.usingpreferences.API.RetroServer;
 import com.example.usingpreferences.DataModel.CekEmailModel;
 import com.example.usingpreferences.DataModel.VerifyResponse;
-import com.example.usingpreferences.DataModel.VerifyUtil;
 import com.example.usingpreferences.R;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -46,9 +45,13 @@ public class RegisterActivity extends AppCompatActivity {
     private CheckBox tampilkansandi;
     private final boolean[] isPasswordVisible = {false};
 
-    private void setDrawablepw1(Drawable drawable) {mViewPassword.setCompoundDrawablesWithIntrinsicBounds(null, null, drawable, null);}
+    private void setDrawablepw1(Drawable drawable) {
+        mViewPassword.setCompoundDrawablesWithIntrinsicBounds(null, null, drawable, null);
+    }
 
-    private void setDrawablepw2(Drawable drawable) {mViewPassword2.setCompoundDrawablesWithIntrinsicBounds(null, null, drawable, null);}
+    private void setDrawablepw2(Drawable drawable) {
+        mViewPassword2.setCompoundDrawablesWithIntrinsicBounds(null, null, drawable, null);
+    }
 
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -225,7 +228,6 @@ public class RegisterActivity extends AppCompatActivity {
                 String confirmPassword = mViewPassword2.getText().toString();
                 if (TextUtils.isEmpty(user)) {
                     mViewNama.setError("Nama harus diisi");
-                    focus = mViewNama;
                     mViewNama.requestFocus();
 
                 } else if (TextUtils.isEmpty(notlp)) {
@@ -294,16 +296,16 @@ public class RegisterActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<CekEmailModel> call, Response<CekEmailModel> response) {
 
-                            if (response.body().getKode() == 0){
+                            if (response.body().getKode() == 0) {
                                 new Handler().postDelayed(new Runnable() {
                                     @Override
                                     public void run() {
-                                    sendOtp();
+                                        sendOtp();
                                     }
                                 }, 1000);
 
 
-                            }else if (response.body().getKode() == 1) {
+                            } else if (response.body().getKode() == 1) {
                                 progressDialog.dismiss();
                                 mViewEmail.requestFocus();
                                 AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
@@ -313,9 +315,10 @@ public class RegisterActivity extends AppCompatActivity {
 
                                             }
                                         });
-                                                AlertDialog dialog1 = builder.create();
-                                                dialog1.show();
-                                                progressDialog.dismiss();                            }
+                                AlertDialog dialog1 = builder.create();
+                                dialog1.show();
+                                progressDialog.dismiss();
+                            }
 
                         }
 
@@ -335,50 +338,50 @@ public class RegisterActivity extends AppCompatActivity {
 
         RetroServer.getInstance().sendEmail(mViewEmail.getText().toString(), "SignUp", "new", "1")
                 .enqueue(new Callback<VerifyResponse>() {
-            @Override
-            public void onResponse(Call<VerifyResponse> call, Response<VerifyResponse> response) {
+                    @Override
+                    public void onResponse(Call<VerifyResponse> call, Response<VerifyResponse> response) {
 
-                if (response.body() != null && response.body().getStatus().equalsIgnoreCase("success")) {
-                    Toast.makeText(RegisterActivity.this, "OTP Terkirim", Toast.LENGTH_SHORT).show();
-                    progressDialog.show();
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            // Tutup ProgressDialog
-                            progressDialog.dismiss();
-                            String email = mViewEmail.getText().toString();
+                        if (response.body() != null && response.body().getStatus().equalsIgnoreCase("success")) {
+                            Toast.makeText(RegisterActivity.this, "OTP Terkirim", Toast.LENGTH_SHORT).show();
+                            progressDialog.show();
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    // Tutup ProgressDialog
+                                    progressDialog.dismiss();
+                                    String email = mViewEmail.getText().toString();
 
-                            VerifyUtil util = new VerifyUtil(RegisterActivity.this, response.body().getData());
+//                                    VerifyUtil util = new VerifyUtil(RegisterActivity.this, response.body().getData());
 
-                            // Buat Intent
-                            Intent pindah = new Intent(RegisterActivity.this, KodeOtp.class);
+                                    // Buat Intent
+                                    Intent pindah = new Intent(RegisterActivity.this, KodeOtp.class);
 
-                            // Kirim email ke LoginActivity
-                            pindah.putExtra("email", email);
-                            pindah.putExtra("otp", response.body().getData().getOtp());
-                            pindah.putExtra("nama_lengkap", mViewNama.getText().toString() );
-                            pindah.putExtra("no_telpon", mViewNotlp.getText().toString());
-                            pindah.putExtra("password", mViewPassword.getText().toString());
-                            startActivity(pindah);
-                            overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+                                    // Kirim email ke LoginActivity
+                                    pindah.putExtra("email", email);
+                                    pindah.putExtra("otp", response.body().getData().getOtp());
+                                    pindah.putExtra("nama_lengkap", mViewNama.getText().toString());
+                                    pindah.putExtra("no_telpon", mViewNotlp.getText().toString());
+                                    pindah.putExtra("password", mViewPassword.getText().toString());
+                                    startActivity(pindah);
+                                    overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
 //                            bersihkan();
 
+                                }
+                            }, 2000);
+                        } else {
+                            Toast.makeText(RegisterActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                         }
-                    }, 2000);
-                } else {
-                    Toast.makeText(RegisterActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                }
 
-            }
+                    }
 
-            @Override
-            public void onFailure(Call<VerifyResponse> call, Throwable t) {
-                Toast.makeText(RegisterActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-                tekserror.setVisibility(View.VISIBLE);
-                tekserror.setText(t.getMessage());
+                    @Override
+                    public void onFailure(Call<VerifyResponse> call, Throwable t) {
+                        Toast.makeText(RegisterActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                        tekserror.setVisibility(View.VISIBLE);
+                        tekserror.setText(t.getMessage());
 
-            }
-        });
+                    }
+                });
 
     }
 
