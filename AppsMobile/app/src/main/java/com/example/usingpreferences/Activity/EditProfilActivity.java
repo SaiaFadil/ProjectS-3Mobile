@@ -157,7 +157,7 @@ public class EditProfilActivity extends AppCompatActivity {
                 picker = new DatePickerDialog(EditProfilActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        tanggallahiredit.setText(year + "-" + (month + 1) + "-" + dayOfMonth);
+                        tanggallahiredit.setText(dayOfMonth + "-" + (month + 1) + "-" + year);
                     }
                 }, tahun, bulan, tgl);
                 picker.show();
