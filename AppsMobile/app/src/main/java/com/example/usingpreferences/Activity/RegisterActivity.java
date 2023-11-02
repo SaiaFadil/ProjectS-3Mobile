@@ -369,6 +369,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 }
                             }, 2000);
                         } else {
+                            progressDialog.dismiss();
                             Toast.makeText(RegisterActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                         }
 
@@ -379,7 +380,7 @@ public class RegisterActivity extends AppCompatActivity {
                         Toast.makeText(RegisterActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
                         tekserror.setVisibility(View.VISIBLE);
                         tekserror.setText(t.getMessage());
-
+                        progressDialog.dismiss();
                     }
                 });
 
