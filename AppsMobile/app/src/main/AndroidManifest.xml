@@ -19,6 +19,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".CetakKodeQrActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.KodeOtpLupa"
             android:exported="false" />
         <activity
@@ -98,7 +101,7 @@
             android:exported="false" />
         <activity
             android:name=".KonfirmMenu.BerhasilDaftar"
-               android:exported="false" />
+            android:exported="false" />
         <activity
             android:name=".Activity.KodeOtp"
             android:exported="false" />
@@ -125,6 +128,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
