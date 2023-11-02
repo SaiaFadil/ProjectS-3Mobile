@@ -15,23 +15,28 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
-
+import com.example.usingpreferences.DataModel.KategoriSenimanModel;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import com.example.usingpreferences.API.APIRequestData;
+import com.example.usingpreferences.API.RetroServer;
+import com.example.usingpreferences.DataModel.KategoriSenimanModel;
 import com.example.usingpreferences.R;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class NoInduk3 extends AppCompatActivity {
 
     private DatePickerDialog picker;
-    private EditText tanggalinduk,editTextNIK,editTextNamaLengkap,editTextTL,editTextAlamat,editTextNOHP,editTextNamaOrganisasi,editTextJmlAnggota;
-    private Spinner tipeSeniman_spinner;
-    private Spinner gender_spinner;
-    private EditText editTextTG;
-    private Spinner kecamatan_spinner;
-
+    private EditText tanggalinduk,editTextNIK,editTextNamaLengkap,editTextTL,editTextTG,editTextAlamat,editTextNOHP,editTextNamaOrganisasi,editTextJmlAnggota;
+    private Spinner gender_spinner,kecamatan_spinner,tipeSeniman_spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +53,21 @@ public class NoInduk3 extends AppCompatActivity {
         tipeSeniman_spinner = findViewById(R.id.tipeSeniman_spinner);
         editTextNamaOrganisasi = findViewById(R.id.editTextNamaOrganisasi);
         editTextJmlAnggota = findViewById(R.id.editTextJmlAnggota);
-
+        Spinner kategoriSenimanSpinner = findViewById(R.id.kategoriSeniman_spinner);
         EditText[] editTexts = {editTextNIK, editTextNamaLengkap, editTextTL, editTextTG, editTextAlamat, editTextNOHP, editTextNamaOrganisasi, editTextJmlAnggota};
 
+        kategoriSenimanSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                String selectedKategoriNama = (String) parentView.getItemAtPosition(position);
+                // Lakukan sesuatu dengan nama kategori yang dipilih
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // Handle jika tidak ada yang dipilih
+            }
+        });
 
 
 // Inisialisasi tanggalinduk
@@ -158,6 +175,50 @@ public class NoInduk3 extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.kecamatan_array, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         kecamatanSpinner.setAdapter(adapter2);
+
+        //Pemilihan Kategori Seniman
+        APIRequestData apiService = RetroServer.getInstance();
+
+        Call<List<KategoriSenimanModel>> call = apiService.getKategoriSeniman();
+
+        call.enqueue(new Callback<List<KategoriSenimanModel>>() {
+            @Override
+            public void onResponse(Call<List<KategoriSenimanModel>> call, Response<List<KategoriSenimanModel>> response) {
+                if (response.isSuccessful()) {
+                    List<KategoriSenimanModel> kategoriSenimanList = response.body();
+
+                    // Ambil referensi ke spinner
+                    Spinner kategoriSenimanSpinner = findViewById(R.id.kategoriSeniman_spinner);
+
+                    // Buat adapter untuk spinner
+                    List<String> kategoriNamaList = new ArrayList<>();
+                    for (KategoriSenimanModel kategori : kategoriSenimanList) {
+                        kategoriNamaList.add(kategori.getNama_kategori());
+                    }
+
+                    ArrayAdapter<String> adapter = new ArrayAdapter<>(NoInduk3.this, android.R.layout.simple_spinner_item, kategoriNamaList);
+
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                    // Set adapter ke spinner
+                    kategoriSenimanSpinner.setAdapter(adapter);
+                    kategoriSenimanSpinner.setSelection(0);
+
+                    // Gunakan kategoriSenimanList untuk mengisi dropdown atau tampilan lainnya di aplikasi Anda.
+                } else {
+                    // Handle kesalahan
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<KategoriSenimanModel>> call, Throwable t) {
+                // Handle kesalahan
+            }
+        });
+
+
+
+
 
         //Pemilihan tipe seniman
         Spinner tipeSenimanSpinner = findViewById(R.id.tipeSeniman_spinner);
