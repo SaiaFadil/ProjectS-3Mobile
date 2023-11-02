@@ -67,6 +67,7 @@ public class EditProfilActivity extends AppCompatActivity {
 //        float textSize = getResources().getDimension(com.intuit.ssp.R.dimen._14ssp);
         tempat_lahir = findViewById(R.id.tempatlahiredit);
         email = findViewById(R.id.emailedit);
+        email.setEnabled(false);
         tanggallahiredit = findViewById(R.id.tanggaledit);
         progressDialog = new ProgressDialog(EditProfilActivity.this);
         progressDialog.setTitle("Loading...");

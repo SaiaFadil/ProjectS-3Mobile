@@ -112,6 +112,15 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/_14ssp"
                             android:textStyle="bold" />
+                        <ImageView
+
+                            android:visibility="gone"
+                            android:scaleType="fitCenter"
+                            android:layout_width="@dimen/_16sdp"
+                            android:layout_height="@dimen/_16sdp"
+                            android:src="@drawable/ic_i"
+                            />
+
                     </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -331,6 +340,7 @@
                 </LinearLayout>
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/bagianSeniman"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -342,17 +352,29 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left|center_vertical"
-                        android:background="@drawable/bg_editext"
+                        android:background="@drawable/border_abuabu"
                         android:orientation="horizontal">
                         <TextView
                             android:fontFamily="@font/robotoregular"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="@dimen/_10sdp"
+                            android:paddingLeft="@dimen/_10sdp"
+                            android:paddingTop="@dimen/_10sdp"
+                            android:paddingBottom="@dimen/_10sdp"
                             android:text="Info Seniman"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_14ssp"
                             android:textStyle="bold" />
+
+                        <ImageView
+                            android:visibility="gone"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:scaleType="fitCenter"
+                            android:layout_width="@dimen/_16sdp"
+                            android:layout_height="@dimen/_16sdp"
+                            android:src="@drawable/ic_i"
+                            />
+
                     </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -379,6 +401,7 @@
                             android:textSize="@dimen/_14ssp"
                             android:textStyle="bold" />
                         <TextView
+                            android:id="@+id/namaorganisasiteks"
                             android:fontFamily="@font/robotoregular"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -399,7 +422,7 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/jumlahanggotakiri"
+                            android:id="@+id/jumlahanggotateks"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10sdp"
@@ -424,7 +447,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10sdp"
-                            android:text="   :  "
+                            android:text="   :  \n "
                             android:textColor="@color/black"
                             android:textSize="@dimen/_14ssp"
                             android:textStyle="bold" />
@@ -433,27 +456,27 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10sdp"
-                            android:text="   :  "
+                            android:text="   :  \n"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_14ssp"
                             android:textStyle="bold" />
                         <TextView
-                            android:id="@+id/titil1s"
+                            android:id="@+id/titik1s"
                             android:fontFamily="@font/robotoregular"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10sdp"
-                            android:text="   :  "
+                            android:text="   :  \n"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_14ssp"
                             android:textStyle="bold" />
                         <TextView
-                            android:id="@+id/titil2s"
+                            android:id="@+id/titik2s"
                             android:fontFamily="@font/robotoregular"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10sdp"
-                            android:text="   :  "
+                            android:text="   :  \n"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_14ssp"
                             android:textStyle="bold" />
@@ -465,21 +488,31 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:text="dfhvuybidfuvybiuhfbeeeeyyvouy"
+                            android:text="dfhvuybidfuvybiuhfbeeeeyyvouy\n"
                             android:fontFamily="@font/robotoregular"
-                            android:id="@+id/nisInduk"
+                            android:id="@+id/nisIndukinput"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10sdp"
                             android:inputType="text"
-                            android:maxLines="1"
+                            android:maxLines="2"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_14ssp" />
+                        <TextView
+                            android:visibility="invisible"
+                            android:text="dfhvuybidfuvybiuhfbeeeeyyvouy\n"
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:maxLines="2"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12ssp" />
 
                          <TextView
                             android:text="dfhvuybidfuvybiuhfbeeeeyyvouy"
                             android:fontFamily="@font/robotoregular"
-                            android:id="@+id/nisIndukinput"
+                            android:id="@+id/kategoriinput"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10sdp"
@@ -487,11 +520,22 @@
                             android:maxLines="1"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_14ssp"  />
-                         <TextView
+                        <TextView
+                            android:visibility="invisible"
+                            android:text="dfhvuybidfuvybiuhfbeeeeyyvouy\n"
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:maxLines="2"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12ssp" />
+
+                        <TextView
 
                             android:text="dfhvuybidfuvybiuhfbeeeeyyvouy"
                             android:fontFamily="@font/robotoregular"
-                            android:id="@+id/nnamaorganisasiIndukinput"
+                            android:id="@+id/namaorganisasiIndukinput"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10sdp"
@@ -499,11 +543,22 @@
                             android:maxLines="1"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_14ssp" />
+                        <TextView
+                            android:visibility="invisible"
+                            android:text="dfhvuybidfuvybiuhfbeeeeyyvouy\n"
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:maxLines="2"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12ssp" />
 
-                         <TextView
+
+                        <TextView
                             android:text="dfhvuybidfuvybiuhfbeeeeyyvouy"
                             android:fontFamily="@font/robotoregular"
-                            android:id="@+id/jumlahanggotaInputAdvis"
+                            android:id="@+id/jumlahanggotainput"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10sdp"

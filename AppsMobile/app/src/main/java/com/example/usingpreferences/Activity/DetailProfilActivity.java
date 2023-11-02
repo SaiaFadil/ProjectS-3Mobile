@@ -3,8 +3,10 @@ package com.example.usingpreferences.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,11 +15,17 @@ import com.example.usingpreferences.R;
 
 public class DetailProfilActivity extends AppCompatActivity {
     private TextView id_user, nama_lengkap, no_telpon, tempat_lahir, email, jeniskelamin, tanggallahir, titik1, titik2, titik3, jeniskelaminteks, tempatlahirteks, tgllahirteks;
+    private LinearLayout dataSeniman;
+    private TextView nomorindukinput,kategorinput,namaorganisasiinput,jumlahanggotainput,titiks1,titiks2,namairganisasiteks,jumlahanggotateks;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_profil);
+
+
+
         id_user = findViewById(R.id.iduserdetail);
         nama_lengkap = findViewById(R.id.namalengkapdetail);
         no_telpon = findViewById(R.id.telepondetail);
@@ -25,7 +33,6 @@ public class DetailProfilActivity extends AppCompatActivity {
         tempat_lahir = findViewById(R.id.tempatlahirdetail);
         email = findViewById(R.id.emaildetail);
         tanggallahir = findViewById(R.id.tanggaldetail);
-
         titik1 = findViewById(R.id.titil1);
         titik2 = findViewById(R.id.titil2);
         titik3 = findViewById(R.id.titil3);
@@ -43,8 +50,47 @@ public class DetailProfilActivity extends AppCompatActivity {
 
             }
         });
+
+
+        dataSeniman = findViewById(R.id.bagianSeniman);
+        nomorindukinput = findViewById(R.id.nisIndukinput);
+        kategorinput = findViewById(R.id.kategoriinput);
+        namaorganisasiinput = findViewById(R.id.namaorganisasiIndukinput);
+        jumlahanggotainput = findViewById(R.id.jumlahanggotainput);
+        titiks1 = findViewById(R.id.titik1s);
+        titiks2 = findViewById(R.id.titik2s);
+        namairganisasiteks = findViewById(R.id.namaorganisasikiri);
+        jumlahanggotateks = findViewById(R.id.jumlahanggotateks);
+
     }
 
+
+    private void ShowDataSeniman(){
+        SharedPreferences sharedPreferencesSeniman = DetailProfilActivity.this.getSharedPreferences("prefDataSeniman",Context.MODE_PRIVATE);
+        String nomorindukShared = sharedPreferencesSeniman.getString("nomor_induk","");
+        String kategorisenimanShared = sharedPreferencesSeniman.getString("kategori","");
+        String namaorganisasiShared = sharedPreferencesSeniman.getString("nama_organisasi","");
+        String jumlahanggotaShared = sharedPreferencesSeniman.getString("jumlah_anggota","");
+        nomorindukinput.setText(nomorindukShared);
+        kategorinput.setText(kategorisenimanShared);
+        namaorganisasiinput.setText(namaorganisasiShared);
+        jumlahanggotainput.setText(jumlahanggotaShared);
+
+
+        if(TextUtils.isEmpty(nomorindukShared)){
+            dataSeniman.setVisibility(View.GONE);
+        } else if (TextUtils.isEmpty(namaorganisasiShared)) {
+            namaorganisasiinput.setVisibility(View.GONE);
+            titiks1.setVisibility(View.GONE);
+            namairganisasiteks.setVisibility(View.GONE);
+            titiks2.setVisibility(View.GONE);
+            jumlahanggotateks.setVisibility(View.GONE);
+            jumlahanggotainput.setVisibility(View.GONE);
+        }else {
+            dataSeniman.setVisibility(View.VISIBLE);
+        }
+
+    }
     private void showData() {
         SharedPreferences sharedPreferences = DetailProfilActivity.this.getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
         String idUserShared = sharedPreferences.getString("id_user", "");
@@ -89,7 +135,7 @@ public class DetailProfilActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         showData();
-
+        ShowDataSeniman();
 
     }
 

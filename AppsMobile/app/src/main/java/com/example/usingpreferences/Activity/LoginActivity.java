@@ -2,6 +2,7 @@ package com.example.usingpreferences.Activity;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.usingpreferences.API.APIRequestData;
@@ -181,7 +183,9 @@ public class LoginActivity extends AppCompatActivity {
 
                         @Override
                         public void onFailure(Call<ResponseModelUsers> call, Throwable t) {
-                            Toast.makeText(LoginActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                            tekserror.setVisibility(View.VISIBLE);
+                            tekserror.setText(t.getMessage());
+                            showAlertDialog();
                             t.printStackTrace();
                         }
                     });
@@ -205,7 +209,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseModelUsers> call, Response<ResponseModelUsers> response) {
                 if (response.body().getKode() == 1) {
-                    Toast.makeText(getApplicationContext(), "Login berhasil", Toast.LENGTH_SHORT).show();
                     // Simpan semua data pengguna ke SharedPreferences
                     ModelUsers user = response.body().getData();
                     editor.putString("id_user", String.valueOf(user.getId_user()));
@@ -245,6 +248,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<ResponseModelUsers> call, Throwable t) {
                 t.printStackTrace();
+                showAlertDialog();
                 tekserror.setVisibility(View.VISIBLE);
                 tekserror.setText(t.getMessage());
             }
@@ -253,7 +257,19 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+    private void showAlertDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+        builder.setMessage("Tidak ada koneksi internet. Harap cek koneksi Anda.")
+                .setCancelable(false)
+                .setPositiveButton("Tutup", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
 
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
 
 
     private void bersihkan(){

@@ -15,7 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
-import com.example.usingpreferences.DataModel.KategoriSenimanModel;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -53,21 +53,21 @@ public class NoInduk3 extends AppCompatActivity {
         tipeSeniman_spinner = findViewById(R.id.tipeSeniman_spinner);
         editTextNamaOrganisasi = findViewById(R.id.editTextNamaOrganisasi);
         editTextJmlAnggota = findViewById(R.id.editTextJmlAnggota);
-        Spinner kategoriSenimanSpinner = findViewById(R.id.kategoriSeniman_spinner);
+//        Spinner kategoriSenimanSpinner = findViewById(R.id.kategoriSeniman_spinner);
         EditText[] editTexts = {editTextNIK, editTextNamaLengkap, editTextTL, editTextTG, editTextAlamat, editTextNOHP, editTextNamaOrganisasi, editTextJmlAnggota};
 
-        kategoriSenimanSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                String selectedKategoriNama = (String) parentView.getItemAtPosition(position);
-                // Lakukan sesuatu dengan nama kategori yang dipilih
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-                // Handle jika tidak ada yang dipilih
-            }
-        });
+//        kategoriSenimanSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+//                String selectedKategoriNama = (String) parentView.getItemAtPosition(position);
+//                // Lakukan sesuatu dengan nama kategori yang dipilih
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parentView) {
+//                // Handle jika tidak ada yang dipilih
+//            }
+//        });
 
 
 // Inisialisasi tanggalinduk
@@ -188,7 +188,7 @@ public class NoInduk3 extends AppCompatActivity {
                     List<KategoriSenimanModel> kategoriSenimanList = response.body();
 
                     // Ambil referensi ke spinner
-                    Spinner kategoriSenimanSpinner = findViewById(R.id.kategoriSeniman_spinner);
+//                    Spinner kategoriSenimanSpinner = findViewById(R.id.kategoriSeniman_spinner);
 
                     // Buat adapter untuk spinner
                     List<String> kategoriNamaList = new ArrayList<>();
@@ -201,8 +201,8 @@ public class NoInduk3 extends AppCompatActivity {
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
                     // Set adapter ke spinner
-                    kategoriSenimanSpinner.setAdapter(adapter);
-                    kategoriSenimanSpinner.setSelection(0);
+//                    kategoriSenimanSpinner.setAdapter(adapter);
+//                    kategoriSenimanSpinner.setSelection(0);
 
                     // Gunakan kategoriSenimanList untuk mengisi dropdown atau tampilan lainnya di aplikasi Anda.
                 } else {

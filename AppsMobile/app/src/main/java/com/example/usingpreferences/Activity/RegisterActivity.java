@@ -66,6 +66,26 @@ public class RegisterActivity extends AppCompatActivity {
         mViewNotlp = findViewById(R.id.et_nohpSignup);
         mViewPassword = findViewById(R.id.et_passwordSignup);
         mViewPassword2 = findViewById(R.id.et_passwordSignup2);
+        mViewNama = findViewById(R.id.et_namaSignup);
+
+        InputFilter HanyaHuruf = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end,
+                                       Spanned dest, int dstart, int dend) {
+                // Loop melalui karakter yang diinputkan
+                for (int i = start; i < end; i++) {
+                    char character = source.charAt(i);
+                    if (!Character.isLetter(character) && character != ' ') {
+                        // Karakter tidak valid, jadi kita tidak mengizinkan
+                        return "";
+                    }
+                }
+                // Semua karakter valid, izinkan input
+                return null;
+            }
+        };
+
+
 
 // Membuat InputFilter untuk menghilangkan spasi
         InputFilter noWhiteSpaceFilter = new InputFilter() {
@@ -81,6 +101,7 @@ public class RegisterActivity extends AppCompatActivity {
         };
 
 // mengnetapkan InputFilter ke setiap EditText
+        mViewNama.setFilters(new InputFilter[] { HanyaHuruf });
         mViewNotlp.setFilters(new InputFilter[]{noWhiteSpaceFilter});
         mViewEmail.setFilters(new InputFilter[]{noWhiteSpaceFilter});
         mViewPassword.setFilters(new InputFilter[]{noWhiteSpaceFilter});
@@ -324,6 +345,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                         @Override
                         public void onFailure(Call<CekEmailModel> call, Throwable t) {
+                            showAlertDialog();
                             t.printStackTrace();
                             progressDialog.dismiss();
                         }
@@ -377,15 +399,27 @@ public class RegisterActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<VerifyResponse> call, Throwable t) {
-                        Toast.makeText(RegisterActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-                        tekserror.setVisibility(View.VISIBLE);
-                        tekserror.setText(t.getMessage());
+
+
+
                         progressDialog.dismiss();
                     }
                 });
 
     }
+    private void showAlertDialog() {
+        androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(RegisterActivity.this);
+        builder.setMessage("Tidak ada koneksi internet. Harap cek koneksi Anda.")
+                .setCancelable(false)
+                .setPositiveButton("Tutup", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
 
+        androidx.appcompat.app.AlertDialog alert = builder.create();
+        alert.show();
+    }
     private void bersihkan() {
 
         mViewNama.setText(null);

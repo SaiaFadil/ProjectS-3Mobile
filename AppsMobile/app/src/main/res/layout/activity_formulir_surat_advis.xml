@@ -21,6 +21,8 @@
             android:layout_marginEnd="@dimen/_15sdp">
             <TextView
                 android:layout_marginTop="@dimen/_15sdp"
+
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nomor Induk Seniman"
@@ -28,6 +30,7 @@
                 />
 
             <EditText
+                android:visibility="gone"
                 android:id="@+id/et_induksenimanadvis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -49,6 +52,7 @@
                 />
 
             <EditText
+                android:paddingRight="@dimen/_10sdp"
                 android:id="@+id/et_namalengkapadvis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -73,6 +77,7 @@
 
             <EditText
                 android:id="@+id/et_alamatadvis"
+                android:paddingRight="@dimen/_10sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5sdp"
@@ -99,6 +104,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5sdp"
+                android:paddingRight="@dimen/_10sdp"
                 android:background="@drawable/bg_editext"
                 android:ems="10"
                 android:hint="Contoh : Pentas Tari Tradisi"
@@ -307,6 +313,16 @@
                         />
                 </TableRow>
             </TableLayout>
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkboxsetuju"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:text="Saya Menyetujui"
+                android:textAllCaps="true"/>
+
             <com.google.android.material.button.MaterialButton
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_20sdp"

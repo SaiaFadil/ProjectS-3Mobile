@@ -1,10 +1,14 @@
 package com.example.usingpreferences.MenuFragment;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,9 +20,9 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -27,7 +31,6 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.usingpreferences.API.APIRequestData;
 import com.example.usingpreferences.API.RetroServer;
 import com.example.usingpreferences.Activity.DetailEventDashboard;
-import com.example.usingpreferences.Activity.FormulirSuratAdvisActivity;
 import com.example.usingpreferences.Activity.NoInduk1;
 import com.example.usingpreferences.Activity.PinjamTempatList;
 import com.example.usingpreferences.Activity.ProfilActivity;
@@ -46,14 +49,15 @@ import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
     private SwipeRefreshLayout swipeRefreshLayout;
+    private boolean isAlertDialogShown = false;
     private ProgressBar progressBar;
-    TextView tv_namauser, tv_namausertengah,textpemberitahuanlayanan,tv_eventTerkini;
-    private Animation fadeIn,fadeIndown,layoutdown,layoutin;
+    TextView tv_namauser, tv_namausertengah, textpemberitahuanlayanan, tv_eventTerkini;
+    private Animation fadeIn, fadeIndown, layoutdown, layoutin;
     CardView cardviewatas, cardviewtengah, cardizin, cardevent, cardpinjam, cardinduk;
     ScrollView scrollView;
     private TextView petanganjukteks;
     MaterialCardView card1;
-    LinearLayout layoutevent,linearpager;
+    LinearLayout layoutevent, linearpager;
     MaterialCardView petanganjukgambar;
     private MotionEvent event;
     private float startY;
@@ -62,6 +66,8 @@ public class HomeFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private ViewPager viewPager;
+    private Handler handler;
+    private final int CHECK_INTERVAL = 5000;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -89,17 +95,20 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+
+
         swipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayout);
         progressBar = view.findViewById(R.id.progressBar);
-
         fadeIndown = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_in_down);
-
-
+        handler = new Handler();
+        checkInternetConnection();
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-
+                simpanDataSeniman();
                 MulaiAnimasi();
+
+                checkInternetConnection();
                 ShowData();
                 progressBar.setVisibility(View.GONE);
                 swipeRefreshLayout.setRefreshing(false);
@@ -109,7 +118,7 @@ public class HomeFragment extends Fragment {
         viewPager = view.findViewById(R.id.viewPager);
         DashboardAdapter adapter = new DashboardAdapter(getChildFragmentManager());
         viewPager.setAdapter(adapter);
-        viewPager.setCurrentItem(1);
+        viewPager.setCurrentItem(3);
         linearpager = view.findViewById(R.id.linear1);
         tv_eventTerkini = view.findViewById(R.id.tv_eventTerkini);
         textpemberitahuanlayanan = view.findViewById(R.id.textpemberitahuanlayanan);
@@ -133,14 +142,10 @@ public class HomeFragment extends Fragment {
         scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
             @Override
             public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                // Check if the user has scrolled to the top of the ScrollView
                 if (scrollY == 0) {
-                    // At the top, enable swipe refresh
                     swipeRefreshLayout.setEnabled(true);
                 } else {
-                    // Not at the top, disable swipe refresh
                     swipeRefreshLayout.setEnabled(false);
-
                 }
             }
         });
@@ -154,6 +159,7 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
         card1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -161,6 +167,7 @@ public class HomeFragment extends Fragment {
                 getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
             }
         });
+
         cardpinjam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -168,6 +175,7 @@ public class HomeFragment extends Fragment {
                 getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
             }
         });
+
         cardevent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -175,6 +183,7 @@ public class HomeFragment extends Fragment {
                 getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
             }
         });
+
         cardinduk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -182,6 +191,7 @@ public class HomeFragment extends Fragment {
                 getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
             }
         });
+
         cardizin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -201,6 +211,7 @@ public class HomeFragment extends Fragment {
                 getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
             }
         });
+
         keprofiltengah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -209,6 +220,7 @@ public class HomeFragment extends Fragment {
                 getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
             }
         });
+
         return view;
     }
 
@@ -219,8 +231,6 @@ public class HomeFragment extends Fragment {
             @Override
             public void onScrollChanged() {
                 int posisiY = scrollView.getScrollY();
-
-
 
                 if (posisiY > 470) {
                     cardviewatas.setVisibility(View.VISIBLE);
@@ -240,101 +250,111 @@ public class HomeFragment extends Fragment {
         });
     }
 
-
-
-
-
-
-
-
-
-
-
-
-    private int dpToPx(int dp) {
-        final float scale = getResources().getDisplayMetrics().density;
-        return (int) (dp * scale + 0.5f);
-    }
     @Override
     public void onResume() {
         super.onResume();
-
-        // Panggil ShowData setiap kali fragment diresume untuk memastikan tampilan selalu diperbarui
         ShowData();
     }
-private void MulaiAnimasi(){
-    tv_eventTerkini.startAnimation(fadeIndown);
-    textpemberitahuanlayanan.startAnimation(fadeIndown);
-    cardpinjam.startAnimation(fadeIndown);
-    cardevent.startAnimation(fadeIndown);
-    cardinduk.startAnimation(fadeIndown);
-    cardizin.startAnimation(fadeIndown);
-    cardviewtengah.startAnimation(fadeIn);
-    cardviewtengah.setVisibility(View.VISIBLE);
-    petanganjukteks.startAnimation(fadeIndown);
-    petanganjukgambar.startAnimation(fadeIndown);
-}
-public void simpanDataSeniman(){
 
-    SharedPreferences sharedPreferences = getActivity().getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
-    String idUserShared = sharedPreferences.getString("id_user", "");
-    SharedPreferences sharedPreferencesseniman = getActivity().getSharedPreferences("prefDataSeniman", Context.MODE_PRIVATE);
-    SharedPreferences.Editor editor = sharedPreferencesseniman.edit();
-    APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
-    Call<ModelResponseSimpanDataSeniman> getLoginResponse = ardData.SimpanDataSeniman(idUserShared);
-    getLoginResponse.enqueue(new Callback<ModelResponseSimpanDataSeniman>() {
-        @Override
-        public void onResponse(Call<ModelResponseSimpanDataSeniman> call, Response<ModelResponseSimpanDataSeniman> response) {
-            if (response.body().kode == 1) {
+    private void MulaiAnimasi() {
+        tv_eventTerkini.startAnimation(fadeIndown);
+        textpemberitahuanlayanan.startAnimation(fadeIndown);
+        cardpinjam.startAnimation(fadeIndown);
+        cardevent.startAnimation(fadeIndown);
+        cardinduk.startAnimation(fadeIndown);
+        cardizin.startAnimation(fadeIndown);
+        cardviewtengah.startAnimation(fadeIn);
+        cardviewtengah.setVisibility(View.VISIBLE);
+        petanganjukteks.startAnimation(fadeIndown);
+        petanganjukgambar.startAnimation(fadeIndown);
+    }
 
-                ModelSimpanDataSeniman Seniman = response.body().getData();
-                editor.putString("id_seniman", Seniman.getId_seniman());
-                editor.putString("nik", Seniman.getNik());
-                editor.putString("nomor_induk", Seniman.getNomor_induk());
-                editor.putString("nama_seniman", Seniman.getNama_seniman());
-                editor.putString("jenis_kelamin", Seniman.getJenis_kelamin());
-                editor.putString("kategori", Seniman.getKategori());
-                editor.putString("kecamatan", Seniman.getKecamatan());
-                editor.putString("tempat_lahir", Seniman.getTempat_lahir());
-                editor.putString("tanggal_lahir", Seniman.getTanggal_lahir());
-                editor.putString("alamat_seniman", Seniman.getAlamat_seniman());
-                editor.putString("no_telpon", Seniman.getNo_telpon());
-                editor.putString("nama_organisasi", Seniman.getNama_organisasi());
-                editor.putString("jumlah_anggota", Seniman.getJumlah_anggota());
-                editor.putString("ktp_seniman", Seniman.getKtp_seniman());
-                editor.putString("pass_foto", Seniman.getPass_foto());
-                editor.putString("surat_keterangan", Seniman.getSurat_keterangan());
-                editor.putString("tgl_pembuatan", Seniman.getTgl_pembuatan());
-                editor.putString("tgl_berlaku", Seniman.getTgl_berlaku());
-                editor.putString("status", Seniman.getStatus());
-                editor.putString("catatan", Seniman.getCatatan());
-                editor.putString("id_user", Seniman.getId_user());
-                editor.apply();
-
-
-                startActivity(new Intent(getActivity(), FormulirSuratAdvisActivity.class));
-                getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
-
-
-
-
-            } else if (response.body().kode == 0) {
-
+    public void simpanDataSeniman() {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
+        String idUserShared = sharedPreferences.getString("id_user", "");
+        SharedPreferences sharedPreferencesseniman = getActivity().getSharedPreferences("prefDataSeniman", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferencesseniman.edit();
+        APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
+        Call<ModelResponseSimpanDataSeniman> getLoginResponse = ardData.SimpanDataSeniman(idUserShared);
+        getLoginResponse.enqueue(new Callback<ModelResponseSimpanDataSeniman>() {
+            @Override
+            public void onResponse(Call<ModelResponseSimpanDataSeniman> call, Response<ModelResponseSimpanDataSeniman> response) {
+                if (response.body().kode == 1) {
+                    ModelSimpanDataSeniman Seniman = response.body().getData();
+                    editor.putString("id_seniman", Seniman.getId_seniman());
+                    editor.putString("nik", Seniman.getNik());
+                    editor.putString("nomor_induk", Seniman.getNomor_induk());
+                    editor.putString("nama_seniman", Seniman.getNama_seniman());
+                    editor.putString("jenis_kelamin", Seniman.getJenis_kelamin());
+                    editor.putString("kategori", Seniman.getKategori());
+                    editor.putString("kecamatan", Seniman.getKecamatan());
+                    editor.putString("tempat_lahir", Seniman.getTempat_lahir());
+                    editor.putString("tanggal_lahir", Seniman.getTanggal_lahir());
+                    editor.putString("alamat_seniman", Seniman.getAlamat_seniman());
+                    editor.putString("no_telpon", Seniman.getNo_telpon());
+                    editor.putString("nama_organisasi", Seniman.getNama_organisasi());
+                    editor.putString("jumlah_anggota", Seniman.getJumlah_anggota());
+                    editor.putString("ktp_seniman", Seniman.getKtp_seniman());
+                    editor.putString("pass_foto", Seniman.getPass_foto());
+                    editor.putString("surat_keterangan", Seniman.getSurat_keterangan());
+                    editor.putString("tgl_pembuatan", Seniman.getTgl_pembuatan());
+                    editor.putString("tgl_berlaku", Seniman.getTgl_berlaku());
+                    editor.putString("status", Seniman.getStatus());
+                    editor.putString("catatan", Seniman.getCatatan());
+                    editor.putString("id_user", Seniman.getId_user());
+                    editor.apply();
+                } else if (response.body().kode == 0) {
+                    // Penanganan jika data tidak ditemukan
+                }
             }
-        }
 
-        @Override
-        public void onFailure(Call<ModelResponseSimpanDataSeniman> call, Throwable t) {
-            Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
-        }
-    });
+            @Override
+            public void onFailure(Call<ModelResponseSimpanDataSeniman> call, Throwable t) {
+//No respon
+            }
+        });
+    }
 
-}
     private void ShowData() {
         SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
         String namaLengkap = sharedPreferences.getString("nama_lengkap", "");
 
         tv_namauser.setText(namaLengkap);
         tv_namausertengah.setText(namaLengkap);
+    }
+
+
+    private boolean isConnectedToInternet() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) requireContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        return networkInfo != null && networkInfo.isConnected();
+    }
+
+    private void checkInternetConnection() {
+        if (!isConnectedToInternet() && !isAlertDialogShown) {
+            showAlertDialog();
+            this.isAlertDialogShown = true;
+        }
+    }
+
+    private void showAlertDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+        builder.setMessage("Tidak ada koneksi internet. Harap cek koneksi Anda.")
+                .setCancelable(false)
+                .setPositiveButton("Tutup", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                        isAlertDialogShown = false;
+                        checkInternetConnection();
+                    }
+                });
+
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        handler.removeCallbacksAndMessages(null);
     }
 }
