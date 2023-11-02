@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Nov 2023 pada 07.26
--- Versi server: 10.4.28-MariaDB
--- Versi PHP: 8.2.4
+-- Generation Time: Nov 02, 2023 at 02:08 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `detail_events`
+-- Table structure for table `detail_events`
 --
 
 CREATE TABLE `detail_events` (
@@ -40,7 +40,7 @@ CREATE TABLE `detail_events` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `detail_events`
+-- Dumping data for table `detail_events`
 --
 
 INSERT INTO `detail_events` (`id_detail`, `nama_event`, `deskripsi`, `kategori`, `tempat_event`, `tanggal_awal`, `tanggal_akhir`, `link_pendaftaran`, `poster_event`) VALUES
@@ -57,7 +57,7 @@ INSERT INTO `detail_events` (`id_detail`, `nama_event`, `deskripsi`, `kategori`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `events`
+-- Table structure for table `events`
 --
 
 CREATE TABLE `events` (
@@ -71,7 +71,7 @@ CREATE TABLE `events` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `events`
+-- Dumping data for table `events`
 --
 
 INSERT INTO `events` (`id_event`, `nama_pengirim`, `status`, `catatan`, `id_detail`, `id_sewa`, `id_user`) VALUES
@@ -88,7 +88,26 @@ INSERT INTO `events` (`id_event`, `nama_pengirim`, `status`, `catatan`, `id_deta
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `list_tempat`
+-- Table structure for table `kategori_seniman`
+--
+
+CREATE TABLE `kategori_seniman` (
+  `id_kategori_seniman` int(4) NOT NULL,
+  `nama_kategori` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `kategori_seniman`
+--
+
+INSERT INTO `kategori_seniman` (`id_kategori_seniman`, `nama_kategori`) VALUES
+(1, 'VOC'),
+(2, 'THR');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `list_tempat`
 --
 
 CREATE TABLE `list_tempat` (
@@ -100,7 +119,7 @@ CREATE TABLE `list_tempat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `list_tempat`
+-- Dumping data for table `list_tempat`
 --
 
 INSERT INTO `list_tempat` (`id_tempat`, `nama_tempat`, `alamat_tempat`, `deskripsi_tempat`, `foto_tempat`) VALUES
@@ -114,7 +133,7 @@ INSERT INTO `list_tempat` (`id_tempat`, `nama_tempat`, `alamat_tempat`, `deskrip
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `perpanjangan`
+-- Table structure for table `perpanjangan`
 --
 
 CREATE TABLE `perpanjangan` (
@@ -130,7 +149,7 @@ CREATE TABLE `perpanjangan` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `refresh_token`
+-- Table structure for table `refresh_token`
 --
 
 CREATE TABLE `refresh_token` (
@@ -145,7 +164,7 @@ CREATE TABLE `refresh_token` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `refresh_token`
+-- Dumping data for table `refresh_token`
 --
 
 INSERT INTO `refresh_token` (`id_token`, `email`, `token`, `device`, `number`, `created_at`, `updated_at`, `id_user`) VALUES
@@ -159,7 +178,7 @@ INSERT INTO `refresh_token` (`id_token`, `email`, `token`, `device`, `number`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `seniman`
+-- Table structure for table `seniman`
 --
 
 CREATE TABLE `seniman` (
@@ -187,7 +206,7 @@ CREATE TABLE `seniman` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `seniman`
+-- Dumping data for table `seniman`
 --
 
 INSERT INTO `seniman` (`id_seniman`, `nik`, `nomor_induk`, `nama_seniman`, `jenis_kelamin`, `kategori`, `kecamatan`, `tempat_lahir`, `tanggal_lahir`, `alamat_seniman`, `no_telpon`, `nama_organisasi`, `jumlah_anggota`, `ktp_seniman`, `pass_foto`, `surat_keterangan`, `tgl_pembuatan`, `tgl_berlaku`, `status`, `catatan`, `id_user`) VALUES
@@ -199,12 +218,13 @@ INSERT INTO `seniman` (`id_seniman`, `nik`, `nomor_induk`, `nama_seniman`, `jeni
 (7, 2147483647, '5170', 'rana', 'perempuan', '', 'nganjuk', 'planet mars', '2016-05-05', 'planet matahari', '089999', 'terserah lah', '121', '/7.jpg', '/7.jpg', '/7.pdf', '2023-10-24', '2023-10-24', 'proses', NULL, 32),
 (8, 990155150, '4265', 'eka', 'perempuan', '', 'nganjuk', 'planet mars', '2023-10-24', 'planet jupiter ', '0888414144', 'gabut', '121', '/8.jpg', '/8.jpg', '/8.pdf', '2023-10-29', '2023-10-29', 'diajukan', NULL, 32),
 (9, 990155150, '1936', 'eka', 'perempuan', '', 'nganjuk', 'planet mars', '2023-10-24', 'planet jupiter ', '0888414144', 'gabut', '121', '/9.jpg', '/9.jpg', '/9.pdf', '2023-10-29', '2023-10-29', 'proses', NULL, 32),
-(10, 990155150, '4449', 'eka', 'perempuan', '', 'nganjuk', 'planet mars', '2023-10-24', 'planet jupiter ', '0888414144', 'gabut', '121', '/10.jpg', '/10.jpg', '/10.pdf', '2023-10-29', '2023-10-29', 'ditolak', 'terserah', 32);
+(10, 990155150, '4449', 'eka', 'perempuan', '', 'nganjuk', 'planet mars', '2023-10-24', 'planet jupiter ', '0888414144', 'gabut', '121', '/10.jpg', '/10.jpg', '/10.pdf', '2023-10-29', '2023-10-29', 'ditolak', 'terserah', 32),
+(21, 1, '', '2', '', 'karawitan', 'jatikalen', '6', '0000-00-00', '8', '9', '11', '12', NULL, NULL, NULL, '0000-00-00', NULL, 'diajukan', NULL, 32);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `sewa_tempat`
+-- Table structure for table `sewa_tempat`
 --
 
 CREATE TABLE `sewa_tempat` (
@@ -226,7 +246,7 @@ CREATE TABLE `sewa_tempat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `sewa_tempat`
+-- Dumping data for table `sewa_tempat`
 --
 
 INSERT INTO `sewa_tempat` (`id_sewa`, `nik_sewa`, `nama_peminjam`, `nama_tempat`, `deskripsi_sewa_tempat`, `nama_kegiatan_sewa`, `jumlah_peserta`, `instansi`, `surat_ket_sewa`, `tgl_awal_peminjaman`, `tgl_akhir_peminjaman`, `status`, `catatan`, `id_tempat`, `id_user`) VALUES
@@ -244,7 +264,7 @@ INSERT INTO `sewa_tempat` (`id_sewa`, `nik_sewa`, `nama_peminjam`, `nama_tempat`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `surat_advis`
+-- Table structure for table `surat_advis`
 --
 
 CREATE TABLE `surat_advis` (
@@ -262,7 +282,7 @@ CREATE TABLE `surat_advis` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `surat_advis`
+-- Dumping data for table `surat_advis`
 --
 
 INSERT INTO `surat_advis` (`id_advis`, `nomor_induk`, `nama_advis`, `alamat_advis`, `deskripsi_advis`, `tgl_advis`, `tempat_advis`, `status`, `catatan`, `id_user`, `id_seniman`) VALUES
@@ -284,7 +304,7 @@ INSERT INTO `surat_advis` (`id_advis`, `nomor_induk`, `nama_advis`, `alamat_advi
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -302,7 +322,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id_user`, `nama_lengkap`, `no_telpon`, `jenis_kelamin`, `tanggal_lahir`, `tempat_lahir`, `role`, `email`, `password`, `foto`, `verifikasi`) VALUES
@@ -317,12 +337,13 @@ INSERT INTO `users` (`id_user`, `nama_lengkap`, `no_telpon`, `jenis_kelamin`, `t
 (41, 'joko', '0881122233', 'laki-laki', '2023-10-13', 'akhirat', 'admin tempat', 'random@gmail.com', '$2y$10$0RlQ7RJ9U1nN7E1YuUkhnOaTYbcANSNIEYzUumq.xCz0g1CjrgKLm', '/41.jpg', 1),
 (44, 'xdddd', '085555555525', 'laki-laki', '0000-00-00', '', 'masyarakat', 'fadillahwahyunugraha@gmail.com', '$2y$10$ed.IZYTE4sI.iDqDBOJY..MVjOmGhLy9Vgh.ZAxF4ri4iSPiX/ljy', NULL, 0),
 (45, 'eeeeeeee', '0895413793451', 'laki-laki', '0000-00-00', '', 'masyarakat', 'diamanerdi@gmail.com', '$2y$10$UMxSc3lBujrHlzRkxH8DhO.FokBVu6BwIbAPzKMR6dSfo3mdtL8ki', NULL, 0),
-(46, 'fadil', '08222533433453', 'laki-laki', '0000-00-00', '', 'masyarakat', 'akunceer6enam@gmail.com', '$2y$10$neAnr5TRp3KbvXepTmiwu.ybtOFIvIMAZ3P6YNahP8E5iP2f2ifbW', NULL, 0);
+(46, 'fadil', '08222533433453', 'laki-laki', '0000-00-00', '', 'masyarakat', 'akunceer6enam@gmail.com', '$2y$10$neAnr5TRp3KbvXepTmiwu.ybtOFIvIMAZ3P6YNahP8E5iP2f2ifbW', NULL, 0),
+(47, 'muhammaderdi', '0832897329793', 'laki-laki', '0000-00-00', '', 'masyarakat', 'muhammaderdi1999@gmail.com', '$2y$10$1jAe8iuYCRbRwkvfzq5DSu5E0I4PhisYWB.0r0UErduRWhesPUpRS', NULL, 0);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `verifikasi`
+-- Table structure for table `verifikasi`
 --
 
 CREATE TABLE `verifikasi` (
@@ -338,7 +359,7 @@ CREATE TABLE `verifikasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `verifikasi`
+-- Dumping data for table `verifikasi`
 --
 
 INSERT INTO `verifikasi` (`id_verifikasi`, `email`, `kode_otp`, `link`, `deskripsi`, `send`, `created_at`, `updated_at`, `id_user`) VALUES
@@ -355,20 +376,21 @@ INSERT INTO `verifikasi` (`id_verifikasi`, `email`, `kode_otp`, `link`, `deskrip
 (11, 'diamanerdi@gmail.com', 929728, '', '', 0, '2023-11-01 03:26:24', '0000-00-00 00:00:00', 1),
 (12, 'fadillahwahyunugraha@gmail.com', 521643, '', '', 0, '2023-11-01 05:05:34', '0000-00-00 00:00:00', 1),
 (13, 'fadillahwahyunugraha@gmail.com', 113924, '', '', 0, '2023-11-01 05:05:54', '0000-00-00 00:00:00', 1),
-(14, 'akunceer6enam@gmail.com', 415928, '', '', 0, '2023-11-01 05:07:45', '0000-00-00 00:00:00', 1);
+(14, 'akunceer6enam@gmail.com', 415928, '', '', 0, '2023-11-01 05:07:45', '0000-00-00 00:00:00', 1),
+(15, 'muhammaderdi1999@gmail.com', 495462, '', '', 0, '2023-11-01 15:43:05', '0000-00-00 00:00:00', 1);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `detail_events`
+-- Indexes for table `detail_events`
 --
 ALTER TABLE `detail_events`
   ADD PRIMARY KEY (`id_detail`);
 
 --
--- Indeks untuk tabel `events`
+-- Indexes for table `events`
 --
 ALTER TABLE `events`
   ADD PRIMARY KEY (`id_event`),
@@ -376,40 +398,46 @@ ALTER TABLE `events`
   ADD KEY `sewaFK` (`id_sewa`);
 
 --
--- Indeks untuk tabel `list_tempat`
+-- Indexes for table `kategori_seniman`
+--
+ALTER TABLE `kategori_seniman`
+  ADD PRIMARY KEY (`id_kategori_seniman`);
+
+--
+-- Indexes for table `list_tempat`
 --
 ALTER TABLE `list_tempat`
   ADD PRIMARY KEY (`id_tempat`);
 
 --
--- Indeks untuk tabel `perpanjangan`
+-- Indexes for table `perpanjangan`
 --
 ALTER TABLE `perpanjangan`
   ADD PRIMARY KEY (`id_perpanjangan`),
   ADD KEY `senimanPFK` (`id_seniman`);
 
 --
--- Indeks untuk tabel `refresh_token`
+-- Indexes for table `refresh_token`
 --
 ALTER TABLE `refresh_token`
   ADD PRIMARY KEY (`id_token`),
   ADD KEY `tokenFK` (`id_user`);
 
 --
--- Indeks untuk tabel `seniman`
+-- Indexes for table `seniman`
 --
 ALTER TABLE `seniman`
   ADD PRIMARY KEY (`id_seniman`),
   ADD KEY `senimanFK` (`id_user`);
 
 --
--- Indeks untuk tabel `sewa_tempat`
+-- Indexes for table `sewa_tempat`
 --
 ALTER TABLE `sewa_tempat`
   ADD PRIMARY KEY (`id_sewa`);
 
 --
--- Indeks untuk tabel `surat_advis`
+-- Indexes for table `surat_advis`
 --
 ALTER TABLE `surat_advis`
   ADD PRIMARY KEY (`id_advis`),
@@ -417,120 +445,126 @@ ALTER TABLE `surat_advis`
   ADD KEY `id_seniman` (`id_seniman`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Indeks untuk tabel `verifikasi`
+-- Indexes for table `verifikasi`
 --
 ALTER TABLE `verifikasi`
   ADD PRIMARY KEY (`id_verifikasi`),
   ADD KEY `verifyfk` (`id_user`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `detail_events`
+-- AUTO_INCREMENT for table `detail_events`
 --
 ALTER TABLE `detail_events`
   MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT untuk tabel `events`
+-- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
   MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT untuk tabel `list_tempat`
+-- AUTO_INCREMENT for table `kategori_seniman`
+--
+ALTER TABLE `kategori_seniman`
+  MODIFY `id_kategori_seniman` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `list_tempat`
 --
 ALTER TABLE `list_tempat`
   MODIFY `id_tempat` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT untuk tabel `perpanjangan`
+-- AUTO_INCREMENT for table `perpanjangan`
 --
 ALTER TABLE `perpanjangan`
   MODIFY `id_perpanjangan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `refresh_token`
+-- AUTO_INCREMENT for table `refresh_token`
 --
 ALTER TABLE `refresh_token`
   MODIFY `id_token` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
 
 --
--- AUTO_INCREMENT untuk tabel `seniman`
+-- AUTO_INCREMENT for table `seniman`
 --
 ALTER TABLE `seniman`
-  MODIFY `id_seniman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_seniman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT untuk tabel `sewa_tempat`
+-- AUTO_INCREMENT for table `sewa_tempat`
 --
 ALTER TABLE `sewa_tempat`
   MODIFY `id_sewa` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT untuk tabel `surat_advis`
+-- AUTO_INCREMENT for table `surat_advis`
 --
 ALTER TABLE `surat_advis`
   MODIFY `id_advis` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
--- AUTO_INCREMENT untuk tabel `verifikasi`
+-- AUTO_INCREMENT for table `verifikasi`
 --
 ALTER TABLE `verifikasi`
-  MODIFY `id_verifikasi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_verifikasi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `events`
+-- Constraints for table `events`
 --
 ALTER TABLE `events`
   ADD CONSTRAINT `eventFK` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `sewaFK` FOREIGN KEY (`id_sewa`) REFERENCES `sewa_tempat` (`id_sewa`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Ketidakleluasaan untuk tabel `perpanjangan`
+-- Constraints for table `perpanjangan`
 --
 ALTER TABLE `perpanjangan`
   ADD CONSTRAINT `senimanPFK` FOREIGN KEY (`id_seniman`) REFERENCES `seniman` (`id_seniman`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Ketidakleluasaan untuk tabel `refresh_token`
+-- Constraints for table `refresh_token`
 --
 ALTER TABLE `refresh_token`
   ADD CONSTRAINT `tokenFK` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `seniman`
+-- Constraints for table `seniman`
 --
 ALTER TABLE `seniman`
   ADD CONSTRAINT `senimanFK` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Ketidakleluasaan untuk tabel `surat_advis`
+-- Constraints for table `surat_advis`
 --
 ALTER TABLE `surat_advis`
   ADD CONSTRAINT `advisFK` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `senimanFK12` FOREIGN KEY (`id_seniman`) REFERENCES `seniman` (`id_seniman`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Ketidakleluasaan untuk tabel `verifikasi`
+-- Constraints for table `verifikasi`
 --
 ALTER TABLE `verifikasi`
   ADD CONSTRAINT `verifyfk` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION;
