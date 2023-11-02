@@ -1,7 +1,5 @@
 package com.example.usingpreferences.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -11,6 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.usingpreferences.R;
 import com.google.android.material.button.MaterialButton;
@@ -139,6 +139,30 @@ private void ClearDataOnLogout(){
             editor.putString("email", null);
             editor.putString("password", null);
             editor.apply();
+            SharedPreferences sharedPreferenceseditSeniman = ProfilActivity.this.getSharedPreferences("prefDataSeniman", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editorSeniman = sharedPreferenceseditSeniman.edit();
+            editorSeniman.putString("id_seniman", null);
+            editorSeniman.putString("nik", null);
+            editorSeniman.putString("nomor_induk", null);
+            editorSeniman.putString("nama_seniman", null);
+            editorSeniman.putString("jenis_kelamin", null);
+            editorSeniman.putString("kategori", null);
+            editorSeniman.putString("kecamatan", null);
+            editorSeniman.putString("tempat_lahir", null);
+            editorSeniman.putString("tanggal_lahir", null);
+            editorSeniman.putString("alamat_seniman", null);
+            editorSeniman.putString("no_telpon", null);
+            editorSeniman.putString("nama_organisasi", null);
+            editorSeniman.putString("jumlah_anggota", null);
+            editorSeniman.putString("ktp_seniman", null);
+            editorSeniman.putString("pass_foto", null);
+            editorSeniman.putString("surat_keterangan", null);
+            editorSeniman.putString("tgl_pembuatan", null);
+            editorSeniman.putString("tgl_berlaku", null);
+            editorSeniman.putString("status", null);
+            editorSeniman.putString("catatan", null);
+            editorSeniman.putString("id_user", null);
+            editorSeniman.apply();
             startActivity(new Intent(ProfilActivity.this, LoginActivity.class));
             overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
         }
