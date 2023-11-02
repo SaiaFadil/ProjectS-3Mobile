@@ -1,6 +1,5 @@
 package com.example.usingpreferences.DataModel;
-import com.example.usingpreferences.DataModel.ModelUsers;
-import com.example.usingpreferences.DataModel.VerifyModel;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 public class VerifyResponse {
