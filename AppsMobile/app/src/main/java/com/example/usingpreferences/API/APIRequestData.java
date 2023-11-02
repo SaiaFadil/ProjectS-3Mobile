@@ -1,9 +1,14 @@
 package com.example.usingpreferences.API;
 
 import com.example.usingpreferences.DataModel.CekEmailModel;
+import com.example.usingpreferences.DataModel.KategoriSenimanModel;
+import com.example.usingpreferences.DataModel.ModelResponseAll;
+import com.example.usingpreferences.DataModel.ModelResponseSimpanDataSeniman;
 import com.example.usingpreferences.DataModel.ModelUpdateProfil;
 import com.example.usingpreferences.DataModel.ResponseModelUsers;
 import com.example.usingpreferences.DataModel.VerifyResponse;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -80,8 +85,30 @@ public interface APIRequestData {
             @Field("action") String action,
             @Field("id_user") String idUser
     );
+//di bawah ini Baru
+    @FormUrlEncoded
+    @POST("insertSuratAdvis.php")
+    Call<ModelResponseAll> sendAdvisData(
+            @Field("nomor_induk") String nomorInduk,
+            @Field("nama_advis") String namaAdvis,
+            @Field("alamat_advis") String alamatAdvis,
+            @Field("deskripsi_advis") String deskripsiAdvis,
+            @Field("tgl_advis") String tglAdvis,
+            @Field("tempat_advis") String tempatAdvis,
+            @Field("status") String status,
+            @Field("catatan") String catatan,
+            @Field("id_user") String idUser,
+            @Field("id_seniman") String idSeniman
+    );
 
+    @FormUrlEncoded
+    @POST("SimpanDataSeniman.php")
+    Call<ModelResponseSimpanDataSeniman> SimpanDataSeniman(
+            @Field("id_user") String idUser
+    );
 
+    @GET("getKategoriSeniman.php")
+    Call<List<KategoriSenimanModel>> getKategoriSeniman();
     //ntar create.php dan lain lain di tambah di bawah sini
 }
 
