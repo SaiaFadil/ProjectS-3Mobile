@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
@@ -23,16 +24,25 @@ import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.usingpreferences.API.APIRequestData;
+import com.example.usingpreferences.API.RetroServer;
 import com.example.usingpreferences.Activity.DetailEventDashboard;
+import com.example.usingpreferences.Activity.FormulirSuratAdvisActivity;
 import com.example.usingpreferences.Activity.NoInduk1;
 import com.example.usingpreferences.Activity.PinjamTempatList;
 import com.example.usingpreferences.Activity.ProfilActivity;
 import com.example.usingpreferences.Adapter.DashboardAdapter;
+import com.example.usingpreferences.DataModel.ModelResponseSimpanDataSeniman;
+import com.example.usingpreferences.DataModel.ModelSimpanDataSeniman;
 import com.example.usingpreferences.KonfirmMenu.KonfirmasiAwalEvent;
 import com.example.usingpreferences.KonfirmMenu.KonfirmasiKeAdvis;
 import com.example.usingpreferences.R;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.imageview.ShapeableImageView;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -118,7 +128,7 @@ public class HomeFragment extends Fragment {
         layoutevent = view.findViewById(R.id.layoutevent);
         layoutdown = AnimationUtils.loadAnimation(requireContext(), R.anim.layout_in);
         fadeIn = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_in);
-
+        simpanDataSeniman();
 
         scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
             @Override
@@ -263,6 +273,62 @@ private void MulaiAnimasi(){
     cardviewtengah.setVisibility(View.VISIBLE);
     petanganjukteks.startAnimation(fadeIndown);
     petanganjukgambar.startAnimation(fadeIndown);
+}
+public void simpanDataSeniman(){
+
+    SharedPreferences sharedPreferences = getActivity().getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
+    String idUserShared = sharedPreferences.getString("id_user", "");
+    SharedPreferences sharedPreferencesseniman = getActivity().getSharedPreferences("prefDataSeniman", Context.MODE_PRIVATE);
+    SharedPreferences.Editor editor = sharedPreferencesseniman.edit();
+    APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
+    Call<ModelResponseSimpanDataSeniman> getLoginResponse = ardData.SimpanDataSeniman(idUserShared);
+    getLoginResponse.enqueue(new Callback<ModelResponseSimpanDataSeniman>() {
+        @Override
+        public void onResponse(Call<ModelResponseSimpanDataSeniman> call, Response<ModelResponseSimpanDataSeniman> response) {
+            if (response.body().kode == 1) {
+
+                ModelSimpanDataSeniman Seniman = response.body().getData();
+                editor.putString("id_seniman", Seniman.getId_seniman());
+                editor.putString("nik", Seniman.getNik());
+                editor.putString("nomor_induk", Seniman.getNomor_induk());
+                editor.putString("nama_seniman", Seniman.getNama_seniman());
+                editor.putString("jenis_kelamin", Seniman.getJenis_kelamin());
+                editor.putString("kategori", Seniman.getKategori());
+                editor.putString("kecamatan", Seniman.getKecamatan());
+                editor.putString("tempat_lahir", Seniman.getTempat_lahir());
+                editor.putString("tanggal_lahir", Seniman.getTanggal_lahir());
+                editor.putString("alamat_seniman", Seniman.getAlamat_seniman());
+                editor.putString("no_telpon", Seniman.getNo_telpon());
+                editor.putString("nama_organisasi", Seniman.getNama_organisasi());
+                editor.putString("jumlah_anggota", Seniman.getJumlah_anggota());
+                editor.putString("ktp_seniman", Seniman.getKtp_seniman());
+                editor.putString("pass_foto", Seniman.getPass_foto());
+                editor.putString("surat_keterangan", Seniman.getSurat_keterangan());
+                editor.putString("tgl_pembuatan", Seniman.getTgl_pembuatan());
+                editor.putString("tgl_berlaku", Seniman.getTgl_berlaku());
+                editor.putString("status", Seniman.getStatus());
+                editor.putString("catatan", Seniman.getCatatan());
+                editor.putString("id_user", Seniman.getId_user());
+                editor.apply();
+
+
+                startActivity(new Intent(getActivity(), FormulirSuratAdvisActivity.class));
+                getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+
+
+
+
+            } else if (response.body().kode == 0) {
+
+            }
+        }
+
+        @Override
+        public void onFailure(Call<ModelResponseSimpanDataSeniman> call, Throwable t) {
+            Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    });
+
 }
     private void ShowData() {
         SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
