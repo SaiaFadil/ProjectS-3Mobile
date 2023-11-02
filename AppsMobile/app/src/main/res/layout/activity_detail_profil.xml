@@ -64,8 +64,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/_15sdp">
+                android:orientation="vertical">
 
                 <com.google.android.material.imageview.ShapeableImageView
                     app:strokeWidth="@dimen/_1sdp"
@@ -93,8 +92,34 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:gravity="center"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:paddingLeft="@dimen/_15sdp"
+                        android:layout_marginLeft="@dimen/_minus10sdp"
+                        android:layout_marginRight="@dimen/_minus10sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left|center_vertical"
+                        android:background="@drawable/border_abuabu"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_10sdp"
+                            android:text="Info Profil"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/_15sdp"
+                    android:paddingRight="@dimen/_15sdp"
+                    android:paddingBottom="@dimen/_15sdp"
+                    android:gravity="left"
                     android:orientation="horizontal">
 
                     <LinearLayout
@@ -303,6 +328,192 @@
                             android:textSize="@dimen/_14ssp" />
 
                     </LinearLayout>
+                </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:paddingLeft="@dimen/_15sdp"
+                        android:layout_marginLeft="@dimen/_minus10sdp"
+                        android:layout_marginRight="@dimen/_minus10sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left|center_vertical"
+                        android:background="@drawable/bg_editext"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_10sdp"
+                            android:text="Info Seniman"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/_15sdp"
+                    android:paddingRight="@dimen/_15sdp"
+                    android:paddingBottom="@dimen/_15sdp"
+                    android:gravity="left"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="Nomor Induk\nSeniman"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="Kategori\nSeniman"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/namaorganisasikiri"
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="Nama\nOrganisasi"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/jumlahanggotakiri"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:fontFamily="@font/robotoregular"
+                            android:text="Jumlah\nAnggota"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+                        <TextView
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="   :  "
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="   :  "
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/titil1s"
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="   :  "
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/titil2s"
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="   :  "
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:text="dfhvuybidfuvybiuhfbeeeeyyvouy"
+                            android:fontFamily="@font/robotoregular"
+                            android:id="@+id/nisInduk"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp" />
+
+                         <TextView
+                            android:text="dfhvuybidfuvybiuhfbeeeeyyvouy"
+                            android:fontFamily="@font/robotoregular"
+                            android:id="@+id/nisIndukinput"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"  />
+                         <TextView
+
+                            android:text="dfhvuybidfuvybiuhfbeeeeyyvouy"
+                            android:fontFamily="@font/robotoregular"
+                            android:id="@+id/nnamaorganisasiIndukinput"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp" />
+
+                         <TextView
+                            android:text="dfhvuybidfuvybiuhfbeeeeyyvouy"
+                            android:fontFamily="@font/robotoregular"
+                            android:id="@+id/jumlahanggotaInputAdvis"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp" />
+
+                    </LinearLayout>
+                </LinearLayout>
                 </LinearLayout>
 
             </LinearLayout>
