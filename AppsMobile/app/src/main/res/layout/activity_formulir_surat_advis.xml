@@ -37,14 +37,14 @@
                 android:hint="Masukkan Nomor Induk Seniman"
                 android:inputType="number"
                 android:paddingLeft="@dimen/_12sdp"
-                android:paddingTop="@dimen/_5sdp"
-                android:paddingBottom="@dimen/_5sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
                 android:textSize="@dimen/_12sdp" />
             <TextView
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama Lengkap"
+                android:text="Nama"
                 android:textSize="@dimen/_15ssp"
                 />
 
@@ -59,8 +59,8 @@
                 android:inputType="text"
                 android:maxLines="1"
                 android:paddingLeft="@dimen/_12sdp"
-                android:paddingTop="@dimen/_5sdp"
-                android:paddingBottom="@dimen/_5sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
                 android:textSize="@dimen/_12sdp" />
 
             <TextView
@@ -82,8 +82,8 @@
                 android:inputType="text"
                 android:maxLines="1"
                 android:paddingLeft="@dimen/_12sdp"
-                android:paddingTop="@dimen/_5sdp"
-                android:paddingBottom="@dimen/_5sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
                 android:textSize="@dimen/_12sdp" />
 
             <TextView
@@ -105,8 +105,8 @@
                 android:inputType="text"
                 android:maxLines="1"
                 android:paddingLeft="@dimen/_12sdp"
-                android:paddingTop="@dimen/_5sdp"
-                android:paddingBottom="@dimen/_5sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
                 android:textSize="@dimen/_12sdp" />
 
             <TextView
@@ -118,7 +118,7 @@
                 />
 
 
-            <EditText
+            <TextView
                 android:id="@+id/et_tanggalpentasadvis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -128,14 +128,14 @@
                 android:hint="Pilih Tanggal"
                 android:maxLines="1"
                 android:paddingLeft="@dimen/_12sdp"
-                android:paddingTop="@dimen/_5sdp"
-                android:paddingBottom="@dimen/_5sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
                 android:textSize="@dimen/_12sdp" />
             <TextView
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lokasi"
+                android:text="Bertempat Di"
                 android:textSize="@dimen/_15ssp"
                 />
             <EditText
@@ -149,16 +149,17 @@
                 android:inputType="text"
                 android:maxLines="1"
                 android:paddingLeft="@dimen/_12sdp"
-                android:paddingTop="@dimen/_5sdp"
-                android:paddingBottom="@dimen/_5sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
                 android:textSize="@dimen/_12sdp" />
 
             <TextView
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textAllCaps="true"
                 android:text="Setelah mengisi formulir dengan lengkap, anda menyetujui hal-hal berikut :"
-                android:textSize="@dimen/_13ssp"
+                android:textSize="@dimen/_12ssp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 />
@@ -214,9 +215,9 @@
                         />
                 </TableRow>
                 <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="left">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left">
                     <TextView
                         android:layout_marginTop="@dimen/_2sdp"
                         android:layout_width="wrap_content"
@@ -231,6 +232,75 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pementasan kesenian tanpa Surat Advis merupakan pelanggaran Peraturan Daerah."
+                        android:textSize="@dimen/_12ssp"
+                        android:fallbackLineSpacing="true"
+                        android:textColor="@color/black"
+                        />
+                </TableRow>
+                <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="left">
+                    <TextView
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4."
+                        android:textSize="@dimen/_12ssp"
+                        android:fallbackLineSpacing="true"
+                        android:textColor="@color/black"
+                        />
+                    <TextView
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dilarang mengadakan pementasan kesenian yang \nbertentangan dengan Kepribadian Bangsa \nIndonesia"
+                        android:textSize="@dimen/_12ssp"
+                        android:fallbackLineSpacing="true"
+                        android:textColor="@color/black"
+                        />
+                </TableRow>
+                <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="left">
+                    <TextView
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5."
+                        android:textSize="@dimen/_12ssp"
+                        android:fallbackLineSpacing="true"
+                        android:textColor="@color/black"
+                        />
+                    <TextView
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tidak melanggar Tata Tertib dan bertentangan dengan norma-norma Agama"
+                        android:textSize="@dimen/_12ssp"
+                        android:fallbackLineSpacing="true"
+                        android:textColor="@color/black"
+                        />
+                </TableRow>
+                <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="left">
+                    <TextView
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="6."
+                        android:textSize="@dimen/_12ssp"
+                        android:fallbackLineSpacing="true"
+                        android:textColor="@color/black"
+                        />
+                    <TextView
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Advis ini adalah bukti Legalitas dari Organisasi Seni / Seniman bukan sebagai izin Pentas."
                         android:textSize="@dimen/_12ssp"
                         android:fallbackLineSpacing="true"
                         android:textColor="@color/black"
