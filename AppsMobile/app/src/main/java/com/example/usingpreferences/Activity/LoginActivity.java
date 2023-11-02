@@ -134,8 +134,9 @@ public class LoginActivity extends AppCompatActivity {
                 } else if(mViewPassword.getText().toString().isEmpty()){
                     mViewPassword.setError("Password Harus Diisi");
                     mViewPassword.requestFocus();
-                } else{
+                } else {
                     APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
+
                     Call<ResponseModelUsers> getLoginResponse = ardData.login(mViewUser.getText().toString(), mViewPassword.getText().toString());
                     getLoginResponse.enqueue(new Callback<ResponseModelUsers>() {
                         @Override

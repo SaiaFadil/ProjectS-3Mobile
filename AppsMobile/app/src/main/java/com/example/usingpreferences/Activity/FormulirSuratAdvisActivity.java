@@ -138,7 +138,6 @@ public class FormulirSuratAdvisActivity extends AppCompatActivity {
                 } else if (TextUtils.isEmpty(tempatteks)) {
                     tempatAdvis.setError("Tempat Advis Harus Diisi!");
                     tempatAdvis.requestFocus();
-
                 } else if(!menyetujui.isChecked()) {
 
                     kirimdata.setEnabled(false);
