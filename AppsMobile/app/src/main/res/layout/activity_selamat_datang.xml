@@ -36,8 +36,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Kami hadir dengan memberikan layanan untuk memudahkan masyarakat"
-        android:textSize="@dimen/_16ssp"
+        android:fontFamily="@font/robotoregular"
+        android:text="Kami hadir untuk meningkatkan efisiensi dan kecepatan pelayanan kepada masyarakat"
+        android:textSize="@dimen/_14ssp"
         android:layout_marginTop="@dimen/_20sdp"
         android:textAlignment="center"
         android:textColor="@color/black"
