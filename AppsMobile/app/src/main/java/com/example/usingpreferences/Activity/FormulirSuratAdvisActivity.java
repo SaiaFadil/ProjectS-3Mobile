@@ -144,7 +144,7 @@ public class FormulirSuratAdvisActivity extends AppCompatActivity {
                     kirimdata.setEnabled(false);
                 }else {
                     AlertDialog.Builder builder = new AlertDialog.Builder(FormulirSuratAdvisActivity.this);
-                    builder.setMessage("Apakah Anda Yakin Mengubah Profil Anda?");
+                    builder.setMessage("Apakah Anda Yakin Dengan Data yang anda masukkan?");
                     builder.setCancelable(false);
                     builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
                         @Override
