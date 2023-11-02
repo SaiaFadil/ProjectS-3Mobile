@@ -1,14 +1,18 @@
 package com.example.usingpreferences.KonfirmMenu;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Html;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.usingpreferences.Activity.FormulirSuratAdvisActivity;
 import com.example.usingpreferences.R;
@@ -24,8 +28,32 @@ private Button lanjutkeform;
         lanjutkeform.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(KonfirmasiKeAdvis.this, FormulirSuratAdvisActivity.class));
-                overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+
+
+
+                SharedPreferences sharedPreferencesseniman = getSharedPreferences("prefDataSeniman", MODE_PRIVATE);
+                String idsenimanshared = sharedPreferencesseniman.getString("id_seniman", "");
+                if (TextUtils.isEmpty(idsenimanshared)){
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(KonfirmasiKeAdvis.this);
+                    builder.setMessage("Selain Seniman Tidak Dapat Mengajukan Surat Advis!")
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+
+                                }
+                            });
+                    AlertDialog dialog1 = builder.create();
+                    dialog1.show();
+                } else {
+
+                    startActivity(new Intent(KonfirmasiKeAdvis.this, FormulirSuratAdvisActivity.class));
+                    overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+
+                }
+
+
+
+
 
             }
         });
