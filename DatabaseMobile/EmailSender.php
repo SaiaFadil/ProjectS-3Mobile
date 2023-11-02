@@ -2,19 +2,12 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-class EmailSender {
-    // private $smtpHost = 'smtp.gmail.com';
-    // private $smtpUsername = 'muhammaderdi1999.app@gmail.com';
-    // private $smtpPassword = 'jowz pkzz fobx rfor';
-    // private $smtpPort = 587;
-    // private $fromEmail = 'muhammaderdi1999.app@gmail.com';
-    // private $fromName = 'Nganjuk Elok Verif Dev';
-    private $smtpHost = 'smtp.gmail.com';
+class EmailSender {    private $smtpHost = 'smtp.gmail.com';
     private $smtpUsername = 'hufflepufftifgol.a@gmail.com';
     private $smtpPassword = 'peya zhhe rdlt bsgx';
     private $smtpPort = 587;
     private $fromEmail = 'hufflepufftifgol.a@gmail.com';
-    private $fromName = 'Nganjuk Elok Verif Dev';  
+    private $fromName = 'Nganjuk Elok';  
 
     public function generateOTP($length = 6) {
         $otp = '';
