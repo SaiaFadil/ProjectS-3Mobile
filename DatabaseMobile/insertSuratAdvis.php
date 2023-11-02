@@ -11,10 +11,13 @@ $tempat_advis = $_POST['tempat_advis'];
 $status = $_POST['status'];
 $catatan = $_POST['catatan'];
 $id_user = $_POST['id_user'];
+$id_seniman = $_POST['id_seniman'];
 
 // Membuat query SQL untuk melakukan INSERT
-$sql = "INSERT INTO surat_advis (nomor_induk, nama_advis, alamat_advis, deskripsi_advis, tgl_advis, tempat_advis, status, catatan, id_user) 
-        VALUES ('$nomor_induk', '$nama_advis', '$alamat_advis', '$deskripsi_advis', '$tgl_advis', '$tempat_advis', '$status', '$catatan', $id_user)";
+$sql = "INSERT INTO surat_advis
+        (nomor_induk, nama_advis, alamat_advis, deskripsi_advis, tgl_advis, tempat_advis, status, catatan, id_user,id_seniman) 
+        VALUES
+        ('$nomor_induk', '$nama_advis', '$alamat_advis', '$deskripsi_advis', '$tgl_advis', '$tempat_advis', '$status', '$catatan', '$id_user', '$id_seniman')";
 
 $response = array();
 if ($konek->query($sql) === TRUE) {
