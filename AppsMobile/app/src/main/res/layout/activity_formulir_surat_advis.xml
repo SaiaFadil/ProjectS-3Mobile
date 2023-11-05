@@ -320,8 +320,11 @@
                 android:layout_gravity="left"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_30sdp"
-                android:text="Saya Menyetujui"
-                android:textAllCaps="true"/>
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/robotoregular"
+                android:text="Dengan Ini Saya Menyetujui Syarat Dan Ketentuan Diatas."
+       />
 
             <com.google.android.material.button.MaterialButton
                 android:layout_marginTop="@dimen/_10sdp"
