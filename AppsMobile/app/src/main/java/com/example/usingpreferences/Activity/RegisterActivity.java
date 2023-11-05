@@ -409,7 +409,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
     private void showAlertDialog() {
         androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(RegisterActivity.this);
-        builder.setMessage("Tidak ada koneksi internet. Harap cek koneksi Anda.")
+        builder.setMessage("Ada Kesalahan Pada Server, Periksa Koneksi Anda!")
                 .setCancelable(false)
                 .setPositiveButton("Tutup", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
