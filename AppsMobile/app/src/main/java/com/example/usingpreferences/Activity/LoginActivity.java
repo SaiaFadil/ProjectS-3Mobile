@@ -260,7 +260,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void showAlertDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-        builder.setMessage("Tidak ada koneksi internet. Harap cek koneksi Anda.")
+        builder.setMessage("Ada Kesalahan Pada Server, Periksa Koneksi Anda!")
                 .setCancelable(false)
                 .setPositiveButton("Tutup", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
