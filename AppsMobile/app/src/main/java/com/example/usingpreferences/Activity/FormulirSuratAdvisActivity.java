@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -36,9 +38,10 @@ import retrofit2.Response;
 
 public class FormulirSuratAdvisActivity extends AppCompatActivity {
     private DatePickerDialog picker;
+    private Animation fadeIn,fadeout;
     private CheckBox menyetujui;
-    private TextView tanggaladvis;
-    private EditText nisAdvis, namaAdvis, alamatAdvis, untukpentasAdvis, tempatAdvis;
+    private TextView tanggaladvis,teks_kesalahan, namaAdvis, alamatAdvis;
+    private EditText nisAdvis, untukpentasAdvis, tempatAdvis;
     private Button kirimdata;
     private ProgressDialog progressDialog;
     private String idUser, idSeniman, Alamat, nama;
@@ -48,6 +51,12 @@ public class FormulirSuratAdvisActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulir_surat_advis);
+
+        teks_kesalahan = findViewById(R.id.teks_kesalahan);
+        fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in_down);
+        fadeout = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out_down);
+
+        teks_kesalahan.setVisibility(View.INVISIBLE);
         menyetujui = findViewById(R.id.checkboxsetuju);
         nisAdvis = findViewById(R.id.et_induksenimanadvis);
         namaAdvis = findViewById(R.id.et_namalengkapadvis);
@@ -60,6 +69,7 @@ public class FormulirSuratAdvisActivity extends AppCompatActivity {
         progressDialog.setTitle("Data Sedang Diproses...");
         progressDialog.setMessage("Mohon Tunggu...");
         progressDialog.setIcon(R.drawable.logonganjuk);
+
         tanggaladvis = findViewById(R.id.et_tanggalpentasadvis);
         SimpanDataSeniman();
         menyetujui.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -68,8 +78,16 @@ public class FormulirSuratAdvisActivity extends AppCompatActivity {
                 // Mengubah visibilitas kata sandi berdasarkan status checkbox
                 if (isChecked) {
                     kirimdata.setEnabled(true);
+
+                    teks_kesalahan.setVisibility(View.INVISIBLE);
+                    teks_kesalahan.startAnimation(fadeout);
+
                 } else {
                     kirimdata.setEnabled(false);
+
+                    teks_kesalahan.setVisibility(View.VISIBLE);
+                    teks_kesalahan.startAnimation(fadeIn);
+
                 }
             }
         });
@@ -139,7 +157,8 @@ public class FormulirSuratAdvisActivity extends AppCompatActivity {
                     tempatAdvis.setError("Tempat Advis Harus Diisi!");
                     tempatAdvis.requestFocus();
                 } else if(!menyetujui.isChecked()) {
-
+                    teks_kesalahan.setVisibility(View.VISIBLE);
+                    teks_kesalahan.startAnimation(fadeIn);
                     kirimdata.setEnabled(false);
                 }else {
                     AlertDialog.Builder builder = new AlertDialog.Builder(FormulirSuratAdvisActivity.this);
@@ -220,8 +239,6 @@ public class FormulirSuratAdvisActivity extends AppCompatActivity {
     }
 
     public void onBackPressed() {
-        finish();
-        overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
 
     }
 }
