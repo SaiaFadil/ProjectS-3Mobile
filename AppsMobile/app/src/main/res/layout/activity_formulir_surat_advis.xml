@@ -51,7 +51,7 @@
                 android:textSize="@dimen/_15ssp"
                 />
 
-            <EditText
+            <TextView
                 android:paddingRight="@dimen/_10sdp"
                 android:id="@+id/et_namalengkapadvis"
                 android:layout_width="match_parent"
@@ -75,7 +75,7 @@
                 android:textSize="@dimen/_15ssp"
                 />
 
-            <EditText
+            <TextView
                 android:id="@+id/et_alamatadvis"
                 android:paddingRight="@dimen/_10sdp"
                 android:layout_width="match_parent"
@@ -319,12 +319,24 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginBottom="@dimen/_30sdp"
                 android:textSize="@dimen/_12ssp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/robotoregular"
                 android:text="Dengan Ini Saya Menyetujui Syarat Dan Ketentuan Diatas."
        />
+            <TextView
+                android:id="@+id/teks_kesalahan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Anda Harus Menyetujui Syarat Dan Ketentuan Kami!"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/red"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                android:fontFamily="@font/robotoregular"
+                android:layout_marginBottom="@dimen/_30sdp"
+                />
 
             <com.google.android.material.button.MaterialButton
                 android:layout_marginTop="@dimen/_10sdp"
