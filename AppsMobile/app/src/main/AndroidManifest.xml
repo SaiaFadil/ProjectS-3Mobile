@@ -31,10 +31,10 @@
             android:name=".Activity.DetailProfilActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.FormStatusDiproses"
+            android:name=".Activity.FormAdvisDiproses"
             android:exported="false" />
         <activity
-            android:name=".Activity.FormStatusDiajukan"
+            android:name=".Activity.FormAdvisDiajukan"
             android:exported="false" />
         <activity
             android:name=".Activity.PusatBantuanProfil"

@@ -16,7 +16,7 @@ import com.example.usingpreferences.R;
 public class DetailProfilActivity extends AppCompatActivity {
     private TextView id_user, nama_lengkap, no_telpon, tempat_lahir, email, jeniskelamin, tanggallahir, titik1, titik2, titik3, jeniskelaminteks, tempatlahirteks, tgllahirteks;
     private LinearLayout dataSeniman;
-    private TextView nomorindukinput,kategorinput,namaorganisasiinput,jumlahanggotainput,titiks1,titiks2,namairganisasiteks,jumlahanggotateks;
+    private TextView nomorindukinput,namaorganisasiinput,jumlahanggotainput,titiks1,titiks2,namairganisasiteks,jumlahanggotateks;
 
 
     @Override
@@ -54,7 +54,7 @@ public class DetailProfilActivity extends AppCompatActivity {
 
         dataSeniman = findViewById(R.id.bagianSeniman);
         nomorindukinput = findViewById(R.id.nisIndukinput);
-        kategorinput = findViewById(R.id.kategoriinput);
+//        kategorinput = findViewById(R.id.kategoriinput);
         namaorganisasiinput = findViewById(R.id.namaorganisasiIndukinput);
         jumlahanggotainput = findViewById(R.id.jumlahanggotainput);
         titiks1 = findViewById(R.id.titik1s);
@@ -68,11 +68,11 @@ public class DetailProfilActivity extends AppCompatActivity {
     private void ShowDataSeniman(){
         SharedPreferences sharedPreferencesSeniman = DetailProfilActivity.this.getSharedPreferences("prefDataSeniman",Context.MODE_PRIVATE);
         String nomorindukShared = sharedPreferencesSeniman.getString("nomor_induk","");
-        String kategorisenimanShared = sharedPreferencesSeniman.getString("kategori","");
+        String singkatan_kategoriShared = sharedPreferencesSeniman.getString("singkatan_kategori","");
         String namaorganisasiShared = sharedPreferencesSeniman.getString("nama_organisasi","");
         String jumlahanggotaShared = sharedPreferencesSeniman.getString("jumlah_anggota","");
         nomorindukinput.setText(nomorindukShared);
-        kategorinput.setText(kategorisenimanShared);
+//        kategorinput.setText(kategorisenimanShared);
         namaorganisasiinput.setText(namaorganisasiShared);
         jumlahanggotainput.setText(jumlahanggotaShared);
 

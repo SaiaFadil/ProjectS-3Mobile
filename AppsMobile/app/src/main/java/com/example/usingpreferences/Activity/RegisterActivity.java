@@ -270,8 +270,6 @@ public class RegisterActivity extends AppCompatActivity {
                     focus = mViewNotlp;
 
                     mViewNotlp.requestFocus();
-                }  else if (notlp.startsWith("62")) {
-                    notlp = "08" + notlp.substring(2);
                 } else if (notlp.length() >= 15) {
                     mViewNotlp.setError("No Telpon Maksimum 15");
                     focus = mViewNotlp;
@@ -383,8 +381,9 @@ public class RegisterActivity extends AppCompatActivity {
                                     // Tutup ProgressDialog
                                     progressDialog.dismiss();
                                     String email = mViewEmail.getText().toString();
-
-//                                    VerifyUtil util = new VerifyUtil(RegisterActivity.this, response.body().getData());
+                                    if (notlp.startsWith("62")) {
+                                        notlp = "08" + notlp.substring(2);
+                                    }
 
                                     // Buat Intent
                                     Intent pindah = new Intent(RegisterActivity.this, KodeOtp.class);
@@ -393,7 +392,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     pindah.putExtra("email", email);
                                     pindah.putExtra("otp", response.body().getData().getOtp());
                                     pindah.putExtra("nama_lengkap", mViewNama.getText().toString());
-                                    pindah.putExtra("no_telpon", mViewNotlp.getText().toString());
+                                    pindah.putExtra("no_telpon", notlp);
                                     pindah.putExtra("password", mViewPassword.getText().toString());
                                     startActivity(pindah);
                                     overridePendingTransition(R.anim.layout_in, R.anim.layout_out);

@@ -401,16 +401,16 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/_14ssp"
                             android:textStyle="bold" />
-                        <TextView
-                            android:id="@+id/namaorganisasiteks"
-                            android:fontFamily="@font/robotoregular"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:text="Kategori\nSeniman"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_14ssp"
-                            android:textStyle="bold" />
+<!--                        <TextView-->
+<!--                            android:id="@+id/namaorganisasiteks"-->
+<!--                            android:fontFamily="@font/robotoregular"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="@dimen/_10sdp"-->
+<!--                            android:text="Kategori\nSeniman"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="@dimen/_14ssp"-->
+<!--                            android:textStyle="bold" />-->
                         <TextView
                             android:id="@+id/namaorganisasikiri"
                             android:fontFamily="@font/robotoregular"
@@ -452,15 +452,15 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/_14ssp"
                             android:textStyle="bold" />
-                        <TextView
-                            android:fontFamily="@font/robotoregular"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:text="   :  \n"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_14ssp"
-                            android:textStyle="bold" />
+<!--                        <TextView-->
+<!--                            android:fontFamily="@font/robotoregular"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="@dimen/_10sdp"-->
+<!--                            android:text="   :  \n"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="@dimen/_14ssp"-->
+<!--                            android:textStyle="bold" />-->
                         <TextView
                             android:id="@+id/titik1s"
                             android:fontFamily="@font/robotoregular"
@@ -510,27 +510,27 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/_12ssp" />
 
-                         <TextView
-                            android:text="dfhvuybidfuvybiuhfbeeeeyyvouy"
-                            android:fontFamily="@font/robotoregular"
-                            android:id="@+id/kategoriinput"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:inputType="text"
-                            android:maxLines="1"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_14ssp"  />
-                        <TextView
-                            android:visibility="invisible"
-                            android:text="dfhvuybidfuvybiuhfbeeeeyyvouy\n"
-                            android:fontFamily="@font/robotoregular"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:inputType="text"
-                            android:maxLines="2"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_12ssp" />
+<!--                         <TextView-->
+<!--                            android:text="dfhvuybidfuvybiuhfbeeeeyyvouy"-->
+<!--                            android:fontFamily="@font/robotoregular"-->
+<!--                            android:id="@+id/kategoriinput"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="@dimen/_10sdp"-->
+<!--                            android:inputType="text"-->
+<!--                            android:maxLines="1"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="@dimen/_14ssp"  />-->
+<!--                        <TextView-->
+<!--                            android:visibility="invisible"-->
+<!--                            android:text="dfhvuybidfuvybiuhfbeeeeyyvouy\n"-->
+<!--                            android:fontFamily="@font/robotoregular"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:inputType="text"-->
+<!--                            android:maxLines="2"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="@dimen/_12ssp" />-->
 
                         <TextView
 

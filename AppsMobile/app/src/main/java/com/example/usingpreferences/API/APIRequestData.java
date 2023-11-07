@@ -5,8 +5,11 @@ import com.example.usingpreferences.DataModel.KategoriSenimanModel;
 import com.example.usingpreferences.DataModel.ModelResponseAll;
 import com.example.usingpreferences.DataModel.ModelResponseSimpanDataSeniman;
 import com.example.usingpreferences.DataModel.ModelUpdateProfil;
+import com.example.usingpreferences.DataModel.ResponseDetailAdvisDiajukan;
+import com.example.usingpreferences.DataModel.ResponseDetailAdvisDiproses;
 import com.example.usingpreferences.DataModel.ResponseModelUsers;
-import com.example.usingpreferences.DataModel.SenimanModel;
+import com.example.usingpreferences.DataModel.ResponseStatusAdvisDiajukan;
+import com.example.usingpreferences.DataModel.ResponseStatusAdvisDiproses;
 import com.example.usingpreferences.DataModel.SenimanResponse;
 import com.example.usingpreferences.DataModel.VerifyResponse;
 import com.example.usingpreferences.DataModel.getSingkatanResponse;
@@ -141,8 +144,31 @@ public interface APIRequestData {
             @Part MultipartBody.Part suratKeterangan,
             @Part MultipartBody.Part passFoto
     );
+    @FormUrlEncoded
+    @POST("status_advis/status_advis_diajukan.php")
+    Call<ResponseStatusAdvisDiajukan> getStatusAdvisDiajukan(
+            @Field("id_user") String id_user
+
+    );
+
+    @FormUrlEncoded
+    @POST("status_advis/detail_advis_diajukan.php")
+    Call<ResponseDetailAdvisDiajukan> getDetailAdvisDiajukan(
+            @Field("id_advis") String id_advis
+    );
+
+    @FormUrlEncoded
+    @POST("status_advis/status_advis_diproses.php")
+    Call<ResponseStatusAdvisDiproses> getStatusAdvisDiproses(
+            @Field("id_user") String id_user
+
+    );
 
 
-    //ntar create.php dan lain lain di tambah di bawah sini
+    @FormUrlEncoded
+    @POST("status_advis/detail_advis_diproses.php")
+    Call<ResponseDetailAdvisDiproses> getDetailAdvisDiproses(
+            @Field("id_advis") String id_advis
+    );
 }
 

@@ -69,6 +69,7 @@ public class FormulirSuratAdvisActivity extends AppCompatActivity {
         progressDialog.setTitle("Data Sedang Diproses...");
         progressDialog.setMessage("Mohon Tunggu...");
         progressDialog.setIcon(R.drawable.logonganjuk);
+        progressDialog.setCancelable(false);
 
         tanggaladvis = findViewById(R.id.et_tanggalpentasadvis);
         SimpanDataSeniman();
@@ -122,7 +123,7 @@ public class FormulirSuratAdvisActivity extends AppCompatActivity {
                         Calendar selectedDate = Calendar.getInstance();
                         selectedDate.set(year, month, dayOfMonth);
                         if (selectedDate.after(cldr)) {
-                            tanggaladvis.setText(year + "/" + (month + 1) + "/" + dayOfMonth);
+                            tanggaladvis.setText(year + "-" + (month + 1) + "-" + dayOfMonth);
                         } else {
                             Toast.makeText(getApplicationContext(), "Pilih tanggal setelah 5 hari dari hari ini", Toast.LENGTH_SHORT).show();
                         }

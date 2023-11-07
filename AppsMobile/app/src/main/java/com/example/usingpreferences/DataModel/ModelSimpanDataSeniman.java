@@ -3,7 +3,7 @@ package com.example.usingpreferences.DataModel;
 public class ModelSimpanDataSeniman {
 
 
-private String  id_seniman,nik,nomor_induk,nama_seniman,jenis_kelamin,kategori,kecamatan,tempat_lahir,tanggal_lahir,alamat_seniman,no_telpon,nama_organisasi,jumlah_anggota,ktp_seniman,pass_foto,surat_keterangan,tgl_pembuatan,tgl_berlaku,status,catatan,id_user;
+private String  id_seniman,nik,nomor_induk,nama_seniman,jenis_kelamin,singkatan_kategori,kecamatan,tempat_lahir,tanggal_lahir,alamat_seniman,no_telpon,nama_organisasi,jumlah_anggota,ktp_seniman,pass_foto,surat_keterangan,tgl_pembuatan,tgl_berlaku,status,catatan,id_user;
 
     public String getId_seniman() {
         return id_seniman;
@@ -45,12 +45,12 @@ private String  id_seniman,nik,nomor_induk,nama_seniman,jenis_kelamin,kategori,k
         this.jenis_kelamin = jenis_kelamin;
     }
 
-    public String getKategori() {
-        return kategori;
+    public String getsingkatan_kategori() {
+        return singkatan_kategori;
     }
 
-    public void setKategori(String kategori) {
-        this.kategori = kategori;
+    public void setsingkatan_kategori(String kategori) {
+        this.singkatan_kategori = kategori;
     }
 
     public String getKecamatan() {

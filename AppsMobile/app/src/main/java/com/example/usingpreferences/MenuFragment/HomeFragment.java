@@ -286,7 +286,7 @@ public class HomeFragment extends Fragment {
                     editor.putString("nomor_induk", Seniman.getNomor_induk());
                     editor.putString("nama_seniman", Seniman.getNama_seniman());
                     editor.putString("jenis_kelamin", Seniman.getJenis_kelamin());
-                    editor.putString("kategori", Seniman.getKategori());
+                    editor.putString("singkatan_kategori", Seniman.getsingkatan_kategori());
                     editor.putString("kecamatan", Seniman.getKecamatan());
                     editor.putString("tempat_lahir", Seniman.getTempat_lahir());
                     editor.putString("tanggal_lahir", Seniman.getTanggal_lahir());
