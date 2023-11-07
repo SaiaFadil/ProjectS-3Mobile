@@ -1,43 +1,64 @@
 <?php
-// Koneksi ke database
-require "Koneksi.php";
-
-$konek= new mysqli($host, $username, $password, $database);
-
-if ($konek->connect_error) {
-    die('Koneksi gagal: ' . $konek->connect_error);
-}
-
+// Koneksi ke database MySQL
+require('Koneksi.php');
 // Menerima data dari aplikasi Android
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nik = $_POST['nik'];
-    $nomor_induk = $_POST['nomor_induk'];
-    $nama_seniman = $_POST['nama_seniman'];
-    $jenis_kelamin = $_POST['jenis_kelamin'];
-    $ttl_seniman = $_POST['ttl_seniman'];
-    $alamat_seniman = $_POST['alamat_seniman'];
-    $phone_seniman = $_POST['phone_seniman'];
-    $nama_organisasi = $_POST['nama_organisasi'];
-    $jumlah_anggota = $_POST['jumlah_anggota'];
-    $surat_keterangan = $_POST['surat_keterangan'];
-    $ktp_seniman = $_POST['ktp_seniman'];
-    $pass_foto = $_POST['pass_foto'];
-    $tgl_pembuatan = $_POST['tgl_pembuatan'];
-    $tgl_berlaku = $_POST['tgl_berlaku'];
+$nik = $_POST['nik'];
+$namaLengkap = $_POST['nama_seniman'];
+$jenisKelamin = $_POST['jenis_kelamin'];
+$tempatLahir = $_POST['tempat_lahir'];
+$tanggalLahir = $_POST['tanggal_lahir'];
+$alamat = $_POST['alamat_seniman'];
+$noHandphone = $_POST['no_telpon'];
+$namaOrganisasi = $_POST['nama_organisasi'];
+$jumlahAnggota = $_POST['jumlah_anggota'];
+$status = $_POST['status'];
+$singkatan_kategori = $_POST['singkatan_kategori'];
+$kecamatan = $_POST['kecamatan'];
+$id_user = $_POST['id_user'];
 
-    // Menyimpan data ke tabel "seniman"
-    $query = "INSERT INTO seniman (nik, nomor_induk, nama_seniman, jenis_kelamin, ttl_seniman, alamat_seniman, phone_seniman, nama_organisasi, jumlah_anggota, surat_keterangan, ktp_seniman, pass_foto, tgl_pembuatan, tgl_berlaku) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    $stmt = $konek->prepare($query);
-    $stmt->bind_param('ssssssssssssss', $nik, $nomor_induk, $nama_seniman, $jenis_kelamin, $ttl_seniman, $alamat_seniman, $phone_seniman, $nama_organisasi, $jumlah_anggota, $surat_keterangan, $ktp_seniman, $pass_foto, $tgl_pembuatan, $tgl_berlaku);
+// Menerima file gambar, dokumen PDF, dan gambar
+$ktpSeniman = $_FILES['ktp_seniman'];
+$suratKeterangan = $_FILES['surat_keterangan'];
+$passFoto = $_FILES['pass_foto'];
 
-    if ($stmt->execute()) {
-        echo 'Data berhasil disimpan.';
-    } else {
-        echo 'Gagal menyimpan data: ' . $stmt->error;
-    }
+// Direktori penyimpanan file
+$uploadDirKTP = 'uploads/ktp_seniman/';
+$uploadDirSurat = 'uploads/surat_keterangan/';
+$uploadDirPassFoto = 'uploads/pass_foto/';
 
-    $stmt->close();
+// Mengunggah gambar KTP Seniman
+$ktpSenimanFileName = $uploadDirKTP . basename($ktpSeniman['name']);
+move_uploaded_file($ktpSeniman['tmp_name'], $ktpSenimanFileName);
+
+// Mengunggah dokumen PDF Surat Keterangan
+$suratKeteranganFileName = $uploadDirSurat . basename($suratKeterangan['name']);
+move_uploaded_file($suratKeterangan['tmp_name'], $suratKeteranganFileName);
+
+// Mengunggah gambar Pass Foto
+$passFotoFileName = $uploadDirPassFoto . basename($passFoto['name']);
+move_uploaded_file($passFoto['tmp_name'], $passFotoFileName);
+
+// Enkripsi nilai $nik dengan Base64
+$encryptedNik = base64_encode($nik);
+
+// Menyimpan data ke database
+$today = date('Y-m-d'); // Mengambil tanggal hari ini
+$nextYear = date('Y') + 1; // Mengambil tahun berikutnya
+$tgl_pembuatan = $today;
+$tgl_berlaku = $nextYear . '-12-31';
+
+$query = "INSERT INTO seniman (nik, nama_seniman, jenis_kelamin, tempat_lahir, tanggal_lahir, alamat_seniman, no_telpon, nama_organisasi, jumlah_anggota, status, tgl_pembuatan, tgl_berlaku, id_user, singkatan_kategori, kecamatan, ktp_seniman, surat_keterangan, pass_foto) 
+          VALUES ('$encryptedNik', $namaLengkap, $jenisKelamin, $tempatLahir, $tanggalLahir, $alamat, $noHandphone, $namaOrganisasi, $jumlahAnggota, $status, '$tgl_pembuatan', '$tgl_berlaku', $id_user, $singkatan_kategori, $kecamatan, '$ktpSenimanFileName','$suratKeteranganFileName', '$passFotoFileName')";
+
+if ($konek->query($query) === TRUE) {
+    $response['status'] = 'success';
+    $response['message'] = 'Data berhasil disimpan';
 } else {
-    echo 'Permintaan tidak valid.';
+    $response['status'] = 'error';
+    $response['message'] = 'Gagal menyimpan data: ' . $konek->error;
 }
 
+// Mengirim respons ke aplikasi Android dalam format JSON
+header('Content-type: application/json');
+echo json_encode($response);
+?>

@@ -128,7 +128,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(email)) {
                     mViewUser.setError("Email harus diisi");
                     mViewUser.requestFocus();
-                } else if (!email.endsWith("@gmail.com")) {
+                } else if (!email.endsWith(".com") && !email.contains("@")) {
                     mViewUser.setError("Email tidak valid!!");
                     mViewUser.requestFocus();
                 } else if(mViewPassword.getText().toString().isEmpty()){
@@ -260,7 +260,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void showAlertDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-        builder.setMessage("Ada Kesalahan Pada Server, Periksa Koneksi Anda!")
+        builder.setMessage("Tidak ada koneksi internet. Harap cek koneksi Anda.")
                 .setCancelable(false)
                 .setPositiveButton("Tutup", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {

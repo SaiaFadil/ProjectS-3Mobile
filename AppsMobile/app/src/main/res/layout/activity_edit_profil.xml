@@ -81,20 +81,7 @@
                     android:scaleType="fitXY"
                     android:src="@drawable/logodisporabudpar"/>
 
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:backgroundTint="@color/white"
-                    android:drawableLeft="@drawable/ic_kamera"
-                    android:elevation="@dimen/_10sdp"
-                    android:maxLines="1"
-                    android:text="Ubah Foto"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_14ssp"
-                    android:textStyle="bold"
-                    app:strokeColor="@color/greendark"
-                    app:strokeWidth="@dimen/_1sdp" />
+
 
                 <TextView
                     android:id="@+id/iduseredit"
@@ -224,7 +211,7 @@
                                 android:textSize="@dimen/_15ssp"
                                 android:textStyle="bold" />
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/tanggaledit"
                                 android:layout_width="@dimen/_130sdp"
                                 android:layout_height="wrap_content"

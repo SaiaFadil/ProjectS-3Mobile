@@ -286,6 +286,21 @@
                     android:paddingTop="@dimen/_7sdp"
                     android:paddingBottom="@dimen/_7sdp"
                     android:textSize="@dimen/_12sdp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="Kategori Seniman"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp" />
+
+            <Spinner
+                android:id="@+id/kategoriSeniman_spinner"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:background="@drawable/bg_editext"
+                android:padding="8dp"
+                android:popupBackground="@color/gray" />
 
             <TextView
                 android:layout_width="wrap_content"

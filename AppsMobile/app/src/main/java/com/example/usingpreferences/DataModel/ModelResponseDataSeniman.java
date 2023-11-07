@@ -1,17 +1,22 @@
 package com.example.usingpreferences.DataModel;
 
-import retrofit2.http.Multipart;
+public class ModelResponseDataSeniman {
+    private String nik;
 
-public class SenimanModel {
-    private int nik;
-    private String nama_seniman;
-
-    public int getNik() {
+    public String getNik() {
         return nik;
     }
 
-    public void setNik(int nik) {
+    public void setNik(String nik) {
         this.nik = nik;
+    }
+
+    public String getNomor_induk() {
+        return nomor_induk;
+    }
+
+    public void setNomor_induk(String nomor_induk) {
+        this.nomor_induk = nomor_induk;
     }
 
     public String getNama_seniman() {
@@ -28,6 +33,22 @@ public class SenimanModel {
 
     public void setJenis_kelamin(String jenis_kelamin) {
         this.jenis_kelamin = jenis_kelamin;
+    }
+
+    public String getSingkatan_kategori() {
+        return singkatan_kategori;
+    }
+
+    public void setSingkatan_kategori(String singkatan_kategori) {
+        this.singkatan_kategori = singkatan_kategori;
+    }
+
+    public String getKecamatan() {
+        return kecamatan;
+    }
+
+    public void setKecamatan(String kecamatan) {
+        this.kecamatan = kecamatan;
     }
 
     public String getTempat_lahir() {
@@ -78,63 +99,51 @@ public class SenimanModel {
         this.jumlah_anggota = jumlah_anggota;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getSingkatan_kategori() {
-        return singkatan_kategori;
-    }
-
-    public void setSingkatan_kategori(String singkatan_kategori) {
-        this.singkatan_kategori = singkatan_kategori;
-    }
-
-    public String getKecamatan() {
-        return kecamatan;
-    }
-
-    public void setKecamatan(String kecamatan) {
-        this.kecamatan = kecamatan;
-    }
-
-    public Multipart getKtp_seniman() {
+    public String getKtp_seniman() {
         return ktp_seniman;
     }
 
-    public void setKtp_seniman(Multipart ktp_seniman) {
+    public void setKtp_seniman(String ktp_seniman) {
         this.ktp_seniman = ktp_seniman;
     }
 
-    public Multipart getSurat_keterangan() {
-        return surat_keterangan;
-    }
-
-    public void setSurat_keterangan(Multipart surat_keterangan) {
-        this.surat_keterangan = surat_keterangan;
-    }
-
-    public Multipart getPass_foto() {
+    public String getPass_foto() {
         return pass_foto;
     }
 
-    public void setPass_foto(Multipart pass_foto) {
+    public void setPass_foto(String pass_foto) {
         this.pass_foto = pass_foto;
     }
 
+    public String getSurat_keterangan() {
+        return surat_keterangan;
+    }
+
+    public void setSurat_keterangan(String surat_keterangan) {
+        this.surat_keterangan = surat_keterangan;
+    }
+
+    public String getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(String id_user) {
+        this.id_user = id_user;
+    }
+
+    private String nomor_induk;
+    private String nama_seniman;
     private String jenis_kelamin;
+    private String singkatan_kategori;
+    private String kecamatan;
     private String tempat_lahir;
     private String tanggal_lahir;
     private String alamat_seniman;
     private String no_telpon;
     private String nama_organisasi;
     private String jumlah_anggota;
-    private String status;
-    private String singkatan_kategori;
-    private String kecamatan;
-    private Multipart ktp_seniman,surat_keterangan, pass_foto;
+    private String ktp_seniman;
+    private String pass_foto;
+    private String surat_keterangan;
+    private String id_user;
 }

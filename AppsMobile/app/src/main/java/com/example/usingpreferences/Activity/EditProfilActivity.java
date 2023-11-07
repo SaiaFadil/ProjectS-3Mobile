@@ -41,7 +41,7 @@ import retrofit2.Response;
 
 public class EditProfilActivity extends AppCompatActivity {
     private DatePickerDialog picker;
-    private EditText tanggallahiredit;
+    private TextView tanggallahiredit;
     private Spinner genderSpinner;
     private Animation fadeIndown,fadeOutdown;
 
@@ -158,7 +158,7 @@ public class EditProfilActivity extends AppCompatActivity {
                 picker = new DatePickerDialog(EditProfilActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        tanggallahiredit.setText(year + "-" + (month + 1) + "-" + dayOfMonth);
+                        tanggallahiredit.setText(year + "-" + (month + 1) + "-" +dayOfMonth );
                     }
                 }, tahun, bulan, tgl);
                 picker.show();

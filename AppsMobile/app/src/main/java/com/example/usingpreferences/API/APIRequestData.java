@@ -6,15 +6,21 @@ import com.example.usingpreferences.DataModel.ModelResponseAll;
 import com.example.usingpreferences.DataModel.ModelResponseSimpanDataSeniman;
 import com.example.usingpreferences.DataModel.ModelUpdateProfil;
 import com.example.usingpreferences.DataModel.ResponseModelUsers;
+import com.example.usingpreferences.DataModel.SenimanModel;
+import com.example.usingpreferences.DataModel.SenimanResponse;
 import com.example.usingpreferences.DataModel.VerifyResponse;
+import com.example.usingpreferences.DataModel.getSingkatanResponse;
 
 import java.util.List;
 
+import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 
 public interface APIRequestData {
     //buat ngambil data dari API/webservice retrieve.php
@@ -106,9 +112,37 @@ public interface APIRequestData {
     Call<ModelResponseSimpanDataSeniman> SimpanDataSeniman(
             @Field("id_user") String idUser
     );
+ @FormUrlEncoded
+    @POST("getSingkatanKategori.php")
+    Call<getSingkatanResponse> getSingkatan(
+            @Field("NamaKategori") String Namakategori
+    );
 
     @GET("getKategoriSeniman.php")
     Call<List<KategoriSenimanModel>> getKategoriSeniman();
+
+    @Multipart
+    @POST("NoInduk.php")
+    Call<SenimanResponse> saveDataSeniman(
+            @Part("nik") String nik,
+            @Part("id_user") String idUser,
+            @Part("nama_seniman") String namaSeniman,
+            @Part("jenis_kelamin") String jenisKel,
+            @Part("kecamatan") String kecamatan,
+            @Part("singkatan_kategori") String singkatanKategori,
+            @Part("tempat_lahir") String tempatLahir,
+            @Part("tanggal_lahir") String ttlSeniman,
+            @Part("alamat_seniman") String alamat,
+            @Part("no_telpon") String noTelpon,
+            @Part("status") String status,
+            @Part("nama_organisasi") String namaOrganisasi,
+            @Part("jumlah_anggota") String jumlahAnggota,
+            @Part MultipartBody.Part ktpSeniman,
+            @Part MultipartBody.Part suratKeterangan,
+            @Part MultipartBody.Part passFoto
+    );
+
+
     //ntar create.php dan lain lain di tambah di bawah sini
 }
 

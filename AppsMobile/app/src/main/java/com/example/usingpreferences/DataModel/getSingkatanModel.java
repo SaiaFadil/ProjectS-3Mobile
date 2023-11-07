@@ -1,15 +1,15 @@
 package com.example.usingpreferences.DataModel;
 
-public class KategoriSenimanModel {
-    private int id_kategori_seniman;
-    private String nama_kategori, singkatan_kategori;
+public class getSingkatanModel {
+    int id_kategori;
+    String nama_kategori,singkatan_kategori;
 
-    public int getId_kategori_seniman() {
-        return id_kategori_seniman;
+    public int getId_kategori() {
+        return id_kategori;
     }
 
-    public void setId_kategori_seniman(int id_kategori_seniman) {
-        this.id_kategori_seniman = id_kategori_seniman;
+    public void setId_kategori(int id_kategori) {
+        this.id_kategori = id_kategori;
     }
 
     public String getNama_kategori() {

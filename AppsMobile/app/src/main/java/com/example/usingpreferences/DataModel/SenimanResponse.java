@@ -1,23 +1,17 @@
 package com.example.usingpreferences.DataModel;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
+import java.util.List;
 
 public class SenimanResponse {
-    @Expose
-    @SerializedName("status")
-    private String status;
-    @Expose
-    @SerializedName("message")
-    private String message;
-    @Expose
-    @SerializedName("data")
-    private SenimanModel data;
+    String message;
+    String status;
 
-    public SenimanResponse(String status, String message, SenimanModel data) {
-        this.status = status;
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
         this.message = message;
-        this.data = data;
     }
 
     public String getStatus() {
@@ -28,19 +22,13 @@ public class SenimanResponse {
         this.status = status;
     }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public SenimanModel getData() {
+    public List<SenimanModel> getData() {
         return data;
     }
 
-    public void setData(SenimanModel data) {
+    public void setData(List<SenimanModel> data) {
         this.data = data;
     }
+
+    List<SenimanModel> data;
 }

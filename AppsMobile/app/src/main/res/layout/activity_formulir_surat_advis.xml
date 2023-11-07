@@ -175,32 +175,32 @@
                 android:layout_height="wrap_content">
 
                 <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="left">
-                        <TextView
-                            android:layout_marginTop="@dimen/_15sdp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="1."
-                            android:textSize="@dimen/_12ssp"
-                            android:fallbackLineSpacing="true"
-                            android:textColor="@color/black"
-                            />
-                        <TextView
-                            android:layout_marginTop="@dimen/_15sdp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Tidak keberatan memberikan Surat Advis untuk mendapatkan ijin keramaian dari kepolisian."
-                            android:textSize="@dimen/_12ssp"
-                            android:fallbackLineSpacing="true"
-                            android:textColor="@color/black"
-                            />
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left">
+                    <TextView
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1."
+                        android:textSize="@dimen/_12ssp"
+                        android:fallbackLineSpacing="true"
+                        android:textColor="@color/black"
+                        />
+                    <TextView
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tidak keberatan memberikan Surat Advis untuk mendapatkan ijin keramaian dari kepolisian."
+                        android:textSize="@dimen/_12ssp"
+                        android:fallbackLineSpacing="true"
+                        android:textColor="@color/black"
+                        />
                 </TableRow>
                 <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="left">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left">
                     <TextView
                         android:layout_marginTop="@dimen/_2sdp"
                         android:layout_width="wrap_content"
@@ -244,9 +244,9 @@
                         />
                 </TableRow>
                 <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="left">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left">
                     <TextView
                         android:layout_marginTop="@dimen/_2sdp"
                         android:layout_width="wrap_content"
@@ -267,9 +267,9 @@
                         />
                 </TableRow>
                 <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="left">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left">
                     <TextView
                         android:layout_marginTop="@dimen/_2sdp"
                         android:layout_width="wrap_content"
@@ -290,9 +290,9 @@
                         />
                 </TableRow>
                 <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="left">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left">
                     <TextView
                         android:layout_marginTop="@dimen/_2sdp"
                         android:layout_width="wrap_content"
@@ -324,7 +324,7 @@
                 android:textColor="@color/black"
                 android:fontFamily="@font/robotoregular"
                 android:text="Dengan Ini Saya Menyetujui Syarat Dan Ketentuan Diatas."
-       />
+                />
             <TextView
                 android:id="@+id/teks_kesalahan"
                 android:layout_width="wrap_content"
@@ -335,8 +335,7 @@
                 android:textSize="@dimen/_12ssp"
                 android:textStyle="bold"
                 android:fontFamily="@font/robotoregular"
-                android:layout_marginBottom="@dimen/_30sdp"
-                />
+                android:layout_marginBottom="@dimen/_30sdp"/>
 
             <com.google.android.material.button.MaterialButton
                 android:layout_marginTop="@dimen/_10sdp"

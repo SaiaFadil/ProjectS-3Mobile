@@ -44,6 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Drawable icCircleGreen, icCircleRed;
     private CheckBox tampilkansandi;
     private final boolean[] isPasswordVisible = {false};
+    private String notlp = mViewNotlp.getText().toString().trim();
 
     private void setDrawablepw1(Drawable drawable) {
         mViewPassword.setCompoundDrawablesWithIntrinsicBounds(null, null, drawable, null);
@@ -243,12 +244,15 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                 String user = mViewNama.getText().toString();
-                String notlp = mViewNotlp.getText().toString().trim();
                 String email = mViewEmail.getText().toString();
                 String password = mViewPassword.getText().toString();
                 String confirmPassword = mViewPassword2.getText().toString();
                 if (TextUtils.isEmpty(user)) {
                     mViewNama.setError("Nama harus diisi");
+                    mViewNama.requestFocus();
+
+                } else if (!user.matches("^[a-zA-Z' ]+$")) {
+                    mViewNama.setError("Nama Tidak Valid!");
                     mViewNama.requestFocus();
 
                 } else if (TextUtils.isEmpty(notlp)) {
@@ -266,6 +270,8 @@ public class RegisterActivity extends AppCompatActivity {
                     focus = mViewNotlp;
 
                     mViewNotlp.requestFocus();
+                }  else if (notlp.startsWith("62")) {
+                    notlp = "08" + notlp.substring(2);
                 } else if (notlp.length() >= 15) {
                     mViewNotlp.setError("No Telpon Maksimum 15");
                     focus = mViewNotlp;
@@ -277,7 +283,7 @@ public class RegisterActivity extends AppCompatActivity {
                     focus = mViewEmail;
 
                     mViewEmail.requestFocus();
-                } else if (!email.endsWith("@gmail.com")) {
+                } else if (!email.endsWith(".com") && !email.contains("@")) {
                     mViewEmail.setError("Email tidak valid!!");
                     focus = mViewEmail;
 
@@ -292,6 +298,11 @@ public class RegisterActivity extends AppCompatActivity {
                     focus = mViewPassword;
 
                     mViewPassword.requestFocus();
+                }else if (password.length() >= 15) {
+                    mViewPassword.setError("Kata Sandi maksimal 15 karakter");
+                    focus = mViewPassword;
+
+                    mViewPassword.requestFocus();
                 } else if (!password.matches(".*[a-zA-Z].*") || !password.matches(".*\\d.*")) {
                     mViewPassword.setError("Kata Sandi harus terdiri dari huruf dan angka");
                     focus = mViewPassword;
@@ -300,7 +311,6 @@ public class RegisterActivity extends AppCompatActivity {
                 } else if (TextUtils.isEmpty(confirmPassword)) {
                     mViewPassword2.setError("Konfirmasi Kata Sandi harus diisi");
                     focus = mViewPassword2;
-
                     mViewPassword2.requestFocus();
 
                 } else if (!TextUtils.equals(password, confirmPassword)) {
@@ -356,6 +366,7 @@ public class RegisterActivity extends AppCompatActivity {
         });//ini akhir dari fungsi tmbol registrasi di klik
     }
 
+
     private void sendOtp() {
 
         RetroServer.getInstance().sendEmail(mViewEmail.getText().toString(), "SignUp", "new", "1")
@@ -409,7 +420,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
     private void showAlertDialog() {
         androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(RegisterActivity.this);
-        builder.setMessage("Ada Kesalahan Pada Server, Periksa Koneksi Anda!")
+        builder.setMessage("Tidak ada koneksi internet. Harap cek koneksi Anda.")
                 .setCancelable(false)
                 .setPositiveButton("Tutup", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {

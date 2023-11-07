@@ -22,6 +22,8 @@ import androidx.cardview.widget.CardView;
 import com.example.usingpreferences.API.APIRequestData;
 import com.example.usingpreferences.API.RetroServer;
 import com.example.usingpreferences.DataModel.KategoriSenimanModel;
+import com.example.usingpreferences.DataModel.getSingkatanModel;
+import com.example.usingpreferences.DataModel.getSingkatanResponse;
 import com.example.usingpreferences.R;
 
 import java.util.ArrayList;
@@ -36,8 +38,7 @@ public class NoInduk3 extends AppCompatActivity {
 
     private DatePickerDialog picker;
     private EditText tanggalinduk,editTextNIK,editTextNamaLengkap,editTextTL,editTextTG,editTextAlamat,editTextNOHP,editTextNamaOrganisasi,editTextJmlAnggota;
-    private Spinner gender_spinner,kecamatan_spinner,tipeSeniman_spinner;
-
+    private Spinner gender_spinner,kecamatan_spinner,kategoriSenimanSpinner,tipeSeniman_spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,21 +54,21 @@ public class NoInduk3 extends AppCompatActivity {
         tipeSeniman_spinner = findViewById(R.id.tipeSeniman_spinner);
         editTextNamaOrganisasi = findViewById(R.id.editTextNamaOrganisasi);
         editTextJmlAnggota = findViewById(R.id.editTextJmlAnggota);
-//        Spinner kategoriSenimanSpinner = findViewById(R.id.kategoriSeniman_spinner);
+        kategoriSenimanSpinner = findViewById(R.id.kategoriSeniman_spinner);
         EditText[] editTexts = {editTextNIK, editTextNamaLengkap, editTextTL, editTextTG, editTextAlamat, editTextNOHP, editTextNamaOrganisasi, editTextJmlAnggota};
 
-//        kategoriSenimanSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-//                String selectedKategoriNama = (String) parentView.getItemAtPosition(position);
-//                // Lakukan sesuatu dengan nama kategori yang dipilih
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parentView) {
-//                // Handle jika tidak ada yang dipilih
-//            }
-//        });
+        kategoriSenimanSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                String selectedKategoriNama = (String) parentView.getItemAtPosition(position);
+                // Lakukan sesuatu dengan nama kategori yang dipilih
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // Handle jika tidak ada yang dipilih
+            }
+        });
 
 
 // Inisialisasi tanggalinduk
@@ -188,7 +189,7 @@ public class NoInduk3 extends AppCompatActivity {
                     List<KategoriSenimanModel> kategoriSenimanList = response.body();
 
                     // Ambil referensi ke spinner
-//                    Spinner kategoriSenimanSpinner = findViewById(R.id.kategoriSeniman_spinner);
+//                     kategoriSenimanSpinner = findViewById(R.id.kategoriSeniman_spinner);
 
                     // Buat adapter untuk spinner
                     List<String> kategoriNamaList = new ArrayList<>();
@@ -201,8 +202,8 @@ public class NoInduk3 extends AppCompatActivity {
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
                     // Set adapter ke spinner
-//                    kategoriSenimanSpinner.setAdapter(adapter);
-//                    kategoriSenimanSpinner.setSelection(0);
+                    kategoriSenimanSpinner.setAdapter(adapter);
+                    kategoriSenimanSpinner.setSelection(0);
 
                     // Gunakan kategoriSenimanList untuk mengisi dropdown atau tampilan lainnya di aplikasi Anda.
                 } else {
@@ -215,9 +216,6 @@ public class NoInduk3 extends AppCompatActivity {
                 // Handle kesalahan
             }
         });
-
-
-
 
 
         //Pemilihan tipe seniman
@@ -292,17 +290,55 @@ public class NoInduk3 extends AppCompatActivity {
                     anyFieldEmpty = true;
                 } else {
                     ((TextView) tipeSeniman_spinner.getSelectedView()).setError(null);
+
                 }
 
                 if (!anyFieldEmpty) {
+                    getSingkatan();
                     Intent intent = new Intent(NoInduk3.this, NoInduk4.class);
+                    intent.putExtra("nik", editTextNIK.getText().toString());
+                    intent.putExtra("nama_seniman", editTextNamaLengkap.getText().toString());
+                    intent.putExtra("jenis_kelamin", gender_spinner.getSelectedItem().toString());
+                    intent.putExtra("kecamatan", kecamatan_spinner.getSelectedItem().toString());
+                    intent.putExtra("nama_kategori_seniman", simpanSingkatannya);
+                    intent.putExtra("tempat_lahir", editTextTL.getText().toString());
+                    intent.putExtra("tanggal_lahir", editTextTG.getText().toString());
+                    intent.putExtra("alamat_seniman", editTextAlamat.getText().toString());
+                    intent.putExtra("no_telpon", editTextNOHP.getText().toString());
+                    intent.putExtra("nama_organisasi", editTextNamaOrganisasi.getText().toString());
+                    intent.putExtra("jumlah_anggota", editTextJmlAnggota.getText().toString());
                     startActivity(intent);
                     overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
                 }
             }
         });
     }
+    private String simpanSingkatannya = "";
+private void getSingkatan(){
+        String teksNamaKategori = kategoriSenimanSpinner.getSelectedItem().toString();
+        APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
+        Call<getSingkatanResponse> getRespon = ardData.getSingkatan(teksNamaKategori);
+        getRespon.enqueue(
+                new Callback<getSingkatanResponse>() {
+                    @Override
+                    public void onResponse(Call<getSingkatanResponse> call, Response<getSingkatanResponse> response) {
+                        if (response.body().getKode() == 1){
 
+                            getSingkatanModel tabelModel = new getSingkatanModel();
+
+                            simpanSingkatannya = tabelModel.getSingkatan_kategori();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<getSingkatanResponse> call, Throwable t) {
+
+                    }
+                }
+        );
+
+
+}
     public void onBackPressed() {
         finish();
         overridePendingTransition(R.anim.layout_in, R.anim.layout_out);

@@ -144,7 +144,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:imeOptions="actionNext"
-                    android:inputType="textEmailAddress"
+                    android:inputType="text"
+                    android:maxLength="16"
                     android:maxLines="1"
                     android:singleLine="true" />
 
@@ -169,10 +170,11 @@
                     android:id="@+id/et_passwordSignup2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:maxLength="16"
                     android:imeActionId="6"
                     android:imeActionLabel="Sign In"
                     android:imeOptions="actionDone"
-                    android:inputType="textPassword"
+                    android:inputType="text"
                     android:maxLines="1"
                     android:singleLine="true" />
 

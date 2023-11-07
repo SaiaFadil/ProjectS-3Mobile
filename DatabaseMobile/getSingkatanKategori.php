@@ -1,22 +1,21 @@
 <?php
 require('Koneksi.php');
 
-
-$id_user = $_POST['id_user'];
+$NamaKategori = $_POST['NamaKategori'];
     
-    $sql = "SELECT * FROM seniman WHERE id_user = '$id_user' LIMIT 1";
+    $sql = "SELECT * FROM kategori_seniman WHERE nama_kategori = '$NamaKategori';";
     $result = $konek->query($sql);
  
     if ($result->num_rows == 1) {
-        $seniman = $result->fetch_assoc();
+        $TabelKategori = $result->fetch_assoc();
 
         $response["kode"] = 1;
         $response["pesan"] = "Data Tersedia";
-        $response["data"] = $seniman;
+        $response["data"] = $TabelKategori;
         
     } else {
         $response["kode"] = 0;
-        $response["pesan"] = "User Tidak Memiliki Nomor Induk Seniman";
+        $response["pesan"] = "Nama Kategori tidak tersedia";
     }
 
 echo json_encode($response);

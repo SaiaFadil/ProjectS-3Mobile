@@ -84,7 +84,8 @@
                     android:text="Pilih File"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_13ssp" />
+                    android:textSize="@dimen/_13ssp"
+                    android:onClick="selectDocumentFile"/>
 
                 <TextView
                     android:id="@+id/textViewButton1"
@@ -92,7 +93,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/_14ssp"
                     android:textColor="@color/black"
-                    android:text="Gambar berformat PNG, JPG, SVG"
+                    android:hint="Dokumen berformat PDf"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="@dimen/_8sdp" />
             </LinearLayout>
@@ -122,13 +123,14 @@
                     android:text="Pilih File"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_13ssp" />
+                    android:textSize="@dimen/_13ssp"
+                    android:onClick="selectImageFile"/>
 
                 <TextView
                     android:id="@+id/textViewButton2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Gambar berformat PNG, JPG, SVG"
+                    android:hint="Gambar berformat PNG, JPG, SVG"
                     android:textSize="@dimen/_14ssp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="@dimen/_8sdp" />
@@ -159,18 +161,27 @@
                     android:text="Pilih File"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_13ssp" />
+                    android:textSize="@dimen/_13ssp"
+                    android:onClick="selectImageFile"/>
 
                 <TextView
                     android:id="@+id/textViewButton3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/_14ssp"
-                    android:text="Gambar berformat PNG, JPG, SVG"
+                    android:hint="Gambar berformat PNG, JPG, SVG"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="@dimen/_8sdp" />
             </LinearLayout>
-
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkboxsetuju"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:text="Saya Menyetujui"
+                android:textAllCaps="true"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
