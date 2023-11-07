@@ -52,7 +52,7 @@
             android:name=".Activity.ProfilActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.FormStatusDitolak"
+            android:name=".Activity.FormAdvisDitolak"
             android:exported="false" />
         <activity
             android:name=".Activity.FormStatusDiterima"

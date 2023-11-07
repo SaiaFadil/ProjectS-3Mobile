@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.usingpreferences.Activity.FormStatusDitolak;
+import com.example.usingpreferences.Activity.FormAdvisDitolak;
 import com.example.usingpreferences.R;
 import com.google.android.material.card.MaterialCardView;
 
@@ -69,7 +69,7 @@ public class StatusDitolak extends Fragment {
         cardditolak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent pindah = new Intent(getActivity(), FormStatusDitolak.class);
+                Intent pindah = new Intent(getActivity(), FormAdvisDitolak.class);
                 startActivity(pindah);
                 getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
 

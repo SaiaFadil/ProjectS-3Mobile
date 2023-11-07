@@ -9,32 +9,23 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewStatusAdvisDiajukan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-        </LinearLayout>
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="PEMBATAS"
-    android:textSize="@dimen/_20ssp"
-    android:layout_gravity="center_horizontal"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewStatusAdvisDiproses"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-        </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewStatusAdvisDitolak"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
 </LinearLayout>
 
 </ScrollView>

@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".Activity.FormStatusDitolak">
+        tools:context=".Activity.FormAdvisDitolak">
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
@@ -92,54 +92,7 @@
                         android:layout_marginEnd="@dimen/_20sdp"
                         android:orientation="vertical">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Tanggal"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_15ssp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="  :  "
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_15ssp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="19 september 2023"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_15ssp" />
-                        </LinearLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_15sdp"
-                            android:text="Nomor Induk Seniman"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_15ssp" />
-
-                        <EditText
-                            android:id="@+id/et_induksenimanadvis"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_3sdp"
-                            android:background="@drawable/bg_editext"
-                            android:ems="10"
-                            android:hint="Masukkan Nomor Induk Seniman"
-                            android:inputType="number"
-                            android:paddingLeft="@dimen/_12sdp"
-                            android:paddingTop="@dimen/_12sdp"
-                            android:paddingBottom="@dimen/_10sdp"
-                            android:textSize="@dimen/_12sdp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -149,7 +102,7 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/_15ssp" />
 
-                        <EditText
+                        <TextView
                             android:id="@+id/et_namalengkapadvis"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -174,7 +127,7 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/_15ssp" />
 
-                        <EditText
+                        <TextView
                             android:id="@+id/et_alamatadvis"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -197,7 +150,7 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/_15ssp" />
 
-                        <EditText
+                        <TextView
                             android:id="@+id/et_namapentasadvis"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -221,7 +174,7 @@
                             android:textSize="@dimen/_15ssp" />
 
 
-                        <EditText
+                        <TextView
                             android:id="@+id/et_tanggalpentasadvis"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -244,7 +197,7 @@
                             android:textSize="@dimen/_15ssp" />
 
 
-                        <EditText
+                        <TextView
                             android:id="@+id/et_lokasiadvis"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -287,6 +240,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/catatanDitolakAdvis"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/_15sdp"
@@ -295,7 +249,7 @@
                             android:layout_marginBottom="@dimen/_10sdp"
                             android:background="@drawable/bg_editext"
                             android:padding="@dimen/_10sdp"
-                            android:text="Surat yang anda ajukan dapat membuat kekacauan, jadi mohon revisi ulang surat yang anda ajukana"
+                            android:text="Surat yang anda ajukan dapat membuat kekacauan, jadi mohon revisi ulang surat yang anda ajukan"
                             android:textAlignment="center"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_15ssp" />

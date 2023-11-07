@@ -7,9 +7,11 @@ import com.example.usingpreferences.DataModel.ModelResponseSimpanDataSeniman;
 import com.example.usingpreferences.DataModel.ModelUpdateProfil;
 import com.example.usingpreferences.DataModel.ResponseDetailAdvisDiajukan;
 import com.example.usingpreferences.DataModel.ResponseDetailAdvisDiproses;
+import com.example.usingpreferences.DataModel.ResponseDetailAdvisDitolak;
 import com.example.usingpreferences.DataModel.ResponseModelUsers;
 import com.example.usingpreferences.DataModel.ResponseStatusAdvisDiajukan;
 import com.example.usingpreferences.DataModel.ResponseStatusAdvisDiproses;
+import com.example.usingpreferences.DataModel.ResponseStatusAdvisDitolak;
 import com.example.usingpreferences.DataModel.SenimanResponse;
 import com.example.usingpreferences.DataModel.VerifyResponse;
 import com.example.usingpreferences.DataModel.getSingkatanResponse;
@@ -148,27 +150,41 @@ public interface APIRequestData {
     @POST("status_advis/status_advis_diajukan.php")
     Call<ResponseStatusAdvisDiajukan> getStatusAdvisDiajukan(
             @Field("id_user") String id_user
-
     );
-
     @FormUrlEncoded
     @POST("status_advis/detail_advis_diajukan.php")
     Call<ResponseDetailAdvisDiajukan> getDetailAdvisDiajukan(
             @Field("id_advis") String id_advis
     );
-
     @FormUrlEncoded
     @POST("status_advis/status_advis_diproses.php")
     Call<ResponseStatusAdvisDiproses> getStatusAdvisDiproses(
             @Field("id_user") String id_user
-
     );
-
-
     @FormUrlEncoded
     @POST("status_advis/detail_advis_diproses.php")
     Call<ResponseDetailAdvisDiproses> getDetailAdvisDiproses(
             @Field("id_advis") String id_advis
     );
+    @FormUrlEncoded
+    @POST("status_advis/status_advis_ditolak.php")
+    Call<ResponseStatusAdvisDitolak> getStatusAdvisDitolak(
+            @Field("id_user") String id_user
+    );
+    @FormUrlEncoded
+    @POST("status_advis/detail_advis_ditolak.php")
+    Call<ResponseDetailAdvisDitolak> getDetailAdvisDitolak(
+            @Field("id_advis") String id_advis
+    );
+//    @FormUrlEncoded
+//    @POST("status_advis/status_advis_diterima.php")
+//    Call<ResponseStatusAdvisDiterima> getStatusAdvisDiterima(
+//            @Field("id_user") String id_user
+//    );
+//    @FormUrlEncoded
+//    @POST("status_advis/detail_advis_diterima.php")
+//    Call<ResponseDetailAdvisDiterima> getDetailAdvisDiterima(
+//            @Field("id_advis") String id_advis
+//    );
 }
 
