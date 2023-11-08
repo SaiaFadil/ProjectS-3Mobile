@@ -42,19 +42,14 @@ import retrofit2.Response;
 public class StatusPentas extends Fragment {
 
 
-
-    private ShimmerFrameLayout mFrameLayout;
-    private LinearLayout mDataSemua;
-
-
-
-
-    private RecyclerView recviewdiajukan,recviewdiproses,recviewditolak,recviewditerima;
+    public static ShimmerFrameLayout mFrameLayout;
+    public static LinearLayout mDataSemua;
+    private RecyclerView recviewdiajukan, recviewdiproses, recviewditolak, recviewditerima;
     private StatusAdvisDiajukanAdapter adapterdiajukan;
     private StatusAdvisDiprosesAdapter adapterdiproses;
     private StatusAdvisDitolakAdapter adapterditolak;
     private StatusAdvisDiterimaAdapter adapterditerima;
-    private Animation fadeIn;
+    public static Animation fadeIn;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -167,27 +162,24 @@ public class StatusPentas extends Fragment {
 //ini akhir recview diterima
 
 
-
-
         return view;
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        TampilShimmer();
     }
 
+    public static Handler handler = new Handler();
 
-    private void TampilShimmer(){
+    private void TampilShimmer() {
         mDataSemua.setVisibility(View.GONE);
         mFrameLayout.startShimmer();
-        Handler handler = new Handler();
-        handler.postDelayed(()->{
+        handler.postDelayed(() -> {
             mDataSemua.setVisibility(View.VISIBLE);
             mDataSemua.startAnimation(fadeIn);
             mFrameLayout.stopShimmer();
             mFrameLayout.setVisibility(View.GONE);
-        },2000);
+        }, 2000);
     }
 }
