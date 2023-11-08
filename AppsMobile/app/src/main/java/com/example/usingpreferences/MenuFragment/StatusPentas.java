@@ -3,9 +3,13 @@ package com.example.usingpreferences.MenuFragment;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -27,6 +31,7 @@ import com.example.usingpreferences.DataModel.ResponseStatusAdvisDiproses;
 import com.example.usingpreferences.DataModel.ResponseStatusAdvisDiterima;
 import com.example.usingpreferences.DataModel.ResponseStatusAdvisDitolak;
 import com.example.usingpreferences.R;
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.List;
 
@@ -36,16 +41,30 @@ import retrofit2.Response;
 
 public class StatusPentas extends Fragment {
 
+
+
+    private ShimmerFrameLayout mFrameLayout;
+    private LinearLayout mDataSemua;
+
+
+
+
     private RecyclerView recviewdiajukan,recviewdiproses,recviewditolak,recviewditerima;
     private StatusAdvisDiajukanAdapter adapterdiajukan;
     private StatusAdvisDiprosesAdapter adapterdiproses;
     private StatusAdvisDitolakAdapter adapterditolak;
     private StatusAdvisDiterimaAdapter adapterditerima;
+    private Animation fadeIn;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_status_pentas, container, false);
+        mDataSemua = view.findViewById(R.id.data_view);
+        mFrameLayout = view.findViewById(R.id.shimmer_view);
+        fadeIn = AnimationUtils.loadAnimation(requireContext(), R.anim.tampil_data_sshimer);
+        TampilShimmer();
+
         APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
         String id_user = sharedPreferences.getString("id_user", "");
@@ -151,5 +170,24 @@ public class StatusPentas extends Fragment {
 
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        TampilShimmer();
+    }
+
+
+    private void TampilShimmer(){
+        mDataSemua.setVisibility(View.GONE);
+        mFrameLayout.startShimmer();
+        Handler handler = new Handler();
+        handler.postDelayed(()->{
+            mDataSemua.setVisibility(View.VISIBLE);
+            mDataSemua.startAnimation(fadeIn);
+            mFrameLayout.stopShimmer();
+            mFrameLayout.setVisibility(View.GONE);
+        },2000);
     }
 }
