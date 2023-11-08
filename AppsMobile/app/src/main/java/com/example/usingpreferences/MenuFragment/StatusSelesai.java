@@ -2,14 +2,13 @@ package com.example.usingpreferences.MenuFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.usingpreferences.Activity.FormStatusDiterima;
+import androidx.fragment.app.Fragment;
+
+import com.example.usingpreferences.Activity.FormAdvisDiterima;
 import com.example.usingpreferences.R;
 import com.google.android.material.card.MaterialCardView;
 
@@ -69,7 +68,7 @@ public class StatusSelesai extends Fragment {
         cardditerima.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent pindah = new Intent(getActivity(), FormStatusDiterima.class);
+                Intent pindah = new Intent(getActivity(), FormAdvisDiterima.class);
                 startActivity(pindah);
                 getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
 
