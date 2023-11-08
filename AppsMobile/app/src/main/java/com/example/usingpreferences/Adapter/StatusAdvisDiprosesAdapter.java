@@ -13,6 +13,7 @@ import com.example.usingpreferences.Activity.FormAdvisDiproses;
 import com.example.usingpreferences.DataModel.ModelStatusAdvisDiproses;
 import com.example.usingpreferences.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class StatusAdvisDiprosesAdapter extends RecyclerView.Adapter<StatusAdvisDiprosesAdapter.ViewHolder> {
@@ -20,7 +21,11 @@ public class StatusAdvisDiprosesAdapter extends RecyclerView.Adapter<StatusAdvis
     private List<ModelStatusAdvisDiproses> data;
 
     public StatusAdvisDiprosesAdapter(List<ModelStatusAdvisDiproses> data) {
-        this.data = data;
+        if (data == null) {
+            this.data = new ArrayList<>();
+        } else {
+            this.data = data;
+        }
     }
 
     @NonNull
@@ -61,7 +66,7 @@ public class StatusAdvisDiprosesAdapter extends RecyclerView.Adapter<StatusAdvis
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return data != null ? data.size() : 0;
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
