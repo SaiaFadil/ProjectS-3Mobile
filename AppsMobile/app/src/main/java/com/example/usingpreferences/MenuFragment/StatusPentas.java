@@ -16,12 +16,15 @@ import com.example.usingpreferences.API.APIRequestData;
 import com.example.usingpreferences.API.RetroServer;
 import com.example.usingpreferences.Adapter.StatusAdvisDiajukanAdapter;
 import com.example.usingpreferences.Adapter.StatusAdvisDiprosesAdapter;
+import com.example.usingpreferences.Adapter.StatusAdvisDiterimaAdapter;
 import com.example.usingpreferences.Adapter.StatusAdvisDitolakAdapter;
 import com.example.usingpreferences.DataModel.ModelStatusAdvisDiajukan;
 import com.example.usingpreferences.DataModel.ModelStatusAdvisDiproses;
+import com.example.usingpreferences.DataModel.ModelStatusAdvisDiterima;
 import com.example.usingpreferences.DataModel.ModelStatusAdvisDitolak;
 import com.example.usingpreferences.DataModel.ResponseStatusAdvisDiajukan;
 import com.example.usingpreferences.DataModel.ResponseStatusAdvisDiproses;
+import com.example.usingpreferences.DataModel.ResponseStatusAdvisDiterima;
 import com.example.usingpreferences.DataModel.ResponseStatusAdvisDitolak;
 import com.example.usingpreferences.R;
 
@@ -33,10 +36,11 @@ import retrofit2.Response;
 
 public class StatusPentas extends Fragment {
 
-    private RecyclerView recviewdiajukan,recviewdiproses,recviewditolak;
+    private RecyclerView recviewdiajukan,recviewdiproses,recviewditolak,recviewditerima;
     private StatusAdvisDiajukanAdapter adapterdiajukan;
     private StatusAdvisDiprosesAdapter adapterdiproses;
     private StatusAdvisDitolakAdapter adapterditolak;
+    private StatusAdvisDiterimaAdapter adapterditerima;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -117,6 +121,31 @@ public class StatusPentas extends Fragment {
             }
         });
 //ini akhir recview ditolak
+
+
+//ini awal recview diterima
+        recviewditerima = view.findViewById(R.id.recyclerViewStatusAdvisDiterima); // Ubah ID menjadi recyclerViewStatusAdvisDiterima
+        recviewditerima.setLayoutManager(new LinearLayoutManager(requireContext()));
+        Call<ResponseStatusAdvisDiterima> callditerima = ardData.getStatusAdvisDiterima(id_user);
+        callditerima.enqueue(new Callback<ResponseStatusAdvisDiterima>() {
+            @Override
+            public void onResponse(Call<ResponseStatusAdvisDiterima> call, Response<ResponseStatusAdvisDiterima> response) {
+                if (response.isSuccessful()) {
+                    ResponseStatusAdvisDiterima responseModel = response.body();
+                    List<ModelStatusAdvisDiterima> dataditerima = responseModel.getData();
+                    adapterditerima = new StatusAdvisDiterimaAdapter(dataditerima);
+                    recviewditerima.setAdapter(adapterditerima);
+                } else {
+                    Toast.makeText(getContext(), "error " + response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseStatusAdvisDiterima> call, Throwable t) {
+                Toast.makeText(getContext(), "gagal : " + t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+//ini akhir recview diterima
 
 
 
