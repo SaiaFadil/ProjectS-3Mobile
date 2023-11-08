@@ -42,7 +42,7 @@ public class StatusTabAdapter  extends FragmentPagerAdapter {
             case 1:
                 return "Tempat";
             case 2:
-                return "Induk Seniman";
+                return "Seniman";
             case 3:
                 return "Pentas";
             default:
