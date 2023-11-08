@@ -7,10 +7,12 @@ import com.example.usingpreferences.DataModel.ModelResponseSimpanDataSeniman;
 import com.example.usingpreferences.DataModel.ModelUpdateProfil;
 import com.example.usingpreferences.DataModel.ResponseDetailAdvisDiajukan;
 import com.example.usingpreferences.DataModel.ResponseDetailAdvisDiproses;
+import com.example.usingpreferences.DataModel.ResponseDetailAdvisDiterima;
 import com.example.usingpreferences.DataModel.ResponseDetailAdvisDitolak;
 import com.example.usingpreferences.DataModel.ResponseModelUsers;
 import com.example.usingpreferences.DataModel.ResponseStatusAdvisDiajukan;
 import com.example.usingpreferences.DataModel.ResponseStatusAdvisDiproses;
+import com.example.usingpreferences.DataModel.ResponseStatusAdvisDiterima;
 import com.example.usingpreferences.DataModel.ResponseStatusAdvisDitolak;
 import com.example.usingpreferences.DataModel.SenimanResponse;
 import com.example.usingpreferences.DataModel.VerifyResponse;
@@ -176,15 +178,15 @@ public interface APIRequestData {
     Call<ResponseDetailAdvisDitolak> getDetailAdvisDitolak(
             @Field("id_advis") String id_advis
     );
-//    @FormUrlEncoded
-//    @POST("status_advis/status_advis_diterima.php")
-//    Call<ResponseStatusAdvisDiterima> getStatusAdvisDiterima(
-//            @Field("id_user") String id_user
-//    );
-//    @FormUrlEncoded
-//    @POST("status_advis/detail_advis_diterima.php")
-//    Call<ResponseDetailAdvisDiterima> getDetailAdvisDiterima(
-//            @Field("id_advis") String id_advis
-//    );
+    @FormUrlEncoded
+    @POST("status_advis/status_advis_diterima.php")
+    Call<ResponseStatusAdvisDiterima> getStatusAdvisDiterima(
+            @Field("id_user") String id_user
+    );
+    @FormUrlEncoded
+    @POST("status_advis/detail_advis_diterima.php")
+    Call<ResponseDetailAdvisDiterima> getDetailAdvisDiterima(
+            @Field("id_advis") String id_advis
+    );
 }
 
