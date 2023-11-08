@@ -150,7 +150,7 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/_15ssp" />
 
-                        <TextView
+                        <EditText
                             android:id="@+id/et_namapentasadvis"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -197,7 +197,7 @@
                             android:textSize="@dimen/_15ssp" />
 
 
-                        <TextView
+                        <EditText
                             android:id="@+id/et_lokasiadvis"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

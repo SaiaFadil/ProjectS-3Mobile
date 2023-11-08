@@ -46,6 +46,7 @@ public interface APIRequestData {
     Call<ResponseModelUsers> google_login(
             @Field("email") String email
     );
+
     @FormUrlEncoded
     @POST("Register.php")
     Call<ResponseModelUsers> register(
@@ -54,7 +55,6 @@ public interface APIRequestData {
             @Field("email") String email,
             @Field("password") String password
     );
-
 
 
     @FormUrlEncoded
@@ -68,6 +68,7 @@ public interface APIRequestData {
             @Field("tempat_lahir") String tempatLahir,
             @Field("email") String emailteks
     );
+
     @FormUrlEncoded
     @POST("updatepasswordprofil.php")
     Call<ModelUpdateProfil> updatePasswordProfil(
@@ -76,14 +77,16 @@ public interface APIRequestData {
             @Field("password_baru") String passwordbaru
 
     );
- @FormUrlEncoded
+
+    @FormUrlEncoded
     @POST("updatepasswordlupa.php")
     Call<ModelUpdateProfil> updatePasswordLupa(
             @Field("email") String email,
             @Field("password_baru") String passwordbaru
 
     );
- @FormUrlEncoded
+
+    @FormUrlEncoded
     @POST("cekemail.php")
     Call<CekEmailModel> cekemail(
             @Field("email") String email
@@ -98,7 +101,8 @@ public interface APIRequestData {
             @Field("action") String action,
             @Field("id_user") String idUser
     );
-//di bawah ini Baru
+
+    //di bawah ini Baru
     @FormUrlEncoded
     @POST("insertSuratAdvis.php")
     Call<ModelResponseAll> sendAdvisData(
@@ -119,7 +123,8 @@ public interface APIRequestData {
     Call<ModelResponseSimpanDataSeniman> SimpanDataSeniman(
             @Field("id_user") String idUser
     );
- @FormUrlEncoded
+
+    @FormUrlEncoded
     @POST("getSingkatanKategori.php")
     Call<getSingkatanResponse> getSingkatan(
             @Field("NamaKategori") String Namakategori
@@ -148,45 +153,81 @@ public interface APIRequestData {
             @Part MultipartBody.Part suratKeterangan,
             @Part MultipartBody.Part passFoto
     );
+
     @FormUrlEncoded
     @POST("status_advis/status_advis_diajukan.php")
     Call<ResponseStatusAdvisDiajukan> getStatusAdvisDiajukan(
             @Field("id_user") String id_user
     );
+
     @FormUrlEncoded
     @POST("status_advis/detail_advis_diajukan.php")
     Call<ResponseDetailAdvisDiajukan> getDetailAdvisDiajukan(
             @Field("id_advis") String id_advis
     );
+
     @FormUrlEncoded
     @POST("status_advis/status_advis_diproses.php")
     Call<ResponseStatusAdvisDiproses> getStatusAdvisDiproses(
             @Field("id_user") String id_user
     );
+
     @FormUrlEncoded
     @POST("status_advis/detail_advis_diproses.php")
     Call<ResponseDetailAdvisDiproses> getDetailAdvisDiproses(
             @Field("id_advis") String id_advis
     );
+
     @FormUrlEncoded
     @POST("status_advis/status_advis_ditolak.php")
     Call<ResponseStatusAdvisDitolak> getStatusAdvisDitolak(
             @Field("id_user") String id_user
     );
+
     @FormUrlEncoded
     @POST("status_advis/detail_advis_ditolak.php")
     Call<ResponseDetailAdvisDitolak> getDetailAdvisDitolak(
             @Field("id_advis") String id_advis
     );
+
     @FormUrlEncoded
     @POST("status_advis/status_advis_diterima.php")
     Call<ResponseStatusAdvisDiterima> getStatusAdvisDiterima(
             @Field("id_user") String id_user
     );
+
     @FormUrlEncoded
     @POST("status_advis/detail_advis_diterima.php")
     Call<ResponseDetailAdvisDiterima> getDetailAdvisDiterima(
             @Field("id_advis") String id_advis
     );
+
+    @FormUrlEncoded
+    @POST("status_advis/edit_advis_diajukan.php")
+    Call<ModelResponseAll> editAdvisDiajukan(
+            @Field("id_advis") String id_advis,
+            @Field("deskripsi_advis") String deskripsi_advis,
+            @Field("tgl_advis") String tgl_advis,
+            @Field("tempat_advis") String tempat_advis
+
+    );
+
+    @FormUrlEncoded
+    @POST("status_advis/ajukanulang_advis_ditolak.php")
+    Call<ModelResponseAll> ajukanulangAdvisDiajukan(
+            @Field("id_advis") String id_advis,
+            @Field("deskripsi_advis") String deskripsi_advis,
+            @Field("tgl_advis") String tgl_advis,
+            @Field("tempat_advis") String tempat_advis
+
+    );
+
+    @FormUrlEncoded
+    @POST("status_advis/delete_advis_diajukan.php")
+    Call<ModelResponseAll> hapusAdvisDiajukan(
+            @Field("id_advis") String id_advis
+
+    );
+
 }
 

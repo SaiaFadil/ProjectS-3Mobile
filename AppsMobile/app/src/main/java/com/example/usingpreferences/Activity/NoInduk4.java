@@ -22,7 +22,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.usingpreferences.API.APIRequestData;
 import com.example.usingpreferences.API.RetroServer;
-import com.example.usingpreferences.DataModel.SenimanModel;
 import com.example.usingpreferences.DataModel.SenimanResponse;
 import com.example.usingpreferences.KonfirmMenu.PengajuanBerhasilTerkirim;
 import com.example.usingpreferences.R;

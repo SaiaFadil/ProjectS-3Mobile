@@ -20,7 +20,6 @@ import retrofit2.Response;
 
 public class FormAdvisDiterima extends AppCompatActivity {
     private TextView et_namalengkapadvis,et_tanggalpentasadvis,et_alamatadvis,et_namapentasadvis,et_lokasiadvis;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,12 +36,9 @@ public class FormAdvisDiterima extends AppCompatActivity {
             public void onClick(View v) {
                 finish();
                 overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
-
             }
         });
-
     }
-
     private void showData(){
         APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
         Call<ResponseDetailAdvisDiterima> getDetail = ardData.getDetailAdvisDiterima(getIntent().getStringExtra("id_advis"));
