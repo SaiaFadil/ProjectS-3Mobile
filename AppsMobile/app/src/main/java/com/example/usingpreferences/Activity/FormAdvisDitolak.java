@@ -177,13 +177,9 @@ public class FormAdvisDitolak extends AppCompatActivity {
             public void onClick(View v) {
                 finish();
                 overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
-
-
             }
         });
-
     }
-
     private void showData() {
         APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
         Call<ResponseDetailAdvisDitolak> getDetail = ardData.getDetailAdvisDitolak(getIntent().getStringExtra("id_advis"));

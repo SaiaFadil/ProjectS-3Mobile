@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.usingpreferences.Activity.FormAdvisDiajukan;
 import com.example.usingpreferences.DataModel.ModelStatusAdvisDiajukan;
 import com.example.usingpreferences.R;
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,7 @@ public class StatusAdvisDiajukanAdapter extends RecyclerView.Adapter<StatusAdvis
 
     public StatusAdvisDiajukanAdapter(List<ModelStatusAdvisDiajukan> data) {
         if (data == null) {
+
             this.data = new ArrayList<>();
         } else {
             this.data = data;
@@ -76,9 +78,12 @@ public class StatusAdvisDiajukanAdapter extends RecyclerView.Adapter<StatusAdvis
         TextView idAdvisTextView;
         TextView tglAdvisTextView;
         TextView namaAdvisTextView;
+        ShimmerFrameLayout mFrameLayout;
 
         ViewHolder(View itemView) {
             super(itemView);
+
+            mFrameLayout = itemView.findViewById(R.id.shimmer_view);
             idAdvisTextView = itemView.findViewById(R.id.id_advis_diajukan);
             tglAdvisTextView = itemView.findViewById(R.id.tgl_advis_diajukan);
             namaAdvisTextView = itemView.findViewById(R.id.nama_advis_diajukan);
