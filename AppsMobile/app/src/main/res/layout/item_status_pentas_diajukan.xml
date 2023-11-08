@@ -5,13 +5,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:strokeColor="@color/black"
     app:strokeWidth="@dimen/_1sdp"
-
     android:backgroundTint="@color/white"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:layout_marginBottom="@dimen/_10sdp"
     android:layout_marginStart="@dimen/_20sdp"
     android:layout_marginEnd="@dimen/_20sdp"
     android:padding="@dimen/_10sdp"
-    android:layout_marginTop="@dimen/_20sdp"
-    app:cardElevation="@dimen/_10sdp"
+    app:cardElevation="@dimen/_5sdp"
     app:cardMaxElevation="@dimen/_20sdp">
 
     <LinearLayout
