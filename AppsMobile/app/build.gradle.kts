@@ -55,6 +55,11 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.8.1")
     implementation("com.squareup.retrofit2:converter-gson:2.8.1")
 
+
+
+    // Library Shimmer
+    implementation("com.facebook.shimmer:shimmer:0.5.0")
+
     // Library OTP GOOGLE
     implementation("com.github.aabhasr1:OtpView:v1.1.2")
 }
