@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.usingpreferences.Activity.FormAdvisDiproses;
-import com.example.usingpreferences.Activity.FormStatusDiterima;
+import com.example.usingpreferences.Activity.FormAdvisDiterima;
 import com.example.usingpreferences.Activity.FormAdvisDitolak;
 import com.example.usingpreferences.Activity.FormAdvisDiajukan;
 import com.google.android.material.card.MaterialCardView;
@@ -85,7 +85,7 @@ public class StatusSemua extends Fragment {
         cardditerima.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent pindah = new Intent(getActivity(), FormStatusDiterima.class);
+                Intent pindah = new Intent(getActivity(), FormAdvisDiterima.class);
                 startActivity(pindah);
                 getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
 
