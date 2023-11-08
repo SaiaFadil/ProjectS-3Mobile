@@ -18,7 +18,9 @@ if ($jumlah_cek == 1) {
     $perintah = "UPDATE `surat_advis` 
     SET `deskripsi_advis` = '$deskripsi_advis',
      `tgl_advis` = '$tgl_advis', 
-     `tempat_advis` = '$tempat_advis' 
+     `tempat_advis` = '$tempat_advis' ,
+     `status`= 'diajukan' ,
+     `catatan` = ''
      WHERE 
       `id_advis` = $id_advis;";
 
