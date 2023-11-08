@@ -13,6 +13,7 @@ import com.example.usingpreferences.Activity.FormAdvisDiajukan;
 import com.example.usingpreferences.DataModel.ModelStatusAdvisDiajukan;
 import com.example.usingpreferences.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class StatusAdvisDiajukanAdapter extends RecyclerView.Adapter<StatusAdvisDiajukanAdapter.ViewHolder> {
@@ -20,7 +21,11 @@ public class StatusAdvisDiajukanAdapter extends RecyclerView.Adapter<StatusAdvis
     private List<ModelStatusAdvisDiajukan> data;
 
     public StatusAdvisDiajukanAdapter(List<ModelStatusAdvisDiajukan> data) {
-        this.data = data;
+        if (data == null) {
+            this.data = new ArrayList<>();
+        } else {
+            this.data = data;
+        }
     }
 
     @NonNull
@@ -49,6 +54,8 @@ public class StatusAdvisDiajukanAdapter extends RecyclerView.Adapter<StatusAdvis
 
                 // Kirim data ke aktivitas selanjutnya
                 Intent intent = new Intent(v.getContext(), FormAdvisDiajukan.class);
+//                .overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+
                 intent.putExtra("id_advis", idAdvis);
                 intent.putExtra("tgl_advis", tglAdvis);
                 intent.putExtra("nama_advis", namaAdvis);
@@ -62,7 +69,7 @@ public class StatusAdvisDiajukanAdapter extends RecyclerView.Adapter<StatusAdvis
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return data != null ? data.size() : 0;
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {

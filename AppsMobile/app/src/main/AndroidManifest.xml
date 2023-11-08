@@ -19,7 +19,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".CetakKodeQrActivity"
+            android:name=".kodeStatusDiterima"
             android:exported="false" />
         <activity
             android:name=".Activity.KodeOtpLupa"
@@ -55,7 +55,7 @@
             android:name=".Activity.FormAdvisDitolak"
             android:exported="false" />
         <activity
-            android:name=".Activity.FormStatusDiterima"
+            android:name=".Activity.FormAdvisDiterima"
             android:exported="false" />
         <activity
             android:name=".Activity.FormulirUploadEvent"

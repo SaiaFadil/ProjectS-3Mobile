@@ -36,7 +36,6 @@ private EditText et_namapentasadvis,et_lokasiadvis;
         et_alamatadvis = findViewById(R.id.et_alamatadvis);
         et_namapentasadvis = findViewById(R.id.et_namapentasadvis);
         et_lokasiadvis = findViewById(R.id.et_lokasiadvis);
-        Toast.makeText(this, getIntent().getStringExtra("id_advis"), Toast.LENGTH_SHORT).show();
         showData();
         et_tanggalpentasadvis.setOnClickListener(new View.OnClickListener() {
             @Override
