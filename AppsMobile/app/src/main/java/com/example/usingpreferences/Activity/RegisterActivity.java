@@ -44,7 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Drawable icCircleGreen, icCircleRed;
     private CheckBox tampilkansandi;
     private final boolean[] isPasswordVisible = {false};
-    private String notlp = mViewNotlp.getText().toString().trim();
+    private String notlp = "";
 
     private void setDrawablepw1(Drawable drawable) {
         mViewPassword.setCompoundDrawablesWithIntrinsicBounds(null, null, drawable, null);
@@ -241,8 +241,8 @@ public class RegisterActivity extends AppCompatActivity {
                 mViewPassword.setError(null);
                 mViewPassword2.setError(null);
                 View focus = null;
-
-
+                notlp = mViewNotlp.getText().toString();
+                String notelpon = mViewNotlp.getText().toString();
                 String user = mViewNama.getText().toString();
                 String email = mViewEmail.getText().toString();
                 String password = mViewPassword.getText().toString();
@@ -258,18 +258,20 @@ public class RegisterActivity extends AppCompatActivity {
                 } else if (TextUtils.isEmpty(notlp)) {
                     mViewNotlp.setError("No Telpon harus diisi");
                     focus = mViewNotlp;
-
                     mViewNotlp.requestFocus();
+                }else if (!notelpon.startsWith("08")) {
+                    if (!notelpon.startsWith("62")) {
+                        mViewNotlp.setError("Nomor Telepon Tidak Valid");
+                        Toast.makeText(RegisterActivity.this, "no telp " + notlp, Toast.LENGTH_SHORT).show();
+                        mViewNotlp.requestFocus();
+                    }
+
                 } else if (notlp.length() <= 10) {
                     mViewNotlp.setError("No Telpon minimal 11 angka");
                     focus = mViewNotlp;
 
                     mViewNotlp.requestFocus();
-                } else if (!notlp.startsWith("08")) {
-                    mViewNotlp.setError("Nomor Telepon Tidak Valid");
-                    focus = mViewNotlp;
 
-                    mViewNotlp.requestFocus();
                 } else if (notlp.length() >= 15) {
                     mViewNotlp.setError("No Telpon Maksimum 15");
                     focus = mViewNotlp;
@@ -355,6 +357,7 @@ public class RegisterActivity extends AppCompatActivity {
                         public void onFailure(Call<CekEmailModel> call, Throwable t) {
                             showAlertDialog();
                             t.printStackTrace();
+                            Toast.makeText(RegisterActivity.this, "error "+t.getMessage(), Toast.LENGTH_SHORT).show();
                             progressDialog.dismiss();
                         }
                     });
@@ -382,7 +385,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     progressDialog.dismiss();
                                     String email = mViewEmail.getText().toString();
                                     if (notlp.startsWith("62")) {
-                                        notlp = "08" + notlp.substring(2);
+                                        notlp = "0" + notlp.substring(1);
                                     }
 
                                     // Buat Intent

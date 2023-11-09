@@ -56,6 +56,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/shimmer_view_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <include layout="@layout/detail_form_status_shimmer" />
+
+                </com.facebook.shimmer.ShimmerFrameLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/card"
                     android:layout_width="match_parent"
@@ -96,30 +112,7 @@
                         android:layout_marginStart="@dimen/_20sdp"
                         android:layout_marginEnd="@dimen/_20sdp">
 
-
-<!--                        <TextView-->
-<!--                            android:layout_marginTop="@dimen/_15sdp"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:text="Nomor Induk Seniman"-->
-<!--                            android:textColor="@color/black"-->
-<!--                            android:textSize="@dimen/_15ssp"-->
-<!--                            />-->
-
-<!--                        <EditText-->
-<!--                            android:id="@+id/et_induksenimanadvis"-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginTop="@dimen/_3sdp"-->
-<!--                            android:background="@drawable/bg_editext"-->
-<!--                            android:ems="10"-->
-<!--                            android:hint="Masukkan Nomor Induk Seniman"-->
-<!--                            android:inputType="number"-->
-<!--                            android:paddingLeft="@dimen/_12sdp"-->
-<!--                            android:paddingTop="@dimen/_12sdp"-->
-<!--                            android:paddingBottom="@dimen/_10sdp"-->
-<!--                            android:textSize="@dimen/_12sdp" />-->
-                        <TextView
+       <TextView
                             android:layout_marginTop="@dimen/_10sdp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -279,6 +272,7 @@
                     android:textAlignment="center"/>
 
 
+            </LinearLayout>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
