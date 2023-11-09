@@ -9,10 +9,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +28,7 @@ import com.example.usingpreferences.DataModel.ModelResponseAll;
 import com.example.usingpreferences.DataModel.ResponseDetailAdvisDiajukan;
 import com.example.usingpreferences.KonfirmMenu.PengajuanBerhasilTerkirim;
 import com.example.usingpreferences.R;
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.Calendar;
 
@@ -39,6 +43,10 @@ public class FormAdvisDiajukan extends AppCompatActivity {
     private ProgressDialog progressDialog;
 
     private DatePickerDialog picker;
+    public static ShimmerFrameLayout mFrameLayout;
+    public LinearLayout mDataSemua;
+    public static Animation fadeIn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +57,10 @@ public class FormAdvisDiajukan extends AppCompatActivity {
         et_alamatadvis = findViewById(R.id.et_alamatadvis);
         et_namapentasadvis = findViewById(R.id.et_namapentasadvis);
         et_lokasiadvis = findViewById(R.id.et_lokasiadvis);
+        mDataSemua = findViewById(R.id.layoutData);
+        mFrameLayout = findViewById(R.id.shimmer_view_detail);
+
+        fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.tampil_data_sshimer);
 
 
         progressDialog = new ProgressDialog(FormAdvisDiajukan.this);
@@ -91,7 +103,7 @@ public class FormAdvisDiajukan extends AppCompatActivity {
                             @Override
                             public void onFailure(Call<ModelResponseAll> call, Throwable t) {
                                 progressDialog.dismiss();
-                                Toast.makeText(FormAdvisDiajukan.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                                showAlertDialog();
                             }
                         });
 
@@ -163,7 +175,7 @@ public class FormAdvisDiajukan extends AppCompatActivity {
                                 @Override
                                 public void onFailure(Call<ModelResponseAll> call, Throwable t) {
                                     progressDialog.dismiss();
-                                    Toast.makeText(FormAdvisDiajukan.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                                    showAlertDialog();
                                 }
                             });
 
@@ -187,7 +199,6 @@ public class FormAdvisDiajukan extends AppCompatActivity {
 
             }
         });
-        showData();
         et_tanggalpentasadvis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -231,14 +242,34 @@ public class FormAdvisDiajukan extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        showData();
+
+    }
+
     private void showData() {
+        mFrameLayout.startShimmer();
+        mDataSemua.setVisibility(View.GONE);
         APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
         Call<ResponseDetailAdvisDiajukan> getDetail = ardData.getDetailAdvisDiajukan(getIntent().getStringExtra("id_advis"));
         getDetail.enqueue(new Callback<ResponseDetailAdvisDiajukan>() {
             @Override
             public void onResponse(Call<ResponseDetailAdvisDiajukan> call, Response<ResponseDetailAdvisDiajukan> response) {
                 if (response.body().getKode() == 1) {
+
                     ModelDetailAdvisDiajukan ambildata = response.body().getData();
+
+                    if (ambildata.getId_advis().isEmpty()){
+                        mFrameLayout.startShimmer();
+                        mDataSemua.setVisibility(View.GONE);
+                    }else {
+                        mFrameLayout.setVisibility(View.GONE);
+                        mFrameLayout.stopShimmer();
+                        mDataSemua.setVisibility(View.VISIBLE);
+                        mDataSemua.startAnimation(fadeIn);
+                    }
                     et_namalengkapadvis.setText(ambildata.getNama_advis());
                     et_tanggalpentasadvis.setText(ambildata.getTgl_advis());
                     et_alamatadvis.setText(ambildata.getAlamat_advis());
@@ -254,11 +285,24 @@ public class FormAdvisDiajukan extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ResponseDetailAdvisDiajukan> call, Throwable t) {
-                Toast.makeText(FormAdvisDiajukan.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                showAlertDialog();
             }
         });
     }
+    private void showAlertDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(FormAdvisDiajukan.this);
+        builder.setMessage("Tidak ada koneksi internet. Harap cek koneksi Anda.")
+                .setCancelable(false)
+                .setPositiveButton("Tutup", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                        showData();
+                    }
+                });
 
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
     public void onBackPressed() {
 
     }

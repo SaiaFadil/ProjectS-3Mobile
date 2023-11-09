@@ -69,6 +69,8 @@
                 </com.facebook.shimmer.ShimmerFrameLayout>
             </LinearLayout>
             <LinearLayout
+
+                android:id="@+id/layoutData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">

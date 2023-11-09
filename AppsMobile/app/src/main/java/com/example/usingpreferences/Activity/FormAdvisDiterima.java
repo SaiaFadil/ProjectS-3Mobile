@@ -1,8 +1,13 @@
 package com.example.usingpreferences.Activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,6 +18,7 @@ import com.example.usingpreferences.API.RetroServer;
 import com.example.usingpreferences.DataModel.ModelDetailAdvisDiterima;
 import com.example.usingpreferences.DataModel.ResponseDetailAdvisDiterima;
 import com.example.usingpreferences.R;
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -20,6 +26,10 @@ import retrofit2.Response;
 
 public class FormAdvisDiterima extends AppCompatActivity {
     private TextView et_namalengkapadvis,et_tanggalpentasadvis,et_alamatadvis,et_namapentasadvis,et_lokasiadvis;
+
+    private ShimmerFrameLayout mFrameLayout;
+    private LinearLayout mDataSemua;
+    private Animation fadeIn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +39,10 @@ public class FormAdvisDiterima extends AppCompatActivity {
         et_alamatadvis = findViewById(R.id.et_alamatadvis);
         et_namapentasadvis = findViewById(R.id.et_namapentasadvis);
         et_lokasiadvis = findViewById(R.id.et_lokasiadvis);
+        mDataSemua = findViewById(R.id.layoutData);
+        mFrameLayout = findViewById(R.id.shimmer_view_detail);
+        fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.tampil_data_sshimer);
+
         showData();
         ImageButton kembali = findViewById(R.id.statusback);
         kembali.setOnClickListener(new View.OnClickListener() {
@@ -41,6 +55,8 @@ public class FormAdvisDiterima extends AppCompatActivity {
         });
     }
     private void showData(){
+        mFrameLayout.startShimmer();
+        mDataSemua.setVisibility(View.GONE);
         APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
         Call<ResponseDetailAdvisDiterima> getDetail = ardData.getDetailAdvisDiterima(getIntent().getStringExtra("id_advis"));
         getDetail.enqueue(new Callback<ResponseDetailAdvisDiterima>() {
@@ -48,6 +64,15 @@ public class FormAdvisDiterima extends AppCompatActivity {
             public void onResponse(Call<ResponseDetailAdvisDiterima> call, Response<ResponseDetailAdvisDiterima> response) {
                 if (response.body().getKode() == 1) {
                     ModelDetailAdvisDiterima ambildata = response.body().getData();
+                    if (ambildata.getId_advis().isEmpty()){
+                        mFrameLayout.startShimmer();
+                        mDataSemua.setVisibility(View.GONE);
+                    }else {
+                        mFrameLayout.setVisibility(View.GONE);
+                        mFrameLayout.stopShimmer();
+                        mDataSemua.setVisibility(View.VISIBLE);
+                        mDataSemua.startAnimation(fadeIn);
+                    }
                     et_namalengkapadvis.setText(ambildata.getNama_advis());
                     et_tanggalpentasadvis.setText(ambildata.getTgl_advis());
                     et_alamatadvis.setText(ambildata.getAlamat_advis());
@@ -63,9 +88,29 @@ public class FormAdvisDiterima extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ResponseDetailAdvisDiterima> call, Throwable t) {
-                Toast.makeText(FormAdvisDiterima.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                showAlertDialog();
             }
         });
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        showData();
+
+    }
+    private void showAlertDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(FormAdvisDiterima.this);
+        builder.setMessage("Tidak ada koneksi internet. Harap cek koneksi Anda.")
+                .setCancelable(false)
+                .setPositiveButton("Tutup", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                        showData();
+                    }
+                });
+
+        AlertDialog alert = builder.create();
+        alert.show();
     }
     public void onBackPressed(){
         finish();

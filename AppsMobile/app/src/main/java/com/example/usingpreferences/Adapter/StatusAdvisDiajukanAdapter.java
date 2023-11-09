@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,10 +21,11 @@ import java.util.List;
 public class StatusAdvisDiajukanAdapter extends RecyclerView.Adapter<StatusAdvisDiajukanAdapter.ViewHolder> {
 
     private List<ModelStatusAdvisDiajukan> data;
+    public static ShimmerFrameLayout mFrameLayout;
+    public static LinearLayout mDataSemua;
 
     public StatusAdvisDiajukanAdapter(List<ModelStatusAdvisDiajukan> data) {
         if (data == null) {
-
             this.data = new ArrayList<>();
         } else {
             this.data = data;
@@ -39,6 +41,9 @@ public class StatusAdvisDiajukanAdapter extends RecyclerView.Adapter<StatusAdvis
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
+
+
         ModelStatusAdvisDiajukan item = data.get(position);
 
         holder.idAdvisTextView.setText(item.getId_advis());
@@ -82,7 +87,7 @@ public class StatusAdvisDiajukanAdapter extends RecyclerView.Adapter<StatusAdvis
 
         ViewHolder(View itemView) {
             super(itemView);
-
+            mDataSemua = itemView.findViewById(R.id.data_view);
             mFrameLayout = itemView.findViewById(R.id.shimmer_view);
             idAdvisTextView = itemView.findViewById(R.id.id_advis_diajukan);
             tglAdvisTextView = itemView.findViewById(R.id.tgl_advis_diajukan);

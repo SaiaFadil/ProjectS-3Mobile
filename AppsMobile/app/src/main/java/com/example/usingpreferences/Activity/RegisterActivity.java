@@ -269,7 +269,6 @@ public class RegisterActivity extends AppCompatActivity {
                 } else if (notlp.length() <= 10) {
                     mViewNotlp.setError("No Telpon minimal 11 angka");
                     focus = mViewNotlp;
-
                     mViewNotlp.requestFocus();
 
                 } else if (notlp.length() >= 15) {

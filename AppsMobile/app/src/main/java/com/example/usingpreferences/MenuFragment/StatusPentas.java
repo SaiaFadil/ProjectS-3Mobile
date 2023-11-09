@@ -43,26 +43,44 @@ public class StatusPentas extends Fragment {
 
 
     public static ShimmerFrameLayout mFrameLayout;
-    public static LinearLayout mDataSemua;
+    public LinearLayout mDataSemua;
     private RecyclerView recviewdiajukan, recviewdiproses, recviewditolak, recviewditerima;
     private StatusAdvisDiajukanAdapter adapterdiajukan;
     private StatusAdvisDiprosesAdapter adapterdiproses;
     private StatusAdvisDitolakAdapter adapterditolak;
     private StatusAdvisDiterimaAdapter adapterditerima;
     public static Animation fadeIn;
+    private View view;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_status_pentas, container, false);
+         view = inflater.inflate(R.layout.fragment_status_pentas, container, false);
         mDataSemua = view.findViewById(R.id.data_view);
         mFrameLayout = view.findViewById(R.id.shimmer_view);
         fadeIn = AnimationUtils.loadAnimation(requireContext(), R.anim.tampil_data_sshimer);
-        TampilShimmer();
+        return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        TampilStatus();
+    }
+
+    public static Handler handler = new Handler();
+
+
+
+    public void TampilStatus(){
 
         APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
-        String id_user = sharedPreferences.getString("id_user", "");
+        String id_user  = sharedPreferences.getString("id_user", "");
+
+
 
 //ini awal recview diajukan
         recviewdiajukan = view.findViewById(R.id.recyclerViewStatusAdvisDiajukan);
@@ -75,7 +93,14 @@ public class StatusPentas extends Fragment {
                     ResponseStatusAdvisDiajukan responseModel = response.body();
                     List<ModelStatusAdvisDiajukan> data = responseModel.getData();
                     adapterdiajukan = new StatusAdvisDiajukanAdapter(data);
+                    if (adapterdiajukan == null){
+                        mFrameLayout.startShimmer();
+                    }else {
+                        mFrameLayout.setVisibility(View.GONE);
+                        mFrameLayout.stopShimmer();
+                    }
                     recviewdiajukan.setAdapter(adapterdiajukan);
+
                 } else {
                     Toast.makeText(getContext(), "error " + response.message(), Toast.LENGTH_SHORT).show();
                 }
@@ -83,10 +108,11 @@ public class StatusPentas extends Fragment {
 
             @Override
             public void onFailure(Call<ResponseStatusAdvisDiajukan> call, Throwable t) {
-                Toast.makeText(getContext(), "gagal : " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Kesalahan Pada Server\nHarap Periksa Koneksi Anda", Toast.LENGTH_SHORT).show();
             }
         });
 //ini akhir recview diajukan
+
 
 //ini awal recview diproses
         recviewdiproses = view.findViewById(R.id.recyclerViewStatusAdvisDiproses); // Ubah ID menjadi recyclerViewStatusAdvisDiproses
@@ -107,12 +133,12 @@ public class StatusPentas extends Fragment {
 
             @Override
             public void onFailure(Call<ResponseStatusAdvisDiproses> call, Throwable t) {
-                Toast.makeText(getContext(), "gagal : " + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
 //ini akhir recview diproses
 
 //ini awal recview ditolak
+
         recviewditolak = view.findViewById(R.id.recyclerViewStatusAdvisDitolak); // Ubah ID menjadi recyclerViewStatusAdvisDitolak
         recviewditolak.setLayoutManager(new LinearLayoutManager(requireContext()));
         Call<ResponseStatusAdvisDitolak> callditolak = ardData.getStatusAdvisDitolak(id_user);
@@ -131,7 +157,6 @@ public class StatusPentas extends Fragment {
 
             @Override
             public void onFailure(Call<ResponseStatusAdvisDitolak> call, Throwable t) {
-                Toast.makeText(getContext(), "gagal : " + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
 //ini akhir recview ditolak
@@ -150,36 +175,19 @@ public class StatusPentas extends Fragment {
                     adapterditerima = new StatusAdvisDiterimaAdapter(dataditerima);
                     recviewditerima.setAdapter(adapterditerima);
                 } else {
-                    Toast.makeText(getContext(), "error " + response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseStatusAdvisDiterima> call, Throwable t) {
-                Toast.makeText(getContext(), "gagal : " + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
 //ini akhir recview diterima
 
 
-        return view;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
 
-    public static Handler handler = new Handler();
 
-    private void TampilShimmer() {
-        mDataSemua.setVisibility(View.GONE);
-        mFrameLayout.startShimmer();
-        handler.postDelayed(() -> {
-            mDataSemua.setVisibility(View.VISIBLE);
-            mDataSemua.startAnimation(fadeIn);
-            mFrameLayout.stopShimmer();
-            mFrameLayout.setVisibility(View.GONE);
-        }, 2000);
-    }
 }
