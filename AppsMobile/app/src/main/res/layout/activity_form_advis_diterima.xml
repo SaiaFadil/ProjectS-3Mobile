@@ -54,11 +54,27 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="fill_parent">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/shimmer_view_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <include layout="@layout/detail_form_status_shimmer" />
+
+                </com.facebook.shimmer.ShimmerFrameLayout>
+            </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card"
@@ -280,6 +296,7 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_14ssp" />
+        </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
