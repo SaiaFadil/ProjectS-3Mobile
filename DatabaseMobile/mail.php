@@ -4,7 +4,7 @@
  */
 
 require 'vendor/autoload.php'; 
-require "Koneksi.php";
+require 'Koneksi.php';
 require 'EmailSender.php';
 
     // random kode otp
