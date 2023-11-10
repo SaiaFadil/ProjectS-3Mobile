@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.animation.Animation;
@@ -73,6 +75,19 @@ public class FormulirSuratAdvisActivity extends AppCompatActivity {
 
         tanggaladvis = findViewById(R.id.et_tanggalpentasadvis);
         SimpanDataSeniman();
+        InputFilter filter = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                String regex = "^[a-zA-Z0-9' ]*";
+                if (source.toString().matches(regex)) {
+                    return source;
+                } else {
+                    return "";
+                }
+            }
+        };
+        untukpentasAdvis.setFilters(new InputFilter[]{filter});
+        tempatAdvis.setFilters(new InputFilter[]{filter});
         menyetujui.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
