@@ -1,19 +1,12 @@
 package com.example.usingpreferences.MenuFragment;
 
-import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.usingpreferences.Activity.FormAdvisDiproses;
-import com.example.usingpreferences.Activity.FormAdvisDiterima;
-import com.example.usingpreferences.Activity.FormAdvisDitolak;
-import com.example.usingpreferences.Activity.FormAdvisDiajukan;
-import com.google.android.material.card.MaterialCardView;
+import androidx.fragment.app.Fragment;
+
 import com.example.usingpreferences.R;
 
 /**
@@ -69,58 +62,6 @@ public class StatusSemua extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_status_semua, container, false);
 
-        MaterialCardView cardditerima = view.findViewById(R.id.cardDiterima);
-        MaterialCardView cardditolak = view.findViewById(R.id.cardditolak);
-        MaterialCardView carddiajukan = view.findViewById(R.id.cardDiajukan);
-        MaterialCardView carddiproses = view.findViewById(R.id.cardproses);
-        carddiproses.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent pindah = new Intent(getActivity(), FormAdvisDiproses.class);
-                startActivity(pindah);
-                getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
-
-            }
-        });
-        cardditerima.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent pindah = new Intent(getActivity(), FormAdvisDiterima.class);
-                startActivity(pindah);
-                getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
-
-            }
-        });
-         cardditolak.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent pindah = new Intent(getActivity(), FormAdvisDitolak.class);
-                startActivity(pindah);
-                getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
-
-            }
-        });
-
-
-        carddiajukan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent pindah = new Intent(getActivity(), FormAdvisDitolak.class);
-                startActivity(pindah);
-                getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
-
-            }
-        });
-
-        carddiajukan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent pindah = new Intent(getActivity(), FormAdvisDiajukan.class);
-                startActivity(pindah);
-                getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
-
-            }
-        });
 
         return view;
     }
