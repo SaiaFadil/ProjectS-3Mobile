@@ -35,6 +35,7 @@ public class FormAdvisDiproses extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_advis_diproses);
+        overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
         et_namalengkapadvis = findViewById(R.id.et_namalengkapadvis);
         et_tanggalpentasadvis = findViewById(R.id.et_tanggalpentasadvis);
         et_alamatadvis = findViewById(R.id.et_alamatadvis);
