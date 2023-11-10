@@ -70,17 +70,32 @@ public class LoginActivity extends AppCompatActivity {
         mViewUser = findViewById(R.id.et_emailSignin);
         mViewPassword = findViewById(R.id.et_passwordSignin);
         mViewPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-        String email = getIntent().getStringExtra("email");
-        mViewUser.setText(email);
+        InputFilter filter = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                String regex = "^[a-zA-Z0-9' ]*";
+                if (source.toString().matches(regex)) {
+                    return source;
+                } else {
+                    return "";
+                }
+            }
+        };
+        mViewUser.setFilters(new InputFilter[]{filter});
         InputFilter noWhiteSpaceFilter = new InputFilter() {
             @Override
             public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                String regex = "^[a-zA-Z0-9'. ]*";
                 for (int i = start; i < end; i++) {
                     if (Character.isWhitespace(source.charAt(i))) {
-                        return ""; //gantiin spasi dengan string kosong
+                        return "";
+                    }else if (source.toString().matches(regex)) {
+                        return source;
+                    } else {
+                        return "";
                     }
                 }
-                return null; // nothing perubahan
+                return null;
             }
         };
         mViewPassword.setFilters(new InputFilter[]{noWhiteSpaceFilter});
