@@ -1,13 +1,11 @@
 package com.example.usingpreferences.Activity;
 
+import android.os.Bundle;
+import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.WindowManager;
-import android.widget.ImageButton;
 
 import com.example.usingpreferences.MenuFragment.HomeFragment;
 import com.example.usingpreferences.MenuFragment.StatusFragment;
@@ -22,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
         navbarbttm = findViewById(R.id.bottomNav);
         navbarbttm.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -47,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 .replace(R.id.frame_layout, new HomeFragment())
                 .commit();
 
-        if (getIntent().getIntExtra(MainActivity.FRAGMENT, 0) == R.layout.fragment_status) {
+        if (getIntent().getIntExtra(MainActivity.FRAGMENT, 1) == R.layout.fragment_status) {
             navbarbttm.setSelectedItemId(R.id.Status);
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.frame_layout, new StatusFragment())
