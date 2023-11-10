@@ -61,6 +61,7 @@ public class StatusPentas extends Fragment {
         mDataSemua = view.findViewById(R.id.data_view);
         mFrameLayout = view.findViewById(R.id.shimmer_view);
         fadeIn = AnimationUtils.loadAnimation(requireContext(), R.anim.tampil_data_sshimer);
+
         return view;
     }
 
@@ -98,6 +99,7 @@ public class StatusPentas extends Fragment {
                     }else {
                         mFrameLayout.setVisibility(View.GONE);
                         mFrameLayout.stopShimmer();
+                        mDataSemua.startAnimation(fadeIn);
                     }
                     recviewdiajukan.setAdapter(adapterdiajukan);
 
