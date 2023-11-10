@@ -7,6 +7,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.animation.Animation;
@@ -26,7 +28,6 @@ import com.example.usingpreferences.API.RetroServer;
 import com.example.usingpreferences.DataModel.ModelDetailAdvisDiajukan;
 import com.example.usingpreferences.DataModel.ModelResponseAll;
 import com.example.usingpreferences.DataModel.ResponseDetailAdvisDiajukan;
-import com.example.usingpreferences.KonfirmMenu.PengajuanBerhasilTerkirim;
 import com.example.usingpreferences.R;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
@@ -39,7 +40,7 @@ import retrofit2.Response;
 public class FormAdvisDiajukan extends AppCompatActivity {
     private TextView et_namalengkapadvis, et_tanggalpentasadvis, et_alamatadvis;
     private EditText et_namapentasadvis, et_lokasiadvis;
-    private Button editdiajukan,batalkandiajukan;
+    private Button editdiajukan, batalkandiajukan;
     private ProgressDialog progressDialog;
 
     private DatePickerDialog picker;
@@ -52,6 +53,7 @@ public class FormAdvisDiajukan extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_advis_diajukan);
+        overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
         et_namalengkapadvis = findViewById(R.id.et_namalengkapadvis);
         et_tanggalpentasadvis = findViewById(R.id.et_tanggalpentasadvis);
         et_alamatadvis = findViewById(R.id.et_alamatadvis);
@@ -68,8 +70,19 @@ public class FormAdvisDiajukan extends AppCompatActivity {
         progressDialog.setMessage("Mohon Tunggu...");
         progressDialog.setIcon(R.drawable.logonganjuk);
         progressDialog.setCancelable(false);
-
-
+        InputFilter filter = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                String regex = "^[a-zA-Z0-9' ]*";
+                if (source.toString().matches(regex)) {
+                    return source;
+                } else {
+                    return "";
+                }
+            }
+        };
+        et_namapentasadvis.setFilters(new InputFilter[]{filter});
+        et_lokasiadvis.setFilters(new InputFilter[]{filter});
 
         batalkandiajukan = findViewById(R.id.batalkandiajukan);
         batalkandiajukan.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +94,6 @@ public class FormAdvisDiajukan extends AppCompatActivity {
                 builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // Tampilkan ProgressDialog sebelum penghapusan
 
                         progressDialog.show();
                         String id_advis = getIntent().getStringExtra("id_advis");
@@ -90,14 +102,20 @@ public class FormAdvisDiajukan extends AppCompatActivity {
                         getResponse.enqueue(new Callback<ModelResponseAll>() {
                             @Override
                             public void onResponse(Call<ModelResponseAll> call, Response<ModelResponseAll> response) {
+                                if (response.body().getKode() == 1) {
 
-                                new Handler().postDelayed(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        startActivity(new Intent(FormAdvisDiajukan.this, PengajuanBerhasilTerkirim.class));
-                                        overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
-                                    }
-                                }, 3000);
+                                    new Handler().postDelayed(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Intent intent = new Intent(FormAdvisDiajukan.this, MainActivity.class)
+                                                    .putExtra(MainActivity.FRAGMENT, R.layout.fragment_status);
+                                            startActivity(intent);
+                                            overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+                                        }
+                                    }, 3000);
+                                }else {
+                                    System.out.println(response.body().getPesan());
+                                }
                             }
 
                             @Override
@@ -122,9 +140,7 @@ public class FormAdvisDiajukan extends AppCompatActivity {
                 alertDialog.show();
 
 
-
-
-        }
+            }
         });
         editdiajukan = findViewById(R.id.editdiajukan);
         editdiajukan.setOnClickListener(new View.OnClickListener() {
@@ -162,14 +178,20 @@ public class FormAdvisDiajukan extends AppCompatActivity {
                             getResponse.enqueue(new Callback<ModelResponseAll>() {
                                 @Override
                                 public void onResponse(Call<ModelResponseAll> call, Response<ModelResponseAll> response) {
+                                    if (response.body().getKode() == 1) {
 
-                                    new Handler().postDelayed(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            startActivity(new Intent(FormAdvisDiajukan.this, PengajuanBerhasilTerkirim.class));
-                                            overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
-                                        }
-                                    }, 3000);
+                                        new Handler().postDelayed(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                Intent intent = new Intent(FormAdvisDiajukan.this, MainActivity.class)
+                                                        .putExtra(MainActivity.FRAGMENT, R.layout.fragment_status);
+                                                startActivity(intent);
+                                                overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+                                            }
+                                        }, 3000);
+                                    }else {
+                                        System.out.println(response.body().getPesan());
+                                    }
                                 }
 
                                 @Override
@@ -261,10 +283,10 @@ public class FormAdvisDiajukan extends AppCompatActivity {
 
                     ModelDetailAdvisDiajukan ambildata = response.body().getData();
 
-                    if (ambildata.getId_advis().isEmpty()){
+                    if (ambildata.getId_advis().isEmpty()) {
                         mFrameLayout.startShimmer();
                         mDataSemua.setVisibility(View.GONE);
-                    }else {
+                    } else {
                         mFrameLayout.setVisibility(View.GONE);
                         mFrameLayout.stopShimmer();
                         mDataSemua.setVisibility(View.VISIBLE);
@@ -289,6 +311,7 @@ public class FormAdvisDiajukan extends AppCompatActivity {
             }
         });
     }
+
     private void showAlertDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(FormAdvisDiajukan.this);
         builder.setMessage("Tidak ada koneksi internet. Harap cek koneksi Anda.")
@@ -303,6 +326,7 @@ public class FormAdvisDiajukan extends AppCompatActivity {
         AlertDialog alert = builder.create();
         alert.show();
     }
+
     public void onBackPressed() {
 
     }
