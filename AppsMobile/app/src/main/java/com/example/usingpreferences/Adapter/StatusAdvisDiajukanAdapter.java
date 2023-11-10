@@ -61,7 +61,7 @@ public class StatusAdvisDiajukanAdapter extends RecyclerView.Adapter<StatusAdvis
 
                 // Kirim data ke aktivitas selanjutnya
                 Intent intent = new Intent(v.getContext(), FormAdvisDiajukan.class);
-//                .overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+
 
                 intent.putExtra("id_advis", idAdvis);
                 intent.putExtra("tgl_advis", tglAdvis);
