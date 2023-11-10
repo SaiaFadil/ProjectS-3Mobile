@@ -30,13 +30,13 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.usingpreferences.API.APIRequestData;
 import com.example.usingpreferences.API.RetroServer;
-import com.example.usingpreferences.Activity.DetailEventDashboard;
 import com.example.usingpreferences.Activity.NoInduk1;
 import com.example.usingpreferences.Activity.PinjamTempatList;
 import com.example.usingpreferences.Activity.ProfilActivity;
 import com.example.usingpreferences.Adapter.DashboardAdapter;
 import com.example.usingpreferences.DataModel.ModelResponseSimpanDataSeniman;
 import com.example.usingpreferences.DataModel.ModelSimpanDataSeniman;
+import com.example.usingpreferences.Eksternal.NotifService;
 import com.example.usingpreferences.KonfirmMenu.KonfirmasiAwalEvent;
 import com.example.usingpreferences.KonfirmMenu.KonfirmasiKeAdvis;
 import com.example.usingpreferences.R;
@@ -96,6 +96,9 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
 
+        Intent workIntentditerima = new Intent(getActivity(), NotifService.class);
+        NotifService.enqueueWork(getContext(), workIntentditerima);
+
 
         swipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayout);
         progressBar = view.findViewById(R.id.progressBar);
@@ -138,7 +141,6 @@ public class HomeFragment extends Fragment {
         layoutdown = AnimationUtils.loadAnimation(requireContext(), R.anim.layout_in);
         fadeIn = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_in);
         simpanDataSeniman();
-
         scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
             @Override
             public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
@@ -160,13 +162,8 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        card1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(), DetailEventDashboard.class));
-                getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
-            }
-        });
+
+
 
         cardpinjam.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -254,6 +251,7 @@ public class HomeFragment extends Fragment {
     public void onResume() {
         super.onResume();
         ShowData();
+
     }
 
     private void MulaiAnimasi() {
@@ -352,6 +350,9 @@ public class HomeFragment extends Fragment {
         AlertDialog alert = builder.create();
         alert.show();
     }
+
+
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
