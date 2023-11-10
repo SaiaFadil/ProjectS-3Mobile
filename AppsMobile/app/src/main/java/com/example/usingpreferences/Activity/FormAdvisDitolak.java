@@ -7,6 +7,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.animation.Animation;
@@ -52,6 +54,7 @@ public class FormAdvisDitolak extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_advis_ditolak);
+        overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
         et_namalengkapadvis = findViewById(R.id.et_namalengkapadvis);
         catatanDitolakAdvis = findViewById(R.id.catatanDitolakAdvis);
         et_tanggalpentasadvis = findViewById(R.id.et_tanggalpentasadvis);
@@ -181,7 +184,19 @@ public class FormAdvisDitolak extends AppCompatActivity {
         progressDialog.setIcon(R.drawable.logonganjuk);
         progressDialog.setCancelable(false);
 
-
+        InputFilter filter = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                String regex = "^[a-zA-Z0-9' ]*";
+                if (source.toString().matches(regex)) {
+                    return source;
+                } else {
+                    return "";
+                }
+            }
+        };
+        et_namapentasadvis.setFilters(new InputFilter[]{filter});
+        et_lokasiadvis.setFilters(new InputFilter[]{filter});
         showData();
         ImageButton kembali = findViewById(R.id.statusback);
         kembali.setOnClickListener(new View.OnClickListener() {
@@ -208,8 +223,8 @@ public class FormAdvisDitolak extends AppCompatActivity {
                     }else {
                         mFrameLayout.setVisibility(View.GONE);
                         mFrameLayout.stopShimmer();
-                        mDataSemua.setVisibility(View.VISIBLE);
                         mDataSemua.startAnimation(fadeIn);
+                        mDataSemua.setVisibility(View.VISIBLE);
                     }
                     et_namalengkapadvis.setText(ambildata.getNama_advis());
                     et_tanggalpentasadvis.setText(ambildata.getTgl_advis());
