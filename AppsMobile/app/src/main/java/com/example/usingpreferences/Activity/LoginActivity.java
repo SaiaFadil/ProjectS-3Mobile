@@ -85,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
         InputFilter noWhiteSpaceFilter = new InputFilter() {
             @Override
             public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
-                String regex = "^[a-zA-Z0-9'. ]*";
+                String regex = "^[a-zA-Z0-9'.@ ]*";
                 for (int i = start; i < end; i++) {
                     if (Character.isWhitespace(source.charAt(i))) {
                         return "";
