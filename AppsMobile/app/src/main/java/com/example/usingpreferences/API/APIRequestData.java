@@ -229,5 +229,18 @@ public interface APIRequestData {
 
     );
 
+    @FormUrlEncoded
+    @POST("status_advis/notifditerima.php")
+    Call<ModelResponseAll> notifditerima(
+            @Field("id_user") String id_user
+
+    );
+    @FormUrlEncoded
+    @POST("status_advis/notifditolak.php")
+    Call<ModelResponseAll> notifditolak(
+            @Field("id_user") String id_user
+
+    );
+
 }
 
