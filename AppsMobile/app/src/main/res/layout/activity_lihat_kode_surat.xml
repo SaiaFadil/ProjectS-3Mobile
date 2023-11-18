@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".Activity.ActivityLihatKodeSurat">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:strokeWidth="@dimen/_1sdp"
+                app:strokeColor="@color/black"
+                app:cardElevation="@dimen/_10sdp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/_10sdp"
+                android:layout_margin="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_20sdp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kode Surat"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="@dimen/_18ssp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/robotoblack"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ini adalah kode surat anda !"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="@dimen/_10ssp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/robotoblack"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="@dimen/_15sdp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ID"
+                            android:layout_gravity="center_horizontal"
+                            android:textSize="@dimen/_18ssp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_marginRight="@dimen/_5sdp"
+                            android:fontFamily="@font/robotoblack"/>
+                        <TextView
+                            android:id="@+id/tv_KodeSurat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="....................."
+                            android:layout_gravity="center_horizontal"
+                            android:textSize="@dimen/_18ssp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/robotoblack"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_200sdp"
+                android:src="@drawable/gambarlihatkode"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PROSEDUR"
+                android:layout_gravity="left"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textSize="@dimen/_18ssp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:fontFamily="@font/robotoblack"/>
+
+            <TableLayout
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:fallbackLineSpacing="true"
+                        android:text="1."
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:fallbackLineSpacing="true"
+                        android:text="Setelah pengajuan disetujui anda akan mendapatkan kode surat."
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:fallbackLineSpacing="true"
+                        android:text="2."
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:fallbackLineSpacing="true"
+                        android:text="Kode surat tersebut dapat anda tunjukan kepada admin di kantor DISPORABUDPAR Kab. Nganjuk"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:fallbackLineSpacing="true"
+                        android:text="3."
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:fallbackLineSpacing="true"
+                        android:text="Surat Advis / Izin Pentas akan diproses dan ditandatangani oleh Kepala Dinas."
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:fallbackLineSpacing="true"
+                        android:text="4."
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:fallbackLineSpacing="true"
+                        android:text="Surat Advis / Izin Pentas sudah siap dan akan diserahkan kepada anda."
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:fallbackLineSpacing="true"
+                        android:text="5."
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:fallbackLineSpacing="true"
+                        android:text="Tidak melanggar Tata Tertib dan bertentangan dengan norma-norma Agama"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:fallbackLineSpacing="true"
+                        android:text="6."
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:fallbackLineSpacing="true"
+                        android:text="Advis ini adalah bukti Legalitas dari Organisasi Seni / Seniman bukan sebagai izin Pentas."
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp" />
+                </TableRow>
+            </TableLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_okelihatsurat"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginLeft="@dimen/_60sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_60sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:backgroundTint="@color/greendark"
+                android:shadowRadius="3"
+                android:text="Oke"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14ssp"
+                app:cornerRadius="@dimen/_12sdp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

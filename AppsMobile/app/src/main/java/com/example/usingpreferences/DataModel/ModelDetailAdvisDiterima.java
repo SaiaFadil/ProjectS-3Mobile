@@ -12,6 +12,15 @@ public class ModelDetailAdvisDiterima {
     private String catatan;
     private String id_user;
     private String id_seniman;
+    private String kode_surat;
+
+    public String getKode_surat() {
+        return kode_surat;
+    }
+
+    public void setKode_surat(String kode_surat) {
+        this.kode_surat = kode_surat;
+    }
 
     public String getId_advis() {
         return id_advis;

@@ -2,6 +2,7 @@ import java.util.regex.Pattern.compile
 
 plugins {
     id("com.android.application")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -40,6 +41,7 @@ dependencies {
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    implementation("com.google.firebase:firebase-messaging:23.3.1")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation ("org.mindrot:jbcrypt:0.4")
@@ -56,6 +58,8 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.8.1")
 
 
+    //Custom Alert Dialog
+    implementation ("com.saadahmedev.popup-dialog:popup-dialog:1.0.5")
 
     // Library Shimmer
     implementation("com.facebook.shimmer:shimmer:0.5.0")

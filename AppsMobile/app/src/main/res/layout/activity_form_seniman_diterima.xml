@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.FormSenimanDiterima">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardjudulstatus"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginLeft="-10dp"
+        android:layout_marginRight="-10dp"
+        android:backgroundTint="@color/white"
+        android:outlineAmbientShadowColor="@color/black"
+        app:strokeColor="@color/gray"
+        app:strokeWidth="@dimen/_1sdp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/judul"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="STATUS"
+                    android:textColor="@color/greendark"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/statusback"
+                android:layout_width="@dimen/_45sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:backgroundTint="@color/white"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_back" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/shimmer_view_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <include layout="@layout/detail_form_status_shimmer" />
+
+                </com.facebook.shimmer.ShimmerFrameLayout>
+            </LinearLayout>
+        <LinearLayout
+
+            android:id="@+id/layoutData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:backgroundTint="@color/white"
+                android:padding="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp"
+                app:cardMaxElevation="@dimen/_20sdp"
+                app:strokeColor="@color/black"
+                app:strokeWidth="@dimen/_1sdp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/green">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_7sdp"
+                        android:layout_marginBottom="@dimen/_7sdp"
+                        android:text="Surat seniman"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_15ssp"
+                        android:textStyle="bold" />
+                </androidx.cardview.widget.CardView>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_40sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nomor Induk Kependudukan"
+                        android:textSize="@dimen/_15ssp"
+                        android:textColor="@color/black"
+                        />
+
+                    <EditText
+                        android:id="@+id/editTextNIK"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:background="@drawable/bg_editext"
+                        android:ems="10"
+                        android:hint="36XXXXXXXXXXXX"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:paddingLeft="@dimen/_12sdp"
+                        android:paddingTop="@dimen/_12sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp" />
+                    <TextView
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nama Lengkap"
+                        android:textSize="@dimen/_15ssp"
+                        android:textColor="@color/black"
+                        />
+
+                    <TextView
+                        android:id="@+id/editTextNamaLengkap"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:background="@drawable/bg_editext"
+                        android:ems="10"
+                        android:hint="Masukkan Nama Lengkap Sesuai KTP"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:paddingLeft="@dimen/_12sdp"
+                        android:paddingTop="@dimen/_12sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Jenis Kelamin"
+                        android:textSize="@dimen/_15ssp"
+                        android:textColor="@color/black"
+                        />
+                    <Spinner
+                        android:id="@+id/gender_spinner"
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:background="@drawable/bg_editext"
+                        android:entries="@array/jenis_kelamin_array"
+                        android:padding="8dp"
+                        android:popupBackground="@color/gray" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:text="Tempat Lahir"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_62sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:text="Tanggal Lahir"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:paddingRight="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_5sdp"
+                            android:background="@drawable/bg_editext"
+                            android:id="@+id/editTextTL"
+                            android:layout_width="@dimen/_130sdp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:ems="10"
+                            android:hint="Contoh: NGANJUK"
+                            android:textAllCaps="true"
+                            android:inputType="textCapWords"
+                            android:maxLength="10"
+                            android:maxLines="1"
+                            android:paddingLeft="@dimen/_12sdp"
+                            android:paddingTop="@dimen/_7sdp"
+                            android:paddingBottom="@dimen/_7sdp"
+                            android:textSize="@dimen/_10sdp" />
+
+
+                        <TextView
+                            android:paddingRight="@dimen/_10sdp"
+                            android:background="@drawable/bg_editext"
+                            android:id="@+id/editTextTG"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:ems="10"
+                            android:hint="Pilih Tanggal Lahir"
+                            android:gravity="center"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:paddingLeft="@dimen/_12sdp"
+                            android:paddingTop="@dimen/_7sdp"
+                            android:paddingBottom="@dimen/_7sdp"
+                            android:textSize="@dimen/_10sdp"
+                            android:onClick="onButtonClick"
+                            />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:text="Kecamatan"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <Spinner
+                            android:id="@+id/kecamatan_spinner"
+                            android:layout_width="@dimen/_150sdp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:background="@drawable/bg_editext"
+                            android:padding="8dp"
+                            android:popupBackground="@color/gray" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:text="Alamat Lengkap"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <EditText
+                        android:paddingRight="@dimen/_10sdp"
+                        android:background="@drawable/bg_editext"
+                        android:id="@+id/editTextAlamat"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_80sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:ems="10"
+                        android:maxLength="120"
+                        android:hint="Masukkan Alamat Lengkap"
+                        android:inputType="textMultiLine"
+                        android:lines="8"
+                        android:maxLines="6"
+                        android:gravity="top|start"
+                        android:paddingLeft="@dimen/_12sdp"
+                        android:paddingTop="@dimen/_7sdp"
+                        android:paddingBottom="@dimen/_7sdp"
+                        android:textSize="@dimen/_12sdp" />
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:text="Nomor Telepon"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <EditText
+                        android:paddingRight="@dimen/_10sdp"
+                        android:background="@drawable/bg_editext"
+                        android:id="@+id/editTextNOHP"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:ems="10"
+                        android:maxLength="14"
+                        android:hint="Masukkan No.Handphone Aktif"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:paddingLeft="@dimen/_12sdp"
+                        android:paddingTop="@dimen/_7sdp"
+                        android:paddingBottom="@dimen/_7sdp"
+                        android:textSize="@dimen/_12sdp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:text="Kategori Seniman"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <Spinner
+                        android:id="@+id/kategoriSeniman_spinner"
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:background="@drawable/bg_editext"
+                        android:padding="8dp"
+                        android:popupBackground="@color/gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:text="Tipe Seniman"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <Spinner
+                        android:id="@+id/tipeSeniman_spinner"
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:background="@drawable/bg_editext"
+                        android:padding="8dp"
+                        android:popupBackground="@color/gray" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardview_organisasi"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/transparent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:text="Nama Organisasi"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14ssp" />
+
+
+                            <EditText
+                                android:paddingRight="@dimen/_10sdp"
+                                android:background="@drawable/bg_editext"
+                                android:id="@+id/editTextNamaOrganisasi"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:ems="10"
+                                android:hint="Masukkan Nama Organisasi ex :CSTeam"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:paddingLeft="@dimen/_12sdp"
+                                android:paddingTop="@dimen/_7sdp"
+                                android:paddingBottom="@dimen/_7sdp"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:text="Jumlah Anggota"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_13ssp" />
+                            <EditText
+                                android:paddingRight="@dimen/_10sdp"
+                                android:background="@drawable/bg_editext"
+                                android:id="@+id/editTextJmlAnggota"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:ems="10"
+                                android:hint="Masukkan Jumlah Anggota"
+                                android:inputType="number"
+                                android:maxLines="1"
+                                android:paddingLeft="@dimen/_12sdp"
+                                android:paddingTop="@dimen/_7sdp"
+                                android:paddingBottom="@dimen/_7sdp"
+                                android:textSize="@dimen/_12sdp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        android:backgroundTint="@color/green">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Diterima"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_250sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:src="@drawable/animstatus" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:text="Selamat! Permintaan Anda telah memenuhi persyaratan kami"
+                android:textAlignment="center"
+
+                android:textSize="@dimen/_16ssp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/lihatkodesurat"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:backgroundTint="@color/greendark"
+                android:shadowRadius="3"
+                android:text="lihat Kode Seniman"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14ssp" />
+        </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

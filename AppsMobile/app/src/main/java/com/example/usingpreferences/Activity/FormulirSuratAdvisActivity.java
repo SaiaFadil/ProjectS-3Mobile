@@ -1,10 +1,9 @@
 package com.example.usingpreferences.Activity;
 
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -31,6 +30,9 @@ import com.example.usingpreferences.API.RetroServer;
 import com.example.usingpreferences.DataModel.ModelResponseAll;
 import com.example.usingpreferences.KonfirmMenu.PengajuanBerhasilTerkirim;
 import com.example.usingpreferences.R;
+import com.saadahmedsoft.popupdialog.PopupDialog;
+import com.saadahmedsoft.popupdialog.Styles;
+import com.saadahmedsoft.popupdialog.listener.OnDialogButtonClickListener;
 
 import java.util.Calendar;
 
@@ -177,13 +179,19 @@ public class FormulirSuratAdvisActivity extends AppCompatActivity {
                     teks_kesalahan.startAnimation(fadeIn);
                     kirimdata.setEnabled(false);
                 }else {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(FormulirSuratAdvisActivity.this);
-                    builder.setMessage("Apakah Anda Yakin Dengan Data yang anda masukkan?");
-                    builder.setCancelable(false);
-                    builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            // Tampilkan ProgressDialog sebelum penghapusan
+                    PopupDialog.getInstance(FormulirSuratAdvisActivity.this)
+                            .setStyle(Styles.IOS)
+                            .setHeading("Kirim Formulir?")
+                            .setDescription("Apakah Anda Sudah Yakin Dengan Data Yang Ingin Anda Kirim??")
+                            .setCancelable(false)
+                            .setPositiveButtonText("Yakin")
+                            .setNegativeButtonText("Belum")
+                            .setPositiveButtonTextColor(R.color.greendark)
+                            .setNegativeButtonTextColor(R.color.greendark)
+                            .showDialog(new OnDialogButtonClickListener() {
+                                @Override
+                                public void onPositiveClicked(Dialog dialog) {
+                                    super.onPositiveClicked(dialog);
 
                             progressDialog.show();
 
@@ -215,20 +223,16 @@ public class FormulirSuratAdvisActivity extends AppCompatActivity {
                             });
 
 
-                        }
-
-                    });
-                    builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-
-                    AlertDialog alertDialog = builder.create();
-                    alertDialog.show();
+                                }
 
 
+                                @Override
+                                public void onNegativeClicked(Dialog dialog) {
+                                    super.onNegativeClicked(dialog);
+                                    dialog.dismiss();
+
+                                }
+                            });
                 }
 
             }

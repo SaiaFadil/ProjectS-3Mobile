@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.Looper;
+import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.JobIntentService;
@@ -27,11 +28,11 @@ import retrofit2.Response;
 public class NotifService extends JobIntentService {
 
     private final int NOTIFICATION_ID = 1;
-    private final int DELAY_INTERVAL = 60000;
+    private final int DELAY_INTERVAL = 3000;
 
     private final Handler handler = new Handler(Looper.getMainLooper());
 
-    private String lastKnownStateDitolak = "", lastKnownStateDiterima = "";
+    private String lastKnownStateDitolak = "",lastKnownStateDiterima = "";
 
     public static void enqueueWork(Context context, Intent work) {
         enqueueWork(context, NotifService.class, 111, work);
@@ -83,10 +84,11 @@ public class NotifService extends JobIntentService {
             @Override
             public void onFailure(Call<ModelResponseAll> call, Throwable t) {
 
+
             }
+
         });
     }
-
     private void checkForUpdatesditolak() {
         SharedPreferences sharedPreferences = getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
         String idUserShared = sharedPreferences.getString("id_user", "");
@@ -102,6 +104,7 @@ public class NotifService extends JobIntentService {
                         // Data has changed, show notification
                         showNotificationditolak();
                     }
+
                     // Update the last known state
                     lastKnownStateDitolak = currentState;
                 } else if (response.body().getKode() == 0) {
@@ -113,12 +116,12 @@ public class NotifService extends JobIntentService {
 
             @Override
             public void onFailure(Call<ModelResponseAll> call, Throwable t) {
+                Toast.makeText(NotifService.this, t.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
 
         });
     }
-
     private void showNotificationditolak() {
         Intent intent = new Intent(NotifService.this, MainActivity.class)
                 .putExtra(MainActivity.FRAGMENT, R.layout.fragment_status)
@@ -143,8 +146,8 @@ public class NotifService extends JobIntentService {
         Intent intent = new Intent(NotifService.this, MainActivity.class)
                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                 .putExtra(MainActivity.FRAGMENT, R.layout.fragment_status);
-                 PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, PendingIntent.FLAG_IMMUTABLE);
-                 NotificationCompat.Builder builder = new NotificationCompat.Builder(NotifService.this, "fadil")
+        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, PendingIntent.FLAG_IMMUTABLE);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(NotifService.this, "fadil")
                 .setSmallIcon(R.drawable.logodisporabudpar)
                 .setContentTitle("NGANJUK ELOK")
                 .setContentText("Status Pengajuan Anda Telah Diterima")

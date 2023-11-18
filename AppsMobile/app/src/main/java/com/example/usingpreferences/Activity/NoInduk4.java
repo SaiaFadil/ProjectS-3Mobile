@@ -1,19 +1,32 @@
 package com.example.usingpreferences.Activity;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
+import android.text.Editable;
+import android.text.Layout;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +44,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Date;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -42,16 +56,42 @@ import retrofit2.Response;
 public class NoInduk4 extends AppCompatActivity {
     private static final int REQUEST_CODE_SELECT_PDF = 1;
     private static final int REQUEST_CODE_SELECT_IMAGE = 2;
-    private TextView cardViewFileNameTextView1, cardViewFileNameTextView2, cardViewFileNameTextView3;
+    private Animation fadeIn, fadeout;
+    private CheckBox menyetujui;
+    private Drawable ic_error;
+    private TextView textViewButton1, textViewButton2, textViewButton3, teks_kesalahan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_no_induk4);
 
-        cardViewFileNameTextView1 = findViewById(R.id.textViewButton1);
-        cardViewFileNameTextView2 = findViewById(R.id.textViewButton2);
-        cardViewFileNameTextView3 = findViewById(R.id.textViewButton3);
+        teks_kesalahan = findViewById(R.id.teks_kesalahan);
+        fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in_down);
+        fadeout = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out_down);
+        teks_kesalahan.setVisibility(View.INVISIBLE);
+        menyetujui = findViewById(R.id.checkboxsetuju);
+
+        textViewButton1 = findViewById(R.id.textViewButton1);
+        textViewButton2 = findViewById(R.id.textViewButton2);
+        textViewButton3 = findViewById(R.id.textViewButton3);
+        ic_error = getResources().getDrawable(R.drawable.ic_error);
+
+        menyetujui.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // Mengubah visibilitas kata sandi berdasarkan status checkbox
+                if (isChecked) {
+                    teks_kesalahan.setVisibility(View.INVISIBLE);
+                    teks_kesalahan.startAnimation(fadeout);
+
+                } else {
+                    teks_kesalahan.setVisibility(View.VISIBLE);
+                    teks_kesalahan.startAnimation(fadeIn);
+
+                }
+            }
+        });
 
         ImageButton btnback = findViewById(R.id.indukback);
         btnback.setOnClickListener(new View.OnClickListener() {
@@ -66,68 +106,119 @@ public class NoInduk4 extends AppCompatActivity {
         btnnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Menerima data dari Intent yang dikirimkan dari NoInduk3
-                Intent intent = getIntent();
-                String nik = intent.getStringExtra("nik");
+                Animation shake = AnimationUtils.loadAnimation(NoInduk4.this, R.anim.shake_animation);
 
-                // Get id_user dari SharedPreferences
-                SharedPreferences sharedPreferences = getSharedPreferences("prefLogin", MODE_PRIVATE);
-                String idUserShared = sharedPreferences.getString("id_user", "");
+                if (TextUtils.isEmpty(textViewButton1.getText())) {
+                    textViewButton1.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_error, 0);
+                    textViewButton1.setHintTextColor(getResources().getColor(R.color.errorText));
+                    textViewButton1.setHint("Surat Keterangan Belum Di Pilih    ");
+                    textViewButton1.startAnimation(shake);
+                } else if (TextUtils.isEmpty(textViewButton2.getText())) {
+                    textViewButton2.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_error, 0);
+                    textViewButton2.setHintTextColor(getResources().getColor(R.color.errorText));
+                    textViewButton2.setHint("Foto KTP Belum Di Pilih                        ");
+                    textViewButton2.startAnimation(shake);
+                } else if (TextUtils.isEmpty(textViewButton3.getText())) {
+                    textViewButton3.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_error, 0);
+                    textViewButton3.setHintTextColor(getResources().getColor(R.color.errorText));
+                    textViewButton3.setHint("Pas Foto Belum Di Pilih                        ");
+                    textViewButton3.startAnimation(shake);
+                } else if (!menyetujui.isChecked()) {
+                    teks_kesalahan.setVisibility(View.VISIBLE);
+                    teks_kesalahan.startAnimation(fadeIn);
+                } else {
+                    textViewButton1.clearAnimation();
+                    textViewButton2.clearAnimation();
+                    textViewButton3.clearAnimation();
+                    textViewButton1.setHintTextColor(null);
+                    textViewButton2.setHintTextColor(null);
+                    textViewButton3.setHintTextColor(null);
 
-                // Mengambil data lainnya dari intent
-                String namaSeniman = intent.getStringExtra("nama_seniman");
-                String jenisKelamin = intent.getStringExtra("jenis_kelamin");
-                String kecamatan = intent.getStringExtra("kecamatan");
-                String namaKategoriSeniman = intent.getStringExtra("nama_kategori_seniman");
-                String tempatLahir = intent.getStringExtra("tempat_lahir");
-                String tanggalLahir = intent.getStringExtra("tanggal_lahir");
-                String alamatSeniman = intent.getStringExtra("alamat_seniman");
-                String noTelpon = intent.getStringExtra("no_telpon");
-                String namaOrganisasi = intent.getStringExtra("nama_organisasi");
-                String jumlahAnggota = intent.getStringExtra("jumlah_anggota");
-
-                // Persiapkan berkas gambar KTP Seniman, dokumen Surat Keterangan, dan gambar Pass Foto
-                File ktpSenimanFile = new File(cardViewFileNameTextView1.getText().toString());
-                File suratKeteranganFile = new File(cardViewFileNameTextView2.getText().toString());
-                File passFotoFile = new File(cardViewFileNameTextView3.getText().toString());
-
-                // Buat RequestBody untuk berkas-berkas tersebut
-                RequestBody requestFileKtpSeniman = RequestBody.create(MediaType.parse("multipart/form-data"), pathKtp);
-
-                MultipartBody.Part ktpSenimanPart = MultipartBody.Part.createFormData("ktp_seniman", ktpSenimanFile.getName(), requestFileKtpSeniman);
-
-                RequestBody requestFileSuratKeterangan = RequestBody.create(MediaType.parse("multipart/form-data"), pathSurat);
-                MultipartBody.Part suratKeteranganPart = MultipartBody.Part.createFormData("surat_keterangan", suratKeteranganFile.getName(), requestFileSuratKeterangan);
-
-                RequestBody requestFilePassFoto = RequestBody.create(MediaType.parse("multipart/form-data"), pathPasFoto);
-                MultipartBody.Part passFotoPart = MultipartBody.Part.createFormData("pass_foto", passFotoFile.getName(), requestFilePassFoto);
-
-                // Mengirim data dan berkas ke server
-                APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
-                Call<SenimanResponse> getResponse = ardData.saveDataSeniman(nik, idUserShared, namaSeniman, jenisKelamin, kecamatan, namaKategoriSeniman, tempatLahir, tanggalLahir, alamatSeniman, noTelpon, "diajukan", namaOrganisasi, jumlahAnggota, ktpSenimanPart, suratKeteranganPart, passFotoPart);
-                getResponse.enqueue(new Callback<SenimanResponse>() {
-                    @Override
-                    public void onResponse(Call<SenimanResponse> call, Response<SenimanResponse> response) {
-                       System.out.println("REsponse data " + response.message() + "Response data" + response.body() + "res" + response.errorBody());
-                        System.out.println("REsponse data " + response.body().getStatus() + "Response data" + response.body() + "res" + response.errorBody());
-                        Gson gson = new Gson();
-                        System.out.println("REsponse data " + gson.toJson(response.body()) + "Response data" + response.body() + "res" + response.errorBody());
-
-
-                        if (response.body() != null && "success".equals(response.body().getStatus())) {
-                            startActivity(new Intent(NoInduk4.this, PengajuanBerhasilTerkirim.class));
+                    AlertDialog.Builder builder = new AlertDialog.Builder(NoInduk4.this);
+                    builder.setTitle("Konfirmasi Pengiriman");
+                    builder.setMessage("Apakah Anda yakin ingin mengirim pengajuan pembuatan Nomor Induk Seniman?");
+                    builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            sendDataToServer();
                         }
-                    }
-
-                    @Override
-                    public void onFailure(Call<SenimanResponse> call, Throwable t) {
-                        Toast.makeText(NoInduk4.this, "Terjadi kesalahan: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                        // Handle error
-                    }
-
-
-                });
+                    });
+                    builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    builder.show();
+                }
             }
+        });
+
+        // Initialize other views and listeners
+
+        textViewButton1 = findViewById(R.id.textViewButton1);
+        textViewButton2 = findViewById(R.id.textViewButton2);
+        textViewButton3 = findViewById(R.id.textViewButton3);
+        ic_error = getResources().getDrawable(R.drawable.ic_error);
+    }
+
+    private void sendDataToServer() {
+        Intent intent = getIntent();
+        String nik = intent.getStringExtra("nik");
+
+        // Get id_user dari SharedPreferences
+        SharedPreferences sharedPreferences = getSharedPreferences("prefLogin", MODE_PRIVATE);
+        String idUserShared = sharedPreferences.getString("id_user", "");
+        // Mengambil data lainnya dari intent
+        String namaSeniman = intent.getStringExtra("nama_seniman");
+        String jenisKelamin = intent.getStringExtra("jenis_kelamin");
+        String kecamatan = intent.getStringExtra("kecamatan");
+        String namaKategoriSeniman = intent.getStringExtra("nama_kategori_seniman");
+        String tempatLahir = intent.getStringExtra("tempat_lahir");
+        String tanggalLahir = intent.getStringExtra("tanggal_lahir");
+        String alamatSeniman = intent.getStringExtra("alamat_seniman");
+        String noTelpon = intent.getStringExtra("no_telpon");
+        String namaOrganisasi = intent.getStringExtra("nama_organisasi");
+        String jumlahAnggota = intent.getStringExtra("jumlah_anggota");
+
+        // Persiapkan berkas gambar KTP Seniman, dokumen Surat Keterangan, dan gambar Pass Foto
+        File suratKeteranganFile = new File(textViewButton1.getText().toString());
+        File ktpSenimanFile = new File(textViewButton2.getText().toString());
+        File passFotoFile = new File(textViewButton3.getText().toString());
+
+
+        // Buat RequestBody untuk berkas-berkas tersebut
+
+        RequestBody requestFileSuratKeterangan = RequestBody.create(MediaType.parse("multipart/form-data"), pathSurat);
+        MultipartBody.Part suratKeteranganPart = MultipartBody.Part.createFormData("surat_keterangan", suratKeteranganFile.getName(), requestFileSuratKeterangan);
+
+        RequestBody requestFileKtpSeniman = RequestBody.create(MediaType.parse("multipart/form-data"), pathKtp);
+        MultipartBody.Part ktpSenimanPart = MultipartBody.Part.createFormData("ktp_seniman", ktpSenimanFile.getName(), requestFileKtpSeniman);
+
+        RequestBody requestFilePassFoto = RequestBody.create(MediaType.parse("multipart/form-data"), pathPasFoto);
+        MultipartBody.Part passFotoPart = MultipartBody.Part.createFormData("pass_foto", passFotoFile.getName(), requestFilePassFoto);
+
+        // Mengirim data dan berkas ke server
+        APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
+        Call<SenimanResponse> getResponse = ardData.saveDataSeniman(nik, idUserShared, namaSeniman, jenisKelamin, kecamatan, namaKategoriSeniman, tempatLahir, tanggalLahir, alamatSeniman, noTelpon, "diajukan", namaOrganisasi, jumlahAnggota, suratKeteranganPart, ktpSenimanPart, passFotoPart);
+        getResponse.enqueue(new Callback<SenimanResponse>() {
+            @Override
+            public void onResponse(Call<SenimanResponse> call, Response<SenimanResponse> response) {
+                System.out.println("REsponse data " + response.message() + "Response data" + response.body() + "res" + response.errorBody());
+                System.out.println("REsponse data " + response.body().getStatus() + "Response data" + response.body() + "res" + response.errorBody());
+                Gson gson = new Gson();
+                System.out.println("REsponse data " + gson.toJson(response.body()) + "Response data" + response.body() + "res" + response.errorBody());
+
+                if (response.body() != null && "success".equals(response.body().getStatus())) {
+                    startActivity(new Intent(NoInduk4.this, PengajuanBerhasilTerkirim.class));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<SenimanResponse> call, Throwable t) {
+            }
+
+
         });
     }
     public static byte[] uriToByteArray(Context context, Uri uri) {
@@ -174,9 +265,9 @@ public class NoInduk4 extends AppCompatActivity {
         selectFile("image/*", view.getId());
 
         int requestCode = 0;
-        if (view.getId() == R.id.selectFileButton3) {
+        if (view.getId() == R.id.selectFileButton2) {
             requestCode = REQUEST_CODE_SELECT_IMAGE;
-        } else if (view.getId() == R.id.selectFileButton) {
+        } else if (view.getId() == R.id.selectFileButton3) {
             requestCode = REQUEST_CODE_SELECT_IMAGE;
         }
 
@@ -197,9 +288,11 @@ public class NoInduk4 extends AppCompatActivity {
 
         if (view.getId() == R.id.selectFileButton2) {
             startActivityForResult(
+
                     Intent.createChooser(intent, "Pilih Dokumen PDF"),
                     REQUEST_CODE_SELECT_PDF
             );
+
         }
     }
     byte[] pathSurat;
@@ -212,14 +305,17 @@ public class NoInduk4 extends AppCompatActivity {
         if (resultCode == RESULT_OK && data != null) {
             String selectedFileName = getFileName(data.getData());
 
-            if (requestCode == R.id.selectFileButton2) {
-                cardViewFileNameTextView1.setText(selectedFileName);
+            if (requestCode == R.id.selectFileButton1) {
+                textViewButton1.setText(selectedFileName);
+                textViewButton1.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                 pathSurat = uriToByteArray(this,data.getData());
-            } else if (requestCode == R.id.selectFileButton3) {
-                cardViewFileNameTextView2.setText(selectedFileName);
+            } else if (requestCode == R.id.selectFileButton2) {
+                textViewButton2.setText(selectedFileName);
+                textViewButton2.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                 pathKtp = uriToByteArray(this,data.getData());
-            } else if (requestCode == R.id.selectFileButton) {
-                cardViewFileNameTextView3.setText(selectedFileName);
+            } else if (requestCode == R.id.selectFileButton3) {
+                textViewButton3.setText(selectedFileName);
+                textViewButton3.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                 pathPasFoto = uriToByteArray(this,data.getData());
             }
         }

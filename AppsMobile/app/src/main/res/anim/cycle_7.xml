@@ -1,0 +1,3 @@
+<!-- res/anim/cycle_7.xml -->
+<cycleInterpolator xmlns:android="http://schemas.android.com/apk/res/android"
+    android:cycles="7"/>

@@ -284,7 +284,7 @@
                 android:textSize="@dimen/_16ssp" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/cetakkodeqr"
+                android:id="@+id/lihatkodesurat"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"
@@ -294,7 +294,7 @@
                 android:layout_marginBottom="@dimen/_20sdp"
                 android:backgroundTint="@color/greendark"
                 android:shadowRadius="3"
-                android:text="Cetak Code QR "
+                android:text="Lihat Kode Surat"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_14ssp" />
