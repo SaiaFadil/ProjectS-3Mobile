@@ -28,7 +28,7 @@ import retrofit2.Response;
 public class NotifService extends JobIntentService {
 
     private final int NOTIFICATION_ID = 1;
-    private final int DELAY_INTERVAL = 3000;
+    private final int DELAY_INTERVAL = 60000;
 
     private final Handler handler = new Handler(Looper.getMainLooper());
 
