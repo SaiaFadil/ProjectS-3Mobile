@@ -1,0 +1,12 @@
+<!-- res/anim/shake_animation.xml -->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillAfter="true">
+
+    <translate
+        android:interpolator="@anim/cycle_7"
+        android:fromYDelta="0"
+        android:toXDelta="5"
+        android:duration="50"
+        android:repeatMode="reverse"
+        android:repeatCount="5"/>
+</set>

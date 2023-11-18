@@ -62,7 +62,7 @@ public class StatusDitolak extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_status_ditolak, container, false);
+        View view =  inflater.inflate(R.layout.fragment_status_seniman, container, false);
         MaterialCardView cardditolak = view.findViewById(R.id.cardditolak);
 
         cardditolak.setOnClickListener(new View.OnClickListener() {

@@ -56,6 +56,8 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.8.1")
 
 
+    //Custom Alert Dialog
+    implementation ("com.saadahmedev.popup-dialog:popup-dialog:1.0.5")
 
     // Library Shimmer
     implementation("com.facebook.shimmer:shimmer:0.5.0")

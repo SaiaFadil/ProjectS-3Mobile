@@ -5,15 +5,24 @@ import com.example.usingpreferences.DataModel.KategoriSenimanModel;
 import com.example.usingpreferences.DataModel.ModelResponseAll;
 import com.example.usingpreferences.DataModel.ModelResponseSimpanDataSeniman;
 import com.example.usingpreferences.DataModel.ModelUpdateProfil;
+import com.example.usingpreferences.DataModel.PerpanjanganResponse;
 import com.example.usingpreferences.DataModel.ResponseDetailAdvisDiajukan;
 import com.example.usingpreferences.DataModel.ResponseDetailAdvisDiproses;
 import com.example.usingpreferences.DataModel.ResponseDetailAdvisDiterima;
 import com.example.usingpreferences.DataModel.ResponseDetailAdvisDitolak;
+import com.example.usingpreferences.DataModel.ResponseDetailSenimanDiajukan;
+import com.example.usingpreferences.DataModel.ResponseDetailSenimanDiproses;
+import com.example.usingpreferences.DataModel.ResponseDetailSenimanDiterima;
+import com.example.usingpreferences.DataModel.ResponseDetailSenimanDitolak;
 import com.example.usingpreferences.DataModel.ResponseModelUsers;
 import com.example.usingpreferences.DataModel.ResponseStatusAdvisDiajukan;
 import com.example.usingpreferences.DataModel.ResponseStatusAdvisDiproses;
 import com.example.usingpreferences.DataModel.ResponseStatusAdvisDiterima;
 import com.example.usingpreferences.DataModel.ResponseStatusAdvisDitolak;
+import com.example.usingpreferences.DataModel.ResponseStatusSenimanDiajukan;
+import com.example.usingpreferences.DataModel.ResponseStatusSenimanDiproses;
+import com.example.usingpreferences.DataModel.ResponseStatusSenimanDiterima;
+import com.example.usingpreferences.DataModel.ResponseStatusSenimanDitolak;
 import com.example.usingpreferences.DataModel.SenimanResponse;
 import com.example.usingpreferences.DataModel.VerifyResponse;
 import com.example.usingpreferences.DataModel.getSingkatanResponse;
@@ -128,6 +137,7 @@ public interface APIRequestData {
     @POST("getSingkatanKategori.php")
     Call<getSingkatanResponse> getSingkatan(
             @Field("NamaKategori") String Namakategori
+
     );
 
     @GET("getKategoriSeniman.php")
@@ -228,7 +238,82 @@ public interface APIRequestData {
             @Field("id_advis") String id_advis
 
     );
+    //
 
+    @FormUrlEncoded
+    @POST("status_Seniman/status_Seniman_diajukan.php")
+    Call<ResponseStatusSenimanDiajukan> getStatusSenimanDiajukan(
+            @Field("id_user") String id_user
+    );
+
+    @FormUrlEncoded
+    @POST("status_Seniman/detail_Seniman_diajukan.php")
+    Call<ResponseDetailSenimanDiajukan> getDetailSenimanDiajukan(
+            @Field("id_Seniman") String id_Seniman
+    );
+
+    @FormUrlEncoded
+    @POST("status_Seniman/status_Seniman_diproses.php")
+    Call<ResponseStatusSenimanDiproses> getStatusSenimanDiproses(
+            @Field("id_user") String id_user
+    );
+
+    @FormUrlEncoded
+    @POST("status_Seniman/detail_Seniman_diproses.php")
+    Call<ResponseDetailSenimanDiproses> getDetailSenimanDiproses(
+            @Field("id_Seniman") String id_Seniman
+    );
+
+    @FormUrlEncoded
+    @POST("status_Seniman/status_Seniman_ditolak.php")
+    Call<ResponseStatusSenimanDitolak> getStatusSenimanDitolak(
+            @Field("id_user") String id_user
+    );
+
+    @FormUrlEncoded
+    @POST("status_Seniman/detail_Seniman_ditolak.php")
+    Call<ResponseDetailSenimanDitolak> getDetailSenimanDitolak(
+            @Field("id_Seniman") String id_Seniman
+    );
+
+    @FormUrlEncoded
+    @POST("status_Seniman/status_Seniman_diterima.php")
+    Call<ResponseStatusSenimanDiterima> getStatusSenimanDiterima(
+            @Field("id_user") String id_user
+    );
+
+    @FormUrlEncoded
+    @POST("status_Seniman/detail_Seniman_diterima.php")
+    Call<ResponseDetailSenimanDiterima> getDetailSenimanDiterima(
+            @Field("id_Seniman") String id_Seniman
+    );
+
+    @FormUrlEncoded
+    @POST("status_Seniman/edit_Seniman_diajukan.php")
+    Call<ModelResponseAll> editSenimanDiajukan(
+            @Field("id_Seniman") String id_Seniman,
+            @Field("deskripsi_Seniman") String deskripsi_Seniman,
+            @Field("tgl_Seniman") String tgl_Seniman,
+            @Field("tempat_Seniman") String tempat_Seniman
+
+    );
+
+    @FormUrlEncoded
+    @POST("status_Seniman/ajukanulang_Seniman_ditolak.php")
+    Call<ModelResponseAll> ajukanulangSenimanDiajukan(
+            @Field("id_Seniman") String id_Seniman,
+            @Field("deskripsi_Seniman") String deskripsi_Seniman,
+            @Field("tgl_Seniman") String tgl_Seniman,
+            @Field("tempat_Seniman") String tempat_Seniman
+
+    );
+
+    @FormUrlEncoded
+    @POST("status_Seniman/delete_Seniman_diajukan.php")
+    Call<ModelResponseAll> hapusSenimanDiajukan(
+            @Field("id_Seniman") String id_Seniman
+
+    );
     @FormUrlEncoded
     @POST("status_advis/notifditerima.php")
     Call<ModelResponseAll> notifditerima(
@@ -242,5 +327,25 @@ public interface APIRequestData {
 
     );
 
+    @Multipart
+    @POST("insertPerpanjangan.php")
+    Call<PerpanjanganResponse> saveDataSeniman(
+
+            @Part("id_user") String idUser,
+            @Part("id_seniman") String idSeniman,
+            @Part("nama_lengkap") String nama_lengkap,
+            @Part("nik") String nik,
+            @Part("nomor_induk") String nomor_induk,
+            @Part("status") String status,
+            @Part MultipartBody.Part ktpSeniman,
+            @Part MultipartBody.Part suratKeterangan,
+            @Part MultipartBody.Part passFoto
+    );
+
+    @FormUrlEncoded
+    @POST("status_advis/detail_advis_diterima.php")
+    Call<ResponseDetailAdvisDiterima> getKodeSurat(
+            @Field("id_advis") String id_advis
+    );
 }
 

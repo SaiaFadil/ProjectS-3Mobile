@@ -22,21 +22,71 @@ $suratKeterangan = $_FILES['surat_keterangan'];
 $passFoto = $_FILES['pass_foto'];
 
 // Direktori penyimpanan file
-$uploadDirKTP = 'uploads/ktp_seniman/';
-$uploadDirSurat = 'uploads/surat_keterangan/';
-$uploadDirPassFoto = 'uploads/pass_foto/';
+$uploadDirKTP = 'uploads/seniman/ktp_seniman/';
+$uploadDirSurat = 'uploads/seniman/surat_keterangan/';
+$uploadDirPassFoto = 'uploads/seniman/pass_foto/';
 
-// Mengunggah gambar KTP Seniman
-$ktpSenimanFileName = $uploadDirKTP . basename($ktpSeniman['name']);
+$ktpSenimanFileName = $uploadDirKTP . generateUniqueFileName($ktpSeniman['name'], $uploadDirKTP);
 move_uploaded_file($ktpSeniman['tmp_name'], $ktpSenimanFileName);
 
 // Mengunggah dokumen PDF Surat Keterangan
-$suratKeteranganFileName = $uploadDirSurat . basename($suratKeterangan['name']);
+$suratKeteranganFileName = $uploadDirSurat . generateUniqueFileName2($suratKeterangan['name'], $uploadDirSurat);
 move_uploaded_file($suratKeterangan['tmp_name'], $suratKeteranganFileName);
 
 // Mengunggah gambar Pass Foto
-$passFotoFileName = $uploadDirPassFoto . basename($passFoto['name']);
+$passFotoFileName = $uploadDirPassFoto . generateUniqueFileName3($passFoto['name'], $uploadDirPassFoto);
 move_uploaded_file($passFoto['tmp_name'], $passFotoFileName);
+
+// Fungsi untuk menghasilkan nama file unik
+function generateUniqueFileName($originalName, $uploadDirKTP) {
+    $extension = pathinfo($originalName, PATHINFO_EXTENSION);
+    $basename = pathinfo($originalName, PATHINFO_FILENAME);
+
+    // Jika nama file belum ada, langsung gunakan nama asli
+    if (!file_exists($uploadDirKTP . $basename . '.' . $extension)) {
+        return $basename . '.' . $extension;
+    }
+
+    // Jika nama file sudah ada, tambahkan indeks
+    $counter = 1;
+    while (file_exists($uploadDirKTP . $basename . '(' . $counter . ')' . '.' . $extension)) {
+        $counter++;
+    }
+
+    return $basename . '(' . $counter . ')' . '.' . $extension;
+}
+
+function generateUniqueFileName2($originalName, $uploadDirSurat) {
+    $extension = pathinfo($originalName, PATHINFO_EXTENSION);
+    $basename = pathinfo($originalName, PATHINFO_FILENAME);
+
+    if (!file_exists($uploadDirSurat . $basename . '.' . $extension)) {
+        return $basename . '.' . $extension;
+    }
+
+    $counter = 1;
+    while (file_exists($uploadDirSurat . $basename . '(' . $counter . ')' . '.' . $extension)) {
+        $counter++;
+    }
+
+    return $basename . '(' . $counter . ')' . '.' . $extension;
+}
+
+function generateUniqueFileName3($originalName, $uploadDirPassFoto) {
+    $extension = pathinfo($originalName, PATHINFO_EXTENSION);
+    $basename = pathinfo($originalName, PATHINFO_FILENAME);
+
+    if (!file_exists($uploadDirPassFoto . $basename . '.' . $extension)) {
+        return $basename . '.' . $extension;
+    }
+
+    $counter = 1;
+    while (file_exists($uploadDirPassFoto . $basename . '(' . $counter . ')' . '.' . $extension)) {
+        $counter++;
+    }
+
+    return $basename . '(' . $counter . ')' . '.' . $extension;
+}
 
 // Enkripsi nilai $nik dengan Base64
 $encryptedNik = base64_encode($nik);

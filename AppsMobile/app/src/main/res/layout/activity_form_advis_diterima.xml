@@ -284,7 +284,7 @@
                 android:textSize="@dimen/_16ssp" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/cetakkodeqr"
+                android:id="@+id/lihatkodesurat"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"

@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
         InputFilter filter = new InputFilter() {
             @Override
             public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
-                String regex = "^[a-zA-Z0-9' ]*";
+                String regex = "^[a-zA-Z0-9'@.]*";
                 if (source.toString().matches(regex)) {
                     return source;
                 } else {
@@ -85,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
         InputFilter noWhiteSpaceFilter = new InputFilter() {
             @Override
             public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
-                String regex = "^[a-zA-Z0-9'.@ ]*";
+                String regex = "^[a-zA-Z0-9'.]*";
                 for (int i = start; i < end; i++) {
                     if (Character.isWhitespace(source.charAt(i))) {
                         return "";
@@ -99,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
         mViewPassword.setFilters(new InputFilter[]{noWhiteSpaceFilter});
-        mViewUser.setFilters(new InputFilter[]{noWhiteSpaceFilter});
+//        mViewUser.setFilters(new InputFilter[]{noWhiteSpaceFilter});
         lupapassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -104,7 +104,7 @@ public class RegisterActivity extends AppCompatActivity {
 // mengnetapkan InputFilter ke setiap EditText
         mViewNama.setFilters(new InputFilter[] { HanyaHuruf });
         mViewNotlp.setFilters(new InputFilter[]{noWhiteSpaceFilter});
-        mViewEmail.setFilters(new InputFilter[]{noWhiteSpaceFilter});
+//        mViewEmail.setFilters(new InputFilter[]{noWhiteSpaceFilter});
         mViewPassword.setFilters(new InputFilter[]{noWhiteSpaceFilter});
         mViewPassword2.setFilters(new InputFilter[]{noWhiteSpaceFilter});
         mBtnRegister = findViewById(R.id.button_signupSignup);
@@ -152,7 +152,18 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
-
+        InputFilter filter = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                String regex = "^[a-zA-Z0-9@.]*";
+                if (source.toString().matches(regex)) {
+                    return source;
+                } else {
+                    return "";
+                }
+            }
+        };
+        mViewEmail.setFilters(new InputFilter[] { filter });
         mViewNotlp.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {

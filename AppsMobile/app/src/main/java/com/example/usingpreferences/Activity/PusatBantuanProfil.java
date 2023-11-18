@@ -22,7 +22,7 @@ public class PusatBantuanProfil extends AppCompatActivity {
         cardwhatsapp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String linkweb = "https://";
+                String linkweb = "https://wa.me/628113319289";
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(linkweb));
                 startActivity(intent);
                 overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
@@ -67,6 +67,7 @@ public class PusatBantuanProfil extends AppCompatActivity {
         profilback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 finish();
                 overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
 

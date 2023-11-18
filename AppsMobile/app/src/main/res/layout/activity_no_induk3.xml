@@ -71,24 +71,24 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp" />
 
-         
-               <EditText
-                   android:paddingRight="@dimen/_10sdp"
-                    android:background="@drawable/bg_editext"
-                    android:id="@+id/editTextNIK"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:inputType="number"
-                    android:ems="10"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:paddingLeft="@dimen/_12sdp"
-                    android:paddingTop="@dimen/_7sdp"
-                    android:paddingBottom="@dimen/_7sdp"
-                    android:textSize="@dimen/_12sdp"
-                    android:hint="Masukkan Nomor Induk Kependudukan"
-                    />
+
+            <EditText
+                android:paddingRight="@dimen/_10sdp"
+                android:background="@drawable/bg_editext"
+                android:id="@+id/editTextNIK"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:inputType="number"
+                android:ems="10"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:paddingLeft="@dimen/_12sdp"
+                android:paddingTop="@dimen/_7sdp"
+                android:paddingBottom="@dimen/_7sdp"
+                android:textSize="@dimen/_12sdp"
+                android:hint="Masukkan Nomor Induk Kependudukan"
+                />
 
 
 
@@ -100,23 +100,24 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp" />
 
-               <EditText
-                   android:paddingRight="@dimen/_10sdp"
-                    android:background="@drawable/bg_editext"
-                    android:id="@+id/editTextNamaLengkap"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:ems="10"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:imeActionId="6"
-                    android:imeActionLabel="Sign In"
-                    android:imeOptions="actionDone"
-                    android:paddingLeft="@dimen/_12sdp"
-                    android:paddingTop="@dimen/_7sdp"
-                    android:paddingBottom="@dimen/_7sdp"
-                    android:textSize="@dimen/_12sdp" />
+            <EditText
+                android:paddingRight="@dimen/_10sdp"
+                android:background="@drawable/bg_editext"
+                android:id="@+id/editTextNamaLengkap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:ems="10"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:imeActionId="6"
+                android:imeActionLabel="Sign In"
+                android:imeOptions="actionDone"
+                android:paddingLeft="@dimen/_12sdp"
+                android:paddingTop="@dimen/_7sdp"
+                android:paddingBottom="@dimen/_7sdp"
+                android:textSize="@dimen/_12sdp"
+                android:hint="Masukkan Nama Lengkap Sesuai KTP"/>
 
 
             <TextView
@@ -159,57 +160,52 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14ssp" />
             </LinearLayout>
-
-            <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-               
-                   <EditText
-                   android:paddingRight="@dimen/_10sdp"
-                       android:layout_marginRight="@dimen/_5sdp"
 
-                       android:background="@drawable/bg_editext"
-                        android:id="@+id/editTextTL"
-                        android:layout_width="@dimen/_130sdp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:ems="10"
-                        android:hint="Contoh: NGANJUK"
-                        android:textAllCaps="true"
-                        android:inputType="text"
-                        android:maxLength="10"
-                        android:maxLines="1"
-                        android:paddingLeft="@dimen/_12sdp"
-                        android:paddingTop="@dimen/_7sdp"
-                        android:paddingBottom="@dimen/_7sdp"
-                        android:textSize="@dimen/_10sdp" />
-
-            
-                   <EditText
-                   android:paddingRight="@dimen/_10sdp"
+                <EditText
+                    android:paddingRight="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
                     android:background="@drawable/bg_editext"
-                        android:id="@+id/editTextTG"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:ems="10"
-                        android:hint="Pilih Tanggal Lahir"
-                        android:gravity="center"
-                        android:inputType="text"
-                        android:maxLines="1"
-                       android:layout_marginLeft="@dimen/_5sdp"
-                        android:paddingLeft="@dimen/_12sdp"
-                        android:paddingTop="@dimen/_7sdp"
-                        android:paddingBottom="@dimen/_7sdp"
-                        android:textSize="@dimen/_10sdp"
-                        android:onClick="onButtonClick"
-                        />
+                    android:id="@+id/editTextTL"
+                    android:layout_width="@dimen/_130sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:ems="10"
+                    android:hint="Contoh: NGANJUK"
+                    android:textAllCaps="true"
+                    android:inputType="textCapWords"
+                    android:maxLength="10"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/_12sdp"
+                    android:paddingTop="@dimen/_7sdp"
+                    android:paddingBottom="@dimen/_7sdp"
+                    android:textSize="@dimen/_10sdp" />
+
+
+                <TextView
+                    android:paddingRight="@dimen/_10sdp"
+                    android:background="@drawable/bg_editext"
+                    android:id="@+id/editTextTG"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:ems="10"
+                    android:hint="Pilih Tanggal Lahir"
+                    android:gravity="center"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:paddingLeft="@dimen/_12sdp"
+                    android:paddingTop="@dimen/_7sdp"
+                    android:paddingBottom="@dimen/_7sdp"
+                    android:textSize="@dimen/_10sdp"
+                    android:onClick="onButtonClick"
+                    />
             </LinearLayout>
-            </androidx.cardview.widget.CardView>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -240,25 +236,25 @@
                 android:text="Alamat Lengkap"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp" />
-          
-               <EditText
-                   android:paddingRight="@dimen/_10sdp"
-                    android:background="@drawable/bg_editext"
-                    android:id="@+id/editTextAlamat"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_80sdp"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:ems="10"
-                    android:maxLength="120"
-                    android:hint="Masukkan Alamat Lengkap"
-                    android:inputType="textMultiLine"
-                    android:lines="8"
-                    android:maxLines="6"
-                    android:gravity="top|start"
-                    android:paddingLeft="@dimen/_12sdp"
-                    android:paddingTop="@dimen/_7sdp"
-                    android:paddingBottom="@dimen/_7sdp"
-                    android:textSize="@dimen/_12sdp" />
+
+            <EditText
+                android:paddingRight="@dimen/_10sdp"
+                android:background="@drawable/bg_editext"
+                android:id="@+id/editTextAlamat"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:ems="10"
+                android:maxLength="120"
+                android:hint="Masukkan Alamat Lengkap"
+                android:inputType="textMultiLine"
+                android:lines="8"
+                android:maxLines="6"
+                android:gravity="top|start"
+                android:paddingLeft="@dimen/_12sdp"
+                android:paddingTop="@dimen/_7sdp"
+                android:paddingBottom="@dimen/_7sdp"
+                android:textSize="@dimen/_12sdp" />
 
 
 
@@ -270,22 +266,22 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp" />
 
-               <EditText
-                   android:paddingRight="@dimen/_10sdp"
-                    android:background="@drawable/bg_editext"
-                    android:id="@+id/editTextNOHP"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:ems="10"
-                    android:maxLength="14"
-                    android:hint="Masukkan No.Handphone Aktif"
-                    android:inputType="number"
-                    android:maxLines="1"
-                    android:paddingLeft="@dimen/_12sdp"
-                    android:paddingTop="@dimen/_7sdp"
-                    android:paddingBottom="@dimen/_7sdp"
-                    android:textSize="@dimen/_12sdp" />
+            <EditText
+                android:paddingRight="@dimen/_10sdp"
+                android:background="@drawable/bg_editext"
+                android:id="@+id/editTextNOHP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:ems="10"
+                android:maxLength="14"
+                android:hint="Masukkan No.Handphone Aktif"
+                android:inputType="number"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/_12sdp"
+                android:paddingTop="@dimen/_7sdp"
+                android:paddingBottom="@dimen/_7sdp"
+                android:textSize="@dimen/_12sdp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -338,21 +334,21 @@
                         android:textSize="@dimen/_14ssp" />
 
 
-                       <EditText
-                   android:paddingRight="@dimen/_10sdp"
-                    android:background="@drawable/bg_editext"
-                            android:id="@+id/editTextNamaOrganisasi"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_5sdp"
-                            android:ems="10"
-                            android:hint="Masukkan Nama Organisasi ex :CSTeam"
-                            android:inputType="text"
-                            android:maxLines="1"
-                            android:paddingLeft="@dimen/_12sdp"
-                            android:paddingTop="@dimen/_7sdp"
-                            android:paddingBottom="@dimen/_7sdp"
-                            android:textSize="@dimen/_12sdp" />
+                    <EditText
+                        android:paddingRight="@dimen/_10sdp"
+                        android:background="@drawable/bg_editext"
+                        android:id="@+id/editTextNamaOrganisasi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:ems="10"
+                        android:hint="Masukkan Nama Organisasi ex :CSTeam"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:paddingLeft="@dimen/_12sdp"
+                        android:paddingTop="@dimen/_7sdp"
+                        android:paddingBottom="@dimen/_7sdp"
+                        android:textSize="@dimen/_12sdp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -362,23 +358,23 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/_13ssp" />
 
-                   
 
-                       <EditText
-                   android:paddingRight="@dimen/_10sdp"
-                    android:background="@drawable/bg_editext"
-                            android:id="@+id/editTextJmlAnggota"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_5sdp"
-                            android:ems="10"
-                            android:hint="Masukkan Jumlah Anggota"
-                            android:inputType="number"
-                            android:maxLines="1"
-                            android:paddingLeft="@dimen/_12sdp"
-                            android:paddingTop="@dimen/_7sdp"
-                            android:paddingBottom="@dimen/_7sdp"
-                            android:textSize="@dimen/_12sdp" />
+
+                    <EditText
+                        android:paddingRight="@dimen/_10sdp"
+                        android:background="@drawable/bg_editext"
+                        android:id="@+id/editTextJmlAnggota"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:ems="10"
+                        android:hint="Masukkan Jumlah Anggota"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:paddingLeft="@dimen/_12sdp"
+                        android:paddingTop="@dimen/_7sdp"
+                        android:paddingBottom="@dimen/_7sdp"
+                        android:textSize="@dimen/_12sdp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
