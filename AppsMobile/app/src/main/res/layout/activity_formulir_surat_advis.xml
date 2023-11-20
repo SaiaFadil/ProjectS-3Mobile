@@ -107,7 +107,7 @@
                 android:paddingRight="@dimen/_10sdp"
                 android:background="@drawable/bg_editext"
                 android:ems="10"
-                android:hint="Contoh : Pentas Tari Tradisi"
+                android:hint="Contoh : Pentas Tari Tradisional"
                 android:inputType="text"
                 android:maxLines="1"
                 android:paddingLeft="@dimen/_12sdp"

@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.usingpreferences.Activity.FormulirSuratAdvisActivity;
+import com.example.usingpreferences.Activity.NoInduk1;
 import com.example.usingpreferences.R;
 
 public class KonfirmasiKeAdvis extends AppCompatActivity {
@@ -40,6 +41,9 @@ private Button lanjutkeform;
                     builder.setMessage("Selain Seniman Tidak Dapat Mengajukan Surat Advis!")
                             .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
+                                    startActivity(new Intent(KonfirmasiKeAdvis.this, NoInduk1.class));
+                                    overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+                                    finish();
 
                                 }
                             });
