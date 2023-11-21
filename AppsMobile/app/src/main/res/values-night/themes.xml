@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.UsingPreferences" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/greendark</item>
     </style>
 
     <style name="Theme.UsingPreferences" parent="Base.Theme.UsingPreferences"

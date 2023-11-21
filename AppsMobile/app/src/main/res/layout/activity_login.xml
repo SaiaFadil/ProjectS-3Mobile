@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:backgroundTint="@color/white"
     tools:context=".Activity.LoginActivity">
 
     <ScrollView
@@ -16,30 +18,22 @@
             android:orientation="vertical"
             android:padding="@dimen/_5sdp">
             <TextView
+                android:fontFamily="@font/robotomedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:text="SELAMAT DATANG KE\nNGANJUK ELOK"
-                android:textSize="@dimen/_22ssp"
+                android:textSize="@dimen/_28ssp"
                 android:layout_marginTop="@dimen/_25sdp"
                 android:gravity="center_horizontal"
                 android:textStyle="bold"
                 />
-            <TextView
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Silahkan masuk dan lakukan aktivitas"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_14ssp"
-                android:gravity="center_horizontal"
-                android:fontFamily="sans-serif"/>
-
             <ImageView
                 android:layout_width="@dimen/_180sdp"
                 android:layout_height="@dimen/_180sdp"
-                android:src="@drawable/anim2"
+                android:src="@drawable/logodisporabudpar"
                 android:layout_marginBottom="-10dp"
+                android:padding="@dimen/_10sdp"
                 android:scaleType="fitXY"/>
 
             <com.google.android.material.textfield.TextInputLayout
