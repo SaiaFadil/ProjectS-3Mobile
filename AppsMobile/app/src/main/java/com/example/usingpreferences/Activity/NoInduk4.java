@@ -92,7 +92,6 @@ public class NoInduk4 extends AppCompatActivity {
                 }
             }
         });
-
         ImageButton btnback = findViewById(R.id.indukback);
         btnback.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,7 +100,6 @@ public class NoInduk4 extends AppCompatActivity {
                 overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
             }
         });
-
         Button btnnext = findViewById(R.id.button_kiriminduk);
         btnnext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -153,15 +151,12 @@ public class NoInduk4 extends AppCompatActivity {
                 }
             }
         });
-
         // Initialize other views and listeners
-
         textViewButton1 = findViewById(R.id.textViewButton1);
         textViewButton2 = findViewById(R.id.textViewButton2);
         textViewButton3 = findViewById(R.id.textViewButton3);
         ic_error = getResources().getDrawable(R.drawable.ic_error);
     }
-
     private void sendDataToServer() {
         Intent intent = getIntent();
         String nik = intent.getStringExtra("nik");
@@ -185,19 +180,13 @@ public class NoInduk4 extends AppCompatActivity {
         File suratKeteranganFile = new File(textViewButton1.getText().toString());
         File ktpSenimanFile = new File(textViewButton2.getText().toString());
         File passFotoFile = new File(textViewButton3.getText().toString());
-
-
         // Buat RequestBody untuk berkas-berkas tersebut
-
         RequestBody requestFileSuratKeterangan = RequestBody.create(MediaType.parse("multipart/form-data"), pathSurat);
         MultipartBody.Part suratKeteranganPart = MultipartBody.Part.createFormData("surat_keterangan", suratKeteranganFile.getName(), requestFileSuratKeterangan);
-
         RequestBody requestFileKtpSeniman = RequestBody.create(MediaType.parse("multipart/form-data"), pathKtp);
         MultipartBody.Part ktpSenimanPart = MultipartBody.Part.createFormData("ktp_seniman", ktpSenimanFile.getName(), requestFileKtpSeniman);
-
         RequestBody requestFilePassFoto = RequestBody.create(MediaType.parse("multipart/form-data"), pathPasFoto);
         MultipartBody.Part passFotoPart = MultipartBody.Part.createFormData("pass_foto", passFotoFile.getName(), requestFilePassFoto);
-
         // Mengirim data dan berkas ke server
         APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
         Call<SenimanResponse> getResponse = ardData.saveDataSeniman(nik, idUserShared, namaSeniman, jenisKelamin, kecamatan, namaKategoriSeniman, tempatLahir, tanggalLahir, alamatSeniman, noTelpon, "diajukan", namaOrganisasi, jumlahAnggota, suratKeteranganPart, ktpSenimanPart, passFotoPart);
@@ -213,12 +202,9 @@ public class NoInduk4 extends AppCompatActivity {
                     startActivity(new Intent(NoInduk4.this, PengajuanBerhasilTerkirim.class));
                 }
             }
-
             @Override
             public void onFailure(Call<SenimanResponse> call, Throwable t) {
             }
-
-
         });
     }
     public static byte[] uriToByteArray(Context context, Uri uri) {
@@ -243,7 +229,6 @@ public class NoInduk4 extends AppCompatActivity {
             }
         }
     }
-
     private void selectFile(String mimeType, int buttonId) {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType(mimeType);
@@ -258,7 +243,6 @@ public class NoInduk4 extends AppCompatActivity {
             // Handle jika tidak ada aplikasi yang dapat memilih file
         }
     }
-
     public void selectImageFile(View view) {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
@@ -270,7 +254,6 @@ public class NoInduk4 extends AppCompatActivity {
         } else if (view.getId() == R.id.selectFileButton3) {
             requestCode = REQUEST_CODE_SELECT_IMAGE;
         }
-
         try {
             startActivityForResult(
                     Intent.createChooser(intent, "Pilih Foto"),
@@ -280,7 +263,6 @@ public class NoInduk4 extends AppCompatActivity {
             // Handle jika tidak ada aplikasi yang dapat memilih foto
         }
     }
-
     public void selectDocumentFile(View view) {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);

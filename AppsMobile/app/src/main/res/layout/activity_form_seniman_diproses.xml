@@ -1,61 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.FormSenimanDiproses">
+
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".Activity.FormSenimanDiproses">
-
-        <com.google.android.material.card.MaterialCardView
+        android:layout_height="@dimen/_40sdp"
+        android:id="@+id/cardjudulstatus"
+        android:layout_marginLeft="-10dp"
+        android:layout_marginRight="-10dp"
+        android:backgroundTint="@color/white"
+        app:strokeWidth="@dimen/_1sdp"
+        app:strokeColor="@color/gray"
+        android:outlineAmbientShadowColor="@color/black"
+        >
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
-            android:id="@+id/cardjudulstatus"
-            android:layout_marginLeft="-10dp"
-            android:layout_marginRight="-10dp"
-            android:backgroundTint="@color/white"
-            app:strokeWidth="@dimen/_1sdp"
-            app:strokeColor="@color/gray"
-            android:outlineAmbientShadowColor="@color/black"
-            >
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center">
-                    <TextView
-                        android:id="@+id/judul"
-
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="STATUS"
-                        android:textColor="@color/greendark"
-                        android:textSize="@dimen/_18ssp"
-                        android:gravity="center"
-                        android:textStyle="bold" />
-                </LinearLayout>
-                <ImageButton
-                    android:id="@+id/statusback"
-                    android:layout_width="@dimen/_45sdp"
-                    android:layout_height="@dimen/_50sdp"
-                    android:layout_marginLeft="@dimen/_10sdp"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/ic_back"
-                    android:backgroundTint="@color/white"
-                    android:scaleType="fitXY"
-                    />
-            </RelativeLayout>
-        </com.google.android.material.card.MaterialCardView>
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="match_parent">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/judul"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="STATUS"
+                    android:textColor="@color/greendark"
+                    android:textSize="@dimen/_18ssp"
+                    android:gravity="center"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <ImageButton
+                android:id="@+id/statusback"
+                android:layout_width="@dimen/_45sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_back"
+                android:backgroundTint="@color/white"
+                android:scaleType="fitXY"
+                />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
                             android:layout_marginBottom="@dimen/_7sdp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Surat seniman"
+                            android:text="No Induk Seniman"
                             android:textStyle="bold"
                             android:layout_marginLeft="@dimen/_10sdp"
                             android:layout_gravity="center_vertical"
@@ -178,7 +178,6 @@
                             android:padding="8dp"
                             android:popupBackground="@color/gray" />
 
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -244,7 +243,6 @@
                                 android:paddingTop="@dimen/_7sdp"
                                 android:paddingBottom="@dimen/_7sdp"
                                 android:textSize="@dimen/_10sdp"
-                                android:onClick="onButtonClick"
                                 />
                         </LinearLayout>
 
@@ -265,6 +263,7 @@
                                 android:id="@+id/kecamatan_spinner"
                                 android:layout_width="@dimen/_150sdp"
                                 android:layout_height="@dimen/_35sdp"
+                                android:entries="@array/kecamatan_array"
                                 android:background="@drawable/bg_editext"
                                 android:padding="8dp"
                                 android:popupBackground="@color/gray" />
@@ -333,7 +332,7 @@
                             android:textSize="@dimen/_14ssp" />
 
                         <Spinner
-                            android:id="@+id/kategoriSeniman_spinner"
+                            android:id="@+id/kategoriSeniman_spinner_diproses"
                             android:layout_width="@dimen/_150sdp"
                             android:layout_height="@dimen/_35sdp"
                             android:background="@drawable/bg_editext"
@@ -349,10 +348,11 @@
                             android:textSize="@dimen/_14ssp" />
 
                         <Spinner
-                            android:id="@+id/tipeSeniman_spinner"
+                            android:id="@+id/tipeseniman_spinner"
                             android:layout_width="@dimen/_150sdp"
                             android:layout_height="@dimen/_35sdp"
                             android:background="@drawable/bg_editext"
+                            android:entries="@array/tipe_seniman_array"
                             android:padding="8dp"
                             android:popupBackground="@color/gray" />
 
@@ -416,6 +416,135 @@
                                     android:textSize="@dimen/_12sdp" />
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:text="Surat Keterangan Dari Desa"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_15ssp" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:background="@drawable/bg_editext"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/selectFileButton1"
+                                style="@style/Widget.MaterialComponents.Button.TextButton"
+                                android:layout_width="wrap_content"
+                                app:cornerRadius="@dimen/_2sdp"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="-5dp"
+                                android:layout_marginBottom="-5dp"
+                                android:backgroundTint="@color/greendark"
+                                android:text="Pilih File"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_11ssp" />
+
+                            <TextView
+                                android:id="@+id/textViewButton1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:paddingEnd="@dimen/_11sdp"
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:hint="Gambar berformat PNG, JPG, SVG"
+                                android:gravity="center|left"
+                                android:maxLines="1"
+                                android:textColor="@color/black"
+                                android:layout_marginEnd="@dimen/_8sdp"
+                                android:textSize="@dimen/_10ssp" />
+                            />
+
+                        </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="Foto Kartu Tanda Penduduk"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_15ssp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:background="@drawable/bg_editext"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/selectFileButton2"
+                                style="@style/Widget.MaterialComponents.Button.TextButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="-5dp"
+                                android:layout_marginBottom="-5dp"
+                                android:backgroundTint="@color/greendark"
+                                android:text="Pilih File"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_11ssp"
+                                app:cornerRadius="@dimen/_2sdp" />
+
+                            <TextView
+                                android:id="@+id/textViewButton2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:paddingEnd="@dimen/_11sdp"
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:hint="Gambar berformat PNG, JPG, SVG"
+                                android:gravity="center|left"
+                                android:maxLines="1"
+                                android:textColor="@color/black"
+                                android:layout_marginEnd="@dimen/_8sdp"
+                                android:textSize="@dimen/_10ssp" />
+                            />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="Pass Foto"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_15ssp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:background="@drawable/bg_editext"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/selectFileButton3"
+                                style="@style/Widget.MaterialComponents.Button.TextButton"
+                                android:layout_width="wrap_content"
+                                app:cornerRadius="@dimen/_2sdp"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="-5dp"
+                                android:layout_marginBottom="-5dp"
+                                android:backgroundTint="@color/greendark"
+                                android:text="Pilih File"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_11ssp" />
+
+                            <TextView
+                                android:id="@+id/textViewButton3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:paddingEnd="@dimen/_11sdp"
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:hint="Gambar berformat PNG, JPG, SVG"
+                                android:gravity="center|left"
+                                android:maxLines="1"
+                                android:textColor="@color/black"
+                                android:layout_marginEnd="@dimen/_8sdp"
+                                android:textSize="@dimen/_10ssp" />
+                        </LinearLayout>
                         <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_30sdp"
@@ -455,6 +584,6 @@
                     android:layout_marginBottom="@dimen/_30sdp"
                     android:textAlignment="center"/>
             </LinearLayout>
-            </LinearLayout>
-        </ScrollView>
-    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -185,11 +185,6 @@ public class StatusPentas extends Fragment {
             public void onFailure(Call<ResponseStatusAdvisDiterima> call, Throwable t) {
             }
         });
-//ini akhir recview diterima
-
-
+        //ini akhir recview diterima
     }
-
-
-
 }

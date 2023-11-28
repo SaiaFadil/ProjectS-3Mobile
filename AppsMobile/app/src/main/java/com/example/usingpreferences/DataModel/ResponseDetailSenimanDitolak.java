@@ -2,8 +2,6 @@ package com.example.usingpreferences.DataModel;
 
 public class ResponseDetailSenimanDitolak {
 
-
-
     private int kode;
     private String pesan;
     private ModelDetailSenimanDitolak data;

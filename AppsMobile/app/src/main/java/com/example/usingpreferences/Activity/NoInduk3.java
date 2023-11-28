@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -22,6 +23,8 @@ import androidx.cardview.widget.CardView;
 import com.example.usingpreferences.API.APIRequestData;
 import com.example.usingpreferences.API.RetroServer;
 import com.example.usingpreferences.DataModel.KategoriSenimanModel;
+import com.example.usingpreferences.DataModel.getSingkatanModel;
+import com.example.usingpreferences.DataModel.getSingkatanResponse;
 import com.example.usingpreferences.R;
 
 import java.util.ArrayList;
@@ -32,7 +35,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class NoInduk3 extends AppCompatActivity {
+public class    NoInduk3 extends AppCompatActivity {
 
     private DatePickerDialog picker;
     private TextView tanggalinduk;
@@ -258,99 +261,99 @@ public class NoInduk3 extends AppCompatActivity {
 
         Button btnnext = findViewById(R.id.button_lanjutinduk);
         btnnext.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    boolean anyFieldEmpty = false;
+            @Override
+            public void onClick(View view) {
+                boolean anyFieldEmpty = false;
 
-                    if (editTextNIK.getText().toString().trim().equals("")) {
-                        editTextNIK.setError("Input Harus Diisi");
-                        editTextNIK.requestFocus();
-                        anyFieldEmpty = true;
-                    }
+                anyFieldEmpty |= validateField(editTextNIK, "Input Harus Diisi");
+                anyFieldEmpty |= validateField(editTextNamaLengkap, "Input Harus Diisi");
+                anyFieldEmpty |= validateSpinner(gender_spinner, "Pilih jenis kelamin");
+                anyFieldEmpty |= validateField(editTextTL, "Input Harus Diisi");
+                anyFieldEmpty |= validateField(tanggalinduk, "Input Harus Diisi");
+                anyFieldEmpty |= validateSpinner(kecamatan_spinner, "Pilih kecamatan");
+                anyFieldEmpty |= validateField(editTextAlamat, "Input Harus Diisi");
+                anyFieldEmpty |= validateField(editTextNOHP, "Input Harus Diisi");
+                anyFieldEmpty |= validateSpinner(tipeSeniman_spinner, "Pilih tipe seniman");
+                getSingkatan();
 
-                    if (editTextNamaLengkap.getText().toString().trim().equals("")) {
-                        editTextNamaLengkap.setError("Input Harus Diisi");
-                        editTextNamaLengkap.requestFocus();
-                        anyFieldEmpty = true;
-                    }
+                if (!anyFieldEmpty && !simpanSingkatannya.isEmpty()) {
+                    Intent intent = new Intent(NoInduk3.this, NoInduk4.class);
+                    intent.putExtra("nik", editTextNIK.getText().toString());
+                    intent.putExtra("nama_seniman", editTextNamaLengkap.getText().toString());
+                    intent.putExtra("jenis_kelamin", gender_spinner.getSelectedItem().toString());
+                    intent.putExtra("kecamatan", kecamatan_spinner.getSelectedItem().toString());
+                    intent.putExtra("nama_kategori_seniman", simpanSingkatannya);
+                    intent.putExtra("tempat_lahir", editTextTL.getText().toString());
+                    intent.putExtra("tanggal_lahir", tanggalinduk.getText().toString());
+                    intent.putExtra("alamat_seniman", editTextAlamat.getText().toString());
+                    intent.putExtra("no_telpon", editTextNOHP.getText().toString());
+                    intent.putExtra("nama_organisasi", editTextNamaOrganisasi.getText().toString());
+                    intent.putExtra("jumlah_anggota", editTextJmlAnggota.getText().toString());
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+                }
+            }
+        });
+    }
 
-                    if (gender_spinner.getSelectedItemPosition() == 0) {
-                        ((TextView) gender_spinner.getSelectedView()).setError("Pilih jenis kelamin");
-                        anyFieldEmpty = true;
-                    } else {
-                        ((TextView) gender_spinner.getSelectedView()).setError(null);
-                    }
-
-                    if (editTextTL.getText().toString().trim().equals("")) {
-                        editTextTL.setError("Input Harus Diisi");
-                        editTextTL.requestFocus();
-                        anyFieldEmpty = true;
-                    }
-
-                    if (tanggalinduk.getText().toString().trim().equals("")) {
-                        tanggalinduk.setError("Input Harus Diisi");
-                        tanggalinduk.requestFocus();
-                        anyFieldEmpty = true;
-                    }
-
-                    if (kecamatanSpinner.getSelectedItemPosition() == 0) {
-                        ((TextView) kecamatanSpinner.getSelectedView()).setError("Pilih kecamatan");
-                        anyFieldEmpty = true;
-                    } else {
-                        ((TextView) kecamatanSpinner.getSelectedView()).setError(null);
-                    }
-
-                    if (editTextAlamat.getText().toString().trim().equals("")) {
-                        editTextAlamat.setError("Input Harus Diisi");
-                        editTextAlamat.requestFocus();
-                        anyFieldEmpty = true;
-                    }
-
-                    if (editTextNOHP.getText().toString().trim().equals("")) {
-                        editTextNOHP.setError("Input Harus Diisi");
-                        editTextNOHP.requestFocus();
-                        anyFieldEmpty = true;
-                    }
-
-                    if (kategoriSenimanSpinner.getSelectedItemPosition() == 0) {
-                        ((TextView) kategoriSenimanSpinner.getSelectedView()).setError("Pilih tipe seniman");
-                        anyFieldEmpty = true;
-                    } else {
-                        ((TextView) kategoriSenimanSpinner.getSelectedView()).setError(null);
-                    }
-
-                    if (tipeSeniman_spinner.getSelectedItemPosition() == 0) {
-                        ((TextView) tipeSeniman_spinner.getSelectedView()).setError("Pilih tipe seniman");
-                        anyFieldEmpty = true;
-                    } else {
-                        ((TextView) tipeSeniman_spinner.getSelectedView()).setError(null);
-                    }
-
-                    if (anyFieldEmpty) {
-                        // Handle the case where there are empty fields
-                    } else {
-
-                        if (!anyFieldEmpty) {
-                            Intent intent = new Intent(NoInduk3.this, NoInduk4.class);
-                            intent.putExtra("nik", editTextNIK.getText().toString());
-                            intent.putExtra("nama_seniman", editTextNamaLengkap.getText().toString());
-                            intent.putExtra("jenis_kelamin", gender_spinner.getSelectedItem().toString());
-                            intent.putExtra("kecamatan", kecamatan_spinner.getSelectedItem().toString());
-                            intent.putExtra("nama_kategori_seniman", kategoriSenimanSpinner.getSelectedItem().toString());
-                            intent.putExtra("tempat_lahir", editTextTL.getText().toString());
-                            intent.putExtra("tanggal_lahir", tanggalinduk.getText().toString());
-                            intent.putExtra("alamat_seniman", editTextAlamat.getText().toString());
-                            intent.putExtra("no_telpon", editTextNOHP.getText().toString());
-                            intent.putExtra("nama_organisasi", editTextNamaOrganisasi.getText().toString());
-                            intent.putExtra("jumlah_anggota", editTextJmlAnggota.getText().toString());
-                            startActivity(intent);
-                            overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
-                        }
-
-                    }
-                    }
-    });
+    private boolean validateField(View view, String errorMessage) {
+        if (view instanceof EditText) {
+            EditText editText = (EditText) view;
+            if (editText.getText().toString().trim().isEmpty()) {
+                editText.setError(errorMessage);
+                editText.requestFocus();
+                return true;
+            } else {
+                editText.setError(null);
+                return false;
+            }
+        } else if (view instanceof TextView) {
+            TextView textView = (TextView) view;
+            if (textView.getText().toString().trim().isEmpty()) {
+                textView.setError(errorMessage);
+                textView.requestFocus();
+                return true;
+            } else {
+                textView.setError(null);
+                return false;
+            }
         }
+        return false;
+    }
+
+    private boolean validateSpinner(Spinner spinner, String errorMessage) {
+        if (spinner.getSelectedItemPosition() == 0) {
+            ((TextView) spinner.getSelectedView()).setError(errorMessage);
+            return true;
+        } else {
+            ((TextView) spinner.getSelectedView()).setError(null);
+            return false;
+        }
+    }
+    private String simpanSingkatannya = "";
+    private void getSingkatan(){
+        String teksNamaKategori = kategoriSenimanSpinner.getSelectedItem().toString();
+        APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
+        Call<getSingkatanResponse> getRespon = ardData.getSingkatan(teksNamaKategori);
+
+        getRespon.enqueue(
+                new Callback<getSingkatanResponse>() {
+                    @Override
+                    public void onResponse(Call<getSingkatanResponse> call, Response<getSingkatanResponse> response) {
+                        if (response.body().getKode() == 1){
+                            simpanSingkatannya = response.body().getdata();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<getSingkatanResponse> call, Throwable t) {
+
+                    }
+                }
+        );
+
+
+    }
     public void onBackPressed() {
         finish();
         overridePendingTransition(R.anim.layout_in, R.anim.layout_out);

@@ -30,7 +30,6 @@ public class GoogleUsers {
 
     public GoogleUsers(@NonNull FragmentActivity fragmentActivity){
 
-//        LogApp.info(this, LogTag.CONSTRUCTOR, "create " + this.getClass().getSimpleName());
         this.fragmentActivity = fragmentActivity;
 
         // konfigurasi untuk permintaan autentikasi google oauth
@@ -51,7 +50,7 @@ public class GoogleUsers {
                     .enableAutoManage(fragmentActivity, connectionResult -> {
                         // jika gagal
 //                        LogApp.error(this, LogTag.METHOD, fragmentActivity.getString(R.string.err_google_auth_connection));
-                        Toast.makeText(fragmentActivity.getApplicationContext(), "error", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(fragmentActivity.getApplicationContext(), "error", Toast.LENGTH_SHORT).show();
                     })
                     .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                     .build();

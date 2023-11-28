@@ -128,7 +128,7 @@
                         android:textColor="@color/black"
                         />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/editTextNIK"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -182,7 +182,6 @@
                         android:entries="@array/jenis_kelamin_array"
                         android:padding="8dp"
                         android:popupBackground="@color/gray" />
-
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -249,7 +248,6 @@
                             android:paddingTop="@dimen/_7sdp"
                             android:paddingBottom="@dimen/_7sdp"
                             android:textSize="@dimen/_10sdp"
-                            android:onClick="onButtonClick"
                             />
                     </LinearLayout>
 
@@ -270,6 +268,7 @@
                             android:id="@+id/kecamatan_spinner"
                             android:layout_width="@dimen/_150sdp"
                             android:layout_height="@dimen/_35sdp"
+                            android:entries="@array/kecamatan_array"
                             android:background="@drawable/bg_editext"
                             android:padding="8dp"
                             android:popupBackground="@color/gray" />
@@ -284,7 +283,7 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/_14ssp" />
 
-                    <EditText
+                    <TextView
                         android:paddingRight="@dimen/_10sdp"
                         android:background="@drawable/bg_editext"
                         android:id="@+id/editTextAlamat"
@@ -313,7 +312,7 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/_14ssp" />
 
-                    <EditText
+                    <TextView
                         android:paddingRight="@dimen/_10sdp"
                         android:background="@drawable/bg_editext"
                         android:id="@+id/editTextNOHP"
@@ -338,7 +337,7 @@
                         android:textSize="@dimen/_14ssp" />
 
                     <Spinner
-                        android:id="@+id/kategoriSeniman_spinner"
+                        android:id="@+id/kategoriSeniman_spinner_diterima"
                         android:layout_width="@dimen/_150sdp"
                         android:layout_height="@dimen/_35sdp"
                         android:background="@drawable/bg_editext"
@@ -354,10 +353,11 @@
                         android:textSize="@dimen/_14ssp" />
 
                     <Spinner
-                        android:id="@+id/tipeSeniman_spinner"
+                        android:id="@+id/tipeseniman_spinner"
                         android:layout_width="@dimen/_150sdp"
                         android:layout_height="@dimen/_35sdp"
                         android:background="@drawable/bg_editext"
+                        android:entries="@array/tipe_seniman_array"
                         android:padding="8dp"
                         android:popupBackground="@color/gray" />
 
@@ -381,7 +381,7 @@
                                 android:textSize="@dimen/_14ssp" />
 
 
-                            <EditText
+                            <TextView
                                 android:paddingRight="@dimen/_10sdp"
                                 android:background="@drawable/bg_editext"
                                 android:id="@+id/editTextNamaOrganisasi"
@@ -404,7 +404,7 @@
                                 android:text="Jumlah Anggota"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_13ssp" />
-                            <EditText
+                            <TextView
                                 android:paddingRight="@dimen/_10sdp"
                                 android:background="@drawable/bg_editext"
                                 android:id="@+id/editTextJmlAnggota"
@@ -421,7 +421,135 @@
                                 android:textSize="@dimen/_12sdp" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:text="Surat Keterangan Dari Desa"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_15ssp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/bg_editext"
+                        android:orientation="horizontal">
 
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/selectFileButton1"
+                            style="@style/Widget.MaterialComponents.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            app:cornerRadius="@dimen/_2sdp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="-5dp"
+                            android:layout_marginBottom="-5dp"
+                            android:backgroundTint="@color/greendark"
+                            android:text="Pilih File"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_11ssp" />
+
+                        <TextView
+                            android:id="@+id/textViewButton1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingEnd="@dimen/_11sdp"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:hint="Gambar berformat PNG, JPG, SVG"
+                            android:gravity="center|left"
+                            android:maxLines="1"
+                            android:textColor="@color/black"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:textSize="@dimen/_10ssp" />
+                        />
+
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:text="Foto Kartu Tanda Penduduk"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_15ssp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/bg_editext"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/selectFileButton2"
+                            style="@style/Widget.MaterialComponents.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="-5dp"
+                            android:layout_marginBottom="-5dp"
+                            android:backgroundTint="@color/greendark"
+                            android:text="Pilih File"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_11ssp"
+                            app:cornerRadius="@dimen/_2sdp" />
+
+                        <TextView
+                            android:id="@+id/textViewButton2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingEnd="@dimen/_11sdp"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:hint="Gambar berformat PNG, JPG, SVG"
+                            android:gravity="center|left"
+                            android:maxLines="1"
+                            android:textColor="@color/black"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:textSize="@dimen/_10ssp" />
+                        />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:text="Pass Foto"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_15ssp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/bg_editext"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/selectFileButton3"
+                            style="@style/Widget.MaterialComponents.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            app:cornerRadius="@dimen/_2sdp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="-5dp"
+                            android:layout_marginBottom="-5dp"
+                            android:backgroundTint="@color/greendark"
+                            android:text="Pilih File"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_11ssp" />
+
+                        <TextView
+                            android:id="@+id/textViewButton3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingEnd="@dimen/_11sdp"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:hint="Gambar berformat PNG, JPG, SVG"
+                            android:gravity="center|left"
+                            android:maxLines="1"
+                            android:textColor="@color/black"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:textSize="@dimen/_10ssp" />
+                    </LinearLayout>
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_30sdp"

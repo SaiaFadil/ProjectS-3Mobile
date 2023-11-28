@@ -24,25 +24,25 @@
     </string-array>
     <string-array name="kecamatan_array">
         <item>Pilih Kecamatan</item>
-        <item>Nganjuk</item>
-        <item>Ngetos</item>
-        <item>Berbek</item>
-        <item>Loceret</item>
-        <item>Pace</item>
-        <item>Prambon</item>
-        <item>Ngronggot</item>
-        <item>Kertosono</item>
-        <item>Patianrowo</item>
-        <item>Baron</item>
-        <item>Tanjunganom</item>
-        <item>Sukomoro</item>
-        <item>Bagor</item>
-        <item>Wilangan</item>
-        <item>Rejoso</item>
-        <item>Gondang</item>
-        <item>Ngluyu</item>
-        <item>Lengkong</item>
-        <item>Jatikalen</item>
+        <item>nganjuk</item>
+        <item>ngetos</item>
+        <item>berbek</item>
+        <item>loceret</item>
+        <item>pace</item>
+        <item>prambon</item>
+        <item>ngronggot</item>
+        <item>kertosono</item>
+        <item>patianrowo</item>
+        <item>baron</item>
+        <item>tanjunganom</item>
+        <item>sukomoro</item>
+        <item>bagor</item>
+        <item>wilangan</item>
+        <item>rejoso</item>
+        <item>gondang</item>
+        <item>ngluyu</item>
+        <item>lengkong</item>
+        <item>jatikalen</item>
     </string-array>
 
 

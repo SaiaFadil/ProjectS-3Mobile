@@ -5,8 +5,6 @@ public class ResponseDetailSenimanDiajukan {
     private int kode;
     private String pesan;
     private ModelDetailSenimanDiajukan data;
-
-
     public int getKode() {
         return kode;
     }

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".Activity.ActivityLihatKodeSurat">
+    tools:context=".Activity.ActivityLihatKodeSeniman">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -33,7 +33,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Kode Seniman"
+                        android:text="Nomor Induk Seniman"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginBottom="@dimen/_10sdp"
                         android:layout_gravity="center_horizontal"
@@ -44,7 +44,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Ini adalah kode Seniman !"
+                        android:text="Ini adalah Nomor Induk Seniman !"
                         android:layout_marginBottom="@dimen/_5sdp"
                         android:layout_gravity="center_horizontal"
                         android:textSize="@dimen/_10ssp"
@@ -54,28 +54,28 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/_10sdp"
-                        android:paddingRight="@dimen/_10sdp"
+                        android:paddingLeft="@dimen/_8sdp"
+                        android:paddingRight="@dimen/_8sdp"
                         android:gravity="center_horizontal"
                         android:layout_marginBottom="@dimen/_15sdp"
                         android:orientation="horizontal">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="ID"
+                            android:text="No Induk :"
                             android:layout_gravity="center_horizontal"
-                            android:textSize="@dimen/_18ssp"
+                            android:textSize="@dimen/_12ssp"
                             android:textColor="@color/black"
                             android:textStyle="bold"
                             android:layout_marginRight="@dimen/_5sdp"
                             android:fontFamily="@font/robotoblack"/>
                         <TextView
-                            android:id="@+id/tv_KodeSurat"
+                            android:id="@+id/tv_KodeSeniman"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="982002736627"
+                            android:text="......................................"
                             android:layout_gravity="center_horizontal"
-                            android:textSize="@dimen/_18ssp"
+                            android:textSize="@dimen/_12ssp"
                             android:textColor="@color/black"
                             android:textStyle="bold"
                             android:fontFamily="@font/robotoblack"/>
@@ -149,7 +149,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_2sdp"
                         android:fallbackLineSpacing="true"
-                        android:text="Kode surat tersebut dapat anda tunjukan kepada admin di kantor DISPORABUDPAR Kab. Nganjuk"
+                        android:text="Nomor Induk tersebut dapat anda tunjukan kepada admin di kantor DISPORABUDPAR Kab. Nganjuk"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
                 </TableRow>
@@ -252,7 +252,7 @@
             </TableLayout>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_okelihatsurat"
+                android:id="@+id/btn_okelihatseniman"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"

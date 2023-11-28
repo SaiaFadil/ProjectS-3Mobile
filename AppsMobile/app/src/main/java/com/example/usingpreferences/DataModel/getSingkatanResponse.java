@@ -5,7 +5,9 @@ import java.util.List;
 public class getSingkatanResponse {
     int kode;
     String pesan;
-    List<getSingkatanModel> data;
+    String data;
+
+//    List<getSingkatanModel> data;
 
     public int getKode() {
         return kode;
@@ -23,11 +25,19 @@ public class getSingkatanResponse {
         this.pesan = pesan;
     }
 
-    public List<getSingkatanModel> getData() {
+    public String getdata() {
         return data;
     }
 
-    public void setData(List<getSingkatanModel> data) {
+    public void setdata(String data) {
         this.data = data;
     }
 }
+//    public List<getSingkatanModel> getData() {
+//        return data;
+//    }
+//
+//    public void setData(List<getSingkatanModel> data) {
+//        this.data = data;
+//    }
+//}

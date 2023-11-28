@@ -1,7 +1,7 @@
 package com.example.usingpreferences.DataModel;
 
 public class ModelDetailSenimanDiajukan {
-    private String id_seniman ;
+    private String id_seniman;
     private String nik;
     private String nomor_induk;
     private String nama_seniman;
@@ -172,13 +172,6 @@ public class ModelDetailSenimanDiajukan {
         this.catatan = catatan;
     }
 
-    public String getId_user() {
-        return id_user;
-    }
-
-    public void setId_user(String id_user) {
-        this.id_user = id_user;
-    }
 
     private String no_telpon;
     private String nama_organisasi;
@@ -190,5 +183,4 @@ public class ModelDetailSenimanDiajukan {
     private String tgl_berlaku;
     private String status;
     private String catatan;
-    private String id_user ;
 }

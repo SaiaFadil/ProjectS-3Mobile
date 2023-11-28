@@ -408,11 +408,6 @@ public class NoInduk6 extends AppCompatActivity {
 
     //Send Data To Server
     private void sendDataToServer() {
-        PopupDialog.getInstance(this)
-                .setStyle(Styles.LOTTIE_ANIMATION)
-                .setLottieAssetName("technologies.json")
-                .setCancelable(false)
-                .showDialog();
 
         Intent intent = getIntent();
         // Get id_user dari SharedPreferences

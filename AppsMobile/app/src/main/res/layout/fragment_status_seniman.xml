@@ -35,7 +35,22 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="vertical">
-
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewStatusPerpanjanganDiajukan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewStatusPerpanjanganDiproses"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewStatusPerpanjanganDiterima"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewStatusPerpanjanganDitolak"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewStatusSenimanDiajukan"
                 android:layout_width="match_parent"

@@ -11,6 +11,7 @@ import android.text.InputFilter;
 import android.text.InputType;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -85,7 +86,7 @@ public class LoginActivity extends AppCompatActivity {
         InputFilter noWhiteSpaceFilter = new InputFilter() {
             @Override
             public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
-                String regex = "^[a-zA-Z0-9'.@]*";
+                String regex = "^[a-zA-Z0-9'.]*";
                 for (int i = start; i < end; i++) {
                     if (Character.isWhitespace(source.charAt(i))) {
                         return "";
@@ -212,64 +213,86 @@ public class LoginActivity extends AppCompatActivity {
 
         });
     }
+    private String emailgoogle = "";
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         SharedPreferences sharedPreferences = getSharedPreferences("prefLogin", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         googleUsers.onActivityResult(requestCode, resultCode, data);
-        APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
-        Call<ResponseModelUsers> getLoginResponse = ardData.google_login(googleUsers.getUserData().getEmail());
-        getLoginResponse.enqueue(new Callback<ResponseModelUsers>() {
-            @Override
-            public void onResponse(Call<ResponseModelUsers> call, Response<ResponseModelUsers> response) {
-                if (response.body().getKode() == 1) {
-                    // Simpan semua data pengguna ke SharedPreferences
-                    ModelUsers user = response.body().getData();
-                    editor.putString("id_user", String.valueOf(user.getId_user()));
-                    editor.putString("nama_lengkap", user.getNama_lengkap());
-                    editor.putString("no_telpon", user.getNo_telpon());
-                    editor.putString("jenis_kelamin", user.getJenis_kelamin());
-                    editor.putString("tanggal_lahir", user.getTanggal_lahir());
-                    editor.putString("tempat_lahir", user.getTempat_lahir());
-                    editor.putString("role", user.getRole());
-                    editor.putString("email", user.getEmail());
-                    editor.putString("password", user.getPassword());
-                    editor.putString("verifikasi", user.getVerifikasi());
-                    editor.apply();
-                    Intent pindah = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(pindah);
 
-                    overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+        // Periksa apakah objek GoogleSignInAccount tidak null sebelum mengakses getEmail()
+        if (googleUsers.isAccountSelected()) {
+            emailgoogle = googleUsers.getUserData().getEmail();
+//            Toast.makeText(this, "email = " + emailgoogle, Toast.LENGTH_SHORT).show();
 
-                    bersihkan();
+            // Lanjutkan dengan pemrosesan data dan panggilan API
+            APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
+            Call<ResponseModelUsers> getLoginResponse = ardData.google_login(googleUsers.getUserData().getEmail());
+            getLoginResponse.enqueue(new Callback<ResponseModelUsers>() {
+                @Override
+                public void onResponse(Call<ResponseModelUsers> call, Response<ResponseModelUsers> response) {
+                    // Handle respons dari panggilan API
+                    if (response.isSuccessful() && response.body() != null) {
+                        if (response.body().getKode() == 1) {
+                            // Simpan semua data pengguna ke SharedPreferences
+                            ModelUsers user = response.body().getData();
+                            editor.putString("id_user", String.valueOf(user.getId_user()));
+                            editor.putString("nama_lengkap", user.getNama_lengkap());
+                            editor.putString("no_telpon", user.getNo_telpon());
+                            editor.putString("jenis_kelamin", user.getJenis_kelamin());
+                            editor.putString("tanggal_lahir", user.getTanggal_lahir());
+                            editor.putString("tempat_lahir", user.getTempat_lahir());
+                            editor.putString("role", user.getRole());
+                            editor.putString("email", user.getEmail());
+                            editor.putString("password", user.getPassword());
+                            editor.putString("verifikasi", user.getVerifikasi());
+                            editor.apply();
 
-                } else if (response.body().getKode() == 2){
-                    Toast.makeText(getApplicationContext(), response.body().getPesan(), Toast.LENGTH_SHORT).show();
-                }else if (response.body().getKode() == 0){
-                    Intent pindah = new Intent(LoginActivity.this,RegisterActivity.class);
-                    startActivity(pindah);
-                    overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
-                    Toast.makeText(getApplicationContext(), response.body().getPesan(), Toast.LENGTH_SHORT).show();
+                            // Pindah ke aktivitas utama
+                            Intent pindah = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(pindah);
+                            overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
 
-                }else if (response.body().getKode() == 3){
-                    Toast.makeText(getApplicationContext(), response.body().getPesan(), Toast.LENGTH_SHORT).show();
+                            // Bersihkan formulir login
+                            bersihkan();
 
-                }else{
-                    Toast.makeText(LoginActivity.this, "Kesalahannn", Toast.LENGTH_SHORT).show();
+                        } else if (response.body().getKode() == 2) {
+                            Toast.makeText(getApplicationContext(), response.body().getPesan(), Toast.LENGTH_SHORT).show();
+                        } else if (response.body().getKode() == 0) {
+                            Intent pindah = new Intent(LoginActivity.this, RegisterActivity.class);
+                            startActivity(pindah);
+                            overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+//                            Toast.makeText(getApplicationContext(), response.body().getPesan(), Toast.LENGTH_SHORT).show();
+
+                        } else if (response.body().getKode() == 3) {
+                            Toast.makeText(getApplicationContext(), response.body().getPesan(), Toast.LENGTH_SHORT).show();
+
+                        } else {
+                            Toast.makeText(LoginActivity.this, "Kesalahan", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        // Tangani kesalahan respons dari panggilan API
+                        Toast.makeText(LoginActivity.this, "Kesalahan dalam memproses respons API", Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<ResponseModelUsers> call, Throwable t) {
-                t.printStackTrace();
-                showAlertDialog();
-                tekserror.setVisibility(View.VISIBLE);
-                tekserror.setText(t.getMessage());
-            }
-        });
+                @Override
+                public void onFailure(Call<ResponseModelUsers> call, Throwable t) {
+                    t.printStackTrace();
+                    showAlertDialog();
+                    tekserror.setVisibility(View.VISIBLE);
+                    tekserror.setText(t.getMessage());
+                }
+            });
+
+        } else {
+            // Objek GoogleSignInAccount null, tidak ada aksi lebih lanjut
+            Log.e("LoginActivity", "Error: GoogleSignInAccount is null");
+        }
     }
+
 
 
 

@@ -51,10 +51,7 @@ public class FormAdvisDiajukan extends AppCompatActivity {
         et_lokasiadvis = findViewById(R.id.et_lokasiadvis);
         mDataSemua = findViewById(R.id.layoutData);
         mFrameLayout = findViewById(R.id.shimmer_view_detail);
-
         fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.tampil_data_sshimer);
-
-
         progressDialog = new ProgressDialog(FormAdvisDiajukan.this);
         progressDialog.setTitle("Data Sedang Diproses...");
         progressDialog.setMessage("Mohon Tunggu...");
@@ -246,7 +243,7 @@ public class FormAdvisDiajukan extends AppCompatActivity {
         mFrameLayout.startShimmer();
         mDataSemua.setVisibility(View.GONE);
         APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
-        Call<ResponseDetailAdvisDiajukan> getDetail = ardData.getDetailAdvisDiajukan(getIntent().getStringExtra("id_advis"));
+         Call<ResponseDetailAdvisDiajukan> getDetail = ardData.getDetailAdvisDiajukan(getIntent().getStringExtra("id_advis"));
         getDetail.enqueue(new Callback<ResponseDetailAdvisDiajukan>() {
             @Override
             public void onResponse(Call<ResponseDetailAdvisDiajukan> call, Response<ResponseDetailAdvisDiajukan> response) {

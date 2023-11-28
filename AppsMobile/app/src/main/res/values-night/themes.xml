@@ -4,10 +4,6 @@
         <!-- Customize your light theme here. -->
         <item name="colorPrimary">@color/greendark</item>
     </style>
-  <style name="SplashScreen" parent="Theme.Material3.Light.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <item name="colorPrimary">@color/greendark</item>
-    </style>
 
     <style name="Theme.UsingPreferences" parent="Base.Theme.UsingPreferences"
         />

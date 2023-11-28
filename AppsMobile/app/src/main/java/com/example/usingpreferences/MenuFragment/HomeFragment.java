@@ -53,7 +53,8 @@ public class HomeFragment extends Fragment {
     private ProgressBar progressBar;
     TextView tv_namauser, tv_namausertengah, textpemberitahuanlayanan, tv_eventTerkini;
     private Animation fadeIn, fadeIndown, layoutdown, layoutin;
-    CardView cardviewatas, cardviewtengah, cardizin, cardevent, cardpinjam, cardinduk;
+    CardView cardviewatas, cardviewtengah, cardizin, cardevent, cardpinjam;
+    public static CardView cardinduk;
     ScrollView scrollView;
     private TextView petanganjukteks;
     MaterialCardView card1;

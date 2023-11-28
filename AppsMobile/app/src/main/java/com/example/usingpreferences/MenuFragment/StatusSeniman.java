@@ -18,14 +18,26 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.usingpreferences.API.APIRequestData;
 import com.example.usingpreferences.API.RetroServer;
+import com.example.usingpreferences.Adapter.StatusPerpanjanganDiajukanAdapter;
+import com.example.usingpreferences.Adapter.StatusPerpanjanganDiprosesAdapter;
+import com.example.usingpreferences.Adapter.StatusPerpanjanganDiterimaAdapter;
+import com.example.usingpreferences.Adapter.StatusPerpanjanganDitolakAdapter;
 import com.example.usingpreferences.Adapter.StatusSenimanDiajukanAdapter;
 import com.example.usingpreferences.Adapter.StatusSenimanDiprosesAdapter;
 import com.example.usingpreferences.Adapter.StatusSenimanDiterimaAdapter;
 import com.example.usingpreferences.Adapter.StatusSenimanDitolakAdapter;
+import com.example.usingpreferences.DataModel.ModelStatusPerpanjanganDiajukan;
+import com.example.usingpreferences.DataModel.ModelStatusPerpanjanganDiproses;
+import com.example.usingpreferences.DataModel.ModelStatusPerpanjanganDiterima;
+import com.example.usingpreferences.DataModel.ModelStatusPerpanjanganDitolak;
 import com.example.usingpreferences.DataModel.ModelStatusSenimanDiajukan;
 import com.example.usingpreferences.DataModel.ModelStatusSenimanDiproses;
 import com.example.usingpreferences.DataModel.ModelStatusSenimanDiterima;
 import com.example.usingpreferences.DataModel.ModelStatusSenimanDitolak;
+import com.example.usingpreferences.DataModel.ResponseStatusPerpanjanganDiajukan;
+import com.example.usingpreferences.DataModel.ResponseStatusPerpanjanganDiproses;
+import com.example.usingpreferences.DataModel.ResponseStatusPerpanjanganDiterima;
+import com.example.usingpreferences.DataModel.ResponseStatusPerpanjanganDitolak;
 import com.example.usingpreferences.DataModel.ResponseStatusSenimanDiajukan;
 import com.example.usingpreferences.DataModel.ResponseStatusSenimanDiproses;
 import com.example.usingpreferences.DataModel.ResponseStatusSenimanDiterima;
@@ -44,16 +56,19 @@ public class StatusSeniman extends Fragment {
 
     public static ShimmerFrameLayout mFrameLayout;
     public LinearLayout mDataSemua;
-    private RecyclerView recviewdiajukan, recviewdiproses, recviewditolak, recviewditerima;
+    private RecyclerView recviewperpanjangandiajukan,recviewperpanjangandiproses,recviewperpanjanganditerima,recviewperpanjanganditolak, recviewdiajukan, recviewdiproses, recviewditolak, recviewditerima;
     private StatusSenimanDiajukanAdapter adapterdiajukan;
     private StatusSenimanDiprosesAdapter adapterdiproses;
     private StatusSenimanDitolakAdapter adapterditolak;
     private StatusSenimanDiterimaAdapter adapterditerima;
+    private StatusPerpanjanganDiajukanAdapter adapterperpanjangandiajukan;
+    private StatusPerpanjanganDiprosesAdapter adapterperpanjangandiproses;
+    private StatusPerpanjanganDiterimaAdapter adapterperpanjanganditerima;
+    private StatusPerpanjanganDitolakAdapter adapterperpanjanganditolak;
+
+
     public static Animation fadeIn;
     private View view;
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -72,8 +87,6 @@ public class StatusSeniman extends Fragment {
     }
 
     public static Handler handler = new Handler();
-
-
 
     public void TampilStatus(){
 
@@ -185,10 +198,135 @@ public class StatusSeniman extends Fragment {
             public void onFailure(Call<ResponseStatusSenimanDiterima> call, Throwable t) {
             }
         });
-//ini akhir recview diterima
+        //ini akhir recview perpanjangan diterima
+        recviewperpanjangandiajukan = view.findViewById(R.id.recyclerViewStatusPerpanjanganDiajukan);
+        recviewperpanjangandiajukan.setLayoutManager(new LinearLayoutManager(requireContext()));
+        Call<ResponseStatusPerpanjanganDiajukan> callperpanjangandiajukan = ardData.getStatusPerpanjanganDiajukan(id_user);
+        callperpanjangandiajukan.enqueue(new Callback<ResponseStatusPerpanjanganDiajukan>() {
+            @Override
+            public void onResponse(Call<ResponseStatusPerpanjanganDiajukan> call, Response<ResponseStatusPerpanjanganDiajukan> response) {
+                if (response.isSuccessful()) {
+                    ResponseStatusPerpanjanganDiajukan responseModel = response.body();
+                    List<ModelStatusPerpanjanganDiajukan> data = responseModel.getData();
+                    adapterperpanjangandiajukan = new StatusPerpanjanganDiajukanAdapter(data);
+                    if (adapterperpanjangandiajukan == null){
+                        mFrameLayout.startShimmer();
+                    }else {
+                        mFrameLayout.setVisibility(View.GONE);
+                        mFrameLayout.stopShimmer();
+                        mDataSemua.startAnimation(fadeIn);
+                    }
+                    recviewperpanjangandiajukan.setAdapter(adapterperpanjangandiajukan);
 
+                } else {
+                    Toast.makeText(getContext(), "error " + response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
 
+            @Override
+            public void onFailure(Call<ResponseStatusPerpanjanganDiajukan> call, Throwable t) {
+                Toast.makeText(getContext(), "Kesalahan Pada Server\nHarap Periksa Koneksi Anda", Toast.LENGTH_SHORT).show();
+            }
+        });
+        //ini awal recview diproses perpanjangan
+
+        recviewperpanjangandiproses = view.findViewById(R.id.recyclerViewStatusPerpanjanganDiproses);
+        recviewperpanjangandiproses.setLayoutManager(new LinearLayoutManager(requireContext()));
+        Call<ResponseStatusPerpanjanganDiproses> callperpanjangandiproses = ardData.getStatusPerpanjanganDiproses(id_user);
+        callperpanjangandiproses.enqueue(new Callback<ResponseStatusPerpanjanganDiproses>() {
+            @Override
+            public void onResponse(Call<ResponseStatusPerpanjanganDiproses> call, Response<ResponseStatusPerpanjanganDiproses> response) {
+                if (response.isSuccessful()) {
+                    ResponseStatusPerpanjanganDiproses responseModel = response.body();
+                    List<ModelStatusPerpanjanganDiproses> data = responseModel.getData();
+                    adapterperpanjangandiproses = new StatusPerpanjanganDiprosesAdapter(data);
+                    if (adapterperpanjangandiproses == null){
+                        mFrameLayout.startShimmer();
+                    }else {
+                        mFrameLayout.setVisibility(View.GONE);
+                        mFrameLayout.stopShimmer();
+                        mDataSemua.startAnimation(fadeIn);
+                    }
+                    recviewperpanjangandiproses.setAdapter(adapterperpanjangandiproses);
+
+                } else {
+                    Toast.makeText(getContext(), "error " + response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseStatusPerpanjanganDiproses> call, Throwable t) {
+                Toast.makeText(getContext(), "Kesalahan Pada Server\nHarap Periksa Koneksi Anda", Toast.LENGTH_SHORT).show();
+            }
+        });
+        //ini akhir recview perpanjangan diproses
+
+        //ini awal recview diterima perpanjangan
+
+        recviewperpanjanganditerima = view.findViewById(R.id.recyclerViewStatusPerpanjanganDiterima);
+        recviewperpanjanganditerima.setLayoutManager(new LinearLayoutManager(requireContext()));
+        Call<ResponseStatusPerpanjanganDiterima> callperpanjanganditerima = ardData.getStatusPerpanjanganDiterima(id_user);
+        callperpanjanganditerima.enqueue(new Callback<ResponseStatusPerpanjanganDiterima>() {
+            @Override
+            public void onResponse(Call<ResponseStatusPerpanjanganDiterima> call, Response<ResponseStatusPerpanjanganDiterima> response) {
+                if (response.isSuccessful()) {
+                    ResponseStatusPerpanjanganDiterima responseModel = response.body();
+                    List<ModelStatusPerpanjanganDiterima> data = responseModel.getData();
+                    adapterperpanjanganditerima = new StatusPerpanjanganDiterimaAdapter(data);
+                    if (adapterperpanjanganditerima == null){
+                        mFrameLayout.startShimmer();
+                    }else {
+                        mFrameLayout.setVisibility(View.GONE);
+                        mFrameLayout.stopShimmer();
+                        mDataSemua.startAnimation(fadeIn);
+                    }
+                    recviewperpanjanganditerima.setAdapter(adapterperpanjanganditerima);
+
+                } else {
+                    Toast.makeText(getContext(), "error " + response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseStatusPerpanjanganDiterima> call, Throwable t) {
+                Toast.makeText(getContext(), "Kesalahan Pada Server\nHarap Periksa Koneksi Anda", Toast.LENGTH_SHORT).show();
+            }
+        });
+//ini akhir recview perpanjangan diterima
+        //ini awal recview Ditolak perpanjangan
+
+        recviewperpanjanganditolak = view.findViewById(R.id.recyclerViewStatusPerpanjanganDitolak);
+        recviewperpanjanganditolak.setLayoutManager(new LinearLayoutManager(requireContext()));
+        Call<ResponseStatusPerpanjanganDitolak> callperpanjanganDitolak = ardData.getStatusPerpanjanganDitolak(id_user);
+        callperpanjanganDitolak.enqueue(new Callback<ResponseStatusPerpanjanganDitolak>() {
+            @Override
+            public void onResponse(Call<ResponseStatusPerpanjanganDitolak> call, Response<ResponseStatusPerpanjanganDitolak> response) {
+                if (response.isSuccessful()) {
+                    ResponseStatusPerpanjanganDitolak responseModel = response.body();
+                    List<ModelStatusPerpanjanganDitolak> data = responseModel.getData();
+                    adapterperpanjanganditolak = new StatusPerpanjanganDitolakAdapter(data);
+                    if (adapterperpanjanganditolak == null){
+                        mFrameLayout.startShimmer();
+                    }else {
+                        mFrameLayout.setVisibility(View.GONE);
+                        mFrameLayout.stopShimmer();
+                        mDataSemua.startAnimation(fadeIn);
+                    }
+                    recviewperpanjanganditolak.setAdapter(adapterperpanjanganditolak);
+
+                } else {
+                    Toast.makeText(getContext(), "error " + response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseStatusPerpanjanganDitolak> call, Throwable t) {
+                Toast.makeText(getContext(), "Kesalahan Pada Server\nHarap Periksa Koneksi Anda", Toast.LENGTH_SHORT).show();
+            }
+        });
+//ini akhir recview perpanjangan Ditolak
     }
+
 
 
 

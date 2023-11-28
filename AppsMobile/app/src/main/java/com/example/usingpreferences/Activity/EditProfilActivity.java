@@ -97,12 +97,6 @@ public class EditProfilActivity extends AppCompatActivity {
             public void afterTextChanged(Editable editable) {
             }
         };
-
-
-
-
-
-
         nama_lengkap.addTextChangedListener(textWatcher);
         no_telpon.addTextChangedListener(textWatcher);
         tempat_lahir.addTextChangedListener(textWatcher);

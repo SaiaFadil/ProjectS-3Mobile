@@ -42,10 +42,10 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_16ssp" />
 
-<!--            <ImageView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="@dimen/_170sdp"-->
-<!--                android:src="@drawable/anim3" />-->
+            <!--            <ImageView-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="@dimen/_170sdp"-->
+            <!--                android:src="@drawable/anim3" />-->
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"

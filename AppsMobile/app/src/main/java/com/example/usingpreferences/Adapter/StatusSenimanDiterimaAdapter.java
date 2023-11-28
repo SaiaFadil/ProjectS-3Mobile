@@ -1,5 +1,6 @@
 package com.example.usingpreferences.Adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.usingpreferences.Activity.FormSenimanDiproses;
+import com.example.usingpreferences.Activity.FormSenimanDiterima;
+import com.example.usingpreferences.DataModel.ModelStatusSenimanDiproses;
 import com.example.usingpreferences.DataModel.ModelStatusSenimanDiterima;
 import com.example.usingpreferences.R;
 
@@ -35,31 +39,30 @@ public class StatusSenimanDiterimaAdapter extends RecyclerView.Adapter<StatusSen
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull StatusSenimanDiterimaAdapter.ViewHolder holder, int position) {
+
         ModelStatusSenimanDiterima item = data.get(position);
 
         holder.idSenimanTextView.setText(item.getId_seniman());
-        holder.tglSenimanTextView.setText(item.getTgl_pembuatan());
+        holder.tglSenimanTextView.setText(item.getTgl_berlaku());
         holder.namaSenimanTextView.setText(item.getNama_seniman());
 
-//ngisor ki gae ketika di klik dia akan nyimpen data ne buat di tampilne nde layout lanjut an e
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Data dari item yang diklik
-//                String idSeniman = item.getId_seniman();
-//                String tglSeniman = item.getTgl_pembuatan();
-//                String namaSeniman = item.getNama_seniman();
-//
-//                // Kirim data ke aktivitas selanjutnya
-//                Intent intent = new Intent(v.getContext(), FormSenimanDiterima.class);
-//                intent.putExtra("id_Seniman", idSeniman);
-//                intent.putExtra("tgl_Seniman", tglSeniman);
-//                intent.putExtra("nama_Seniman", namaSeniman);
-//                v.getContext().startActivity(intent);
-//            }
-//        });
-//selesai ne
+        //ngisor ki gae ketika di klik dia akan nyimpen data ne buat di tampilne nde layout lanjut an e
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Data dari item yang diklik
+                String idSeniman = item.getId_seniman();
+
+                // Kirim data ke aktivitas selanjutnya
+                Intent intent = new Intent(v.getContext(), FormSenimanDiterima.class);
+                intent.putExtra("id_seniman", idSeniman);
+                v.getContext().startActivity(intent);
+            }
+        });
+//selesai
+
+
 
 
     }
