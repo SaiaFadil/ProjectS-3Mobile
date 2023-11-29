@@ -30,10 +30,23 @@
             android:name=".Activity.FormPerpanjanganDiajukan"
             android:exported="false" />
         <activity
+            android:name=".Activity.FormPerpanjanganDitolak"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.FormPerpanjanganDiproses"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.FormPerpanjanganDiterima"
+            android:exported="false" />
+
+        <activity
             android:name=".Activity.FormSenimanDiajukan"
             android:exported="false" />
         <activity
             android:name=".Activity.ActivityLihatKodeSeniman"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ActivityLihatKodePerpanjangan"
             android:exported="false" />
 
         <activity

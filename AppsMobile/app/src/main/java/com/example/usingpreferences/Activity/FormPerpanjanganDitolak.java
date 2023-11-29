@@ -2,60 +2,42 @@ package com.example.usingpreferences.Activity;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
-import android.text.Editable;
 import android.text.InputFilter;
 import android.text.Spanned;
-import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.util.JsonReader;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.webkit.MimeTypeMap;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
 import com.example.usingpreferences.API.APIRequestData;
 import com.example.usingpreferences.API.RetroServer;
-import com.example.usingpreferences.DataModel.KategoriSenimanModel;
 import com.example.usingpreferences.DataModel.ModelDetailPerpanjanganDiajukan;
-import com.example.usingpreferences.DataModel.ModelDetailSenimanDiajukan;
-import com.example.usingpreferences.DataModel.PerpanjanganResponse;
+import com.example.usingpreferences.DataModel.ModelDetailPerpanjanganDitolak;
 import com.example.usingpreferences.DataModel.ResponseDetailPerpanjanganDiajukan;
-import com.example.usingpreferences.DataModel.ResponseDetailSenimanDiajukan;
-import com.example.usingpreferences.DataModel.ResponsesetKategoriOnSpinner;
-import com.example.usingpreferences.DataModel.getSingkatanResponse;
-import com.example.usingpreferences.KonfirmMenu.PengajuanBerhasilTerkirim;
+import com.example.usingpreferences.DataModel.ResponseDetailPerpanjanganDitolak;
 import com.example.usingpreferences.R;
 import com.facebook.shimmer.ShimmerFrameLayout;
-import com.google.gson.Gson;
 import com.saadahmedsoft.popupdialog.PopupDialog;
 import com.saadahmedsoft.popupdialog.Styles;
 import com.saadahmedsoft.popupdialog.listener.OnDialogButtonClickListener;
@@ -64,14 +46,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -80,11 +54,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class FormPerpanjanganDiajukan extends AppCompatActivity {
-    private TextView textViewButton1, textViewButton2, textViewButton3, editTextNoInduk, editTextNIK, editTextNamaLengkap;
+public class FormPerpanjanganDitolak extends AppCompatActivity {
+    private TextView textViewButton1, textViewButton2, textViewButton3, editTextNoInduk, editTextNIK, editTextNamaLengkap, catatanDitolakseniman;
     private static final int REQUEST_CODE_SELECT_PDF = 1;
     private static final int REQUEST_CODE_SELECT_IMAGE = 2;
-    private Button editdiajukan, batalkandiajukan;
+    private Button ajukanulang;
     private ProgressDialog progressDialog;
     public static ShimmerFrameLayout mFrameLayout;
     public LinearLayout mDataSemua;
@@ -96,20 +70,21 @@ public class FormPerpanjanganDiajukan extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form_perpanjangan_diajukan);
+        setContentView(R.layout.activity_form_perpanjangan_ditolak);
         overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
         editTextNIK = findViewById(R.id.editTextNIK);
         editTextNamaLengkap = findViewById(R.id.editTextNamaLengkap);
+        catatanDitolakseniman = findViewById(R.id.catatanDitolakseniman);
         editTextNoInduk = findViewById(R.id.noinduk);
         textViewButton1 = findViewById(R.id.textViewButton1);
         textViewButton2 = findViewById(R.id.textViewButton2);
         textViewButton3 = findViewById(R.id.textViewButton3);
-        editdiajukan = findViewById(R.id.editdiajukan);
+        ajukanulang = findViewById(R.id.ajukanulang);
         mDataSemua = findViewById(R.id.layoutData);
         mFrameLayout = findViewById(R.id.shimmer_view_detail);
         fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.tampil_data_sshimer);
         showData();
-        progressDialog = new ProgressDialog(FormPerpanjanganDiajukan.this);
+        progressDialog = new ProgressDialog(FormPerpanjanganDitolak.this);
         progressDialog.setTitle("Data Sedang Diproses...");
         progressDialog.setMessage("Mohon Tunggu...");
         progressDialog.setIcon(R.drawable.logonganjuk);
@@ -133,64 +108,11 @@ public class FormPerpanjanganDiajukan extends AppCompatActivity {
                 overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
             }
         });
-        batalkandiajukan = findViewById(R.id.batalkandiajukan);
-        batalkandiajukan.setOnClickListener(new View.OnClickListener() {
+
+        ajukanulang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PopupDialog.getInstance(FormPerpanjanganDiajukan.this)
-                        .setStyle(Styles.IOS)
-                        .setHeading("Batalkan Pengajuan?")
-                        .setDescription("Apakah Anda Ingin Membatalkan Pengajuan Yang Telah Terkirim??")
-                        .setCancelable(false)
-                        .setPositiveButtonText("Ya")
-                        .setNegativeButtonText("Tidak")
-                        .setPositiveButtonTextColor(R.color.greendark)
-                        .setNegativeButtonTextColor(R.color.greendark)
-                        .showDialog(new OnDialogButtonClickListener() {
-                            @Override
-                            public void onPositiveClicked(Dialog dialog) {
-                                super.onPositiveClicked(dialog);
-                                progressDialog.show();
-                                String id_perpanjangan = getIntent().getStringExtra("id_perpanjangan");
-                                APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
-                                Call<ResponseDetailPerpanjanganDiajukan> getResponse = ardData.hapusPerpanjanganDiajukan(id_perpanjangan);
-                                getResponse.enqueue(new Callback<ResponseDetailPerpanjanganDiajukan>() {
-                                    @Override
-                                    public void onResponse(Call<ResponseDetailPerpanjanganDiajukan> call, Response<ResponseDetailPerpanjanganDiajukan> response) {
-                                        if (response.body().getKode() == 1) {
-                                            new Handler().postDelayed(new Runnable() {
-                                                @Override
-                                                public void run() {
-                                                    Intent intent = new Intent(FormPerpanjanganDiajukan.this, MainActivity.class).putExtra(MainActivity.FRAGMENT, R.layout.fragment_status);
-                                                    startActivity(intent);
-                                                    overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
-                                                }
-                                            }, 3000);
-                                        } else {
-                                            System.out.println(response.body().getPesan());
-                                        }
-                                    }
 
-                                    @Override
-                                    public void onFailure(Call<ResponseDetailPerpanjanganDiajukan> call, Throwable t) {
-                                        progressDialog.dismiss();
-                                        showAlertDialog();
-                                    }
-                                });
-                            }
-
-                            @Override
-                            public void onNegativeClicked(Dialog dialog) {
-                                super.onNegativeClicked(dialog);
-                                dialog.dismiss();
-
-                            }
-                        });
-            }
-        });
-        editdiajukan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 // Persiapkan berkas gambar KTP Seniman, dokumen Surat Keterangan, dan gambar Pass Foto
                 String id_perpanjangan = getIntent().getStringExtra("id_perpanjangan");
                 File suratKeteranganFile = new File(textViewButton1.getText().toString());
@@ -213,6 +135,7 @@ public class FormPerpanjanganDiajukan extends AppCompatActivity {
                     ktpSenimanPart = MultipartBody.Part.createFormData("ktp_seniman", ktpSenimanFile.getName(), requestFileKtpSeniman);
                 }
 
+
                 RequestBody requestFilePassFoto = null;
                 MultipartBody.Part passFotoPart = null;
                 if (pathPasFoto != null) {
@@ -222,61 +145,55 @@ public class FormPerpanjanganDiajukan extends AppCompatActivity {
 
                 // Mengirim data dan berkas ke server
                 APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
-                Call<ResponseDetailPerpanjanganDiajukan> getResponse = ardData.sendPerpanjanganData(id_perpanjangan,"diajukan", suratKeteranganPart, ktpSenimanPart, passFotoPart);
-                getResponse.enqueue(new Callback<ResponseDetailPerpanjanganDiajukan>() {
+                Call<ResponseDetailPerpanjanganDitolak> getResponse = ardData.sendPerpanjanganDataditolak(id_perpanjangan,"diajukan", suratKeteranganPart, ktpSenimanPart, passFotoPart);
+                getResponse.enqueue(new Callback<ResponseDetailPerpanjanganDitolak>() {
                     @Override
-                    public void onResponse(Call<ResponseDetailPerpanjanganDiajukan> call, Response<ResponseDetailPerpanjanganDiajukan> response) {
+                    public void onResponse(Call<ResponseDetailPerpanjanganDitolak> call, Response<ResponseDetailPerpanjanganDitolak> response) {
                         if (response.isSuccessful() && response.body() != null) {
-                            try {
-                                // Konfigurasi JsonReader untuk menerima JSON yang tidak sempurna
-                                JsonReader jsonReader = response.raw().newBuilder();
-                                jsonReader.setLenient(true);
+                            ResponseDetailPerpanjanganDitolak perpanjanganResponse = response.body();
 
-                                // Parsing JSON menggunakan Gson dengan JsonReader yang telah dikonfigurasi
-                                ResponseDetailPerpanjanganDiajukan perpanjanganResponse = new Gson().fromJson(jsonReader, ResponseDetailPerpanjanganDiajukan.class);
-
-                                // Periksa status dari respons server
-                                if (response.body().getKode() == 1) {
-                                    startActivity(new Intent(FormPerpanjanganDiajukan.this, MainActivity.class).putExtra(MainActivity.FRAGMENT, R.layout.fragment_status));
-                                } else {
-                                    // Menampilkan pesan kesalahan dari server
-                                    startActivity(new Intent(FormPerpanjanganDiajukan.this, MainActivity.class).putExtra(MainActivity.FRAGMENT, R.layout.fragment_status));
-                                    showCustomErrorDialog("Uh-Oh", perpanjanganResponse.getPesan());
-                                    Toast.makeText(FormPerpanjanganDiajukan.this, "Toast1", Toast.LENGTH_SHORT).show();
-                                }
-
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                                // Menampilkan pesan kesalahan jika ada masalah dalam parsing JSON
-                                // ...
+                            // Periksa status dari respons server
+                            if (response.body().getKode() == 1) {
+                                startActivity(new Intent(FormPerpanjanganDitolak.this, MainActivity.class).putExtra(MainActivity.FRAGMENT, R.layout.fragment_status));
+                            } else {
+                                // Menampilkan pesan kesalahan dari server
+                                startActivity(new Intent(FormPerpanjanganDitolak.this, MainActivity.class).putExtra(MainActivity.FRAGMENT, R.layout.fragment_status));
+                                showCustomErrorDialog("Uh-Oh", perpanjanganResponse.getPesan());
+                                Toast.makeText(FormPerpanjanganDitolak.this, "Toast1", Toast.LENGTH_SHORT).show();
                             }
                         } else {
                             // Menampilkan pesan kesalahan jika respons tidak berhasil
-                            startActivity(new Intent(YourActivity.this, MainActivity.class).putExtra(MainActivity.FRAGMENT, R.layout.fragment_status));
+                            startActivity(new Intent(FormPerpanjanganDitolak.this, MainActivity.class).putExtra(MainActivity.FRAGMENT, R.layout.fragment_status));
                             showCustomErrorDialog("Uh-Oh", "Terjadi kesalahan. Silakan coba lagi.");
-                            Toast.makeText(YourActivity.this, "Toast2", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(FormPerpanjanganDitolak.this, "Toast2", Toast.LENGTH_SHORT).show();
+
                         }
                     }
+
                     @Override
-                    public void onFailure(Call<ResponseDetailPerpanjanganDiajukan> call, Throwable t) {
+                    public void onFailure(Call<ResponseDetailPerpanjanganDitolak> call, Throwable t) {
                         // Menampilkan pesan kesalahan ketika gagal melakukan permintaan jaringan
                         Log.e("Pailur",t.getMessage());
 //                        startActivity(new Intent(FormPerpanjanganDiajukan.this, MainActivity.class).putExtra(MainActivity.FRAGMENT, R.layout.fragment_status));
+
                     }
+
                 });
+
             }
+
         });
     }
         private void showData () {
             mFrameLayout.startShimmer();
             mDataSemua.setVisibility(View.GONE);
             APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
-            Call<ResponseDetailPerpanjanganDiajukan> getDetail = ardData.getDetailPerpanjanganDiajukan(getIntent().getStringExtra("id_perpanjangan"));
-            getDetail.enqueue(new Callback<ResponseDetailPerpanjanganDiajukan>() {
+            Call<ResponseDetailPerpanjanganDitolak> getDetail = ardData.getDetailPerpanjanganDitolak(getIntent().getStringExtra("id_perpanjangan"));
+            getDetail.enqueue(new Callback<ResponseDetailPerpanjanganDitolak>() {
                 @Override
-                public void onResponse(Call<ResponseDetailPerpanjanganDiajukan> call, Response<ResponseDetailPerpanjanganDiajukan> response) {
+                public void onResponse(Call<ResponseDetailPerpanjanganDitolak> call, Response<ResponseDetailPerpanjanganDitolak> response) {
                     if (response.body().getKode() == 1) {
-                        ModelDetailPerpanjanganDiajukan ambildata = response.body().getData();
+                        ModelDetailPerpanjanganDitolak ambildata = response.body().getData();
                         if (ambildata.getId_perpanjangan().isEmpty()) {
                             mFrameLayout.startShimmer();
                             mDataSemua.setVisibility(View.GONE);
@@ -286,6 +203,7 @@ public class FormPerpanjanganDiajukan extends AppCompatActivity {
                             mDataSemua.setVisibility(View.VISIBLE);
                             mDataSemua.startAnimation(fadeIn);
                         }
+                        catatanDitolakseniman.setText(ambildata.getCatatan());
                         editTextNIK.setText(ambildata.getNik());
                         editTextNamaLengkap.setText(ambildata.getNama_seniman());
                         editTextNoInduk.setText(ambildata.getNomor_induk());
@@ -293,14 +211,14 @@ public class FormPerpanjanganDiajukan extends AppCompatActivity {
                         textViewButton2.setText(removeUploadPath(ambildata.getKtp_seniman()));
                         textViewButton3.setText(removeUploadPath(ambildata.getPass_foto()));
                     } else if (response.body().getKode() == 0) {
-                        Toast.makeText(FormPerpanjanganDiajukan.this, response.body().getPesan(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(FormPerpanjanganDitolak.this, response.body().getPesan(), Toast.LENGTH_SHORT).show();
                     } else if (response.body().getKode() == 2) {
-                        Toast.makeText(FormPerpanjanganDiajukan.this, response.body().getPesan(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(FormPerpanjanganDitolak.this, response.body().getPesan(), Toast.LENGTH_SHORT).show();
                     }
                 }
 
                 @Override
-                public void onFailure(Call<ResponseDetailPerpanjanganDiajukan> call, Throwable t) {
+                public void onFailure(Call<ResponseDetailPerpanjanganDitolak> call, Throwable t) {
                     t.printStackTrace();
                     showAlertDialog();
                 }
@@ -325,7 +243,7 @@ public class FormPerpanjanganDiajukan extends AppCompatActivity {
     }
 
     private void showAlertDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(FormPerpanjanganDiajukan.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(FormPerpanjanganDitolak.this);
         builder.setMessage("Tidak ada koneksi internet. Harap cek koneksi Anda.")
                 .setCancelable(false).setPositiveButton("Tutup", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {

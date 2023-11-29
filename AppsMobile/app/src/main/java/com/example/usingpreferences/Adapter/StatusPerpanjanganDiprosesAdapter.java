@@ -1,5 +1,6 @@
 package com.example.usingpreferences.Adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.usingpreferences.Activity.FormPerpanjanganDiajukan;
+import com.example.usingpreferences.Activity.FormPerpanjanganDiproses;
 import com.example.usingpreferences.DataModel.ModelStatusPerpanjanganDiproses;
 import com.example.usingpreferences.R;
 import com.facebook.shimmer.ShimmerFrameLayout;
@@ -46,20 +49,20 @@ public class StatusPerpanjanganDiprosesAdapter extends RecyclerView.Adapter<Stat
         holder.idPerpanjanganView.setText(item.getId_perpanjangan());
         holder.id_seniman.setText(item.getNama_seniman());
         holder.tglperpanjanganTextView.setText(item.getTgl_pembuatan());
-//
-//        //ngisor ki gae ketika di klik dia akan nyimpen data ne buat di tampilne nde layout lanjut an e
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Data dari item yang diklik
-//                String idPerpanjangan = item.getId_perpanjangan();
-//
-//                // Kirim data ke aktivitas selanjutnya
-//                Intent intent = new Intent(v.getContext(), Form.class);
-//                intent.putExtra("id_perpanjangan", idPerpanjangan);
-//                v.getContext().startActivity(intent);
-//            }
-//        });
+
+        //ngisor ki gae ketika di klik dia akan nyimpen data ne buat di tampilne nde layout lanjut an e
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Data dari item yang diklik
+                String idPerpanjangan = item.getId_perpanjangan();
+
+                // Kirim data ke aktivitas selanjutnya
+                Intent intent = new Intent(v.getContext(), FormPerpanjanganDiproses.class);
+                intent.putExtra("id_perpanjangan", idPerpanjangan);
+                v.getContext().startActivity(intent);
+            }
+        });
 //selesai
     }
 

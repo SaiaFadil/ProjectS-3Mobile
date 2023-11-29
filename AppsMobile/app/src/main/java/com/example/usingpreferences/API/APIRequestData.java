@@ -13,6 +13,9 @@ import com.example.usingpreferences.DataModel.ResponseDetailAdvisDiproses;
 import com.example.usingpreferences.DataModel.ResponseDetailAdvisDiterima;
 import com.example.usingpreferences.DataModel.ResponseDetailAdvisDitolak;
 import com.example.usingpreferences.DataModel.ResponseDetailPerpanjanganDiajukan;
+import com.example.usingpreferences.DataModel.ResponseDetailPerpanjanganDiproses;
+import com.example.usingpreferences.DataModel.ResponseDetailPerpanjanganDiterima;
+import com.example.usingpreferences.DataModel.ResponseDetailPerpanjanganDitolak;
 import com.example.usingpreferences.DataModel.ResponseDetailSenimanDiajukan;
 import com.example.usingpreferences.DataModel.ResponseDetailSenimanDiproses;
 import com.example.usingpreferences.DataModel.ResponseDetailSenimanDiterima;
@@ -290,6 +293,15 @@ public interface APIRequestData {
             @Part MultipartBody.Part suratKeterangan,
             @Part MultipartBody.Part passFoto
     );
+    @Multipart
+    @POST("data_seniman_mobile/edit_Perpanjangan_ditolak.php")
+    Call<ResponseDetailPerpanjanganDitolak> sendPerpanjanganDataditolak(
+            @Part("id_perpanjangan") String id_perpanjangan,
+            @Part("status") String status,
+            @Part MultipartBody.Part ktpSeniman,
+            @Part MultipartBody.Part suratKeterangan,
+            @Part MultipartBody.Part passFoto
+    );
 
     @Multipart
     @POST("data_seniman_mobile/update_pass_foto.php")
@@ -384,6 +396,21 @@ public interface APIRequestData {
     @FormUrlEncoded
     @POST("data_seniman_mobile/detail_Perpanjangan_diajukan.php")
     Call<ResponseDetailPerpanjanganDiajukan> getDetailPerpanjanganDiajukan(
+            @Field("id_perpanjangan") String id_perpanjangan
+    );
+    @FormUrlEncoded
+    @POST("data_seniman_mobile/detail_Perpanjangan_ditolak.php")
+    Call<ResponseDetailPerpanjanganDitolak> getDetailPerpanjanganDitolak(
+            @Field("id_perpanjangan") String id_perpanjangan
+    );
+    @FormUrlEncoded
+    @POST("data_seniman_mobile/detail_Perpanjangan_diproses.php")
+    Call<ResponseDetailPerpanjanganDiproses> getDetailPerpanjanganDiproses(
+            @Field("id_perpanjangan") String id_perpanjangan
+    );
+    @FormUrlEncoded
+    @POST("data_seniman_mobile/detail_Perpanjangan_diterima.php")
+    Call<ResponseDetailPerpanjanganDiterima> getDetailPerpanjanganDiterima(
             @Field("id_perpanjangan") String id_perpanjangan
     );
     @FormUrlEncoded
