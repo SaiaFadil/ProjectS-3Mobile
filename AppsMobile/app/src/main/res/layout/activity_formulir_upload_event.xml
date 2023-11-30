@@ -1,300 +1,363 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.FormulirUploadEvent">
+
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".Activity.FormulirUploadEvent">
-        <com.google.android.material.card.MaterialCardView
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginLeft="-10dp"
+        android:layout_marginRight="-10dp"
+        android:backgroundTint="@color/white"
+        android:outlineAmbientShadowColor="@color/black"
+        app:strokeColor="@color/gray"
+        app:strokeWidth="@dimen/_1sdp">
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_marginLeft="-10dp"
-            android:layout_marginRight="-10dp"
-            android:backgroundTint="@color/white"
-            app:strokeWidth="@dimen/_1sdp"
-            app:strokeColor="@color/gray"
-            android:outlineAmbientShadowColor="@color/black"
-            >
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center">
-                    <TextView
-                        android:id="@+id/judul"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:text="FORMULIR UPLOAD EVENT"
-                        android:textColor="@color/greendark"
-                        android:textSize="@dimen/_16ssp"
-                        android:maxLines="1"
-                        android:gravity="center"
-                        android:textStyle="bold" />
-                </LinearLayout>
-                <ImageButton
-                    android:id="@+id/eventback"
-                    android:layout_width="@dimen/_45sdp"
-                    android:layout_height="@dimen/_50sdp"
-                    android:layout_marginLeft="@dimen/_10sdp"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/ic_back"
-                    android:backgroundTint="@color/white"
-                    android:scaleType="fitXY"
-                    />
-            </RelativeLayout>
-        </com.google.android.material.card.MaterialCardView>
-    <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_20sdp">
-                <TextView
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_15ssp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nama Pengirim"
-                    />
+                android:gravity="center"
+                android:orientation="vertical">
 
-                <EditText
-                    android:id="@+id/et_namapengirimevent"
+                <TextView
+                    android:id="@+id/judul"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:background="@drawable/bg_editext"
-                    android:ems="10"
-                    android:hint="Masukkan Namamu"
-                    android:inputType="text"
-                    android:paddingLeft="@dimen/_12sdp"
-                    android:paddingTop="@dimen/_5sdp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:gravity="center"
                     android:maxLines="1"
-                    android:paddingBottom="@dimen/_5sdp"
-                    android:textSize="@dimen/_12sdp" />
+                    android:text="FORMULIR UPLOAD EVENT"
+                    android:textColor="@color/greendark"
+                    android:textSize="@dimen/_16ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
-                <TextView
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:textColor="@color/black"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nama Event"
-                    android:textSize="@dimen/_15ssp"
-                    />
-                <EditText
-                    android:id="@+id/et_namaeventevent"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:hint="Masukkan Nama Event"
-                    android:textSize="@dimen/_12sdp"
-                    android:maxLines="1"
-                    android:background="@drawable/bg_editext"
-                    android:paddingTop="@dimen/_5sdp"
-                    android:paddingBottom="@dimen/_5sdp"
-                    android:paddingLeft="@dimen/_12sdp"/>
-                <TextView
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:textColor="@color/black"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tempat"
-                    android:textSize="@dimen/_15ssp"
-                    />
-                <EditText
-                    android:id="@+id/et_alamateventevent"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:hint="Masukkan Alamat Event"
-                    android:textSize="@dimen/_12sdp"
-                    android:maxLines="1"
-                    android:background="@drawable/bg_editext"
-                    android:paddingTop="@dimen/_5sdp"
-                    android:paddingBottom="@dimen/_5sdp"
-                    android:paddingLeft="@dimen/_12sdp"/>
-                <TableLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="fill_parent">
+            <ImageButton
+                android:id="@+id/eventback"
+                android:layout_width="@dimen/_45sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:backgroundTint="@color/white"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_back" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
 
-                    <TableRow
-                        android:gravity="center_horizontal">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Tanggal Awal"
-                            android:textAlignment="center"
-                            android:textSize="@dimen/_15ssp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="     "
-                            android:textStyle="bold"
-                            android:textAlignment="center"
-                            android:textSize="@dimen/_30ssp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Tanggal Akhir"
-                            android:textAlignment="center"
-                            android:textSize="@dimen/_15ssp"/>
-                    </TableRow>
-                    <TableRow
-                        android:gravity="center_horizontal"
-                        android:paddingBottom="@dimen/_10sdp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:orientation="vertical">
 
-                        <EditText
-                            android:id="@+id/et_tanggalawalevent"
-                            android:layout_width="@dimen/_110sdp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/_10sdp"
-                            android:background="@drawable/bg_editext"
-                            android:ems="10"
-                            android:hint="Pilih Tanggal"
-                            android:inputType="text"
-                            android:paddingTop="@dimen/_5sdp"
-                            android:paddingBottom="@dimen/_5sdp"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_12sdp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="Nama Pengirim"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="  -  "
-                            android:textStyle="bold"
-                            android:textAlignment="center"
-                            android:textSize="@dimen/_25ssp"/>
-                        <EditText
-                            android:id="@+id/et_tanggalakhirevent"
-                            android:layout_width="@dimen/_110sdp"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:inputType="text"
-                            android:hint="Pilih Tanggal"
-                            android:textSize="@dimen/_12sdp"
-                            android:background="@drawable/bg_editext"
-                            android:paddingTop="@dimen/_5sdp"
-                            android:paddingBottom="@dimen/_5sdp"
-                            android:textAlignment="center"/>
-                    </TableRow>
-                </TableLayout>
+            <TextView
+                android:id="@+id/et_namapengirimevent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/bg_editext"
+                android:ems="10"
+                android:hint="Masukkan Namamu"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/_12sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:textSize="@dimen/_12sdp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Deskripsi Event"
-                    android:layout_marginTop="@dimen/_minus5sdp"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_15ssp"
-                    />
-                <EditText
-                    android:id="@+id/et_deskripsievent"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:background="@drawable/bg_editext"
-                    android:gravity="top|left"
-                    android:hint="Masukkan Deskripsi Event"
-                    android:inputType="textMultiLine"
-                    android:maxHeight="@dimen/_200sdp"
-                    android:maxLength="120"
-                    android:paddingLeft="@dimen/_12sdp"
-                    android:paddingTop="@dimen/_5sdp"
-                    android:paddingBottom="@dimen/_6sdp"
-                    android:textSize="@dimen/_12sdp"  />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Nama Event"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp" />
 
-                <TextView
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:textColor="@color/black"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Link Pendaftaran (Opsional)"
-                    android:textSize="@dimen/_15ssp"
-                    />
+            <EditText
+                android:id="@+id/et_namaeventevent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/bg_editext"
+                android:ems="10"
+                android:hint="Masukkan Nama Event"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/_12sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:textSize="@dimen/_12sdp" />
 
-                <EditText
-                    android:id="@+id/et_linkpendaftaranevent"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:background="@drawable/bg_editext"
-                    android:ems="10"
-                    android:hint="Masukkan Link Pendaftaran"
-                    android:inputType="number"
-                    android:maxLines="1"
-                    android:paddingLeft="@dimen/_12sdp"
-                    android:paddingTop="@dimen/_6sdp"
-                    android:paddingBottom="@dimen/_6sdp"
-                    android:textSize="@dimen/_12sdp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Tempat"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp" />
 
-                <TextView
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:textColor="@color/black"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Poster Event"
-                    android:textSize="@dimen/_15ssp"
-                    />
+            <EditText
+                android:id="@+id/et_alamateventevent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/bg_editext"
+                android:ems="10"
+                android:hint="Masukkan Alamat Event"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/_12sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:textSize="@dimen/_12sdp" />
 
-                <LinearLayout
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
-                    android:orientation="horizontal"
-                    android:background="@drawable/corner_image">
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/selectFileButton2"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="@dimen/_70sdp"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="-5dp"
-                        android:layout_marginBottom="-5dp"
-                        android:backgroundTint="@color/greendark"
-                        android:text="Pilih File"
-                        android:textAllCaps="false"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_12ssp" />
+                <TableRow android:gravity="center_horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/_14ssp"
-                        android:text="Pilih File"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="@dimen/_15sdp" />
-                </LinearLayout>
+                        android:text="Tanggal Awal"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/_15ssp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="     "
+                        android:textAlignment="center"
+                        android:textSize="@dimen/_30ssp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tanggal Akhir"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/_15ssp" />
+                </TableRow>
+
+                <TableRow
+                    android:gravity="center_horizontal"
+                    android:paddingBottom="@dimen/_10sdp">
+
+                    <TextView
+                        android:id="@+id/et_tanggalawalevent"
+                        android:layout_width="@dimen/_110sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="@drawable/bg_editext"
+                        android:ems="10"
+                        android:hint="Pilih Tanggal"
+                        android:inputType="text"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_5sdp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="  -  "
+                        android:textAlignment="center"
+                        android:textSize="@dimen/_25ssp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/et_tanggalakhirevent"
+                        android:layout_width="@dimen/_110sdp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_editext"
+                        android:ems="10"
+                        android:hint="Pilih Tanggal"
+                        android:inputType="text"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_5sdp"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/_12sdp" />
+                </TableRow>
+            </TableLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_minus5sdp"
+                android:text="Deskripsi Event"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp" />
+
+            <EditText
+                android:id="@+id/et_deskripsievent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_140sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/bg_editext"
+                android:gravity="top|left"
+                android:hint="Masukkan Deskripsi Event"
+                android:inputType="textMultiLine"
+                android:maxHeight="@dimen/_200sdp"
+                android:maxLength="120"
+                android:paddingLeft="@dimen/_12sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_6sdp"
+                android:textSize="@dimen/_12sdp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Link Pendaftaran (Opsional)"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp" />
+
+            <EditText
+                android:id="@+id/et_linkpendaftaranevent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/bg_editext"
+                android:ems="10"
+                android:hint="Masukkan Link Pendaftaran"
+                android:paddingLeft="@dimen/_12sdp"
+                android:paddingTop="@dimen/_6sdp"
+                android:paddingBottom="@dimen/_6sdp"
+                android:textSize="@dimen/_12sdp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Poster Event"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/corner_image"
+                android:orientation="horizontal">
 
                 <com.google.android.material.button.MaterialButton
-                    android:layout_marginTop="@dimen/_50sdp"
-                    android:layout_marginBottom="@dimen/_30sdp"
-                    android:id="@+id/button_kirimevent"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_50sdp"
-                    android:text="Kirim"
-                    android:textSize="@dimen/_16ssp"
-                    app:cornerRadius="@dimen/_10sdp"
-                    android:shadowRadius="3"
-                    android:layout_marginLeft="@dimen/_10sdp"
-                    android:layout_marginRight="@dimen/_10sdp"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
+                    android:id="@+id/selectFileFormulirButton2"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:backgroundTint="@color/greendark"/>
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="-5dp"
+                    android:layout_marginBottom="-5dp"
+                    android:backgroundTint="@color/greendark"
+                    android:text="Pilih File"
+                    android:textAllCaps="false"
+                    android:onClick="selectImageFile"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp" />
+
+                <TextView
+                    android:id="@+id/pilihfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:text="Pilih File"
+                    android:textSize="@dimen/_14ssp" />
             </LinearLayout>
-        </ScrollView>
-    </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:text=" DENGAN PENGAJUAN FORMULIR INI, ANDA MENYETUJUI HAL-HAL BERIKUT: "
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:text="1. Mengisi formulir dengan tepat dan jelas.
+                    "
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:text="2.Jika sudah mengirimkan formulir dimohon menunggu 1x24 jam untuk diverifikasi oleh admin. "
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:text="3. Jika formulir belum diverifikasi dilarang mengirimkan formulir yang sama."
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkboxsetujuevent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:text="Dengan Ini Saya Menyetujui Syarat Dan Ketentuan Diatas" />
+
+            <TextView
+                android:id="@+id/teks_kesalahanevent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:fontFamily="@font/robotoregular"
+                android:text="Anda Harus Menyetujui Syarat Dan Ketentuan Kami!"
+                android:textColor="@color/red"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_kirimevent"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:backgroundTint="@color/greendark"
+                android:shadowRadius="3"
+                android:text="Kirim"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:cornerRadius="@dimen/_10sdp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

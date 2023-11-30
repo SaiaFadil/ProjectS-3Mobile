@@ -36,16 +36,17 @@
                         android:gravity="center"
                         android:textStyle="bold" />
                 </LinearLayout>
+
                 <ImageButton
                     android:id="@+id/pinjamback"
                     android:layout_width="@dimen/_45sdp"
                     android:layout_height="@dimen/_60sdp"
-                    android:layout_marginLeft="@dimen/_15sdp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/ic_back"
+                    android:layout_marginLeft="@dimen/_15sdp"
                     android:backgroundTint="@color/white"
                     android:scaleType="fitXY"
-                    />
+                    android:src="@drawable/ic_back"
+                    tools:ignore="SpeakableTextPresentCheck" />
             </RelativeLayout>
         </com.google.android.material.card.MaterialCardView>
         <ScrollView
@@ -68,21 +69,27 @@
                     android:textColor="@color/black"
                     />
 
-                <DatePicker
-                    android:id="@+id/datePicker"
-                    android:layout_width="wrap_content"
+<!--                <DatePicker-->
+<!--                    android:id="@+id/datePicker"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center_horizontal"-->
+<!--                    android:layout_marginTop="@dimen/_20sdp"-->
+<!--                    android:calendarViewShown="true"-->
+<!--                    android:datePickerMode="calendar"-->
+<!--                    android:calendarTextColor="@color/greendark"-->
+<!--                    android:headerBackground="@color/greendark"-->
+<!--                    android:dayOfWeekBackground="@color/greendark"-->
+<!--                    android:spinnersShown="false"-->
+<!--                    android:background="@drawable/bg_editext"/>-->
+
+
+                <com.applandeo.materialcalendarview.CalendarView
+                    android:id="@+id/calendarView"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    android:calendarViewShown="true"
-                    android:datePickerMode="calendar"
-                    android:calendarTextColor="@color/greendark"
-                    android:headerBackground="@color/greendark"
-                    android:dayOfWeekBackground="@color/greendark"
-                    android:spinnersShown="false"
-                    android:background="@drawable/bg_editext"/>
-
-
+                    android:layout_marginTop="@dimen/_25sdp"
+                    />
 
                 <com.google.android.material.button.MaterialButton
                     android:layout_marginTop="@dimen/_50sdp"

@@ -1,620 +1,835 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefreshLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/swipeRefreshLayout"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".MenuFragment.HomeFragment">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:visibility="gone" />
-<RelativeLayout
 
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone" />
 
-    <ScrollView
-        android:id="@+id/scrollviewid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/linear1"
             android:orientation="vertical">
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/viewPager"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_170sdp" />
-        </LinearLayout>
 
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_50sdp"
-            android:layout_marginLeft="@dimen/_20sdp"
-            android:layout_marginRight="@dimen/_20sdp"
-            android:backgroundTint="@color/white"
-            android:id="@+id/cardviewtengah"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="-15dp"
-            android:layout_below="@+id/linear1"
-            android:outlineAmbientShadowColor="@color/greendark"
-            app:cardElevation="@dimen/_16sdp"
-            app:cardMaxElevation="@dimen/_20sdp"
-            android:visibility="visible"
-            >
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/wellcometengah"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:text="Selamat Datang"
-                    android:textColor="@color/greendark"
-                    android:textSize="@dimen/_14ssp"
-                    android:gravity="center"
-                    android:textStyle="bold" />
-                <TextView
-                    android:id="@+id/namauserhometengah"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:text="Namamu"
-                    android:textColor="@color/greendark"
-                    android:textSize="@dimen/_14ssp"
-                    android:gravity="center"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <com.google.android.material.imageview.ShapeableImageView
-                app:strokeWidth="@dimen/_1sdp"
-                app:strokeColor="@color/greendark"
-                app:shapeAppearanceOverlay="@style/circularImageView"
-                android:padding="@dimen/_1sdp"
-                android:id="@+id/keprofiltengah"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:scaleType="fitXY"
-                android:backgroundTint="@color/white"
-                android:layout_gravity="end|center_vertical"
-                android:layout_marginRight="@dimen/_20sdp"
-                android:src="@drawable/logodisporabudpar"
-                />
-        </com.google.android.material.card.MaterialCardView>
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Layanan yang dikelola oleh\nDinas PORABUDPAR:"
-                android:textSize="@dimen/_14ssp"
-                android:textColor="@color/greendark"
-                android:fontFamily="sans-serif"
-                android:id="@+id/textpemberitahuanlayanan"
-                android:layout_below="@+id/cardviewtengah"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:textStyle="bold"
-                android:shadowColor="#40000000"
-                android:shadowDx="2"
-                android:shadowDy="5"
-                android:shadowRadius="10"
-
-                android:layout_marginLeft="@dimen/_20sdp"/>
-            <TableLayout
-                android:layout_below="@+id/textpemberitahuanlayanan"
-                android:id="@+id/tabellayout"
-                android:layout_marginTop="@dimen/_10sdp"
+            <ScrollView
+                android:id="@+id/scrollviewid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TableRow
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_minus10sdp"
-                    android:gravity="center_horizontal">
+                    android:layout_height="wrap_content">
 
                     <LinearLayout
-                        android:orientation="horizontal"
-                        android:gravity="center_horizontal">
+                        android:id="@+id/linear1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-                        <com.google.android.material.card.MaterialCardView
-                            android:id="@+id/cardevent"
-                            android:layout_width="@dimen/_115sdp"
-                            android:layout_height="@dimen/_115sdp"
-                            android:backgroundTint="@color/white"
-                            app:strokeColor="@color/gray"
-                            app:strokeWidth="@dimen/_1sdp"
-                            android:layout_margin="@dimen/_12sdp"
-                            app:cardElevation="@dimen/_8sdp"
-                            app:cardMaxElevation="@dimen/_16sdp">
+                        <androidx.viewpager.widget.ViewPager
+                            android:id="@+id/viewPager"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_170sdp">
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:orientation="vertical">
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/logout"
+                                style="@style/Widget.MaterialComponents.Button.TextButton"
+                                android:layout_width="@dimen/_140sdp"
+                                android:layout_height="@dimen/_50sdp"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginLeft="@dimen/_20sdp"
+                                android:layout_marginTop="@dimen/_50sdp"
+                                android:layout_marginRight="@dimen/_20sdp"
+                                android:backgroundTint="@color/greendark"
+                                android:fontFamily="@font/dmsansvariablefont_opszwght"
+                                android:shadowRadius="3"
+                                android:text="Lainya..."
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_16ssp"
+                                app:cornerRadius="@dimen/_10sdp" />
 
-                                <ImageView
-                                    android:layout_width="@dimen/_70sdp"
-                                    android:layout_height="@dimen/_70sdp"
-                                    android:layout_marginLeft="@dimen/_10sdp"
-                                    android:scaleType="fitXY"
-                                    android:src="@drawable/calendar" />
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="-10dp"
-                                    android:text="Upload Event"
-                                    android:textColor="@color/black"
-                                    android:textSize="@dimen/_14ssp"
-                                    android:textStyle="bold" />
-                            </LinearLayout>
-                        </com.google.android.material.card.MaterialCardView>
-                        <com.google.android.material.card.MaterialCardView
-                            android:id="@+id/cardpinjam"
-                            android:layout_width="@dimen/_115sdp"
-                            android:layout_height="@dimen/_115sdp"
-                            android:backgroundTint="@color/white"
-                            app:strokeColor="@color/gray"
-                            app:strokeWidth="@dimen/_1sdp"
-                            android:layout_margin="@dimen/_12sdp"
-                            app:cardElevation="@dimen/_8sdp"
-                            android:layout_marginLeft="@dimen/_10sdp"
-                            app:cardMaxElevation="@dimen/_16sdp">
+                        </androidx.viewpager.widget.ViewPager>
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <ImageView
-                                    android:layout_width="@dimen/_70sdp"
-                                    android:layout_height="@dimen/_70sdp"
-                                    android:layout_marginLeft="@dimen/_10sdp"
-                                    android:scaleType="fitXY"
-                                    android:src="@drawable/office" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="-10dp"
-                                    android:text="Pinjam Tempat"
-                                    android:textColor="@color/black"
-                                    android:textSize="@dimen/_14ssp"
-                                    android:textStyle="bold" />
-                            </LinearLayout>
-                        </com.google.android.material.card.MaterialCardView>
                     </LinearLayout>
-                </TableRow>
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_5sdp"
-                    android:gravity="center_horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardviewtengah"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_below="@+id/linear1"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_marginTop="-15dp"
+                        android:layout_marginRight="@dimen/_20sdp"
+                        android:backgroundTint="@color/white"
+                        android:outlineAmbientShadowColor="@color/greendark"
+                        android:visibility="visible"
+                        app:cardElevation="@dimen/_16sdp"
+                        app:cardMaxElevation="@dimen/_20sdp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/wellcometengah"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:gravity="center"
+                                android:text="Selamat Datang"
+                                android:textColor="@color/greendark"
+                                android:textSize="@dimen/_14ssp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/namauserhometengah"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:gravity="center"
+                                android:text="Namamu"
+                                android:textColor="@color/greendark"
+                                android:textSize="@dimen/_14ssp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/keprofiltengah"
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_gravity="end|center_vertical"
+                            android:layout_marginRight="@dimen/_20sdp"
+                            android:backgroundTint="@color/white"
+                            android:padding="@dimen/_1sdp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/logodisporabudpar"
+                            app:shapeAppearanceOverlay="@style/circularImageView"
+                            app:strokeColor="@color/greendark"
+                            app:strokeWidth="@dimen/_1sdp" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+
+                        android:id="@+id/textpemberitahuanlayanan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/cardviewtengah"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="sans-serif"
+                        android:shadowColor="#40000000"
+                        android:shadowDx="2"
+                        android:shadowDy="5"
+                        android:shadowRadius="10"
+                        android:text="Layanan yang dikelola oleh\nDinas PORABUDPAR:"
+                        android:textColor="@color/greendark"
+                        android:textSize="@dimen/_14ssp"
+
+                        android:textStyle="bold" />
+
+                    <TableLayout
+                        android:id="@+id/tabellayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/textpemberitahuanlayanan"
+                        android:layout_marginTop="@dimen/_10sdp">
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_minus10sdp"
+                            android:gravity="center_horizontal">
+
+                            <LinearLayout
+                                android:gravity="center_horizontal"
+                                android:orientation="horizontal">
+
+                                <com.google.android.material.card.MaterialCardView
+                                    android:id="@+id/cardevent"
+                                    android:layout_width="@dimen/_115sdp"
+                                    android:layout_height="@dimen/_115sdp"
+                                    android:layout_margin="@dimen/_12sdp"
+                                    android:backgroundTint="@color/white"
+                                    app:cardElevation="@dimen/_8sdp"
+                                    app:cardMaxElevation="@dimen/_16sdp"
+                                    app:strokeColor="@color/gray"
+                                    app:strokeWidth="@dimen/_1sdp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="@dimen/_70sdp"
+                                            android:layout_height="@dimen/_70sdp"
+                                            android:layout_marginLeft="@dimen/_10sdp"
+                                            android:scaleType="fitXY"
+                                            android:src="@drawable/calendar" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="-10dp"
+                                            android:text="Upload Event"
+                                            android:textColor="@color/black"
+                                            android:textSize="@dimen/_14ssp"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+                                </com.google.android.material.card.MaterialCardView>
+
+                                <com.google.android.material.card.MaterialCardView
+                                    android:id="@+id/cardpinjam"
+                                    android:layout_width="@dimen/_115sdp"
+                                    android:layout_height="@dimen/_115sdp"
+                                    android:layout_margin="@dimen/_12sdp"
+                                    android:layout_marginLeft="@dimen/_10sdp"
+                                    android:backgroundTint="@color/white"
+                                    app:cardElevation="@dimen/_8sdp"
+                                    app:cardMaxElevation="@dimen/_16sdp"
+                                    app:strokeColor="@color/gray"
+                                    app:strokeWidth="@dimen/_1sdp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="@dimen/_70sdp"
+                                            android:layout_height="@dimen/_70sdp"
+                                            android:layout_marginLeft="@dimen/_10sdp"
+                                            android:scaleType="fitXY"
+                                            android:src="@drawable/office" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="-10dp"
+                                            android:text="Pinjam Tempat"
+                                            android:textColor="@color/black"
+                                            android:textSize="@dimen/_14ssp"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+                                </com.google.android.material.card.MaterialCardView>
+                            </LinearLayout>
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:gravity="center_horizontal">
+
+                            <LinearLayout android:orientation="horizontal">
+
+                                <com.google.android.material.card.MaterialCardView
+                                    android:id="@+id/cardinduk"
+                                    android:layout_width="@dimen/_115sdp"
+                                    android:layout_height="@dimen/_115sdp"
+                                    android:layout_margin="@dimen/_12sdp"
+                                    android:backgroundTint="@color/white"
+                                    app:cardElevation="@dimen/_8sdp"
+                                    app:cardMaxElevation="@dimen/_16sdp"
+                                    app:strokeColor="@color/gray"
+                                    app:strokeWidth="@dimen/_1sdp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="@dimen/_70sdp"
+                                            android:layout_height="@dimen/_70sdp"
+                                            android:scaleType="fitXY"
+                                            android:src="@drawable/woman" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="-10dp"
+                                            android:text="Nomor Induk\nSeniman"
+                                            android:textAlignment="center"
+                                            android:textColor="@color/black"
+                                            android:textSize="@dimen/_14ssp"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+                                </com.google.android.material.card.MaterialCardView>
+
+                                <com.google.android.material.card.MaterialCardView
+                                    android:id="@+id/cardizin"
+                                    android:layout_width="@dimen/_115sdp"
+                                    android:layout_height="@dimen/_115sdp"
+                                    android:layout_margin="@dimen/_12sdp"
+                                    android:layout_marginLeft="@dimen/_10sdp"
+                                    android:backgroundTint="@color/white"
+                                    app:cardElevation="@dimen/_8sdp"
+                                    app:cardMaxElevation="@dimen/_16sdp"
+                                    app:strokeColor="@color/gray"
+                                    app:strokeWidth="@dimen/_1sdp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="@dimen/_70sdp"
+                                            android:layout_height="@dimen/_70sdp"
+                                            android:scaleType="fitXY"
+                                            android:src="@drawable/letter" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:maxLines="1"
+                                            android:text="Surat Izin Pentas"
+                                            android:textColor="@color/black"
+                                            android:textSize="@dimen/_14ssp"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+                                </com.google.android.material.card.MaterialCardView>
+                            </LinearLayout>
+                        </TableRow>
+                    </TableLayout>
+
+                    <TextView
+                        android:id="@+id/petanganjukteks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tabellayout"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_marginBottom="-10dp"
+                        android:fontFamily="sans-serif"
+                        android:shadowColor="#50000000"
+                        android:shadowDx="2"
+                        android:shadowDy="5"
+                        android:shadowRadius="4"
+                        android:text="Peta Wisata Kabupaten Nganjuk"
+                        android:textColor="@color/greendark"
+                        android:textSize="@dimen/_16ssp"
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/petanganjukgambar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_below="@+id/petanganjukteks"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        android:backgroundTint="@color/gray"
+                        android:outlineAmbientShadowColor="@color/greendark"
+                        app:cardCornerRadius="@dimen/_10sdp"
+                        app:cardElevation="@dimen/_10sdp"
+                        app:cardMaxElevation="@dimen/_20sdp"
+                        app:strokeColor="@color/graydark"
+                        app:strokeWidth="@dimen/_1sdp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="left"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/homepeta" />
+
+
+                        </LinearLayout>
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/tv_eventTerkini"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/petanganjukgambar"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_marginBottom="-10dp"
+                        android:fontFamily="sans-serif"
+                        android:shadowColor="#50000000"
+                        android:shadowDx="2"
+                        android:shadowDy="5"
+                        android:shadowRadius="4"
+                        android:text="Event Terkini"
+                        android:textColor="@color/greendark"
+                        android:textSize="@dimen/_16ssp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txt_lainya"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/petanganjukgambar"
+                        android:layout_marginStart="@dimen/_100sdp"
+                        android:layout_toEndOf="@+id/tv_eventTerkini"
+                        android:fontFamily="sans-serif"
+                        android:text="lainnya"
+                        android:textColor="@color/greendark"
+                        android:textSize="@dimen/_18sdp"
+                        android:textStyle="bold"
+                        tools:ignore="ExtraText">
+
+                    </TextView>
+                    <!--            Komponen di bawah ini nanti akan di ganti Recview-->
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/event_home"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_eventTerkini"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/item_event_home" />
 
                     <LinearLayout
-                        android:orientation="horizontal">
+                        android:id="@+id/layoutevent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_eventTerkini"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
 
                         <com.google.android.material.card.MaterialCardView
-                            android:id="@+id/cardinduk"
-                            android:layout_width="@dimen/_115sdp"
-                            android:layout_height="@dimen/_115sdp"
-                            android:backgroundTint="@color/white"
-                            app:strokeColor="@color/gray"
-                            app:strokeWidth="@dimen/_1sdp"
-                            android:layout_margin="@dimen/_12sdp"
-                            app:cardElevation="@dimen/_8sdp"
-                            app:cardMaxElevation="@dimen/_16sdp">
+                            android:id="@+id/card1"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_120sdp"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_marginEnd="@dimen/_20sdp"
+                            android:layout_marginBottom="@dimen/_20sdp"
+                            android:backgroundTint="@color/gray"
+                            android:outlineAmbientShadowColor="@color/greendark"
+                            app:cardCornerRadius="@dimen/_10sdp"
+                            app:cardElevation="@dimen/_10sdp"
+                            app:cardMaxElevation="@dimen/_20sdp"
+                            app:strokeColor="@color/greendark"
+                            app:strokeWidth="@dimen/_1sdp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:orientation="vertical">
+                                android:gravity="left"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/_15sdp">
 
                                 <ImageView
                                     android:layout_width="@dimen/_70sdp"
-                                    android:layout_height="@dimen/_70sdp"
+                                    android:layout_height="@dimen/_90sdp"
                                     android:scaleType="fitXY"
-                                    android:src="@drawable/woman" />
+                                    android:src="@drawable/contohfotoevent1" />
 
-                                <TextView
-                                    android:layout_width="wrap_content"
+                                <LinearLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="-10dp"
-                                    android:text="Nomor Induk\nSeniman"
-                                    android:textColor="@color/black"
-                                    android:textAlignment="center"
-                                    android:textSize="@dimen/_14ssp"
-                                    android:textStyle="bold" />
+                                    android:layout_marginLeft="@dimen/_10sdp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="16 Oktober 2023"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/_14ssp" />
+
+                                    <TextView
+                                        android:id="@+id/juduleventhome"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_5sdp"
+                                        android:text="Nganjuk Night Carnival"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/_14ssp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/alamateventhome"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_10sdp"
+                                        android:maxLines="3"
+                                        android:text="Jl. Anjuk Ladang No.12, Ploso, Kec. Nganjuk, Kabupaten Nganjuk, Jawa Timur 64417"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/_11ssp" />
+
+                                </LinearLayout>
+
                             </LinearLayout>
+
+
                         </com.google.android.material.card.MaterialCardView>
+
                         <com.google.android.material.card.MaterialCardView
-                            android:id="@+id/cardizin"
-                            android:layout_width="@dimen/_115sdp"
-                            android:layout_height="@dimen/_115sdp"
-                            android:backgroundTint="@color/white"
-                            app:strokeColor="@color/gray"
-                            app:strokeWidth="@dimen/_1sdp"
-                            android:layout_margin="@dimen/_12sdp"
-                            app:cardElevation="@dimen/_8sdp"
-                            android:layout_marginLeft="@dimen/_10sdp"
-                            app:cardMaxElevation="@dimen/_16sdp">
+                            android:id="@+id/card2"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_120sdp"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginEnd="@dimen/_20sdp"
+                            android:backgroundTint="@color/gray"
+                            android:outlineAmbientShadowColor="@color/greendark"
+                            app:cardCornerRadius="@dimen/_10sdp"
+                            app:cardElevation="@dimen/_10sdp"
+                            app:cardMaxElevation="@dimen/_20sdp"
+                            app:strokeColor="@color/greendark"
+                            app:strokeWidth="@dimen/_1sdp">
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:orientation="vertical">
+                                android:gravity="left"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/_15sdp">
 
                                 <ImageView
                                     android:layout_width="@dimen/_70sdp"
-                                    android:layout_height="@dimen/_70sdp"
+                                    android:layout_height="@dimen/_90sdp"
                                     android:scaleType="fitXY"
-                                    android:src="@drawable/letter" />
+                                    android:src="@drawable/contohfotoevent1" />
 
-                                <TextView
-                                    android:layout_width="wrap_content"
+                                <LinearLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Surat Izin Pentas"
-                                    android:textColor="@color/black"
-                                    android:textSize="@dimen/_14ssp"
-                                    android:maxLines="1"
-                                    android:textStyle="bold" />
+                                    android:layout_marginLeft="@dimen/_10sdp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="16 Oktober 2023"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/_14ssp" />
+
+                                    <TextView
+                                        android:id="@+id/juduleventhome2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_5sdp"
+                                        android:text="Nganjuk Night Carnival"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/_14ssp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/alamateventhome2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_10sdp"
+                                        android:maxLines="3"
+                                        android:text="Jl. Anjuk Ladang No.12, Ploso, Kec. Nganjuk, Kabupaten Nganjuk, Jawa Timur 64417"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/_11ssp" />
+
+                                </LinearLayout>
+
                             </LinearLayout>
+
+
                         </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/card3"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_120sdp"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_marginEnd="@dimen/_20sdp"
+                            android:layout_marginBottom="@dimen/_20sdp"
+                            android:backgroundTint="@color/gray"
+                            android:outlineAmbientShadowColor="@color/greendark"
+                            app:cardCornerRadius="@dimen/_10sdp"
+                            app:cardElevation="@dimen/_10sdp"
+                            app:cardMaxElevation="@dimen/_20sdp"
+                            app:strokeColor="@color/greendark"
+                            app:strokeWidth="@dimen/_1sdp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="left"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/_15sdp">
+
+                                <ImageView
+                                    android:layout_width="@dimen/_70sdp"
+                                    android:layout_height="@dimen/_90sdp"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/contohfotoevent1" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/_10sdp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="16 Oktober 2023"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/_14ssp" />
+
+                                    <TextView
+                                        android:id="@+id/juduleventhome3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_5sdp"
+                                        android:text="Nganjuk Night Carnival"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/_14ssp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/alamateventhome3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_10sdp"
+                                        android:maxLines="3"
+                                        android:text="Jl. Anjuk Ladang No.12, Ploso, Kec. Nganjuk, Kabupaten Nganjuk, Jawa Timur 64417"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/_11ssp" />
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/card4"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_120sdp"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_marginEnd="@dimen/_20sdp"
+                            android:layout_marginBottom="@dimen/_20sdp"
+                            android:backgroundTint="@color/gray"
+                            android:outlineAmbientShadowColor="@color/greendark"
+                            app:cardCornerRadius="@dimen/_10sdp"
+                            app:cardElevation="@dimen/_10sdp"
+                            app:cardMaxElevation="@dimen/_20sdp"
+                            app:strokeColor="@color/greendark"
+                            app:strokeWidth="@dimen/_1sdp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="left"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/_15sdp">
+
+                                <ImageView
+                                    android:layout_width="@dimen/_70sdp"
+                                    android:layout_height="@dimen/_90sdp"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/contohfotoevent1" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/_10sdp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="16 Oktober 2023"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/_14ssp" />
+
+                                    <TextView
+                                        android:id="@+id/juduleventhome4"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_5sdp"
+                                        android:text="Nganjuk Night Carnival"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/_14ssp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/alamateventhome4"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_10sdp"
+                                        android:maxLines="3"
+                                        android:text="Jl. Anjuk Ladang No.12, Ploso, Kec. Nganjuk, Kabupaten Nganjuk, Jawa Timur 64417"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/_11ssp" />
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/card5"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_120sdp"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_marginEnd="@dimen/_20sdp"
+                            android:layout_marginBottom="@dimen/_20sdp"
+                            android:backgroundTint="@color/gray"
+                            android:outlineAmbientShadowColor="@color/greendark"
+                            app:cardCornerRadius="@dimen/_10sdp"
+                            app:cardElevation="@dimen/_10sdp"
+                            app:cardMaxElevation="@dimen/_20sdp"
+                            app:strokeColor="@color/greendark"
+                            app:strokeWidth="@dimen/_1sdp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="left"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/_15sdp">
+
+                                <ImageView
+                                    android:layout_width="@dimen/_70sdp"
+                                    android:layout_height="@dimen/_90sdp"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/contohfotoevent1" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/_10sdp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="16 Oktober 2023"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/_14ssp" />
+
+                                    <TextView
+                                        android:id="@+id/juduleventhome5"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_5sdp"
+                                        android:text="Nganjuk Night Carnival"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/_14ssp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/alamateventhome5"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_10sdp"
+                                        android:maxLines="3"
+                                        android:text="Jl. Anjuk Ladang No.12, Ploso, Kec. Nganjuk, Kabupaten Nganjuk, Jawa Timur 64417"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/_11ssp" />
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+
                     </LinearLayout>
-                </TableRow>
-            </TableLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Peta Wisata Kabupaten Nganjuk"
-                android:textSize="@dimen/_16ssp"
-                android:textColor="@color/greendark"
-                android:fontFamily="sans-serif"
-                android:id="@+id/petanganjukteks"
-                android:layout_below="@+id/tabellayout"
-                android:textStyle="bold"
-                android:layout_marginLeft="@dimen/_20sdp"
-                android:shadowColor="#50000000"
-                android:shadowDx="2"
-                android:shadowDy="5"
-                android:shadowRadius="4"
-                android:layout_marginBottom="-10dp"
-            />
+
+                </RelativeLayout>
+            </ScrollView>
+            <!--    Awal CardView Top-->
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/petanganjukgambar"
-                android:layout_below="@+id/petanganjukteks"
-                app:strokeColor="@color/graydark"
-                app:strokeWidth="@dimen/_1sdp"
-                android:layout_marginBottom="@dimen/_20sdp"
+                android:id="@+id/cardviewatas"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_100sdp"
-                android:backgroundTint="@color/gray"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:outlineAmbientShadowColor="@color/greendark"
-                app:cardElevation="@dimen/_10sdp"
-                app:cardMaxElevation="@dimen/_20sdp"
-                app:cardCornerRadius="@dimen/_10sdp">
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="-20dp"
+                android:layout_marginRight="-20dp"
+                android:backgroundTint="@color/white"
+                android:outlineAmbientShadowColor="@color/black"
+                android:visibility="gone"
+                app:strokeColor="@color/gray"
+                app:strokeWidth="@dimen/_1sdp">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:gravity="left">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/homepeta"/>
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
 
+                    <TextView
+                        android:id="@+id/wellcome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_40sdp"
+                        android:gravity="center"
+                        android:text="Selamat Datang"
+                        android:textColor="@color/greendark"
+                        android:textSize="@dimen/_16ssp"
+                        android:textStyle="bold" />
 
+                    <TextView
+                        android:id="@+id/namauserhome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_40sdp"
+                        android:gravity="center"
+                        android:text="Namamu"
+                        android:textColor="@color/greendark"
+                        android:textSize="@dimen/_16ssp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
-
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/keprofil"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginRight="@dimen/_30sdp"
+                    android:backgroundTint="@color/white"
+                    android:padding="@dimen/_1sdp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/logodisporabudpar"
+                    app:shapeAppearanceOverlay="@style/circularImageView"
+                    app:strokeColor="@color/greendark"
+                    app:strokeWidth="@dimen/_1sdp" />
             </com.google.android.material.card.MaterialCardView>
-                  <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Event Terkini"
-                android:textSize="@dimen/_16ssp"
-                android:textColor="@color/greendark"
-                android:fontFamily="sans-serif"
-                android:id="@+id/tv_eventTerkini"
-                android:layout_below="@+id/petanganjukgambar"
-                android:textStyle="bold"
-                android:layout_marginLeft="@dimen/_20sdp"
-                android:shadowColor="#50000000"
-                android:shadowDx="2"
-                android:shadowDy="5"
-                android:shadowRadius="4"
-                android:layout_marginBottom="-10dp"
-            />
-
-            <!--            Komponen di bawah ini nanti akan di ganti Recview-->
-<LinearLayout
-    android:id="@+id/layoutevent"
-    android:layout_below="@+id/tv_eventTerkini"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card1"
-        app:strokeColor="@color/greendark"
-        app:strokeWidth="@dimen/_1sdp"
-        android:layout_marginBottom="@dimen/_20sdp"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_120sdp"
-        android:backgroundTint="@color/gray"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:outlineAmbientShadowColor="@color/greendark"
-        app:cardElevation="@dimen/_10sdp"
-        app:cardMaxElevation="@dimen/_20sdp"
-        app:cardCornerRadius="@dimen/_10sdp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:padding="@dimen/_15sdp"
-            android:gravity="left">
-            <ImageView
-                android:layout_width="@dimen/_70sdp"
-                android:layout_height="@dimen/_90sdp"
-                android:scaleType="fitXY"
-                android:src="@drawable/contohfotoevent1"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="@dimen/_10sdp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="16 Oktober 2023"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_14ssp"/>
-                <TextView
-                    android:id="@+id/juduleventhome"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nganjuk Night Carnival"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:textSize="@dimen/_14ssp"/>
-                <TextView
-                    android:id="@+id/alamateventhome"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Jl. Anjuk Ladang No.12, Ploso, Kec. Nganjuk, Kabupaten Nganjuk, Jawa Timur 64417"
-                    android:textColor="@color/black"
-                    android:maxLines="3"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:textSize="@dimen/_11ssp"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card2"
-        app:strokeColor="@color/greendark"
-        app:strokeWidth="@dimen/_1sdp"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_120sdp"
-        android:backgroundTint="@color/gray"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
-        android:outlineAmbientShadowColor="@color/greendark"
-        app:cardElevation="@dimen/_10sdp"
-        app:cardMaxElevation="@dimen/_20sdp"
-        app:cardCornerRadius="@dimen/_10sdp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:padding="@dimen/_15sdp"
-            android:gravity="left">
-            <ImageView
-                android:layout_width="@dimen/_70sdp"
-                android:layout_height="@dimen/_90sdp"
-                android:scaleType="fitXY"
-                android:src="@drawable/contohfotoevent1"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="@dimen/_10sdp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="16 Oktober 2023"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_14ssp"/>
-                <TextView
-                    android:id="@+id/juduleventhome2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nganjuk Night Carnival"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:textSize="@dimen/_14ssp"/>
-                <TextView
-                    android:id="@+id/alamateventhome2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Jl. Anjuk Ladang No.12, Ploso, Kec. Nganjuk, Kabupaten Nganjuk, Jawa Timur 64417"
-                    android:textColor="@color/black"
-                    android:maxLines="3"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:textSize="@dimen/_11ssp"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card3"
-        app:strokeColor="@color/greendark"
-        app:strokeWidth="@dimen/_1sdp"
-        android:layout_marginBottom="@dimen/_20sdp"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_120sdp"
-        android:backgroundTint="@color/gray"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:outlineAmbientShadowColor="@color/greendark"
-        app:cardElevation="@dimen/_10sdp"
-        app:cardMaxElevation="@dimen/_20sdp"
-        app:cardCornerRadius="@dimen/_10sdp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:padding="@dimen/_15sdp"
-            android:gravity="left">
-            <ImageView
-                android:layout_width="@dimen/_70sdp"
-                android:layout_height="@dimen/_90sdp"
-                android:scaleType="fitXY"
-                android:src="@drawable/contohfotoevent1"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="@dimen/_10sdp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="16 Oktober 2023"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_14ssp"/>
-                <TextView
-                    android:id="@+id/juduleventhome1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nganjuk Night Carnival"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:textSize="@dimen/_14ssp"/>
-                <TextView
-                    android:id="@+id/alamateventhome1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Jl. Anjuk Ladang No.12, Ploso, Kec. Nganjuk, Kabupaten Nganjuk, Jawa Timur 64417"
-                    android:textColor="@color/black"
-                    android:maxLines="3"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:textSize="@dimen/_11ssp"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-
-    </com.google.android.material.card.MaterialCardView>
-
-</LinearLayout>
+            <!--    Akhir cardview TOP  -->
         </RelativeLayout>
-    </ScrollView>
-    <!--    Awal CardView Top-->
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp"
-        android:layout_marginLeft="-20dp"
-        android:layout_marginRight="-20dp"
-        android:backgroundTint="@color/white"
-        app:strokeWidth="@dimen/_1sdp"
-        android:id="@+id/cardviewatas"
-        android:layout_gravity="center_vertical"
-        app:strokeColor="@color/gray"
-        android:visibility="gone"
-        android:outlineAmbientShadowColor="@color/black">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/wellcome"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_40sdp"
-                android:text="Selamat Datang"
-                android:textColor="@color/greendark"
-                android:textSize="@dimen/_16ssp"
-                android:gravity="center"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/namauserhome"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_40sdp"
-                android:text="Namamu"
-                android:textColor="@color/greendark"
-                android:textSize="@dimen/_16ssp"
-                android:gravity="center"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <com.google.android.material.imageview.ShapeableImageView
-            app:strokeWidth="@dimen/_1sdp"
-            app:strokeColor="@color/greendark"
-            app:shapeAppearanceOverlay="@style/circularImageView"
-            android:padding="@dimen/_1sdp"
-            android:id="@+id/keprofil"
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:scaleType="fitXY"
-            android:backgroundTint="@color/white"
-            android:layout_gravity="end|center_vertical"
-            android:layout_marginRight="@dimen/_30sdp"
-            android:src="@drawable/logodisporabudpar"
-            />
-    </com.google.android.material.card.MaterialCardView>
-    <!--    Akhir cardview TOP  -->
-</RelativeLayout>
     </LinearLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

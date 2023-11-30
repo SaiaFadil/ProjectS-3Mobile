@@ -108,81 +108,14 @@ public class FormPerpanjanganDitolak extends AppCompatActivity {
                 overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
             }
         });
-
         ajukanulang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                // Persiapkan berkas gambar KTP Seniman, dokumen Surat Keterangan, dan gambar Pass Foto
-                String id_perpanjangan = getIntent().getStringExtra("id_perpanjangan");
-                File suratKeteranganFile = new File(textViewButton1.getText().toString());
-                File ktpSenimanFile = new File(textViewButton2.getText().toString());
-                File passFotoFile = new File(textViewButton3.getText().toString());
-
-                // Buat RequestBody untuk berkas-berkas tersebut
-                RequestBody requestFileSuratKeterangan = null;
-                MultipartBody.Part suratKeteranganPart = null;
-
-                if (pathSurat != null) {
-                    requestFileSuratKeterangan = RequestBody.create(MediaType.parse("multipart/form-data"), pathSurat);
-                    suratKeteranganPart = MultipartBody.Part.createFormData("surat_keterangan", suratKeteranganFile.getName(), requestFileSuratKeterangan);
-                }
-
-                RequestBody requestFileKtpSeniman = null;
-                MultipartBody.Part ktpSenimanPart = null;
-                if (pathKtp != null) {
-                    requestFileKtpSeniman = RequestBody.create(MediaType.parse("multipart/form-data"), pathKtp);
-                    ktpSenimanPart = MultipartBody.Part.createFormData("ktp_seniman", ktpSenimanFile.getName(), requestFileKtpSeniman);
-                }
-
-
-                RequestBody requestFilePassFoto = null;
-                MultipartBody.Part passFotoPart = null;
-                if (pathPasFoto != null) {
-                    requestFilePassFoto = RequestBody.create(MediaType.parse("multipart/form-data"), pathPasFoto);
-                    passFotoPart = MultipartBody.Part.createFormData("pass_foto", passFotoFile.getName(), requestFilePassFoto);
-                }
-
-                // Mengirim data dan berkas ke server
-                APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
-                Call<ResponseDetailPerpanjanganDitolak> getResponse = ardData.sendPerpanjanganDataditolak(id_perpanjangan,"diajukan", suratKeteranganPart, ktpSenimanPart, passFotoPart);
-                getResponse.enqueue(new Callback<ResponseDetailPerpanjanganDitolak>() {
-                    @Override
-                    public void onResponse(Call<ResponseDetailPerpanjanganDitolak> call, Response<ResponseDetailPerpanjanganDitolak> response) {
-                        if (response.isSuccessful() && response.body() != null) {
-                            ResponseDetailPerpanjanganDitolak perpanjanganResponse = response.body();
-
-                            // Periksa status dari respons server
-                            if (response.body().getKode() == 1) {
-                                startActivity(new Intent(FormPerpanjanganDitolak.this, MainActivity.class).putExtra(MainActivity.FRAGMENT, R.layout.fragment_status));
-                            } else {
-                                // Menampilkan pesan kesalahan dari server
-                                startActivity(new Intent(FormPerpanjanganDitolak.this, MainActivity.class).putExtra(MainActivity.FRAGMENT, R.layout.fragment_status));
-                                showCustomErrorDialog("Uh-Oh", perpanjanganResponse.getPesan());
-                                Toast.makeText(FormPerpanjanganDitolak.this, "Toast1", Toast.LENGTH_SHORT).show();
-                            }
-                        } else {
-                            // Menampilkan pesan kesalahan jika respons tidak berhasil
-                            startActivity(new Intent(FormPerpanjanganDitolak.this, MainActivity.class).putExtra(MainActivity.FRAGMENT, R.layout.fragment_status));
-                            showCustomErrorDialog("Uh-Oh", "Terjadi kesalahan. Silakan coba lagi.");
-                            Toast.makeText(FormPerpanjanganDitolak.this, "Toast2", Toast.LENGTH_SHORT).show();
-
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<ResponseDetailPerpanjanganDitolak> call, Throwable t) {
-                        // Menampilkan pesan kesalahan ketika gagal melakukan permintaan jaringan
-                        Log.e("Pailur",t.getMessage());
-//                        startActivity(new Intent(FormPerpanjanganDiajukan.this, MainActivity.class).putExtra(MainActivity.FRAGMENT, R.layout.fragment_status));
-
-                    }
-
-                });
-
+                Intent intent = new Intent(FormPerpanjanganDitolak.this, MainActivity.class).putExtra(MainActivity.FRAGMENT, R.layout.fragment_home);
+                startActivity(intent);
             }
-
         });
+
     }
         private void showData () {
             mFrameLayout.startShimmer();

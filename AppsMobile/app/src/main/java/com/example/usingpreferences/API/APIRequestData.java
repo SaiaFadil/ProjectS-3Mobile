@@ -1,21 +1,29 @@
 package com.example.usingpreferences.API;
 
 import com.example.usingpreferences.DataModel.CekEmailModel;
+import com.example.usingpreferences.DataModel.EditEventResponse;
 import com.example.usingpreferences.DataModel.KategoriSenimanModel;
+import com.example.usingpreferences.DataModel.ListTempatResponse;
 import com.example.usingpreferences.DataModel.ModelDetailSenimanDiajukan;
 import com.example.usingpreferences.DataModel.ModelResponseAll;
 import com.example.usingpreferences.DataModel.ModelResponseDataSeniman;
 import com.example.usingpreferences.DataModel.ModelResponseSimpanDataSeniman;
+import com.example.usingpreferences.DataModel.ModelResponseSimpanEvent;
 import com.example.usingpreferences.DataModel.ModelUpdateProfil;
 import com.example.usingpreferences.DataModel.PerpanjanganResponse;
 import com.example.usingpreferences.DataModel.ResponseDetailAdvisDiajukan;
 import com.example.usingpreferences.DataModel.ResponseDetailAdvisDiproses;
 import com.example.usingpreferences.DataModel.ResponseDetailAdvisDiterima;
 import com.example.usingpreferences.DataModel.ResponseDetailAdvisDitolak;
+import com.example.usingpreferences.DataModel.ResponseDetailEvent;
 import com.example.usingpreferences.DataModel.ResponseDetailPerpanjanganDiajukan;
 import com.example.usingpreferences.DataModel.ResponseDetailPerpanjanganDiproses;
 import com.example.usingpreferences.DataModel.ResponseDetailPerpanjanganDiterima;
 import com.example.usingpreferences.DataModel.ResponseDetailPerpanjanganDitolak;
+import com.example.usingpreferences.DataModel.ResponseDetailPinjamDiajukan;
+import com.example.usingpreferences.DataModel.ResponseDetailPinjamDiproses;
+import com.example.usingpreferences.DataModel.ResponseDetailPinjamDiterima;
+import com.example.usingpreferences.DataModel.ResponseDetailPinjamDitolak;
 import com.example.usingpreferences.DataModel.ResponseDetailSenimanDiajukan;
 import com.example.usingpreferences.DataModel.ResponseDetailSenimanDiproses;
 import com.example.usingpreferences.DataModel.ResponseDetailSenimanDiterima;
@@ -25,16 +33,22 @@ import com.example.usingpreferences.DataModel.ResponseStatusAdvisDiajukan;
 import com.example.usingpreferences.DataModel.ResponseStatusAdvisDiproses;
 import com.example.usingpreferences.DataModel.ResponseStatusAdvisDiterima;
 import com.example.usingpreferences.DataModel.ResponseStatusAdvisDitolak;
+import com.example.usingpreferences.DataModel.ResponseStatusEvent;
 import com.example.usingpreferences.DataModel.ResponseStatusPerpanjanganDiajukan;
 import com.example.usingpreferences.DataModel.ResponseStatusPerpanjanganDiproses;
 import com.example.usingpreferences.DataModel.ResponseStatusPerpanjanganDiterima;
 import com.example.usingpreferences.DataModel.ResponseStatusPerpanjanganDitolak;
+import com.example.usingpreferences.DataModel.ResponseStatusPinjamDiajukan;
+import com.example.usingpreferences.DataModel.ResponseStatusPinjamDiproses;
+import com.example.usingpreferences.DataModel.ResponseStatusPinjamDiterima;
+import com.example.usingpreferences.DataModel.ResponseStatusPinjamDitolak;
 import com.example.usingpreferences.DataModel.ResponseStatusSenimanDiajukan;
 import com.example.usingpreferences.DataModel.ResponseStatusSenimanDiproses;
 import com.example.usingpreferences.DataModel.ResponseStatusSenimanDiterima;
 import com.example.usingpreferences.DataModel.ResponseStatusSenimanDitolak;
 import com.example.usingpreferences.DataModel.ResponsesetKategoriOnSpinner;
 import com.example.usingpreferences.DataModel.SenimanResponse;
+import com.example.usingpreferences.DataModel.TanggalSewaResponse;
 import com.example.usingpreferences.DataModel.VerifyResponse;
 import com.example.usingpreferences.DataModel.getSingkatanResponse;
 
@@ -48,6 +62,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+import retrofit2.http.Query;
 
 public interface APIRequestData {
     //buat ngambil data dari API/webservice retrieve.php
@@ -322,6 +337,7 @@ public interface APIRequestData {
             @Part("id_seniman") String idSeniman,
             @Part MultipartBody.Part ktpSeniman
     );
+
     @Multipart
     @POST("data_seniman_mobile/update_pass_foto_perpanjangan.php")
     Call<ResponseDetailPerpanjanganDiajukan> updatePassFotoperpanjangan(
@@ -510,6 +526,182 @@ public interface APIRequestData {
     @POST("data_seniman_mobile/detail_Seniman_diterima.php")
     Call<ResponseDetailSenimanDiterima> getKodeSeniman (
             @Field("id_seniman") String id_seniman
+
+    );
+    @Multipart
+    @POST("event.php")
+    Call<ModelResponseSimpanEvent> event(
+            @Part("id_event") String idEvent,
+            @Part("nama_event") String namaEvent,
+            @Part("deskripsi") String deskripsi,
+            @Part("tempat_event") String tempat_event,
+            @Part("tanggal_awal") String tanggalAwal,
+            @Part("tanggal_akhir") String tanggalAkhir,
+            @Part("link_pendaftaran") String linkPendaftaran,
+            @Part MultipartBody.Part posterEvent
+    );
+
+    @FormUrlEncoded
+    @POST("event2.php")
+    Call<ModelResponseSimpanEvent> event2(
+            @Field("nama_pengirim") String namaPengirim,
+            @Field("status") String status,
+//            @Field("id_detail") String idDetail,
+            @Field("id_user") String idUser
+
+    );
+    @GET("status_event/detail_event.php")
+    Call<ResponseDetailEvent> getModelDetailEvent(
+            @Query("id_event") String idEvent
+
+    );
+
+    @GET("status_event/status_event.php")
+    Call<ResponseStatusEvent> getStatus(
+            @Query("id_user") String idUser
+    );
+
+    @Multipart
+    @POST("status_event/ajukanulang_event_ditolak.php")
+    Call<EditEventResponse> ajukanUlangEvent(
+            @Part("id_event") String idEvent,
+            @Part("nama_event") String namaEvent,
+            @Part("deskripsi") String deskripsi,
+            @Part("tempat_event") String tempat_event,
+            @Part("tanggal_awal") String tanggalAwal,
+            @Part("tanggal_akhir") String tanggalAkhir,
+            @Part("link_pendaftaran") String linkPendaftaran,
+            @Part MultipartBody.Part posterEvent
+    );
+
+    @FormUrlEncoded
+    @POST("status_event/delete_event_diajukan.php")
+    Call<ResponseDetailEvent> deleteEvent(
+            @Field("id_event") String idEvent
+    );
+    @Multipart
+    @POST("pinjam_tempat.php")
+    Call<ModelResponseAll> sendPinjamTempat(
+            @Part("nama_peminjam") String namalengkappinjam,
+            @Part("nik_sewa") String et_ktppinjam,
+            @Part("instansi") String et_instansipinjam,
+            @Part("nama_kegiatan_sewa") String et_namakegiatanpinjam,
+            @Part("jumlah_peserta") String et_jumlahpesertapinjam,
+            @Part("nama_tempat") String et_tempatpinjam,
+            @Part("deskripsi_sewa_tempat") String et_deskripsipinjam,
+            @Part("tgl_awal_peminjaman") String et_tanggalawalpinjam,
+            @Part("tgl_akhir_peminjaman") String et_tanggalakhirpinjam,
+            @Part("status") String status,
+            @Part("catatan") String catatan,
+            @Part("id_tempat") String idTempat,
+            @Part("id_user") String idUser,
+            @Part MultipartBody.Part photo
+    );
+
+    @FormUrlEncoded
+    @POST("Tempat/deletee_Pinjam_diajukan.php")
+    Call<ModelResponseAll> hapusData(
+            @Field("id_sewa") String idSewa
+    );
+
+    @GET("get_list_tempat.php")
+    Call<ListTempatResponse> lisTempatttt();
+
+    @GET("get_tanggal.php")
+    Call<TanggalSewaResponse> tanggalSewa(
+            @Query("id_tempat") String idTempat
+    );
+
+    @FormUrlEncoded
+    @POST("Tempat/status_Pinjam_diajukan.php")
+    Call<ResponseStatusPinjamDiajukan> getStatusPinjamDiajukan(
+            @Field("id_user") String id_user
+    );
+
+    @FormUrlEncoded
+    @POST("Tempat/detail_Pinjam_diajukan.php")
+    Call<ResponseDetailPinjamDiajukan> getDetailPinjamDianjukan(
+            @Field("id_sewa") String id_sewa
+    );
+
+    @FormUrlEncoded
+    @POST("Tempat/status_Pinjam_diproses.php")
+    Call<ResponseStatusPinjamDiproses> getStatusPinjamDiproses(
+            @Field("id_user") String id_user
+    );
+
+    @FormUrlEncoded
+    @POST("Tempat/detail_Pinjam_diproses.php")
+    Call<ResponseDetailPinjamDiproses> getDetailPinjamDiproses(
+            @Field("id_sewa") String id_sewa
+    );
+
+    @FormUrlEncoded
+    @POST("Tempat/status_Pinjam_diterima.php")
+    Call<ResponseStatusPinjamDiterima> getStatusPinjamDiterima(
+            @Field("id_user") String id_user
+    );
+
+    @FormUrlEncoded
+    @POST("status_Pinjam/detail_Pinjam_diterima.php")
+    Call<ResponseDetailPinjamDiterima> getDetailPinjamDiterima(
+            @Field("id_sewa") String id_sewa
+    );
+
+    @FormUrlEncoded
+    @POST("Tempat/status_Pinjam_ditolak.php")
+    Call<ResponseStatusPinjamDitolak> getStatusPinjamDitolak(
+            @Field("id_user") String id_user
+    );
+
+    @FormUrlEncoded
+    @POST("Tempat/detail_Pinjam_ditolak.php")
+    Call<ResponseDetailPinjamDitolak> getDetailPinjamDitolak(
+            @Field("id_sewa") String id_sewa
+    );
+
+
+    @FormUrlEncoded
+    @POST("Tempat/edit_Pinjam_diajukan.php")
+    Call<ModelResponseAll> editPinjamDiajukan(
+            @Field("id_sewa") String id_sewa,
+            @Field("deskripsi_sewa_tempat") String deskripsi_sewa_tempat,
+            @Field("tgl_awal_peminjaman") String tgl_awal_peminjaman,
+            @Field("nama_tempat") String nama_tempat
+
+    );
+
+    @FormUrlEncoded
+    @POST("Tempat/ajukanulang_Pinjam_ditolak.php")
+    Call<ModelResponseAll> ajukanulangPinjamDiajukan(
+            @Field("id_sewa") String id_sewa,
+            @Field("deskripsi_sewa_tempat") String deskripsi_sewa_tempat,
+            @Field("tgl_awal_peminjaman") String tgl_awal_peminjaman,
+            @Field("nama_tempat") String nama_tempat
+
+    );
+
+    @FormUrlEncoded
+    @POST("Tempat/deletee_Pinjam_diajukan.php")
+    Call<ResponseDetailPinjamDiajukan> hapusPinjamDiajukan(
+            @Field("id_sewa") String id_sewa
+    );
+    @FormUrlEncoded
+    @POST("Tempat/deletee_Pinjam_diajukan.php")
+    Call<ResponseDetailPinjamDitolak> hapusPinjamDitolak(
+            @Field("id_sewa") String id_sewa
+    );
+    @FormUrlEncoded
+    @POST("Tempat/notifditerima_pinjam.php")
+    Call<ModelResponseAll> notifditerima_pinjam(
+            @Field("id_user") String id_user
+
+    );
+
+    @FormUrlEncoded
+    @POST("Tempat/notifditolak_pinjam.php")
+    Call<ModelResponseAll> notifditolak_pinjam(
+            @Field("id_user") String id_user
 
     );
 }

@@ -34,16 +34,17 @@
                     android:gravity="center"
                     android:textStyle="bold" />
             </LinearLayout>
+
             <ImageButton
                 android:id="@+id/pinjamback"
                 android:layout_width="@dimen/_45sdp"
                 android:layout_height="@dimen/_50sdp"
-                android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_back"
+                android:layout_marginLeft="@dimen/_10sdp"
                 android:backgroundTint="@color/white"
                 android:scaleType="fitXY"
-                />
+                android:src="@drawable/ic_back"
+                tools:ignore="SpeakableTextPresentCheck" />
         </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>
     <ScrollView
@@ -111,20 +112,22 @@
                 android:text="Instansi"
                 android:textSize="@dimen/_15ssp"
                 />
+
             <EditText
                 android:id="@+id/et_instansipinjam"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/bg_editext"
                 android:ems="10"
+                android:hint="Masukkan Nama Instansi"
                 android:inputType="text"
                 android:maxLines="1"
-                android:hint="Masukkan Nama Instansi"
-                android:textSize="@dimen/_14sdp"
-                android:background="@drawable/bg_editext"
+                android:paddingLeft="@dimen/_12sdp"
                 android:paddingTop="@dimen/_5sdp"
                 android:paddingBottom="@dimen/_6sdp"
-                android:paddingLeft="@dimen/_12sdp"/>
+                android:textSize="@dimen/_14sdp"
+                tools:ignore="TouchTargetSizeCheck" />
             <TextView
                 android:textColor="@color/black"
                 android:layout_marginTop="@dimen/_15sdp"
@@ -133,20 +136,22 @@
                 android:text="Nama Kegiatan"
                 android:textSize="@dimen/_15ssp"
                 />
+
             <EditText
                 android:id="@+id/et_namakegiatanpinjam"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:ems="10"
-                android:inputType="text"
-                android:hint="Masukkan Nama Kegiatan"
-                android:textSize="@dimen/_14sdp"
                 android:background="@drawable/bg_editext"
+                android:ems="10"
+                android:hint="Masukkan Nama Kegiatan"
+                android:inputType="text"
+                android:maxLines="1"
+                android:minHeight="48dp"
+                android:paddingLeft="@dimen/_12sdp"
                 android:paddingTop="@dimen/_5sdp"
                 android:paddingBottom="@dimen/_6sdp"
-                android:maxLines="1"
-                android:paddingLeft="@dimen/_12sdp"/>
+                android:textSize="@dimen/_14sdp" />
             <TextView
                 android:textColor="@color/black"
                 android:layout_marginTop="@dimen/_15sdp"
@@ -155,20 +160,22 @@
                 android:text="Jumlah Peserta"
                 android:textSize="@dimen/_15ssp"
                 />
+
             <EditText
                 android:id="@+id/et_jumlahpesertapinjam"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:ems="10"
-                android:inputType="number"
-                android:hint="Masukkan Jumlah Peserta"
-                android:maxLines="1"
-                android:textSize="@dimen/_14sdp"
                 android:background="@drawable/bg_editext"
+                android:ems="10"
+                android:hint="Masukkan Jumlah Peserta"
+                android:inputType="number"
+                android:maxLines="1"
+                android:minHeight="48dp"
+                android:paddingLeft="@dimen/_12sdp"
                 android:paddingTop="@dimen/_5sdp"
                 android:paddingBottom="@dimen/_6sdp"
-                android:paddingLeft="@dimen/_12sdp"/>
+                android:textSize="@dimen/_14sdp" />
             <TextView
                 android:textColor="@color/black"
                 android:layout_marginTop="@dimen/_15sdp"
@@ -183,17 +190,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:ems="10"
-                android:maxLines="1"
-                android:inputType="number"
-                android:hint="Masukkan Gedung/Tempat"
-                android:textSize="@dimen/_12sdp"
                 android:background="@drawable/bg_editext"
-                android:paddingTop="@dimen/_5sdp"
+                android:ems="10"
                 android:enabled="false"
-                android:textColor="@color/black"
+                android:hint="Masukkan Gedung/Tempat"
+                android:inputType="number"
+                android:maxLines="1"
+                android:minHeight="48dp"
+                android:paddingLeft="@dimen/_12sdp"
+                android:paddingTop="@dimen/_5sdp"
                 android:paddingBottom="@dimen/_6sdp"
-                android:paddingLeft="@dimen/_12sdp"/>
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                tools:ignore="TextSizeCheck" />
 
 
 
@@ -209,22 +218,24 @@
                         android:textColor="@color/black"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tanggal Awal"
+                        android:text="Tanggal Mulai"
                         android:textAlignment="center"
                         android:textSize="@dimen/_14ssp" />
+
                     <TextView
-                        android:textColor="@color/black"
-                        android:layout_width="wrap_content"
+                        android:layout_width="37dp"
                         android:layout_height="wrap_content"
                         android:text="     "
-                        android:textStyle="bold"
                         android:textAlignment="center"
-                        android:textSize="@dimen/_10ssp" />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10ssp"
+                        android:textStyle="bold"
+                        tools:ignore="SpeakableTextPresentCheck" />
                     <TextView
                         android:textColor="@color/black"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tanggal Akhir"
+                        android:text="Tanggal Selesai"
                         android:textAlignment="center"
                         android:textSize="@dimen/_14ssp" />
                 </TableRow>
@@ -236,17 +247,18 @@
                         android:layout_width="@dimen/_110sdp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
                         android:background="@drawable/bg_editext"
                         android:ems="10"
-                        android:enabled="false"
-                        android:layout_marginBottom="@dimen/_10sdp"
                         android:hint="Pilih Tanggal"
                         android:inputType="text"
+                        android:minHeight="48dp"
                         android:paddingTop="@dimen/_5sdp"
                         android:paddingBottom="@dimen/_5sdp"
                         android:textAlignment="center"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp" />
+                        android:textSize="@dimen/_12sdp"
+                        tools:ignore="TextSizeCheck" />
 
                     <TextView
                         android:textColor="@color/black"
@@ -259,19 +271,103 @@
                         android:textStyle="bold" />
 
                     <EditText
-                        android:layout_marginTop="@dimen/_2sdp"
                         android:id="@+id/et_tanggalakhirpinjam"
                         android:layout_width="@dimen/_110sdp"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:layout_marginBottom="@dimen/_10sdp"
-                        android:ems="10"
-                        android:inputType="text"
-                        android:hint="Pilih Tanggal"
-                        android:textSize="@dimen/_12sdp"
                         android:background="@drawable/bg_editext"
+                        android:ems="10"
+                        android:hint="Pilih Tanggal"
+                        android:inputType="text"
+                        android:minHeight="48dp"
                         android:paddingTop="@dimen/_5sdp"
                         android:paddingBottom="@dimen/_5sdp"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:textSize="@dimen/_12sdp"
+                        tools:ignore="TextSizeCheck" />
+                </TableRow>
+            </TableLayout>
+            <TableLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent">
+
+                <TableRow
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Waktu Mulai"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="     "
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10ssp"
+                        android:textStyle="bold"
+                        tools:ignore="SpeakableTextPresentCheck" />
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Waktu Selesai"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/_14ssp" />
+                </TableRow>
+                <TableRow
+                    android:gravity="center_horizontal">
+
+                    <EditText
+                        android:id="@+id/waktuawalpinjam"
+                        android:layout_width="@dimen/_110sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="@drawable/bg_editext"
+                        android:ems="10"
+                        android:hint="Pilih Jam"
+                        android:inputType="text"
+                        android:minHeight="48dp"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_5sdp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"
+                        tools:ignore="TextSizeCheck" />
+
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="  -  "
+                        android:textAlignment="center"
+                        android:textSize="@dimen/_25ssp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/waktuakhirpinjam"
+                        android:layout_width="@dimen/_110sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="@drawable/bg_editext"
+                        android:ems="10"
+                        android:hint="Pilih Jam"
+                        android:inputType="text"
+                        android:minHeight="48dp"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_5sdp"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/_12sdp"
+                        tools:ignore="TextSizeCheck" />
                 </TableRow>
             </TableLayout>
 
@@ -289,7 +385,7 @@
             <EditText
                 android:id="@+id/et_deskripsipinjam"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_100sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/bg_editext"
                 android:gravity="top|left"
@@ -297,17 +393,19 @@
                 android:inputType="textMultiLine"
                 android:maxHeight="@dimen/_200sdp"
                 android:maxLength="120"
+                android:minHeight="48dp"
                 android:paddingLeft="@dimen/_12sdp"
-                android:paddingTop="@dimen/_5sdp"
+                android:paddingTop="@dimen/_10sdp"
                 android:paddingBottom="@dimen/_6sdp"
-                android:textSize="@dimen/_12sdp" />
+                android:textSize="@dimen/_12sdp"
+                tools:ignore="TextSizeCheck" />
 
             <TextView
                 android:textColor="@color/black"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Surat Keterangan Dari Desa"
+                android:text="Surat Keterangan"
                 android:textSize="@dimen/_15ssp"
                 />
             <LinearLayout
@@ -331,6 +429,7 @@
                     android:textSize="@dimen/_12ssp" />
 
                 <TextView
+                    android:id="@+id/textViewButton1"
                     android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -340,13 +439,209 @@
                     android:layout_marginStart="@dimen/_15sdp" />
             </LinearLayout>
 
+            <TextView
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DENGAN PENGAJUAN FORMULIR INI, ANDA MENYETUJUI HAL- HAL BERIKUT :"
+                android:textSize="@dimen/_13ssp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left">
+                    <TextView
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1."
+                        android:textSize="@dimen/_12ssp"
+                        android:fallbackLineSpacing="true"
+                        android:textColor="@color/black" />
+                    <TextView
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Peminjaman tempat ini bersifat gratis dan tidak dipungut biaya."
+                        android:textSize="@dimen/_12ssp"
+                        android:fallbackLineSpacing="true"
+                        android:textColor="@color/black" />
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left">
+                    <TextView
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2."
+                        android:textSize="@dimen/_12ssp"
+                        android:fallbackLineSpacing="true"
+                        android:textColor="@color/black" />
+                    <TextView
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Harus memiliki surat keterangan dari desa atau instansi."
+                        android:textSize="@dimen/_12ssp"
+                        android:fallbackLineSpacing="true"
+                        android:textColor="@color/black" />
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left">
+                    <TextView
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3."
+                        android:textSize="@dimen/_12ssp"
+                        android:fallbackLineSpacing="true"
+                        android:textColor="@color/black" />
+                    <TextView
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mengajukan surat permohonan peminjaman minimal 1 hari sebelum tempat digunakan.
+"
+                        android:textSize="@dimen/_12ssp"
+                        android:fallbackLineSpacing="true"
+                        android:textColor="@color/black" />
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left">
+                    <TextView
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4."
+                        android:textSize="@dimen/_12ssp"
+                        android:fallbackLineSpacing="true"
+                        android:textColor="@color/black" />
+                    <TextView
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Persetujuan atau penolakan surat permohonan peminjaman dapat dilihat paling lambat 1 x 24 jam setelah surat permohonan diajukan."
+                        android:textSize="@dimen/_12ssp"
+                        android:fallbackLineSpacing="true"
+                        android:textColor="@color/black" />
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left">
+                    <TextView
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5."
+                        android:textSize="@dimen/_12ssp"
+                        android:fallbackLineSpacing="true"
+                        android:textColor="@color/black" />
+                    <TextView
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Surat peminjaman tempat ini berlaku satu kali pemakaian tempat yang dipinjam."
+                        android:textSize="@dimen/_12ssp"
+                        android:fallbackLineSpacing="true"
+                        android:textColor="@color/black" />
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left">
+                    <TextView
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="6."
+                        android:textSize="@dimen/_12ssp"
+                        android:fallbackLineSpacing="true"
+                        android:textColor="@color/black" />
+                    <TextView
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dilarang menggunakan tempat untuk kegiatan yang bertentangan dengan kepribadian Bangsa Indonesia."
+                        android:textSize="@dimen/_12ssp"
+                        android:fallbackLineSpacing="true"
+                        android:textColor="@color/black" />
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left">
+                    <TextView
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7."
+                        android:textSize="@dimen/_12ssp"
+                        android:fallbackLineSpacing="true"
+                        android:textColor="@color/black" />
+                    <TextView
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tidak melanggar tata tertib dan bertentangan dengan norma-norma agama."
+                        android:textSize="@dimen/_12ssp"
+                        android:fallbackLineSpacing="true"
+                        android:textColor="@color/black" />
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left">
+                    <TextView
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="8."
+                        android:textSize="@dimen/_12ssp"
+                        android:fallbackLineSpacing="true"
+                        android:textColor="@color/black" />
+                    <TextView
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ruangan atau tempat yang dipinjam untuk kegiatan harus dijaga dan dipelihara dengan sebaik-baiknya."
+                        android:textSize="@dimen/_12ssp"
+                        android:fallbackLineSpacing="true"
+                        android:textColor="@color/black" />
+                </TableRow>
+
+            </TableLayout>
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkboxsetuju"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:text="Dengan ini saya menyetujui syarat diatas."
+                android:textAllCaps="true"/>
+
             <com.google.android.material.button.MaterialButton
                 android:layout_marginTop="@dimen/_50sdp"
                 android:layout_marginBottom="@dimen/_30sdp"
                 android:id="@+id/button_kirimpinjam"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"
-                android:text="Lanjut"
+                android:text="Kirim"
                 android:textSize="@dimen/_14ssp"
                 app:cornerRadius="@dimen/_10sdp"
                 android:shadowRadius="3"
@@ -354,6 +649,7 @@
                 android:layout_marginRight="@dimen/_20sdp"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
+                android:clickable="true"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:backgroundTint="@color/greendark"/>
         </LinearLayout>

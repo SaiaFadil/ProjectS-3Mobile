@@ -21,6 +21,36 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Activity.FormEventDiterimaDiproses"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.FormEventDitolak"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.FormEventDiajukan"
+            android:exported="false" />
+        <activity
+        android:name=".Activity.FormulirPeminjamanTempat"
+        android:exported="false" />
+        <activity
+            android:name=".Activity.PilihTanggalAwalPeminjaman"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.PinjamTempatList"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.FormStatusPinjamDibatalkan"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.FormTempatDiajukan2"
+            android:exported="false" />
+        <activity
+            android:name=".MenuFragment.StatusPinjam"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.LihatKode_Pinjam"
+            android:exported="false" />
+        <activity
             android:name=".Activity.FormSenimanDiterima"
             android:exported="false" />
         <activity
@@ -109,15 +139,6 @@
             android:exported="false" />
         <activity
             android:name=".KonfirmMenu.KonfirmasiAwalEvent"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.FormulirPeminjamanTempat"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.PilihTanggalAwalPeminjaman"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.PinjamTempatList"
             android:exported="false" />
         <activity
             android:name=".KonfirmMenu.PengajuanBerhasilTerkirim"

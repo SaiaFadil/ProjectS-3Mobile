@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.FormStatusPinjamDibatalkan">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:id="@+id/cardjudulstatus"
+        android:layout_marginLeft="-10dp"
+        android:layout_marginRight="-10dp"
+        android:backgroundTint="@color/white"
+        app:strokeWidth="@dimen/_1sdp"
+        app:strokeColor="@color/gray"
+        android:outlineAmbientShadowColor="@color/black"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/judul"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="STATUS"
+                    android:textColor="@color/greendark"
+                    android:textSize="@dimen/_18ssp"
+                    android:gravity="center"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:id="@+id/layoutData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_200sdp"
+                    android:src="@drawable/animstatusditolak"
+                    android:layout_marginTop="45.00dp"/>
+
+                <TextView
+                    android:textColor="@color/black"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10.00dp"
+                    android:text="Tempat Dipinjam :"
+                    android:textSize="@dimen/_15ssp"
+                    />
+
+                <TextView
+                    android:id="@+id/tempatdipinjam"
+                    android:layout_width="match_parent"
+                    android:layout_height="39dp"
+                    android:layout_marginStart="10.00dp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="10.00dp"
+                    android:background="@drawable/bg_editext"
+                    android:gravity="top|left"
+                    android:hint="" />
+
+                <TextView
+                    android:textColor="@color/black"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10.00dp"
+                    android:text="Catatan Ditolak :"
+                    android:textSize="@dimen/_15ssp"
+                    />
+
+
+                <TextView
+                    android:id="@+id/catatanditolakPinjam"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_marginStart="10.00dp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="10.00dp"
+                    android:background="@drawable/bg_editext"
+                    android:gravity="top|left"
+                    android:hint=""
+                    android:inputType="textMultiLine"
+                    android:maxHeight="@dimen/_200sdp"
+                    android:maxLength="120"
+                    android:minHeight="48dp"
+                    android:paddingLeft="@dimen/_12sdp"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_6sdp"
+                    android:textSize="@dimen/_12sdp"
+                    tools:ignore="TextSizeCheck,SpeakableTextPresentCheck" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/selesai"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:text="Selesai"
+                    android:textSize="@dimen/_14ssp"
+                    android:layout_marginTop="50.00dp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:shadowRadius="3"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginRight="@dimen/_20sdp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:backgroundTint="@color/greendark"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</androidx.appcompat.widget.LinearLayoutCompat>

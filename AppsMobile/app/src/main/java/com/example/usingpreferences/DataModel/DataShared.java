@@ -10,7 +10,7 @@ public class DataShared {
 
         private final SharedPreferences.Editor sharedEditor;
 
-        public static final String NAME = "com.c2.arenafinder.PREFERENCES";
+        public static final String NAME = "com.example.usingpreferences";
 
         public DataShared(Context context){
 
@@ -53,7 +53,9 @@ public class DataShared {
         }
 
         public enum KEY {
-
+            ID_NAMA_TEMPAT,
+            NAMA_TEMPAT,
+            TANGGAL_MULAI,
             APP_LAUNCH_FROM,
             ACC_ID_USER,
             ACC_USERNAME,

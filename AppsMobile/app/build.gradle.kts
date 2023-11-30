@@ -48,6 +48,7 @@ dependencies {
     // Library untuk upload image
     testImplementation("junit:junit:4.13.2")
 
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
 
     // Library Retrofit
     implementation ("com.squareup.okhttp3:okhttp:3.4.1")
@@ -66,4 +67,8 @@ dependencies {
 
     // Library OTP GOOGLE
     implementation("com.github.aabhasr1:OtpView:v1.1.2")
+
+    //library kalender
+    implementation ("com.applandeo:material-calendar-view:1.7.0")
+    implementation ("com.applandeo:material-calendar-view:1.9.0-rc04")
 }

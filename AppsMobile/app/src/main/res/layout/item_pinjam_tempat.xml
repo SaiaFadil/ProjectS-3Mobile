@@ -1,0 +1,55 @@
+<androidx.cardview.widget.CardView android:id="@+id/cardanjukladang"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_100sdp"
+    android:backgroundTint="@color/gray"
+    android:layout_marginStart="@dimen/_20sdp"
+    android:layout_marginEnd="@dimen/_20sdp"
+    android:padding="@dimen/_10sdp"
+    android:layout_marginTop="@dimen/_20sdp"
+    app:cardCornerRadius="@dimen/_10sdp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/_15sdp"
+        android:gravity="left">
+
+        <ImageView
+            android:id="@+id/ipt_image"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:scaleType="fitXY"
+            android:src="@drawable/museum_anjuk_ladang"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/_10sdp">
+
+            <TextView
+                android:id="@+id/ipt_nama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1.Museum Anjuk Ladang"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="@dimen/_12ssp"/>
+
+            <TextView
+                android:id="@+id/ipt_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jalan Gatot Subroto Ringin Anom Ringin Anom Kauman Timur, Kec. Nganjuk, Kabupaten Nganjuk, Jawa Timur 64411"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textSize="@dimen/_10ssp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

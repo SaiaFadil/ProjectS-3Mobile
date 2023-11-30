@@ -82,6 +82,7 @@ public class FormPerpanjanganDiproses extends AppCompatActivity {
                 overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
             }
         });
+
         fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.tampil_data_sshimer);
         showData();
         progressDialog = new ProgressDialog(FormPerpanjanganDiproses.this);
@@ -91,6 +92,7 @@ public class FormPerpanjanganDiproses extends AppCompatActivity {
         progressDialog.setCancelable(false);
 
     }
+
         private void showData () {
             mFrameLayout.startShimmer();
             mDataSemua.setVisibility(View.GONE);

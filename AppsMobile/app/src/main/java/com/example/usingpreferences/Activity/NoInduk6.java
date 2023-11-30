@@ -27,6 +27,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -112,7 +113,6 @@ public class NoInduk6 extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
             }
         });
-
         menyetujui.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -126,6 +126,14 @@ public class NoInduk6 extends AppCompatActivity {
                     teks_kesalahan.startAnimation(fadeIn);
 
                 }
+            }
+        });
+        ImageButton kembali = findViewById(R.id.indukback);
+        kembali.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
             }
         });
         Button btnnext = findViewById(R.id.button_lanjutinduk1);
@@ -464,4 +472,5 @@ public class NoInduk6 extends AppCompatActivity {
             }
         });
     }
+
 }
