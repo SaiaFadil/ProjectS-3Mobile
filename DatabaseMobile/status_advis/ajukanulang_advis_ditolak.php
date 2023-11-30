@@ -6,8 +6,6 @@ $id_advis = $_POST['id_advis'];
 $deskripsi_advis = $_POST['deskripsi_advis'];
 $tgl_advis = $_POST['tgl_advis'];
 $tempat_advis = $_POST['tempat_advis'];
-
-
 $cek_iduser = "SELECT * FROM `surat_advis` WHERE id_advis = '$id_advis'";
 $eksekusi_cek = mysqli_query($konek, $cek_iduser);
 $jumlah_cek = mysqli_num_rows($eksekusi_cek);

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "231216646538",
+    "project_id": "nganjukelok",
+    "storage_bucket": "nganjukelok.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:231216646538:android:1084a1340e672190c76073",
+        "android_client_info": {
+          "package_name": "com.example.usingpreferences"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0TYod0hXsqzyhH8JGszZbPQ4F7rFghTQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

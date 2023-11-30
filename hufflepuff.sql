@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2023 at 12:17 PM
+-- Generation Time: Nov 30, 2023 at 11:17 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -51,7 +51,8 @@ INSERT INTO `detail_events` (`id_detail`, `nama_event`, `deskripsi`, `tempat_eve
 (7, 'agustusan', 'inainvinivn', NULL, '2023-11-15', '2023-11-15', 'google.com', '/2023/11/7.jpg'),
 (8, 'turu lah', 'inainvinivn', NULL, '2023-11-15', '2023-11-15', 'google.com', '/2023/11/8.jpg'),
 (9, 'turu lah', 'inainvinivn', NULL, '2023-11-15', '2023-11-15', 'google.com', '/2023/11/9.jpg'),
-(10, 'turu lah', 'inainvinivn', NULL, '2023-11-15', '2023-11-15', 'google.com', '/2023/11/10.jpg');
+(10, 'turu lah', 'inainvinivn', NULL, '2023-11-15', '2023-11-15', 'google.com', '/2023/11/10.jpg'),
+(11, 'Indonesia', 'ndjdbdbdbsks', 'bzjsvshsb', '2023-12-01', '2023-12-08', 'sjsvsj', 'uploads/events/IMG2023112');
 
 -- --------------------------------------------------------
 
@@ -82,7 +83,9 @@ INSERT INTO `events` (`id_event`, `nama_pengirim`, `status`, `catatan`, `id_deta
 (7, 'kareppp ', 'proses', NULL, 7, NULL, 32),
 (8, 'kareppp ', 'diajukan', NULL, 8, NULL, 32),
 (9, 'kareppp ', 'diajukan', NULL, 9, NULL, 32),
-(10, 'kareppp ', 'proses', NULL, 10, NULL, 32);
+(10, 'kareppp ', 'proses', NULL, 10, NULL, 32),
+(11, 'Evitaaaaa', 'diajukan', NULL, 11, NULL, 4),
+(12, 'Evitaaaaa', 'diajukan', NULL, 0, NULL, 4);
 
 -- --------------------------------------------------------
 
@@ -337,7 +340,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id_user`, `nama_lengkap`, `no_telpon`, `jenis_kelamin`, `tanggal_lahir`, `tempat_lahir`, `role`, `email`, `password`, `foto`, `verifikasi`) VALUES
 (1, 'admin', '08374343434343', 'laki-laki', '2023-11-09', 'Ngajuk', 'masyarakat', 'diamanerdi@gmail.com', '123', NULL, 0),
 (2, 'ERDI SEPTA WAHYU PRATAMA', '0895413793451', 'laki-laki', '2003-09-20', 'Nganjuk', 'masyarakat', 'muhammaderdi1999@gmail.com', '$2y$10$7QOjamVu1mON15Zs.iTt8ujmSWFVDN/BPcCfGvjQL4A3dGhndkxXW', NULL, 0),
-(3, 'Laila Wulandari', '085736145858', 'perempuan', '2003-11-08', 'Nganjuk', 'masyarakat', 'emailwulannn0@gmail.com', '$2y$10$UNmnFElhJOUyux5O041g8eq.umPjfvZeBbTSmPEX48Y7KDQSmi5Km', NULL, 0);
+(3, 'Laila Wulandari', '085736145858', 'perempuan', '2003-11-08', 'Nganjuk', 'masyarakat', 'emailwulannn0@gmail.com', '$2y$10$UNmnFElhJOUyux5O041g8eq.umPjfvZeBbTSmPEX48Y7KDQSmi5Km', NULL, 0),
+(4, 'Evitaaaaa', '081555335329', 'laki-laki', '0000-00-00', '', 'masyarakat', 'alvianhidayat641@gmail.com', '$2y$10$r9Bi9SerQJaQbranRoNRJeQY4Tg/7jonVyKIFQi1QfH6mR57G9ioe', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -396,7 +400,8 @@ INSERT INTO `verifikasi` (`id_verifikasi`, `email`, `kode_otp`, `link`, `deskrip
 (34, 'dewinova140@gmail.com', 615853, '', '', 0, '2023-11-17 04:26:10', '2023-11-17 04:26:10', 1, 0),
 (35, 'e41220943@student.polije.ac.id', 116717, '', '', 0, '2023-11-17 04:28:12', '0000-00-00 00:00:00', 1, 0),
 (36, 'muhammaderdi1999@gmail.com', 346137, '', '', 0, '2023-11-26 03:20:47', '2023-11-26 03:20:47', 1, 0),
-(37, 'emailwulannn0@gmail.com', 253069, '', '', 0, '2023-11-28 10:02:04', '0000-00-00 00:00:00', 1, 0);
+(37, 'emailwulannn0@gmail.com', 253069, '', '', 0, '2023-11-28 10:02:04', '0000-00-00 00:00:00', 1, 0),
+(38, 'alvianhidayat641@gmail.com', 286639, '', '', 0, '2023-11-30 09:45:53', '0000-00-00 00:00:00', 1, 0);
 
 --
 -- Indexes for dumped tables
@@ -489,13 +494,13 @@ ALTER TABLE `verifikasi`
 -- AUTO_INCREMENT for table `detail_events`
 --
 ALTER TABLE `detail_events`
-  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `kategori_seniman`
@@ -543,13 +548,13 @@ ALTER TABLE `surat_advis`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `verifikasi`
 --
 ALTER TABLE `verifikasi`
-  MODIFY `id_verifikasi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id_verifikasi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- Constraints for dumped tables

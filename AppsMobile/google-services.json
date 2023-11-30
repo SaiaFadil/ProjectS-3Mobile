@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "12191895691",
+    "project_id": "ordering-food-57eab",
+    "storage_bucket": "ordering-food-57eab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:12191895691:android:011db351b2303c981c448e",
+        "android_client_info": {
+          "package_name": "com.tif22.orderingfood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "12191895691-fsfhj7985tv656922sls08egfnhhhabh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tif22.orderingfood",
+            "certificate_hash": "545ad732cb605c5d09e963f31239237573be4876"
+          }
+        },
+        {
+          "client_id": "12191895691-vpmh631lj5duknkf9o6l9rlk55br5n32.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmd8u3DawqJJioL2lvCn_HZLF31WHM0a4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "12191895691-vpmh631lj5duknkf9o6l9rlk55br5n32.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
