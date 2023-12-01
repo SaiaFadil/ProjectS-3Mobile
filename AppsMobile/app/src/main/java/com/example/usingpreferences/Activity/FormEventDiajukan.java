@@ -10,6 +10,9 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.OpenableColumns;
+import android.text.InputFilter;
+import android.text.Spanned;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -77,7 +80,6 @@ public class FormEventDiajukan extends AppCompatActivity {
         setContentView(R.layout.activity_form_event_diajukan2);
 
         dataId = getIntent().getStringExtra(ID);
-        Toast.makeText(this, "id : "+dataId , Toast.LENGTH_SHORT).show();
         imgBack = findViewById(R.id.statusback);
         inpPengirim = findViewById(R.id.et_namapengirimevent);
         inpNamaEvent = findViewById(R.id.et_namaeventevent);
@@ -90,11 +92,6 @@ public class FormEventDiajukan extends AppCompatActivity {
         btnEdit = findViewById(R.id.editdiajukan);
         btnHapus = findViewById(R.id.batalkandiajukan);
 
-//        cardView = findViewById(R.id.btn_card_status);
-//        cardTop = findViewById(R.id.card_top);
-//        txtStatus = findViewById(R.id.card_status);
-//        imageView = findViewById(R.id.gambar_diterima);
-//        txtStatusBawah = findViewById(R.id.text_status_diterima);
 
         ProgressDialog progressDialog = new ProgressDialog(FormEventDiajukan.this);
         progressDialog.setTitle("Data Sedang Diproses...");
@@ -143,12 +140,24 @@ public class FormEventDiajukan extends AppCompatActivity {
                 int tahun = cldr.get(Calendar.YEAR);
 //                picker.setContextCompat.getColor(this, R.color.greendark));
 
+                cldr.add(Calendar.DAY_OF_MONTH, 5);
+                int minYear = cldr.get(Calendar.YEAR);
+                int minMonth = cldr.get(Calendar.MONTH);
+                int minDay = cldr.get(Calendar.DAY_OF_MONTH);
                 picker = new DatePickerDialog(FormEventDiajukan.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        inpTglAwal.setText(year + "-" + (month + 1) + "-" + dayOfMonth);
+                        Calendar selectedDate = Calendar.getInstance();
+                        selectedDate.set(year, month, dayOfMonth);
+                        if (selectedDate.after(cldr)) {
+                            inpTglAwal.setText(year + "-" + (month + 1) + "-" + dayOfMonth);
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Pilih tanggal setelah 5 hari dari hari ini", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }, tahun, bulan, tgl);
+
+                picker.getDatePicker().setMinDate(cldr.getTimeInMillis());
                 picker.show();
             }
         });
@@ -160,18 +169,29 @@ public class FormEventDiajukan extends AppCompatActivity {
                 int bulan = cldr.get(Calendar.MONTH);
                 int tahun = cldr.get(Calendar.YEAR);
 //                picker.setContextCompat.getColor(this, R.color.greendark));
-
+                cldr.add(Calendar.DAY_OF_MONTH, 5);
+                int minYear = cldr.get(Calendar.YEAR);
+                int minMonth = cldr.get(Calendar.MONTH);
+                int minDay = cldr.get(Calendar.DAY_OF_MONTH);
                 picker = new DatePickerDialog(FormEventDiajukan.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        inpTglAkhir.setText(year + "-" + (month + 1) + "-" + dayOfMonth);
+                        Calendar selectedDate = Calendar.getInstance();
+                        selectedDate.set(year, month, dayOfMonth);
+                        if (selectedDate.after(cldr)) {
+                            inpTglAkhir.setText(year + "-" + (month + 1) + "-" + dayOfMonth);
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Pilih tanggal setelah 5 hari dari hari ini", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }, tahun, bulan, tgl);
+
+                picker.getDatePicker().setMinDate(cldr.getTimeInMillis());
                 picker.show();
             }
         });
         btnEdit.setOnClickListener(v -> {
-            Toast.makeText(this, dataId, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, dataId, Toast.LENGTH_SHORT).show();
 
             String namaPengirim = inpPengirim.getText().toString(),
                     namaEvent = inpNamaEvent.getText().toString(),
@@ -181,45 +201,105 @@ public class FormEventDiajukan extends AppCompatActivity {
                     deskripsi = inpDeskripsi.getText().toString(),
                     link = inpLink.getText().toString();
 
-            File uploadposter = new File(inpPilihFile.getText().toString());
-            MultipartBody.Part poster;
 
-            if (posterPath != null) {
-                RequestBody requestposter = RequestBody.create(MediaType.parse("multipart/form-data"), posterPath);
-                poster = MultipartBody.Part.createFormData("poster_event", uploadposter.getName(), requestposter);
+
+
+            if (TextUtils.isEmpty(namaPengirim)) {
+                inpPengirim.setError("Nama Pengirim Harus Diisi!");
+                inpPengirim.requestFocus();
+            } else if (namaEvent.length() <= 10) {
+                inpNamaEvent.setError("Nama Event Harus Lebih dari 10!");
+                inpNamaEvent.requestFocus();
+            } else if (namaEvent.length() >= 75) {
+                inpNamaEvent.setError("Nama Event Harus Kurang dari 75 karakter!");
+                inpNamaEvent.requestFocus();
+            } else if (TextUtils.isEmpty(tempat)) {
+                inpNamaEvent.setError("Nama Event Harus Diisi!");
+                inpNamaEvent.requestFocus();
+            } else if (tempat.length() <= 25) {
+                inpTempat.setError("Tempat Event Tempat Event Harus Lebih Dari 25 Karakter!");
+                inpTempat.requestFocus();
+            } else if (tempat.length() >= 150) {
+                inpTempat.setError("Tempat Event Tempat Event Harus Kurang Dari 150 Karakter!");
+                inpTempat.requestFocus();
+            } else if (TextUtils.isEmpty(tempat)) {
+                inpTempat.setError("Tempat Event Harus Diisi!");
+                inpTempat.requestFocus();
+            } else if (TextUtils.isEmpty(tglAwal)) {
+                inpTglAwal.setError("Tanggal Awal Event Harus Diisi!");
+                inpTglAwal.requestFocus();
+            } else if (TextUtils.isEmpty(tglAkhir)) {
+                inpTglAkhir.setError("Tanggal Akhir Event Harus Diisi!");
+                inpTglAkhir.requestFocus();
+            } else if (deskripsi.length() <= 75) {
+                inpDeskripsi.setError("Deskripsi Event Harus Lebih Dari 75 Karakter!");
+                inpDeskripsi.requestFocus();
+            } else if (deskripsi.length() >= 360) {
+                inpDeskripsi.setError("Deskripsi Event Harus Kurang Dari 360 Karakter!");
+                inpDeskripsi.requestFocus();
+            } else if (TextUtils.isEmpty(deskripsi)) {
+                inpDeskripsi.setError("Deskripsi Event Harus Diisi!");
+                inpDeskripsi.requestFocus();
             } else {
-                Toast.makeText(this, "Masukkan Ulang Foto", Toast.LENGTH_SHORT).show();
-                poster = null;
-            }
 
-            Toast.makeText(this, "Data Id : " + dataId, Toast.LENGTH_SHORT).show();
 
-            RetroServer.getInstance().ajukanUlangEvent(
-                    dataId, namaEvent, deskripsi, tempat, tglAwal, tglAkhir, link, poster
-            ).enqueue(new Callback<EditEventResponse>() {
-                @Override
-                public void onResponse(Call<EditEventResponse> call, Response<EditEventResponse> response) {
 
-                    if (response.body() != null && response.body().getStatus().equalsIgnoreCase("success")) {
+                File uploadposter = new File(inpPilihFile.getText().toString());
+                MultipartBody.Part poster;
 
-                        Toast.makeText(FormEventDiajukan.this, "DATA BERHASIL DI EDIT", Toast.LENGTH_SHORT).show();
+                if (posterPath != null) {
+                    RequestBody requestposter = RequestBody.create(MediaType.parse("multipart/form-data"), posterPath);
+                    poster = MultipartBody.Part.createFormData("poster_event", uploadposter.getName(), requestposter);
+                } else {
+                    Toast.makeText(this, "Masukkan Ulang Foto", Toast.LENGTH_SHORT).show();
+                    poster = null;
+                }
 
-                    } else {
-                        Toast.makeText(FormEventDiajukan.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                        Log.e("DEBUG", response.body().getMessage());
+//            Toast.makeText(this, "Data Id : " + dataId, Toast.LENGTH_SHORT).show();
+
+                RetroServer.getInstance().ajukanUlangEvent(
+                        dataId, namaEvent, deskripsi, tempat, tglAwal, tglAkhir, link, poster
+                ).enqueue(new Callback<EditEventResponse>() {
+                    @Override
+                    public void onResponse(Call<EditEventResponse> call, Response<EditEventResponse> response) {
+
+                        if (response.body() != null && response.body().getStatus().equalsIgnoreCase("success")) {
+
+                            Toast.makeText(FormEventDiajukan.this, "DATA BERHASIL DI EDIT", Toast.LENGTH_SHORT).show();
+
+                        } else {
+                            Toast.makeText(FormEventDiajukan.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                            Log.e("DEBUG", response.body().getMessage());
+                        }
+
                     }
 
-                }
+                    @Override
+                    public void onFailure(Call<EditEventResponse> call, Throwable t) {
+                        t.printStackTrace();
+                        Toast.makeText(FormEventDiajukan.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
 
-                @Override
-                public void onFailure(Call<EditEventResponse> call, Throwable t) {
-                    t.printStackTrace();
-                    Toast.makeText(FormEventDiajukan.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            });
-
+                });
+            }
 
         });
+
+        InputFilter filter = new InputFilter() {
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                String regex = "^[a-zA-Z0-9'\"., ]*";
+                if (source.toString().matches(regex)) {
+                    return source;
+                } else {
+                    return "";
+                }
+            }
+        };
+        inpPengirim.setFilters(new InputFilter[]{filter});
+        inpNamaEvent.setFilters(new InputFilter[]{filter});
+        inpTempat.setFilters(new InputFilter[]{filter});
+        inpDeskripsi.setFilters(new InputFilter[]{filter});
+
 
         btnHapus.setOnClickListener(v -> {
 

@@ -61,6 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         tekserror = findViewById(R.id.texterror);
+
         // Inisialisasi EditText
         mViewNama = findViewById(R.id.et_namaSignup);
         mViewEmail = findViewById(R.id.et_emailSignup);
@@ -69,44 +70,54 @@ public class RegisterActivity extends AppCompatActivity {
         mViewPassword2 = findViewById(R.id.et_passwordSignup2);
         mViewNama = findViewById(R.id.et_namaSignup);
 
-        InputFilter HanyaHuruf = new InputFilter() {
-            @Override
-            public CharSequence filter(CharSequence source, int start, int end,
-                                       Spanned dest, int dstart, int dend) {
-                // Loop melalui karakter yang diinputkan
-                for (int i = start; i < end; i++) {
-                    char character = source.charAt(i);
-                    if (!Character.isLetter(character) && character != ' ') {
-                        // Karakter tidak valid, jadi kita tidak mengizinkan
-                        return "";
-                    }
-                }
-                // Semua karakter valid, izinkan input
-                return null;
-            }
-        };
-
-
-
-// Membuat InputFilter untuk menghilangkan spasi
-        InputFilter noWhiteSpaceFilter = new InputFilter() {
+        InputFilter filternama = new InputFilter() {
             @Override
             public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
-                for (int i = start; i < end; i++) {
-                    if (Character.isWhitespace(source.charAt(i))) {
-                        return ""; //gantiin spasi dengan string kosong
-                    }
+                String regex = "^[a-zA-Z' ]*";
+                if (source.toString().matches(regex)) {
+                    return source;
+                } else {
+                    return "";
                 }
-                return null; // nothing perubahan
             }
         };
 
+        InputFilter filterpassword = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                String regex = "^[a-zA-Z0-9]*";
+                if (source.toString().matches(regex)) {
+                    return source;
+                } else {
+                    return "";
+                }
+            }
+        };
+
+
+
+        InputFilter filternotelp = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                String regex = "^[0-9]*";
+                if (source.toString().matches(regex)) {
+                    return source;
+                } else {
+                    return "";
+                }
+            }
+        };
+
+
+
+
 // mengnetapkan InputFilter ke setiap EditText
-        mViewNama.setFilters(new InputFilter[] { HanyaHuruf });
-        mViewNotlp.setFilters(new InputFilter[]{noWhiteSpaceFilter});
-//        mViewEmail.setFilters(new InputFilter[]{noWhiteSpaceFilter});
-        mViewPassword.setFilters(new InputFilter[]{noWhiteSpaceFilter});
-        mViewPassword2.setFilters(new InputFilter[]{noWhiteSpaceFilter});
+        mViewNama.setFilters(new InputFilter[] { filternama });
+        mViewNotlp.setFilters(new InputFilter[]{filternotelp});
+        mViewPassword.setFilters(new InputFilter[]{filterpassword});
+        mViewPassword2.setFilters(new InputFilter[]{filterpassword});
+
+
         mBtnRegister = findViewById(R.id.button_signupSignup);
         mBtnLogin = findViewById(R.id.button_signinsignin);
         tampilkansandi = findViewById(R.id.checkboxpw);
@@ -152,18 +163,6 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
-        InputFilter filter = new InputFilter() {
-            @Override
-            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
-                String regex = "^[a-zA-Z0-9@.]*";
-                if (source.toString().matches(regex)) {
-                    return source;
-                } else {
-                    return "";
-                }
-            }
-        };
-        mViewEmail.setFilters(new InputFilter[] { filter });
         mViewNotlp.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -266,6 +265,10 @@ public class RegisterActivity extends AppCompatActivity {
                     mViewNama.setError("Nama Tidak Valid!");
                     mViewNama.requestFocus();
 
+                } else if (mViewNama.getText().length() > 30) {
+                    mViewNama.setError("Nama Maksimal 30 karakter");
+                    mViewNama.requestFocus();
+
                 } else if (TextUtils.isEmpty(notlp)) {
                     mViewNotlp.setError("No Telpon harus diisi");
                     focus = mViewNotlp;
@@ -282,7 +285,7 @@ public class RegisterActivity extends AppCompatActivity {
                     focus = mViewNotlp;
                     mViewNotlp.requestFocus();
 
-                } else if (notlp.length() >= 15) {
+                } else if (notlp.length() >= 16) {
                     mViewNotlp.setError("No Telpon Maksimum 15");
                     focus = mViewNotlp;
 

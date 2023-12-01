@@ -105,6 +105,7 @@ public class FormAdvisDiterima extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<ResponseDetailAdvisDiterima> call, Throwable t) {
+                t.printStackTrace();
                 showAlertDialog();
             }});}
 

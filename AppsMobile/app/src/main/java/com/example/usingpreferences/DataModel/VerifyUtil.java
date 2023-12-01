@@ -39,7 +39,6 @@ public class VerifyUtil {
             setEmail(model.getEmail());
             setOtp(model.getOtp());
             setDevice(model.getDevice());
-            setResend(Integer.parseInt(model.getResend()));
         }
     }
 
@@ -103,13 +102,7 @@ public class VerifyUtil {
         return 1;
     }
 
-    public long countResendMillis(){
-        return System.currentTimeMillis() + (60_000L * (getWaitingMinutes() / 60));
-    }
 
-    public int getResendSeconds(){
-        return (int)((countResendMillis() - System.currentTimeMillis()) / 1000);
-    }
 
     public String getCreated(){
         return getData(KEY.VERIFY_CREATED);
@@ -158,34 +151,6 @@ public class VerifyUtil {
     }
 
     // TODO : 2 -> 3 -> 5 -> 7 -> 9 -> 11
-    public int getWaitingMinutes(){
-        int resend = getResend();
-        if (resend <= 0){
-            return minutes;
-        }
-
-        switch (resend){
-            case 1 : {
-                return 20;
-            }
-            case 2 : {
-                return 30;
-            }
-            case 3 : {
-                return minutes * 5;
-            }
-            case 4 : {
-                return minutes * 7;
-            }
-            case 5 : {
-                return minutes * 9;
-            }
-            default: {
-                return minutes * resend * 2;
-            }
-
-        }
-    }
 
     public void removeOtp(){
         dataShared.setNullData(KEY.VERIFY_OTP_CODE);

@@ -103,18 +103,14 @@ public class StatusPentas extends Fragment {
                     }
                     recviewdiajukan.setAdapter(adapterdiajukan);
 
-                } else {
-                    Toast.makeText(getContext(), "error " + response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseStatusAdvisDiajukan> call, Throwable t) {
-                Toast.makeText(getContext(), "Kesalahan Pada Server\nHarap Periksa Koneksi Anda", Toast.LENGTH_SHORT).show();
-            }
-        });
-//ini akhir recview diajukan
 
+        }});
+//ini akhir recview diajuka
 
 //ini awal recview diproses
         recviewdiproses = view.findViewById(R.id.recyclerViewStatusAdvisDiproses); // Ubah ID menjadi recyclerViewStatusAdvisDiproses
@@ -128,8 +124,6 @@ public class StatusPentas extends Fragment {
                     List<ModelStatusAdvisDiproses> data = responseModel.getData();
                     adapterdiproses = new StatusAdvisDiprosesAdapter(data);
                     recviewdiproses.setAdapter(adapterdiproses);
-                } else {
-                    Toast.makeText(getContext(), "error " + response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -152,8 +146,6 @@ public class StatusPentas extends Fragment {
                     List<ModelStatusAdvisDitolak> data = responseModel.getData();
                     adapterditolak = new StatusAdvisDitolakAdapter(data);
                     recviewditolak.setAdapter(adapterditolak);
-                } else {
-                    Toast.makeText(getContext(), "error " + response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -176,8 +168,6 @@ public class StatusPentas extends Fragment {
                     List<ModelStatusAdvisDiterima> dataditerima = responseModel.getData();
                     adapterditerima = new StatusAdvisDiterimaAdapter(dataditerima);
                     recviewditerima.setAdapter(adapterditerima);
-                } else {
-                    Toast.makeText(getContext(), response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 

@@ -111,7 +111,7 @@ public class FormulirUploadEvent extends AppCompatActivity {
 
         InputFilter filter = new InputFilter() {
             public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
-                String regex = "^[a-zA-Z0-9' ]*";
+                String regex = "^[a-zA-Z0-9'\"., ]*";
                 if (source.toString().matches(regex)) {
                     return source;
                 } else {
@@ -120,6 +120,9 @@ public class FormulirUploadEvent extends AppCompatActivity {
             }
         };
         namaPengirim.setFilters(new InputFilter[]{filter});
+        namaEvent.setFilters(new InputFilter[]{filter});
+        tempatEvent.setFilters(new InputFilter[]{filter});
+        deskripsiEvent.setFilters(new InputFilter[]{filter});
 
         menyetujui.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -162,12 +165,24 @@ public class FormulirUploadEvent extends AppCompatActivity {
                 int tahun = cldr.get(Calendar.YEAR);
 //                picker.setContextCompat.getColor(this, R.color.greendark));
 
+                cldr.add(Calendar.DAY_OF_MONTH, 5);
+                int minYear = cldr.get(Calendar.YEAR);
+                int minMonth = cldr.get(Calendar.MONTH);
+                int minDay = cldr.get(Calendar.DAY_OF_MONTH);
                 picker = new DatePickerDialog(FormulirUploadEvent.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        tanggalAwalEvent.setText(year + "-" + (month + 1) + "-" + dayOfMonth);
+                        Calendar selectedDate = Calendar.getInstance();
+                        selectedDate.set(year, month, dayOfMonth);
+                        if (selectedDate.after(cldr)) {
+                            tanggalAwalEvent.setText(year + "-" + (month + 1) + "-" + dayOfMonth);
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Pilih tanggal setelah 5 hari dari hari ini", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }, tahun, bulan, tgl);
+
+                picker.getDatePicker().setMinDate(cldr.getTimeInMillis());
                 picker.show();
             }
         });
@@ -179,13 +194,24 @@ public class FormulirUploadEvent extends AppCompatActivity {
                 int bulan = cldr.get(Calendar.MONTH);
                 int tahun = cldr.get(Calendar.YEAR);
 //                picker.setContextCompat.getColor(this, R.color.greendark));
-
+                cldr.add(Calendar.DAY_OF_MONTH, 5);
+                int minYear = cldr.get(Calendar.YEAR);
+                int minMonth = cldr.get(Calendar.MONTH);
+                int minDay = cldr.get(Calendar.DAY_OF_MONTH);
                 picker = new DatePickerDialog(FormulirUploadEvent.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        tanggalAkhirEvent.setText(year + "-" + (month + 1) + "-" + dayOfMonth);
+                        Calendar selectedDate = Calendar.getInstance();
+                        selectedDate.set(year, month, dayOfMonth);
+                        if (selectedDate.after(cldr)) {
+                            tanggalAkhirEvent.setText(year + "-" + (month + 1) + "-" + dayOfMonth);
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Pilih tanggal setelah 5 hari dari hari ini", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }, tahun, bulan, tgl);
+
+                picker.getDatePicker().setMinDate(cldr.getTimeInMillis());
                 picker.show();
             }
         });
@@ -217,9 +243,21 @@ public class FormulirUploadEvent extends AppCompatActivity {
                 if (TextUtils.isEmpty(namaPengirimValue)) {
                     namaPengirim.setError("Nama Pengirim Harus Diisi!");
                     namaPengirim.requestFocus();
-                } else if (TextUtils.isEmpty(namaEventValue)) {
+                } else if (namaEvent.length() <= 10) {
+                    namaEvent.setError("Nama Event Harus Lebih dari 10!");
+                    namaEvent.requestFocus();
+                } else if (namaEvent.length() >= 75) {
+                    namaEvent.setError("Nama Event Harus Kurang dari 75 karakter!");
+                    namaEvent.requestFocus();
+                } else if (TextUtils.isEmpty(tempatEventValue)) {
                     namaEvent.setError("Nama Event Harus Diisi!");
                     namaEvent.requestFocus();
+                } else if (tempatEvent.length() <= 25) {
+                    tempatEvent.setError("Tempat Event Tempat Event Harus Lebih Dari 25 Karakter!");
+                    tempatEvent.requestFocus();
+                } else if (tempatEvent.length() >= 150) {
+                    tempatEvent.setError("Tempat Event Tempat Event Harus Kurang Dari 150 Karakter!");
+                    tempatEvent.requestFocus();
                 } else if (TextUtils.isEmpty(tempatEventValue)) {
                     tempatEvent.setError("Tempat Event Harus Diisi!");
                     tempatEvent.requestFocus();
@@ -229,6 +267,12 @@ public class FormulirUploadEvent extends AppCompatActivity {
                 } else if (TextUtils.isEmpty(tanggalAkhirValue)) {
                     tanggalAkhirEvent.setError("Tanggal Akhir Event Harus Diisi!");
                     tanggalAkhirEvent.requestFocus();
+                } else if (deskripsiEvent.length() <= 75) {
+                    deskripsiEvent.setError("Deskripsi Event Harus Lebih Dari 75 Karakter!");
+                    deskripsiEvent.requestFocus();
+                } else if (deskripsiEvent.length() >= 360) {
+                    deskripsiEvent.setError("Deskripsi Event Harus Kurang Dari 360 Karakter!");
+                    deskripsiEvent.requestFocus();
                 } else if (TextUtils.isEmpty(deskripsiValue)) {
                     deskripsiEvent.setError("Deskripsi Event Harus Diisi!");
                     deskripsiEvent.requestFocus();
@@ -370,7 +414,7 @@ public class FormulirUploadEvent extends AppCompatActivity {
         try {
             ContentResolver contentResolver = context.getContentResolver();
             InputStream inputStream = contentResolver.openInputStream(uri);
-            byte[] buffer = new byte[1024];
+            byte[] buffer = new byte[4096];
             int bytesRead;
             while ((bytesRead = inputStream.read(buffer)) != -1) {
                 byteArrayOutputStream.write(buffer, 0, bytesRead);
