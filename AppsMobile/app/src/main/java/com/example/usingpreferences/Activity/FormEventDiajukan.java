@@ -216,8 +216,8 @@ public class FormEventDiajukan extends AppCompatActivity {
             } else if (TextUtils.isEmpty(tempat)) {
                 inpNamaEvent.setError("Nama Event Harus Diisi!");
                 inpNamaEvent.requestFocus();
-            } else if (tempat.length() <= 25) {
-                inpTempat.setError("Tempat Event Tempat Event Harus Lebih Dari 25 Karakter!");
+            } else if (tempat.length() <= 5) {
+                inpTempat.setError("Tempat Event Tempat Event Harus Lebih Dari 5 Karakter!");
                 inpTempat.requestFocus();
             } else if (tempat.length() >= 150) {
                 inpTempat.setError("Tempat Event Tempat Event Harus Kurang Dari 150 Karakter!");

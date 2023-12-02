@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.usingpreferences.MenuFragment.StatusEvent;
 import com.example.usingpreferences.MenuFragment.StatusPentas;
+import com.example.usingpreferences.MenuFragment.StatusPinjam;
 import com.example.usingpreferences.MenuFragment.StatusSemua;
 import com.example.usingpreferences.MenuFragment.StatusSeniman;
 
@@ -21,7 +22,7 @@ public class StatusTabAdapter  extends FragmentPagerAdapter {
             case 0:
                 return new StatusEvent();
             case 1:
-                return new StatusSemua();
+                return new StatusPinjam();
             case 2:
                 return new StatusSeniman();
             case 3:
