@@ -12,14 +12,14 @@ public class ModelDetailAdvisDiterima {
     private String catatan;
     private String id_user;
     private String id_seniman;
-    private String kode_surat;
+    private String kode_verifikasi;
 
-    public String getKode_surat() {
-        return kode_surat;
+    public String getKode_verifikasi() {
+        return kode_verifikasi;
     }
 
-    public void setKode_surat(String kode_surat) {
-        this.kode_surat = kode_surat;
+    public void setKode_verifikasi(String kode_verifikasi) {
+        this.kode_verifikasi = kode_verifikasi;
     }
 
     public String getId_advis() {

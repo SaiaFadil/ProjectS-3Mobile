@@ -41,7 +41,7 @@ public class ActivityLihatKodeSurat extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseDetailAdvisDiterima> call, Response<ResponseDetailAdvisDiterima> response) {
                 if (response.body().getKode() == 1){
-                    String kode_surat = response.body().getData().getKode_surat();
+                    String kode_surat = response.body().getData().getKode_verifikasi();
                     tv_KodeSurat.setText(kode_surat);
                 }else {
                     Toast.makeText(ActivityLihatKodeSurat.this, response.body().getPesan(), Toast.LENGTH_SHORT).show();

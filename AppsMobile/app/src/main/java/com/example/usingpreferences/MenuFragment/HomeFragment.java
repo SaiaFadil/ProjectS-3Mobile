@@ -111,7 +111,6 @@ public class HomeFragment extends Fragment {
             public void onRefresh() {
                 simpanDataSeniman();
                 MulaiAnimasi();
-
                 checkInternetConnection();
                 ShowData();
                 progressBar.setVisibility(View.GONE);

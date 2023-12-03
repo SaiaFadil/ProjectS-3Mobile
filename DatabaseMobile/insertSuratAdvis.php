@@ -12,12 +12,10 @@ $status = $_POST['status'];
 $catatan = $_POST['catatan'];
 $id_user = $_POST['id_user'];
 $id_seniman = $_POST['id_seniman'];
-
+$current_time = date("Y-m-d H:i:s");
+// Menyimpan ke tabel pengguna
 // Membuat query SQL untuk melakukan INSERT
-$sql = "INSERT INTO surat_advis
-        (nomor_induk, nama_advis, alamat_advis, deskripsi_advis, tgl_advis, tempat_advis, status, catatan, id_user,id_seniman) 
-        VALUES
-        ('$nomor_induk', '$nama_advis', '$alamat_advis', '$deskripsi_advis', '$tgl_advis', '$tempat_advis', '$status', '$catatan', '$id_user', '$id_seniman')";
+$sql = "INSERT INTO surat_advis(nomor_induk, nama_advis, alamat_advis, deskripsi_advis, tgl_advis, tempat_advis, status, catatan, id_user,id_seniman,created_at) VALUES ('$nomor_induk', '$nama_advis', '$alamat_advis', '$deskripsi_advis', '$tgl_advis', '$tempat_advis', '$status', '$catatan', '$id_user', '$id_seniman','$current_time')";
 
 $response = array();
 if ($konek->query($sql) === TRUE) {

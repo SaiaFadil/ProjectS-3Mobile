@@ -6,6 +6,8 @@ $id_advis = $_POST['id_advis'];
 $deskripsi_advis = $_POST['deskripsi_advis'];
 $tgl_advis = $_POST['tgl_advis'];
 $tempat_advis = $_POST['tempat_advis'];
+$current_time = date("Y-m-d H:i:s");
+
 
 
 $cek_iduser = "SELECT * FROM `surat_advis` WHERE id_advis = '$id_advis'";
@@ -18,7 +20,7 @@ if ($jumlah_cek == 1) {
     $perintah = "UPDATE `surat_advis` 
     SET `deskripsi_advis` = '$deskripsi_advis',
      `tgl_advis` = '$tgl_advis', 
-     `tempat_advis` = '$tempat_advis' 
+     `tempat_advis` = '$tempat_advis', `updated_at` = '$current_time'
      WHERE 
       `id_advis` = $id_advis;";
 
