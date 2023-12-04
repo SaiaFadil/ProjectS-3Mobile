@@ -148,7 +148,7 @@ public class LoginActivity extends AppCompatActivity {
                     mViewUser.setError("Email tidak valid!!");
                     mViewUser.requestFocus();
                 } else if(mViewPassword.getText().toString().isEmpty()){
-                    mViewPassword.setError("Password Harus Diisi");
+                    mViewPassword.setError("Kata Sandi Harus Diisi");
                     mViewPassword.requestFocus();
                 } else {
                     APIRequestData ardData = RetroServer.getConnection().create(APIRequestData.class);
@@ -191,7 +191,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this, "Akun Belum Terdaftar", Toast.LENGTH_SHORT).show();
                             }else if (response.body().kode == 2) {
                                 mViewPassword.requestFocus();
-                                Toast.makeText(LoginActivity.this, "Password Salah!!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Kata Sandi Salah!!", Toast.LENGTH_SHORT).show();
                             }else if(response.body().kode == 3){
                                 mViewUser.requestFocus();
                                 Toast.makeText(LoginActivity.this, "Akun Admin Tidak dapat login ke Aplikasi Mobile", Toast.LENGTH_SHORT).show();
