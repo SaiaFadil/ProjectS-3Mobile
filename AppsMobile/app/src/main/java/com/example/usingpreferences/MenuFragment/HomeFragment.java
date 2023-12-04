@@ -20,20 +20,27 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.usingpreferences.API.APIRequestData;
 import com.example.usingpreferences.API.RetroServer;
+import com.example.usingpreferences.Activity.EventLainyaFragment;
 import com.example.usingpreferences.Activity.NoInduk1;
 import com.example.usingpreferences.Activity.PinjamTempatList;
 import com.example.usingpreferences.Activity.ProfilActivity;
 import com.example.usingpreferences.Adapter.DashboardAdapter;
+import com.example.usingpreferences.DataModel.EventHomeAdapter;
+import com.example.usingpreferences.DataModel.EventHomeResponse;
 import com.example.usingpreferences.DataModel.ModelResponseSimpanDataSeniman;
 import com.example.usingpreferences.DataModel.ModelSimpanDataSeniman;
 import com.example.usingpreferences.Eksternal.NotifService;
@@ -53,8 +60,7 @@ public class HomeFragment extends Fragment {
     private ProgressBar progressBar;
     TextView tv_namauser, tv_namausertengah, textpemberitahuanlayanan, tv_eventTerkini;
     private Animation fadeIn, fadeIndown, layoutdown, layoutin;
-    CardView cardviewatas, cardviewtengah, cardizin, cardevent, cardpinjam;
-    public static CardView cardinduk;
+    CardView cardviewatas, cardviewtengah, cardizin, cardevent, cardpinjam, cardinduk;
     ScrollView scrollView;
     private TextView petanganjukteks;
     MaterialCardView card1;
@@ -111,6 +117,7 @@ public class HomeFragment extends Fragment {
             public void onRefresh() {
                 simpanDataSeniman();
                 MulaiAnimasi();
+
                 checkInternetConnection();
                 ShowData();
                 progressBar.setVisibility(View.GONE);
@@ -140,7 +147,8 @@ public class HomeFragment extends Fragment {
         layoutevent = view.findViewById(R.id.layoutevent);
         layoutdown = AnimationUtils.loadAnimation(requireContext(), R.anim.layout_in);
         fadeIn = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_in);
-        simpanDataSeniman();
+//        simpanDataSeniman();
+
         scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
             @Override
             public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
@@ -219,6 +227,43 @@ public class HomeFragment extends Fragment {
         });
 
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        view.findViewById(R.id.txt_lainya).setOnClickListener(v -> {
+
+            requireActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.frame_layout, new EventLainyaFragment())
+                    .commit();
+
+        });
+
+        RecyclerView recyclerView = view.findViewById(R.id.event_home);
+
+        RetroServer.getInstance().getEventHome().enqueue(new Callback<EventHomeResponse>() {
+            @Override
+            public void onResponse(Call<EventHomeResponse> call, Response<EventHomeResponse> response) {
+                if (response.body() != null && response.body().getStatus().equalsIgnoreCase("success")){
+
+                    recyclerView.setAdapter(new EventHomeAdapter(
+                            response.body().getData()
+                    ));
+
+                }else {
+                    Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<EventHomeResponse> call, Throwable t) {
+                t.printStackTrace();
+                Toast.makeText(requireContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.example.usingpreferences.API;
 
 import com.example.usingpreferences.DataModel.CekEmailModel;
 import com.example.usingpreferences.DataModel.EditEventResponse;
+import com.example.usingpreferences.DataModel.EventHomeResponse;
 import com.example.usingpreferences.DataModel.KategoriSenimanModel;
 import com.example.usingpreferences.DataModel.ListTempatResponse;
 import com.example.usingpreferences.DataModel.ModelDetailSenimanDiajukan;
@@ -704,4 +705,7 @@ public interface APIRequestData {
             @Field("id_user") String id_user
 
     );
+    @GET("event_home.php")
+    Call<EventHomeResponse> getEventHome();
+
 }
