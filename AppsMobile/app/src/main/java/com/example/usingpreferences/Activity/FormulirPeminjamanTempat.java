@@ -13,6 +13,7 @@ import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.text.Editable;
 import android.text.InputType;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.webkit.MimeTypeMap;
@@ -33,7 +34,6 @@ import com.example.usingpreferences.API.RetroServer;
 import com.example.usingpreferences.DataModel.DataShared;
 import com.example.usingpreferences.DataModel.ModelResponseAll;
 import com.example.usingpreferences.KonfirmMenu.PengajuanBerhasilTerkirim;
-import com.example.usingpreferences.Activity.PinjamTempatList;
 import com.example.usingpreferences.R;
 import com.google.android.material.button.MaterialButton;
 
@@ -135,7 +135,7 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
                     @Override
                     public void onDateSet(DatePicker view, int tahun, int bulan, int hari) {
                         // Format tanggal akhir sesuai kebutuhan Anda (misalnya, "dd/MM/yyyy")
-                        String tanggalAkhirFormatted = String.format(Locale.getDefault(), "%02d/%02d/%04d", tahun, bulan + 1, hari);
+                        String tanggalAkhirFormatted = String.format(Locale.getDefault(), "%02d/%02d/%02d", tahun, bulan + 1, hari);
                         // Set teks pada EditText tanggal akhir
                         inpTanggalAkhir.setText(tanggalAkhirFormatted);
                     }
@@ -166,7 +166,7 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
 
                 // Check for the minimum length
                 if (input.length() < minLength) {
-                    editText.setError("Format NIK tidak Sesuai Ketentuan");
+                    editText.setError("No NIK harus diisi");
                 } else {
                     editText.setError(null); // Clear the error if the minimum length is met
                 }
@@ -184,29 +184,220 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
             }
         });
 
+        inpNamaPemimjam.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // This method is called before the text is changed
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // This method is called when the text is being changed
+                String input = s.toString();
+
+                // Check maximum length
+                if (input.length() > 30) {
+                    inpNamaPemimjam.setText(s.subSequence(0, 30)); // Truncate the text to 30 characters
+                    inpNamaPemimjam.setSelection(30); // Set the cursor position to the end
+                    inpNamaPemimjam.setError("Nama Pemimjam tidak boleh lebih dari 30 karakter");
+                } else if (containsNumbers(input)) {
+                    inpNamaPemimjam.setText(removeNumbers(input)); // Remove numbers from the text
+                    inpNamaPemimjam.setSelection(inpNamaPemimjam.length()); // Set the cursor position to the end
+                    inpNamaPemimjam.setError("Nama Pemimjam tidak boleh mengandung angka");
+                } else {
+                    inpNamaPemimjam.setError(null); // Remove error if conditions are met
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // This method is called after the text has been changed
+            }
+
+            // Helper method to check if the input contains numbers
+            private boolean containsNumbers(String input) {
+                for (char c : input.toCharArray()) {
+                    if (Character.isDigit(c)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            // Helper method to remove numbers from the input
+            private String removeNumbers(String input) {
+                return input.replaceAll("\\d", ""); // Replace all digits with an empty string
+            }
+        });
+
+
+        inpInstansi.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Metode ini dipanggil sebelum teks berubah
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Metode ini disebut ketika teks sedang diubah
+                String input = s.toString();
+
+                // Check minimum length
+                if (input.length() < minLength) {
+                    inpInstansi.setError("Instansi harus diisi");
+                } else {
+                    inpInstansi.setError(null); // Hapus kesalahan jika panjang minimum terpenuhi
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Metode ini dipanggil setelah perubahan teks
+            }
+        });
+
+
+        inpNamaKegiatan.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // This method is called before the text is changed
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // This method is called when the text is being changed
+                String input = s.toString();
+
+                // Check if the input contains numbers
+                if (containsNumbers(input) || input.trim().isEmpty()) {
+                    inpNamaKegiatan.setError("Nama Kegiatan harus diisi dan tidak boleh mengandung angka");
+                } else {
+                    inpNamaKegiatan.setError(null); // Remove error if the conditions are met
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // This method is called after the text has been changed
+            }
+
+            // Helper method to check if the input contains numbers
+            private boolean containsNumbers(String input) {
+                for (char c : input.toCharArray()) {
+                    if (Character.isDigit(c)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+        inpPeserta.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // This method is called before the text is changed
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // This method is called when the text is being changed
+                String input = s.toString();
+
+                // Check maximum length
+                if (input.length() > 5) {
+                    inpPeserta.setText(s.subSequence(0, 5)); // Truncate the text to 5 characters
+                    inpPeserta.setSelection(5); // Set the cursor position to the end
+                    inpPeserta.setError("Jumlah Peserta harus diisi dan tidak boleh lebih dari 5 karakter");
+                } else {
+                    inpPeserta.setError(null); // Remove error if the length is within the limit
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // This method is called after the text has been changed
+            }
+        });
+
+        inpDeskripsi.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Metode ini dipanggil sebelum teks berubah
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Metode ini disebut ketika teks sedang diubah
+                String input = s.toString();
+
+                // Check minimum length
+                if (input.length() < minLength) {
+                    inpDeskripsi.setError("Deskripsi harus diisi");
+                } else {
+                    inpDeskripsi.setError(null); // Hapus kesalahan jika panjang minimum terpenuhi
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Metode ini dipanggil setelah perubahan teks
+            }
+        });
+
+
         MaterialButton btnkirimpinjam = findViewById(R.id.button_kirimpinjam);
+
         btnkirimpinjam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Get values from input fields
+                String namaPemimjam = inpNamaPemimjam.getText().toString().trim();
+                String namaTempat = inpNamaTempat.getText().toString().trim();
+                String namaKegiatan = inpNamaKegiatan.getText().toString().trim();
+                String ktp = inpKtp.getText().toString().trim();
+                String instansi = inpInstansi.getText().toString().trim();
+                String peserta = inpPeserta.getText().toString().trim();
+                String deskripsi = inpDeskripsi.getText().toString().trim();
+                String tanggalMulai = inpTanggalMulai.getText().toString().trim();
+                String waktuMulai = inpWaktuMulai.getText().toString().trim();
+                String tanggalAkhir = inpTanggalAkhir.getText().toString().trim();
+                String waktuAkhir = inpWaktuAkhir.getText().toString().trim();
 
+                // Check if any of the required fields is empty
+                if (TextUtils.isEmpty(namaPemimjam)
+                        || TextUtils.isEmpty(namaTempat)
+                        || TextUtils.isEmpty(namaKegiatan)
+                        || TextUtils.isEmpty(ktp)
+                        || TextUtils.isEmpty(instansi)
+                        || TextUtils.isEmpty(peserta)
+                        || TextUtils.isEmpty(deskripsi)
+                        || TextUtils.isEmpty(tanggalMulai)
+                        || TextUtils.isEmpty(waktuMulai)
+                        || TextUtils.isEmpty(tanggalAkhir)
+                        || TextUtils.isEmpty(waktuAkhir)) {
+                    // Display a notification that all fields must be filled
+                    Toast.makeText(FormulirPeminjamanTempat.this, "Harap isi semua", Toast.LENGTH_SHORT).show();
+                    return; // Stop execution if any field is empty
+                }
+
+                // Continue with API call if all fields are filled
                 File ktpSenimanFile = new File(cardViewFileNameTextView1.getText().toString());
-
                 RequestBody requestFileKtpSeniman = RequestBody.create(MediaType.parse("multipart/form-data"), pathSurat);
                 MultipartBody.Part ktpSenimanPart = MultipartBody.Part.createFormData("surat_ket_sewa", ktpSenimanFile.getName(), requestFileKtpSeniman);
 
-
                 RetroServer.getConnection().create(APIRequestData.class)
                         .sendPinjamTempat(
-                                inpNamaPemimjam.getText().toString(),
-                                inpKtp.getText().toString(),
-                                inpInstansi.getText().toString(),
-                                inpNamaKegiatan.getText().toString(),
-                                inpPeserta.getText().toString(),
-                                inpNamaTempat.getText().toString(),
-                                inpDeskripsi.getText().toString(),
-                                inpTanggalMulai.getText().toString()+" "+inpWaktuMulai.getText().toString(),
-                                inpTanggalAkhir.getText().toString()+" "+inpWaktuAkhir.getText().toString(), "diajukan",
-                                inpDeskripsi.getText().toString(),
+                                namaPemimjam,
+                                ktp,
+                                instansi,
+                                namaKegiatan,
+                                peserta,
+                                namaTempat,
+                                deskripsi,
+                                tanggalMulai + " " + waktuMulai,
+                                tanggalAkhir + " " + waktuAkhir,
+                                "diajukan",
+                                deskripsi,
                                 dataShared.getData(DataShared.KEY.ID_NAMA_TEMPAT).toString(),
                                 "32",
                                 ktpSenimanPart
@@ -229,6 +420,8 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
                         });
             }
         });
+
+
         ImageButton pinjamback = findViewById(R.id.pinjamback);
         pinjamback.setOnClickListener(new View.OnClickListener() {
             @Override
