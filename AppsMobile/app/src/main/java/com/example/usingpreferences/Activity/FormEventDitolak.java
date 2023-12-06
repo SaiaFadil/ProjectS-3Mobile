@@ -2,6 +2,8 @@ package com.example.usingpreferences.Activity;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -33,6 +35,9 @@ import com.example.usingpreferences.DataModel.ResponseDetailEvent;
 import com.example.usingpreferences.R;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.material.button.MaterialButton;
+import com.saadahmedsoft.popupdialog.PopupDialog;
+import com.saadahmedsoft.popupdialog.Styles;
+import com.saadahmedsoft.popupdialog.listener.OnDialogButtonClickListener;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -67,7 +72,11 @@ public class FormEventDitolak extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        ProgressDialog progressDialog = new ProgressDialog(FormEventDitolak.this);
+        progressDialog.setTitle("Data Sedang Diproses...");
+        progressDialog.setMessage("Mohon Tunggu...");
+        progressDialog.setIcon(R.drawable.logonganjuk);
+        progressDialog.setCancelable(false);
         dataId = getIntent().getStringExtra(ID);
 
         setContentView(R.layout.activity_form_event_ditolak);
@@ -185,94 +194,119 @@ public class FormEventDitolak extends AppCompatActivity {
         });
 
         MaterialButton btn = findViewById(R.id.ajukanulang_event);
-        btn.setOnClickListener(v -> {
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupDialog.getInstance(FormEventDitolak.this)
+                        .setStyle(Styles.IOS)
+                        .setHeading("Ubah Data?")
+                        .setDescription("Apakah Anda Sudah Yakin Dengan Data Yang Ingin Anda Ubah??")
+                        .setCancelable(false)
+                        .setPositiveButtonText("Yakin")
+                        .setNegativeButtonText("Belum")
+                        .setPositiveButtonTextColor(R.color.greendark)
+                        .setNegativeButtonTextColor(R.color.greendark)
+                        .showDialog(new OnDialogButtonClickListener() {
+                            @Override
+                            public void onPositiveClicked(Dialog dialog) {
+                                super.onPositiveClicked(dialog);
+                                progressDialog.show();
 
 //            Toast.makeText(this, dataId, Toast.LENGTH_SHORT).show();
 
-            String namaPengirim = inpPengirim.getText().toString(),
-                    namaEvent = inpNamaEvent.getText().toString(),
-                    tempat = inpTempat.getText().toString(),
-                    tglAwal = inpTglAwal.getText().toString(),
-                    tglAkhir = inpTglAkhir.getText().toString(),
-                    deskripsi = inpDeskripsi.getText().toString(),
-                    link = inpLink.getText().toString();
+                                String namaPengirim = inpPengirim.getText().toString(),
+                                        namaEvent = inpNamaEvent.getText().toString(),
+                                        tempat = inpTempat.getText().toString(),
+                                        tglAwal = inpTglAwal.getText().toString(),
+                                        tglAkhir = inpTglAkhir.getText().toString(),
+                                        deskripsi = inpDeskripsi.getText().toString(),
+                                        link = inpLink.getText().toString();
 
 
-            if (TextUtils.isEmpty(namaPengirim)) {
-                inpPengirim.setError("Nama Pengirim Harus Diisi!");
-                inpPengirim.requestFocus();
-            } else if (namaEvent.length() <= 10) {
-                inpNamaEvent.setError("Nama Event Harus Lebih dari 10!");
-                inpNamaEvent.requestFocus();
-            } else if (namaEvent.length() >= 75) {
-                inpNamaEvent.setError("Nama Event Harus Kurang dari 75 karakter!");
-                inpNamaEvent.requestFocus();
-            } else if (TextUtils.isEmpty(tempat)) {
-                inpNamaEvent.setError("Nama Event Harus Diisi!");
-                inpNamaEvent.requestFocus();
-            } else if (tempat.length() <= 5) {
-                inpTempat.setError("Tempat Event Tempat Event Harus Lebih Dari 5 Karakter!");
-                inpTempat.requestFocus();
-            } else if (tempat.length() >= 150) {
-                inpTempat.setError("Tempat Event Tempat Event Harus Kurang Dari 150 Karakter!");
-                inpTempat.requestFocus();
-            } else if (TextUtils.isEmpty(tempat)) {
-                inpTempat.setError("Tempat Event Harus Diisi!");
-                inpTempat.requestFocus();
-            } else if (TextUtils.isEmpty(tglAwal)) {
-                inpTglAwal.setError("Tanggal Awal Event Harus Diisi!");
-                inpTglAwal.requestFocus();
-            } else if (TextUtils.isEmpty(tglAkhir)) {
-                inpTglAkhir.setError("Tanggal Akhir Event Harus Diisi!");
-                inpTglAkhir.requestFocus();
-            } else if (deskripsi.length() <= 75) {
-                inpDeskripsi.setError("Deskripsi Event Harus Lebih Dari 75 Karakter!");
-                inpDeskripsi.requestFocus();
-            } else if (deskripsi.length() >= 360) {
-                inpDeskripsi.setError("Deskripsi Event Harus Kurang Dari 360 Karakter!");
-                inpDeskripsi.requestFocus();
-            } else if (TextUtils.isEmpty(deskripsi)) {
-                inpDeskripsi.setError("Deskripsi Event Harus Diisi!");
-                inpDeskripsi.requestFocus();
-            } else {
+                                if (TextUtils.isEmpty(namaPengirim)) {
+                                    inpPengirim.setError("Nama Pengirim Harus Diisi!");
+                                    inpPengirim.requestFocus();
+                                } else if (namaEvent.length() <= 10) {
+                                    inpNamaEvent.setError("Nama Event Harus Lebih dari 10!");
+                                    inpNamaEvent.requestFocus();
+                                } else if (namaEvent.length() >= 75) {
+                                    inpNamaEvent.setError("Nama Event Harus Kurang dari 75 karakter!");
+                                    inpNamaEvent.requestFocus();
+                                } else if (TextUtils.isEmpty(tempat)) {
+                                    inpNamaEvent.setError("Nama Event Harus Diisi!");
+                                    inpNamaEvent.requestFocus();
+                                } else if (tempat.length() <= 5) {
+                                    inpTempat.setError("Tempat Event Tempat Event Harus Lebih Dari 5 Karakter!");
+                                    inpTempat.requestFocus();
+                                } else if (tempat.length() >= 150) {
+                                    inpTempat.setError("Tempat Event Tempat Event Harus Kurang Dari 150 Karakter!");
+                                    inpTempat.requestFocus();
+                                } else if (TextUtils.isEmpty(tempat)) {
+                                    inpTempat.setError("Tempat Event Harus Diisi!");
+                                    inpTempat.requestFocus();
+                                } else if (TextUtils.isEmpty(tglAwal)) {
+                                    inpTglAwal.setError("Tanggal Awal Event Harus Diisi!");
+                                    inpTglAwal.requestFocus();
+                                } else if (TextUtils.isEmpty(tglAkhir)) {
+                                    inpTglAkhir.setError("Tanggal Akhir Event Harus Diisi!");
+                                    inpTglAkhir.requestFocus();
+                                } else if (deskripsi.length() <= 75) {
+                                    inpDeskripsi.setError("Deskripsi Event Harus Lebih Dari 75 Karakter!");
+                                    inpDeskripsi.requestFocus();
+                                } else if (deskripsi.length() >= 360) {
+                                    inpDeskripsi.setError("Deskripsi Event Harus Kurang Dari 360 Karakter!");
+                                    inpDeskripsi.requestFocus();
+                                } else if (TextUtils.isEmpty(deskripsi)) {
+                                    inpDeskripsi.setError("Deskripsi Event Harus Diisi!");
+                                    inpDeskripsi.requestFocus();
+                                } else {
 
-                File uploadposter = new File(inpPilihFile.getText().toString());
-                MultipartBody.Part poster;
+                                    File uploadposter = new File(inpPilihFile.getText().toString());
+                                    MultipartBody.Part poster;
 
-                if (posterPath != null) {
-                    RequestBody requestposter = RequestBody.create(MediaType.parse("multipart/form-data"), posterPath);
-                    poster = MultipartBody.Part.createFormData("poster_event", uploadposter.getName(), requestposter);
-                } else {
-                    Toast.makeText(this, "Masukkan Ulang Foto", Toast.LENGTH_SHORT).show();
-                    poster = null;
-                }
+                                    if (posterPath != null) {
+                                        RequestBody requestposter = RequestBody.create(MediaType.parse("multipart/form-data"), posterPath);
+                                        poster = MultipartBody.Part.createFormData("poster_event", uploadposter.getName(), requestposter);
+                                    } else {
+//                    Toast.makeText(this, "Masukkan Ulang Foto", Toast.LENGTH_SHORT).show();
+                                        poster = null;
+                                    }
 
 //            Toast.makeText(this, "Data Id : " + dataId, Toast.LENGTH_SHORT).show();
 
-                RetroServer.getInstance().ajukanUlangEvent(
-                        dataId, namaEvent, deskripsi, tempat, tglAwal, tglAkhir, link, poster
-                ).enqueue(new Callback<EditEventResponse>() {
-                    @Override
-                    public void onResponse(Call<EditEventResponse> call, Response<EditEventResponse> response) {
+                                    RetroServer.getInstance().ajukanUlangEvent(
+                                            dataId, namaEvent, deskripsi, tempat, tglAwal, tglAkhir, link, poster
+                                    ).enqueue(new Callback<EditEventResponse>() {
+                                        @Override
+                                        public void onResponse(Call<EditEventResponse> call, Response<EditEventResponse> response) {
 
-                        if (response.body() != null && response.body().getStatus().equalsIgnoreCase("success")) {
+                                            if (response.body() != null && response.body().getStatus().equalsIgnoreCase("success")) {
 
-                            Toast.makeText(FormEventDitolak.this, "DATA BERHASIL DI EDIT", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(FormEventDitolak.this, "DATA BERHASIL DI EDIT", Toast.LENGTH_SHORT).show();
+                                                progressDialog.show();
+                                            } else {
+                                                Toast.makeText(FormEventDitolak.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                                                Log.e("DEBUG", response.body().getMessage());
+                                                progressDialog.show();
+                                            }
 
-                        } else {
-                            Toast.makeText(FormEventDitolak.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                            Log.e("DEBUG", response.body().getMessage());
-                        }
+                                        }
 
-                    }
+                                        @Override
+                                        public void onFailure(Call<EditEventResponse> call, Throwable t) {
+                                            t.printStackTrace();
+                                            Toast.makeText(FormEventDitolak.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                                            progressDialog.show();
+                                        }
+                                    });
+                                }
+                            }
+                            public void onNegativeClicked(Dialog dialog) {
+                                super.onNegativeClicked(dialog);
+                                progressDialog.dismiss();
 
-                    @Override
-                    public void onFailure(Call<EditEventResponse> call, Throwable t) {
-                        t.printStackTrace();
-                        Toast.makeText(FormEventDitolak.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-
+                            }
+                        });
             }
         });
         InputFilter filter = new InputFilter() {

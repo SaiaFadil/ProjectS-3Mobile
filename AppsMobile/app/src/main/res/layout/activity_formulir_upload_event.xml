@@ -309,7 +309,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_12sdp"
-                android:text="2.Jika sudah mengirimkan formulir dimohon menunggu 1x24 jam untuk diverifikasi oleh admin. "
+                android:text="2.Jika sudah mengirimkan formulir dimohon menunggu untuk diverifikasi oleh admin. "
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12ssp" />
 

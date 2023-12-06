@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.usingpreferences.API.RetroServer;
-import com.example.usingpreferences.DataModel.EventHomeAdapter;
 import com.example.usingpreferences.DataModel.EventHomeLainyaAdapter;
 import com.example.usingpreferences.DataModel.EventHomeResponse;
 import com.example.usingpreferences.R;

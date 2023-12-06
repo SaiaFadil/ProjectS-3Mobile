@@ -6,6 +6,7 @@ import android.app.TimePickerDialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -351,6 +352,8 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Get values from input fields
+                SharedPreferences sharedPreferences = getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
+                String idUserShared = sharedPreferences.getString("id_user", "");
                 String namaPemimjam = inpNamaPemimjam.getText().toString().trim();
                 String namaTempat = inpNamaTempat.getText().toString().trim();
                 String namaKegiatan = inpNamaKegiatan.getText().toString().trim();
@@ -399,7 +402,7 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
                                 "diajukan",
                                 deskripsi,
                                 dataShared.getData(DataShared.KEY.ID_NAMA_TEMPAT).toString(),
-                                "32",
+                                idUserShared,
                                 ktpSenimanPart
                         ).enqueue(new Callback<ModelResponseAll>() {
                             @Override

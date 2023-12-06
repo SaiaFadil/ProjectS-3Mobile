@@ -123,7 +123,7 @@ public class FormEventDiterimaDiproses extends AppCompatActivity {
                 break;
             }
             case "2" : {
-                cardTop.setCardBackgroundColor(ContextCompat.getColor(this, R.color.yellow));
+                cardTop.setCardBackgroundColor(ContextCompat.getColor(this, R.color.greenold));
                 cardView.setCardBackgroundColor(ContextCompat.getColor(this, R.color.yellow));
                 txtStatus.setText("Diproses");
                 imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.animproses));

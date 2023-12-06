@@ -70,7 +70,7 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/red">
+                    android:backgroundTint="@color/greenold">
                     <TextView
                         android:layout_marginTop="@dimen/_7sdp"
                         android:layout_marginBottom="@dimen/_7sdp"
