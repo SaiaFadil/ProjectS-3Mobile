@@ -43,7 +43,7 @@ public class PinjamTempatAdapter extends RecyclerView.Adapter<PinjamTempatAdapte
 
         holder.setImage(context, list.getFotoTempat());
         holder.txtNama.setText(list.getNamaTempat());
-        holder.txtDesc.setText(list.getDeskripsiTempat());
+        holder.txtDesc.setText(list.getAlamatTempat());
 
         if (holder.getAbsoluteAdapterPosition() != RecyclerView.NO_POSITION){
             if (listener != null){

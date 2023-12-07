@@ -117,7 +117,6 @@ public class HomeFragment extends Fragment {
             public void onRefresh() {
                 simpanDataSeniman();
                 MulaiAnimasi();
-
                 checkInternetConnection();
                 ShowData();
                 progressBar.setVisibility(View.GONE);
@@ -232,17 +231,12 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         view.findViewById(R.id.txt_lainya).setOnClickListener(v -> {
-
             requireActivity().getSupportFragmentManager().beginTransaction()
                     .replace(R.id.frame_layout, new EventLainyaFragment())
                     .commit();
-
         });
-
         RecyclerView recyclerView = view.findViewById(R.id.event_home);
-
         RetroServer.getInstance().getEventHome().enqueue(new Callback<EventHomeResponse>() {
             @Override
             public void onResponse(Call<EventHomeResponse> call, Response<EventHomeResponse> response) {

@@ -34,7 +34,7 @@ private Button lanjutkeform;
 
 
                 SharedPreferences sharedPreferencesseniman = getSharedPreferences("prefDataSeniman", MODE_PRIVATE);
-                String idsenimanshared = sharedPreferencesseniman.getString("id_seniman", "");
+                String idsenimanshared = sharedPreferencesseniman.getString("nomor_induk", "");
                 if (TextUtils.isEmpty(idsenimanshared)){
                     Toast.makeText(KonfirmasiKeAdvis.this, "id : "+idsenimanshared, Toast.LENGTH_SHORT).show();
                     AlertDialog.Builder builder = new AlertDialog.Builder(KonfirmasiKeAdvis.this);
