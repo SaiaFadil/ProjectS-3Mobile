@@ -65,6 +65,7 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
     private MaterialButton btnPickImage;
 
     private DataShared dataShared;
+    private Calendar tanggalMulaiCalendar;
 
     byte[] pathSurat;
 
@@ -122,31 +123,98 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
         // Cari EditText dengan ID et_tanggalawal
         inpTanggalAkhir.setInputType(InputType.TYPE_NULL);
 
-        inpTanggalAkhir.setOnClickListener(new View.OnClickListener() {
+//        inpTanggalAkhir.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Dapatkan tanggal saat ini
+//                final Calendar calendar = Calendar.getInstance();
+//                int tahunSaatIni = calendar.get(Calendar.YEAR);
+//                int bulanSaatIni = calendar.get(Calendar.MONTH);
+//                int hariSaatIni = calendar.get(Calendar.DAY_OF_MONTH);
+//
+//                // Buat DatePickerDialog untuk memilih tanggal akhir
+//                DatePickerDialog datePickerDialog = new DatePickerDialog(FormulirPeminjamanTempat.this, new DatePickerDialog.OnDateSetListener() {
+//                    @Override
+//                    public void onDateSet(DatePicker view, int tahun, int bulan, int hari) {
+//                        // Format tanggal akhir sesuai kebutuhan Anda (misalnya, "dd/MM/yyyy")
+//                        String tanggalAkhirFormatted = String.format(Locale.getDefault(), "%02d/%02d/%02d", tahun, bulan + 1, hari);
+//                        // Set teks pada EditText tanggal akhir
+//                        inpTanggalAkhir.setText(tanggalAkhirFormatted);
+//                    }
+//                }, tahunSaatIni, bulanSaatIni, hariSaatIni);
+//
+//                // Tampilkan dialog pemilihan tanggal akhir
+//                datePickerDialog.show();
+//            }
+//        });
+
+
+        inpTanggalMulai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Dapatkan tanggal saat ini
                 final Calendar calendar = Calendar.getInstance();
                 int tahunSaatIni = calendar.get(Calendar.YEAR);
                 int bulanSaatIni = calendar.get(Calendar.MONTH);
                 int hariSaatIni = calendar.get(Calendar.DAY_OF_MONTH);
 
+                // Buat DatePickerDialog untuk memilih tanggal mulai
+                DatePickerDialog datePickerDialog = new DatePickerDialog(FormulirPeminjamanTempat.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int tahun, int bulan, int hari) {
+                        // Simpan tanggal mulai yang dipilih
+                        tanggalMulaiCalendar = Calendar.getInstance();
+                        tanggalMulaiCalendar.set(tahun, bulan, hari);
+
+                        // Format tanggal mulai sesuai kebutuhan Anda (misalnya, "dd/MM/yyyy")
+                        String tanggalMulaiFormatted = String.format(Locale.getDefault(), "%02d/%02d/%02d", tahun, bulan + 1, hari);
+                        // Set teks pada EditText tanggal mulai
+                        inpTanggalMulai.setText(tanggalMulaiFormatted);
+                    }
+                }, tahunSaatIni, bulanSaatIni, hariSaatIni);
+
+                // Tampilkan dialog pemilihan tanggal mulai
+                datePickerDialog.show();
+            }
+        });
+
+        inpTanggalAkhir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (tanggalMulaiCalendar == null) {
+                    // Berikan pesan bahwa pengguna harus memilih tanggal mulai terlebih dahulu
+                    Toast.makeText(FormulirPeminjamanTempat.this, "Harap pilih tanggal mulai terlebih dahulu", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Dapatkan tanggal awal dari tanggal yang dipilih sebelumnya
+                int tahunAwal = tanggalMulaiCalendar.get(Calendar.YEAR);
+                int bulanAwal = tanggalMulaiCalendar.get(Calendar.MONTH);
+                int hariAwal = tanggalMulaiCalendar.get(Calendar.DAY_OF_MONTH);
+
                 // Buat DatePickerDialog untuk memilih tanggal akhir
                 DatePickerDialog datePickerDialog = new DatePickerDialog(FormulirPeminjamanTempat.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int tahun, int bulan, int hari) {
-                        // Format tanggal akhir sesuai kebutuhan Anda (misalnya, "dd/MM/yyyy")
-                        String tanggalAkhirFormatted = String.format(Locale.getDefault(), "%02d/%02d/%02d", tahun, bulan + 1, hari);
-                        // Set teks pada EditText tanggal akhir
-                        inpTanggalAkhir.setText(tanggalAkhirFormatted);
+                        // Bandingkan dengan tanggal mulai yang telah dipilih
+                        Calendar selectedCalendar = Calendar.getInstance();
+                        selectedCalendar.set(tahun, bulan, hari);
+
+                        if (selectedCalendar.before(tanggalMulaiCalendar)) {
+                            // Jika tanggal yang dipilih sebelum tanggal mulai, berikan pesan atau lakukan tindakan sesuai kebutuhan Anda
+                            Toast.makeText(FormulirPeminjamanTempat.this, "Tanggal selesai tidak boleh sebelum tanggal mulai", Toast.LENGTH_SHORT).show();
+                        } else {
+                            // Format tanggal akhir sesuai kebutuhan Anda (misalnya, "dd/MM/yyyy")
+                            String tanggalAkhirFormatted = String.format(Locale.getDefault(), "%02d/%02d/%02d", tahun, bulan + 1, hari);
+                            // Set teks pada EditText tanggal akhir
+                            inpTanggalAkhir.setText(tanggalAkhirFormatted);
+                        }
                     }
-                }, tahunSaatIni, bulanSaatIni, hariSaatIni);
+                }, tahunAwal, bulanAwal, hariAwal);
 
                 // Tampilkan dialog pemilihan tanggal akhir
                 datePickerDialog.show();
             }
         });
-
 
 
         EditText editText = findViewById(R.id.et_ktppinjam);

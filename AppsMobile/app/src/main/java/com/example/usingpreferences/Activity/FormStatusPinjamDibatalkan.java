@@ -53,8 +53,8 @@ public class FormStatusPinjamDibatalkan extends AppCompatActivity {
 
                 PopupDialog.getInstance(FormStatusPinjamDibatalkan.this)
                         .setStyle(Styles.IOS)
-                        .setHeading("Batalkan Pengajuan?")
-                        .setDescription("Apakah Anda Ingin Membatalkan Pengajuan Yang Telah Terkirim??")
+                        .setHeading("Di Tolak !! ")
+                        .setDescription("Pengajuan anda ditolak admin, ajukan kembali dengan klik Ya dan mengisi ulang!!")
                         .setCancelable(false)
                         .setPositiveButtonText("Ya")
                         .setNegativeButtonText("Tidak")
