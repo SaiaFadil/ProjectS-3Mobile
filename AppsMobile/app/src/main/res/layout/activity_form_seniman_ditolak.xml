@@ -215,7 +215,7 @@
                                 android:hint="Contoh: NGANJUK"
                                 android:textAllCaps="true"
                                 android:inputType="textCapWords"
-                                android:maxLength="10"
+                                android:maxLength="20"
                                 android:maxLines="1"
                                 android:paddingLeft="@dimen/_12sdp"
                                 android:paddingTop="@dimen/_7sdp"

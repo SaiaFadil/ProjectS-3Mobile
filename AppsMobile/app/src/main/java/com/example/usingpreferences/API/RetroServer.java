@@ -12,8 +12,8 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 public class RetroServer {
-//    public static final String BASE_URL = "http://172.16.106.177/HufflePuff/DatabaseMobile/";
-  public static final String BASE_URL = "https://elok.tifnganjuk.com/DatabaseMobile/";
+    public static final String BASE_URL = "http://192.168.43.81/DatabaseMobile/";
+//  public static final String BASE_URL = "https://elok.tifnganjuk.com/DatabaseMobile/";
 
     @NonNull
     public static APIRequestData getInstance(){

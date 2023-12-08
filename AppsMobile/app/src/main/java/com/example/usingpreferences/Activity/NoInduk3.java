@@ -4,7 +4,9 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.InputFilter;
 import android.text.InputType;
+import android.text.Spanned;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
@@ -71,7 +73,44 @@ public class    NoInduk3 extends AppCompatActivity {
             }
         });
 
+        InputFilter filter = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                String regex = "^[a-zA-Z0-9'. -]*";
+                if (source.toString().matches(regex)) {
+                    return source;
+                } else {
+                    return "";
+                }
+            }
+        };
+        editTextNamaLengkap.setFilters(new InputFilter[]{filter});
+        editTextNamaOrganisasi.setFilters(new InputFilter[]{filter});
+        InputFilter filterNoHp = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                String regex = "^[0-9+]*";
+                if (source.toString().matches(regex)) {
+                    return source;
+                } else {
+                    return "";
+                }
+            }
+        };
+        editTextNOHP.setFilters(new InputFilter[]{filterNoHp});
 
+        InputFilter filterNIK = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                String regex = "^[0-9]*";
+                if (source.toString().matches(regex)) {
+                    return source;
+                } else {
+                    return "";
+                }
+            }
+        };
+        editTextNIK.setFilters(new InputFilter[]{filterNIK});
 // Inisialisasi tanggalinduk
         tanggalinduk = findViewById(R.id.editTextTG);
         tanggalinduk.setInputType(InputType.TYPE_NULL);
@@ -134,13 +173,13 @@ public class    NoInduk3 extends AppCompatActivity {
                 // This method is called after text changes
             }
         });
+        //Set the minimum length pada editTextNIK
+        EditText editText1 = findViewById(R.id.editTextNOHP);
 
-        //Set the text minimum pada editTextJmlAnggota:
-        EditText textInputEditText = findViewById(R.id.editTextJmlAnggota);
+        int minLength1 = 12;  // Set your desired minimum character limit
+        int maxLength1 = 14; // Set your desired maximum character limit
 
-        final int minNumber = 4; // Set your desired minimum numeric value
-
-        editTextJmlAnggota.addTextChangedListener(new TextWatcher() {
+        editText1.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 // This method is called before text changes
@@ -149,13 +188,19 @@ public class    NoInduk3 extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 // This method is called when text is being changed
-                if (!s.toString().isEmpty()) {
-                    int number = Integer.parseInt(s.toString());
-                    if (number < minNumber) {
-                        editTextJmlAnggota.setError("Minimal Jumlah Anggota Adalah" + minNumber);
-                    } else {
-                        editTextJmlAnggota.setError(null); // Clear the error if the minimum value is met
-                    }
+                String input = s.toString();
+
+                // Check for the minimum length
+                if (input.length() < minLength1) {
+                    editText1.setError("Format Nomor Telepon tidak Sesuai Ketentuan");
+                } else {
+                    editText1.setError(null); // Clear the error if the minimum length is met
+                }
+
+                // Check for the maximum length
+                if (input.length() > maxLength1) {
+                    editText1.setText(input.substring(0, maxLength1)); // Trim the text to the maximum length
+                    editText1.setSelection(maxLength1); // Move the cursor to the end
                 }
             }
 
@@ -164,7 +209,6 @@ public class    NoInduk3 extends AppCompatActivity {
                 // This method is called after text changes
             }
         });
-
 
         //Pemilihan Jenis Kelamin
         Spinner genderSpinner = findViewById(R.id.gender_spinner);
@@ -232,14 +276,12 @@ public class    NoInduk3 extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 String selectedValue = parentView.getItemAtPosition(position).toString();
                 if (selectedValue.equals("Organisasi")) {
-                    bersihkanEditText();
                     cardViewOrganisasi.setVisibility(View.VISIBLE);
                 } else if (selectedValue.equals("Perseorangan")) {
                     editTextNamaOrganisasi.setText("-");
                     editTextJmlAnggota.setText("1");
                     cardViewOrganisasi.setVisibility(View.GONE);
                 } else if (selectedValue.equals("Pilih Tipe Seniman")) {
-                    bersihkanEditText();
                     cardViewOrganisasi.setVisibility(View.GONE);
                 }
             }
@@ -276,6 +318,40 @@ public class    NoInduk3 extends AppCompatActivity {
                 anyFieldEmpty |= validateSpinner(tipeSeniman_spinner, "Pilih tipe seniman");
                 getSingkatan();
 
+                String nomorTelepon = editTextNOHP.getText().toString();
+
+                // Check if the phone number starts with "+62" or "62"
+                if (nomorTelepon.startsWith("+62")) {
+                    // Remove the "+", then add "0" at the beginning
+                    nomorTelepon = "0" + nomorTelepon.substring(3);
+                } else if (nomorTelepon.startsWith("62")) {
+                    // Add "0" at the beginning
+                    nomorTelepon = "0" + nomorTelepon.substring(2);
+                }
+
+                String selectedTipeSeniman = tipeSenimanSpinner.getSelectedItem().toString();
+                if (selectedTipeSeniman.equals("Organisasi")) {
+                    // Jika tipe seniman adalah "Organisasi", tambahkan validasi jumlah anggota di sini
+                    int minNumber = 4; // Set your desired minimum numeric value for jumlah anggota
+
+                    if (!editTextJmlAnggota.getText().toString().isEmpty()) {
+                        int number = Integer.parseInt(editTextJmlAnggota.getText().toString());
+                        if (number < minNumber) {
+                            editTextJmlAnggota.setError("Minimal Jumlah Anggota Adalah " + minNumber);
+                            editTextJmlAnggota.requestFocus();
+                            anyFieldEmpty = true;
+                        } else {
+                            editTextJmlAnggota.setError(null); // Clear the error if the minimum value is met
+                        }
+                    } else {
+                        editTextNamaOrganisasi.setError("Input Harus Diisi");
+                        editTextNamaOrganisasi.requestFocus();
+                        editTextJmlAnggota.setError("Input Harus Diisi");
+                        editTextJmlAnggota.requestFocus();
+                        anyFieldEmpty = true;
+                    }
+                }
+
                 if (!anyFieldEmpty && !simpanSingkatannya.isEmpty()) {
                     Intent intent = new Intent(NoInduk3.this, NoInduk4.class);
                     intent.putExtra("nik", editTextNIK.getText().toString());
@@ -286,7 +362,7 @@ public class    NoInduk3 extends AppCompatActivity {
                     intent.putExtra("tempat_lahir", editTextTL.getText().toString());
                     intent.putExtra("tanggal_lahir", tanggalinduk.getText().toString());
                     intent.putExtra("alamat_seniman", editTextAlamat.getText().toString());
-                    intent.putExtra("no_telpon", editTextNOHP.getText().toString());
+                    intent.putExtra("no_telpon", nomorTelepon);
                     intent.putExtra("nama_organisasi", editTextNamaOrganisasi.getText().toString());
                     intent.putExtra("jumlah_anggota", editTextJmlAnggota.getText().toString());
                     startActivity(intent);

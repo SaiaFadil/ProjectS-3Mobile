@@ -17,6 +17,8 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.text.Editable;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
@@ -82,10 +84,34 @@ public class NoInduk6 extends AppCompatActivity {
          editTextNoIndukLama3 = findViewById(R.id.editTextNoIndukLama3);
         editTextNoIndukLama4 = findViewById(R.id.editTextNoIndukLama4);
 
+        InputFilter filter = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                String regex = "^[a-zA-Z0-9'. -]*";
+                if (source.toString().matches(regex)) {
+                    return source;
+                } else {
+                    return "";
+                }
+            }
+        };
+        editTextNamaLengkap.setFilters(new InputFilter[]{filter});
+        InputFilter filterNIK = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                String regex = "^[0-9]*";
+                if (source.toString().matches(regex)) {
+                    return source;
+                } else {
+                    return "";
+                }
+            }
+        };
+        editTextNIK.setFilters(new InputFilter[]{filterNIK});
 
         int minLengthNIK = 16;  // Set your desired minimum character limit for NIK
         int maxLengthNIK = 16; // Set your desired maximum character limit for NIK
-
+ 
         editTextNIK.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -128,6 +154,7 @@ public class NoInduk6 extends AppCompatActivity {
                 }
             }
         });
+
         ImageButton kembali = findViewById(R.id.indukback);
         kembali.setOnClickListener(new View.OnClickListener() {
             @Override

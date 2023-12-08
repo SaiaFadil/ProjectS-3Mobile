@@ -127,10 +127,10 @@ public class FormSenimanDitolak extends AppCompatActivity {
         progressDialog.setMessage("Mohon Tunggu...");
         progressDialog.setIcon(R.drawable.logonganjuk);
         progressDialog.setCancelable(false);
-        InputFilter filter = new InputFilter() {
+        InputFilter filterNoHp = new InputFilter() {
             @Override
             public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
-                String regex = "^[a-zA-Z0-9'. ]*";
+                String regex = "^[0-9+]*";
                 if (source.toString().matches(regex)) {
                     return source;
                 } else {
@@ -138,6 +138,20 @@ public class FormSenimanDitolak extends AppCompatActivity {
                 }
             }
         };
+        editTextNOHP.setFilters(new InputFilter[]{filterNoHp});
+        InputFilter filter = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                String regex = "^[a-zA-Z0-9'. -]*";
+                if (source.toString().matches(regex)) {
+                    return source;
+                } else {
+                    return "";
+                }
+            }
+        };
+        editTextNamaLengkap.setFilters(new InputFilter[]{filter});
+        editTextNamaOrganisasi.setFilters(new InputFilter[]{filter});
         // Mengatur OnClickListener untuk tanggalinduk
         tanggalinduk.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -525,7 +539,6 @@ public class FormSenimanDitolak extends AppCompatActivity {
                 // Handle kesalahan
             }
         });
-        editTextNamaLengkap.setFilters(new InputFilter[]{filter});
         ImageButton kembali = findViewById(R.id.statusback);
         kembali.setOnClickListener(new View.OnClickListener() {
             @Override

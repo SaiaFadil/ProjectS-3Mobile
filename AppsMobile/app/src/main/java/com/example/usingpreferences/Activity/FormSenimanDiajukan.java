@@ -121,17 +121,10 @@ public class FormSenimanDiajukan extends AppCompatActivity {
         mFrameLayout = findViewById(R.id.shimmer_view_detail);
         fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.tampil_data_sshimer);
         showData();
-
-
-        progressDialog = new ProgressDialog(FormSenimanDiajukan.this);
-        progressDialog.setTitle("Data Sedang Diproses...");
-        progressDialog.setMessage("Mohon Tunggu...");
-        progressDialog.setIcon(R.drawable.logonganjuk);
-        progressDialog.setCancelable(false);
-        InputFilter filter = new InputFilter() {
+        InputFilter filterNoHp = new InputFilter() {
             @Override
             public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
-                String regex = "^[a-zA-Z0-9'. ]*";
+                String regex = "^[0-9+]*";
                 if (source.toString().matches(regex)) {
                     return source;
                 } else {
@@ -139,6 +132,26 @@ public class FormSenimanDiajukan extends AppCompatActivity {
                 }
             }
         };
+        editTextNOHP.setFilters(new InputFilter[]{filterNoHp});
+        InputFilter filter = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                String regex = "^[a-zA-Z0-9'. -]*";
+                if (source.toString().matches(regex)) {
+                    return source;
+                } else {
+                    return "";
+                }
+            }
+        };
+        editTextNamaLengkap.setFilters(new InputFilter[]{filter});
+        editTextNamaOrganisasi.setFilters(new InputFilter[]{filter});
+
+        progressDialog = new ProgressDialog(FormSenimanDiajukan.this);
+        progressDialog.setTitle("Data Sedang Diproses...");
+        progressDialog.setMessage("Mohon Tunggu...");
+        progressDialog.setIcon(R.drawable.logonganjuk);
+        progressDialog.setCancelable(false);
         // Mengatur OnClickListener untuk tanggalinduk
         tanggalinduk.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -577,7 +590,6 @@ public class FormSenimanDiajukan extends AppCompatActivity {
             }
         });
 
-        editTextNamaLengkap.setFilters(new InputFilter[]{filter});
         ImageButton kembali = findViewById(R.id.statusback);
         kembali.setOnClickListener(new View.OnClickListener() {
             @Override
