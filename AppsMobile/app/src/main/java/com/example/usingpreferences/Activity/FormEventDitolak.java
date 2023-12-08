@@ -283,11 +283,11 @@ public class FormEventDitolak extends AppCompatActivity {
                                             if (response.body() != null && response.body().getStatus().equalsIgnoreCase("success")) {
 
                                                 Toast.makeText(FormEventDitolak.this, "DATA BERHASIL DI EDIT", Toast.LENGTH_SHORT).show();
-                                                progressDialog.show();
+                                                progressDialog.dismiss();
                                             } else {
                                                 Toast.makeText(FormEventDitolak.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                                                 Log.e("DEBUG", response.body().getMessage());
-                                                progressDialog.show();
+                                                progressDialog.dismiss();
                                             }
 
                                         }
@@ -304,6 +304,7 @@ public class FormEventDitolak extends AppCompatActivity {
                             public void onNegativeClicked(Dialog dialog) {
                                 super.onNegativeClicked(dialog);
                                 progressDialog.dismiss();
+                                dialog.dismiss();
 
                             }
                         });
