@@ -139,6 +139,18 @@ public class FormSenimanDitolak extends AppCompatActivity {
             }
         };
         editTextNOHP.setFilters(new InputFilter[]{filterNoHp});
+        InputFilter filters = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                String regex = "^[a-zA-Z0-9'. -]*";
+                if (source.toString().matches(regex)) {
+                    return source;
+                } else {
+                    return "";
+                }
+            }
+        };
+        editTextTL.setFilters(new InputFilter[]{filters});
         InputFilter filter = new InputFilter() {
             @Override
             public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
