@@ -181,7 +181,8 @@
             android:exported="false" />
         <activity
             android:name=".Activity.MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Activity.AturUlangKataSandi"
             android:exported="false" />

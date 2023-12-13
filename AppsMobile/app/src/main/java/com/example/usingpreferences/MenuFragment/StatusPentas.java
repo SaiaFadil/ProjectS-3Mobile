@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -43,7 +44,7 @@ public class StatusPentas extends Fragment {
 
 
     public static ShimmerFrameLayout mFrameLayout;
-    public LinearLayout mDataSemua;
+    public RelativeLayout mDataSemua;
     private RecyclerView recviewdiajukan, recviewdiproses, recviewditolak, recviewditerima;
     private StatusAdvisDiajukanAdapter adapterdiajukan;
     private StatusAdvisDiprosesAdapter adapterdiproses;

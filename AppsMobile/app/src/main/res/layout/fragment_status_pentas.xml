@@ -1,20 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MenuFragment.StatusPentas">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
+        <!-- Bagian atas - com.facebook.shimmer.ShimmerFrameLayout -->
         <com.facebook.shimmer.ShimmerFrameLayout
             android:id="@+id/shimmer_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -29,59 +30,44 @@
                 <include layout="@layout/item_status_pentas_shimmer" />
             </LinearLayout>
         </com.facebook.shimmer.ShimmerFrameLayout>
-        <LinearLayout
+
+        <!-- Bagian bawah - RecyclerView -->
+        <RelativeLayout
             android:id="@+id/data_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:gravity="center_horizontal">
 
-            <LinearLayout
+            <!-- RecyclerView 1 -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewStatusAdvisDiterima"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:nestedScrollingEnabled="false"/>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerViewStatusAdvisDiterima"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
+            <!-- RecyclerView 2 -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewStatusAdvisDiajukan"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_below="@id/recyclerViewStatusAdvisDiterima"
+                android:nestedScrollingEnabled="false" />
+
+            <!-- RecyclerView 3 -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewStatusAdvisDiproses"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_below="@id/recyclerViewStatusAdvisDiajukan"
+                android:nestedScrollingEnabled="false" />
+
+            <!-- RecyclerView 4 -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewStatusAdvisDitolak"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-
-
-    </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recyclerViewStatusAdvisDiproses"
+                android:nestedScrollingEnabled="false" />
+        </RelativeLayout>
+    </RelativeLayout>
 </ScrollView>
