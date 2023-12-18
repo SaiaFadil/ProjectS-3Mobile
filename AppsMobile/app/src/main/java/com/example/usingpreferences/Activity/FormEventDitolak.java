@@ -62,13 +62,14 @@ public class FormEventDitolak extends AppCompatActivity {
     private static final int REQUEST_CODE_SELECT_IMAGE = 1;
 
     private ImageButton imgBack;
-    private TextView inpPengirim, inpTglAwal, inpTglAkhir, inpPilihFile, txtStatus, txtStatusBawah, txtFilename;
+    private TextView inpPengirim, inpTglAwal, inpTglAkhir, inpPilihFile, inpCatatan, inpCatatan2, txtStatus, txtStatusBawah, txtFilename;
     private EditText inpNamaEvent, inpTempat, inpDeskripsi, inpLink;
 
     private ShimmerFrameLayout mFrameLayout;
     private LinearLayout mDataSemua;
     private Animation fadeIn;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +90,8 @@ public class FormEventDitolak extends AppCompatActivity {
         inpLink = findViewById(R.id.et_linkpendaftaranevent);
         inpTglAkhir = findViewById(R.id.et_tanggalakhirevent);
         inpTglAwal = findViewById(R.id.et_tanggalawalevent);
+        inpCatatan = findViewById(R.id.catatanDitolakEvent);
+        inpCatatan2 = findViewById(R.id.catatanDitolakEvent2);
         inpPilihFile = findViewById(R.id.pilihfile);
 
 
@@ -167,6 +170,7 @@ public class FormEventDitolak extends AppCompatActivity {
                             inpLink.setText(model.getLink_pendaftaran());
                             inpTglAwal.setText(model.getTanggal_awal());
                             inpTglAkhir.setText(model.getTanggal_akhir());
+                            inpCatatan.setText(model.getCatatan());
                             inpPilihFile.setText(model.getPoster_event());
 
                         } else {
@@ -283,11 +287,11 @@ public class FormEventDitolak extends AppCompatActivity {
                                             if (response.body() != null && response.body().getStatus().equalsIgnoreCase("success")) {
 
                                                 Toast.makeText(FormEventDitolak.this, "DATA BERHASIL DI EDIT", Toast.LENGTH_SHORT).show();
-                                                progressDialog.dismiss();
+                                                progressDialog.show();
                                             } else {
                                                 Toast.makeText(FormEventDitolak.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                                                 Log.e("DEBUG", response.body().getMessage());
-                                                progressDialog.dismiss();
+                                                progressDialog.show();
                                             }
 
                                         }
@@ -304,7 +308,6 @@ public class FormEventDitolak extends AppCompatActivity {
                             public void onNegativeClicked(Dialog dialog) {
                                 super.onNegativeClicked(dialog);
                                 progressDialog.dismiss();
-                                dialog.dismiss();
 
                             }
                         });
