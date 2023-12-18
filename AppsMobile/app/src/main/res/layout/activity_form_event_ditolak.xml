@@ -346,7 +346,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/catatanDitolakAdvis"
+                        android:id="@+id/catatanDitolakEvent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_15sdp"
@@ -355,7 +355,7 @@
                         android:layout_marginBottom="@dimen/_10sdp"
                         android:background="@drawable/bg_editext"
                         android:padding="@dimen/_10sdp"
-                        android:text="Surat yang anda ajukan dapat membuat kekacauan, jadi mohon revisi ulang surat yang anda ajukan"
+                        android:text=""
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_15ssp" />
@@ -369,17 +369,18 @@
                 android:layout_marginTop="@dimen/_8sdp"/>
 
             <TextView
+                android:id="@+id/catatanDitolakEvent2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_editext"
-                android:text="Mohon Maaf! Permintaan Anda belum memenuhi persyaratan kami.\nAnda dapat melakukan permintaan ulang dan perhatikan catatan agar permintaan anda selanjutnya dapat kami setujui"
-                android:layout_marginTop="@dimen/_7sdp"
-                android:padding="@dimen/_10sdp"
-                android:textSize="@dimen/_15ssp"
                 android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_7sdp"
                 android:layout_marginRight="@dimen/_15sdp"
+                android:background="@drawable/bg_editext"
+                android:padding="@dimen/_10sdp"
+                android:text="Mohon Maaf! Permintaan Anda belum memenuhi persyaratan kami.\nAnda dapat melakukan permintaan ulang dan perhatikan catatan agar permintaan anda selanjutnya dapat kami setujui"
+                android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textAlignment="center"/>
+                android:textSize="@dimen/_15ssp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/ajukanulang_event"
