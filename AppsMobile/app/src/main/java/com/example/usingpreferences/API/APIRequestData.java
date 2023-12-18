@@ -529,8 +529,8 @@ public interface APIRequestData {
             @Field("id_seniman") String id_seniman
 
     );
-    @Multipart
-    @POST("event.php")
+   @Multipart
+    @POST("event2.php")
     Call<ModelResponseSimpanEvent> event(
             @Part("id_event") String idEvent,
             @Part("nama_event") String namaEvent,
@@ -539,11 +539,12 @@ public interface APIRequestData {
             @Part("tanggal_awal") String tanggalAwal,
             @Part("tanggal_akhir") String tanggalAkhir,
             @Part("link_pendaftaran") String linkPendaftaran,
+            @Part("id_user") String idUser,
             @Part MultipartBody.Part posterEvent
     );
 
     @FormUrlEncoded
-    @POST("event2.php")
+    @POST("event.php")
     Call<ModelResponseSimpanEvent> event2(
             @Field("nama_pengirim") String namaPengirim,
             @Field("status") String status,
