@@ -252,8 +252,8 @@ public class FormulirUploadEvent extends AppCompatActivity {
                 } else if (TextUtils.isEmpty(tempatEventValue)) {
                     namaEvent.setError("Nama Event Harus Diisi!");
                     namaEvent.requestFocus();
-                } else if (tempatEvent.length() <= 25) {
-                    tempatEvent.setError("Tempat Event Tempat Event Harus Lebih Dari 25 Karakter!");
+                } else if (tempatEvent.length() <= 5) {
+                    tempatEvent.setError("Tempat Event Tempat Event Harus Lebih Dari 5 Karakter!");
                     tempatEvent.requestFocus();
                 } else if (tempatEvent.length() >= 150) {
                     tempatEvent.setError("Tempat Event Tempat Event Harus Kurang Dari 150 Karakter!");
@@ -270,8 +270,8 @@ public class FormulirUploadEvent extends AppCompatActivity {
                 } else if (deskripsiEvent.length() <= 75) {
                     deskripsiEvent.setError("Deskripsi Event Harus Lebih Dari 75 Karakter!");
                     deskripsiEvent.requestFocus();
-                } else if (deskripsiEvent.length() >= 350) {
-                    deskripsiEvent.setError("Deskripsi Event Harus Kurang Dari 350 Karakter!");
+                } else if (deskripsiEvent.length() >= 360) {
+                    deskripsiEvent.setError("Deskripsi Event Harus Kurang Dari 360 Karakter!");
                     deskripsiEvent.requestFocus();
                 } else if (TextUtils.isEmpty(deskripsiValue)) {
                     deskripsiEvent.setError("Deskripsi Event Harus Diisi!");
@@ -291,10 +291,13 @@ public class FormulirUploadEvent extends AppCompatActivity {
                             SharedPreferences sharedPreferences = FormulirUploadEvent.this.getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
                             String namaPengirimValue = sharedPreferences.getString("nama_lengkap", "");
                             String id_userrrr = sharedPreferences.getString("id_user", "");
+                            RequestBody requestFilePoster = RequestBody.create(MediaType.parse("multipart/form-data"), posterPath);
+                            MultipartBody.Part posterMultipart = MultipartBody.Part.createFormData("poster_event", pilihfile.getText().toString(), requestFilePoster);
                             // Panggil metode Multipart API
 
-                            RetroServer.getConnection().create(APIRequestData.class).event2(
-                                    namaPengirimValue, "diajukan",id_userrrr
+                            RetroServer.getConnection().create(APIRequestData.class).event(
+                                    "", namaEventValue, deskripsiValue, tempatEventValue, tanggalAwalValue.replaceAll("/", "-"),
+                                    tanggalAkhirValue, linkPendaftaranValue, id_userrrr, posterMultipart
                             ).enqueue(new Callback<ModelResponseSimpanEvent>() {
                                 @Override
                                 public void onResponse(Call<ModelResponseSimpanEvent> call, Response<ModelResponseSimpanEvent> response) {
@@ -310,17 +313,16 @@ public class FormulirUploadEvent extends AppCompatActivity {
                                     if(response.body() != null && response.body().kode == 1){
 
                                         // Buat RequestBody untuk berkas-berkas tersebut
-                                        RequestBody requestFilePoster = RequestBody.create(MediaType.parse("multipart/form-data"), posterPath);
-                                        MultipartBody.Part posterMultipart = MultipartBody.Part.createFormData("poster_event", pilihfile.getText().toString(), requestFilePoster);
+//                                        RequestBody requestFilePoster = RequestBody.create(MediaType.parse("multipart/form-data"), posterPath);
+//                                        MultipartBody.Part posterMultipart = MultipartBody.Part.createFormData("poster_event", pilihfile.getText().toString(), requestFilePoster);
 
 //                                        Toast.makeText(FormulirUploadEvent.this, tanggalAkhirValue, Toast.LENGTH_LONG).show();
                                         Log.e("TANGGAL AWAL", tanggalAwalValue);
                                         Log.e("TANGGAL AKHIR", tanggalAkhirValue);
 
                                         RetroServer.getConnection().create(APIRequestData.class)
-                                                .event(
-                                                        "", namaEventValue, deskripsiValue, tempatEventValue, tanggalAwalValue.replaceAll("/", "-"),
-                                                        tanggalAkhirValue, linkPendaftaranValue, posterMultipart
+                                                .event2(
+                                                        namaPengirimValue, "diajukan",id_userrrr
                                                 ).enqueue(
                                                         new Callback<ModelResponseSimpanEvent>() {
                                                             @Override
