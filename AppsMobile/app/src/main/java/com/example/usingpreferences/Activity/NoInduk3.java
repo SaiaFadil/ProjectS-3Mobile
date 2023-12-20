@@ -76,7 +76,7 @@ public class    NoInduk3 extends AppCompatActivity {
         InputFilter filter = new InputFilter() {
             @Override
             public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
-                String regex = "^[a-zA-Z0-9'. -]*";
+                String regex = "^[a-zA-Z'. ]*";
                 if (source.toString().matches(regex)) {
                     return source;
                 } else {
@@ -85,7 +85,18 @@ public class    NoInduk3 extends AppCompatActivity {
             }
         };
         editTextNamaLengkap.setFilters(new InputFilter[]{filter});
-        editTextNamaOrganisasi.setFilters(new InputFilter[]{filter});
+        InputFilter filterOrganisasi= new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                String regex = "^[a-zA-Z0-9'. -]*";
+                if (source.toString().matches(regex)) {
+                    return source;
+                } else {
+                    return "";
+                }
+            }
+        };
+        editTextNamaOrganisasi.setFilters(new InputFilter[]{filterOrganisasi});
         InputFilter filters = new InputFilter() {
             @Override
             public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
