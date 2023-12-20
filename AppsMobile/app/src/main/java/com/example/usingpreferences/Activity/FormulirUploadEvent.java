@@ -252,8 +252,8 @@ public class FormulirUploadEvent extends AppCompatActivity {
                 } else if (TextUtils.isEmpty(tempatEventValue)) {
                     namaEvent.setError("Nama Event Harus Diisi!");
                     namaEvent.requestFocus();
-                } else if (tempatEvent.length() <= 5) {
-                    tempatEvent.setError("Tempat Event Tempat Event Harus Lebih Dari 5 Karakter!");
+                } else if (tempatEvent.length() <= 25) {
+                    tempatEvent.setError("Tempat Event Tempat Event Harus Lebih Dari 25 Karakter!");
                     tempatEvent.requestFocus();
                 } else if (tempatEvent.length() >= 150) {
                     tempatEvent.setError("Tempat Event Tempat Event Harus Kurang Dari 150 Karakter!");
