@@ -20,6 +20,7 @@ import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -29,6 +30,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatCheckBox;
 
 import com.example.usingpreferences.API.APIRequestData;
 import com.example.usingpreferences.API.RetroServer;
@@ -54,10 +56,10 @@ import retrofit2.Response;
 
 public class FormulirPeminjamanTempat extends AppCompatActivity {
     private static final int REQUEST_CODE_SELECT_PDF = 1;
-    private CheckBox syrt;
+    private AppCompatCheckBox checkboxsetuju;
     private DatePickerDialog picker;
     private EditText inpWaktuMulai, inpWaktuAkhir;
-    private Button selectFileButton2;
+    private MaterialButton selectFileButton2;
     private TextView cardViewFileNameTextView1;
 
     private EditText inpNamaTempat, inpNamaLengkap, inpKtp, inpInstansi, inpNamaKegiatan, inpDeskripsi, inpTanggalMulai, inpTanggalAkhir, inpPeserta, inpNamaPemimjam, InpWaktuMulai;
@@ -90,18 +92,22 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
         inpTanggalMulai = findViewById(R.id.et_tanggalawalpinjam);
         inpWaktuMulai = findViewById(R.id.waktuawalpinjam);
         inpWaktuAkhir = findViewById(R.id.waktuakhirpinjam);
+        cardViewFileNameTextView1 = findViewById(R.id.textViewButton1);
+        checkboxsetuju = findViewById(R.id.checkboxsetuju);
+
         inpWaktuMulai.setInputType(InputType.TYPE_NULL);
         inpWaktuAkhir.setInputType(InputType.TYPE_NULL);
 
         inpNamaTempat.setText(dataShared.getData(DataShared.KEY.NAMA_TEMPAT));
         inpTanggalMulai.setText(dataShared.getData(DataShared.KEY.TANGGAL_MULAI));
 
+
+
         btnPickImage.setOnClickListener(v -> {
             Toast.makeText(FormulirPeminjamanTempat.this, "test", Toast.LENGTH_SHORT).show();
             selectFile("image/*", 2);
         });
 
-        cardViewFileNameTextView1 = findViewById(R.id.textViewButton1);
 
         inpWaktuMulai.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,11 +123,12 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
             }
         });
 
+        inpTanggalMulai.setInputType(InputType.TYPE_NULL);
+        inpTanggalAkhir.setInputType(InputType.TYPE_NULL);
 
         // Ambil data tanggal dari intent
         String tanggal = getIntent().getStringExtra("tanggal_awal");
         // Cari EditText dengan ID et_tanggalawal
-        inpTanggalAkhir.setInputType(InputType.TYPE_NULL);
 
 //        inpTanggalAkhir.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -182,7 +189,7 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
             public void onClick(View v) {
                 if (tanggalMulaiCalendar == null) {
                     // Berikan pesan bahwa pengguna harus memilih tanggal mulai terlebih dahulu
-                    Toast.makeText(FormulirPeminjamanTempat.this, "Harap pilih tanggal mulai terlebih dahulu", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FormulirPeminjamanTempat.this, "Harap pilih kembali tanggal mulai untuk mengantisipasi kesalahan saat pemilihan tanggal mulai", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -213,6 +220,49 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
 
                 // Tampilkan dialog pemilihan tanggal akhir
                 datePickerDialog.show();
+            }
+        });
+
+        checkboxsetuju.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // Metode ini dipanggil ketika status centang checkbox berubah
+                if (!isChecked) {
+                    // Tampilkan pesan kesalahan jika checkbox tidak dicentang
+                    checkboxsetuju.setError("Anda harus menyetujui");
+                } else {
+                    // Hapus kesalahan jika checkbox dicentang
+                    checkboxsetuju.setError(null);
+                }
+            }
+        });
+
+
+        cardViewFileNameTextView1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Metode ini dipanggil sebelum teks berubah
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Metode ini dipanggil ketika teks sedang diubah
+                String namaFile = s.toString();
+
+                // Periksa apakah nama file kosong
+                if (namaFile.trim().isEmpty()) {
+                    // Tampilkan pesan kesalahan atau atur status kesalahan untuk nama file
+                    // Mengasumsikan cardViewFileNameTextView1 adalah EditText, Anda bisa menggunakan setError
+                    cardViewFileNameTextView1.setError("Nama file harus diisi");
+                } else {
+                    // Hapus kesalahan jika nama file tidak kosong
+                    cardViewFileNameTextView1.setError(null);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Metode ini dipanggil setelah perubahan teks
             }
         });
 
@@ -419,7 +469,7 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
         btnkirimpinjam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Get values from input fields
+                // Dapatkan nilai dari kolom input
                 SharedPreferences sharedPreferences = getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
                 String idUserShared = sharedPreferences.getString("id_user", "");
                 String namaPemimjam = inpNamaPemimjam.getText().toString().trim();
@@ -434,7 +484,23 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
                 String tanggalAkhir = inpTanggalAkhir.getText().toString().trim();
                 String waktuAkhir = inpWaktuAkhir.getText().toString().trim();
 
-                // Check if any of the required fields is empty
+                // Periksa apakah jalur file kosong
+                String filePath = cardViewFileNameTextView1.getText().toString().trim();
+                if (TextUtils.isEmpty(filePath)) {
+                    // Display a notification that the file must be selected
+                    Toast.makeText(FormulirPeminjamanTempat.this, "Harap pilih berkas", Toast.LENGTH_SHORT).show();
+                    return; // Stop execution if the file path is empty
+                }
+
+                // Periksa apakah kotak centang perjanjian dicentang
+                CheckBox checkboxSetuju = findViewById(R.id.checkboxsetuju);
+                if (!checkboxSetuju.isChecked()) {
+                    // Display a notification that the checkbox must be checked
+                    Toast.makeText(FormulirPeminjamanTempat.this, "Harap centang persetujuan", Toast.LENGTH_SHORT).show();
+                    return; // Stop execution if the checkbox is not checked
+                }
+
+                // Periksa apakah ada bidang wajib yang kosong
                 if (TextUtils.isEmpty(namaPemimjam)
                         || TextUtils.isEmpty(namaTempat)
                         || TextUtils.isEmpty(namaKegiatan)
@@ -451,8 +517,8 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
                     return; // Stop execution if any field is empty
                 }
 
-                // Continue with API call if all fields are filled
-                File ktpSenimanFile = new File(cardViewFileNameTextView1.getText().toString());
+                // Lanjutkan dengan panggilan API jika semua ketentuan terpenuhi
+                File ktpSenimanFile = new File(filePath);
                 RequestBody requestFileKtpSeniman = RequestBody.create(MediaType.parse("multipart/form-data"), pathSurat);
                 MultipartBody.Part ktpSenimanPart = MultipartBody.Part.createFormData("surat_ket_sewa", ktpSenimanFile.getName(), requestFileKtpSeniman);
 
@@ -491,6 +557,8 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
                         });
             }
         });
+
+
 
 
         ImageButton pinjamback = findViewById(R.id.pinjamback);
