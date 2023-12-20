@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,6 +38,7 @@ import retrofit2.Response;
 
 public class PilihTanggalAwalPeminjaman extends AppCompatActivity {
 public static String namatempat;
+
 
 private DataShared dataShared;
 
@@ -58,6 +60,7 @@ private DataShared dataShared;
     private CalendarView calendarView;
 
     private ArrayList<Calendar> calendars = new ArrayList<>();
+    private List<Calendar> unavailableDates = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,20 +119,40 @@ private DataShared dataShared;
         button_pinjamtanggalawal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Calendar datePicker = calendarView.getFirstSelectedDate();
-                // Ambil tanggal yang dipilih dari DatePicker
-                int day = datePicker.get(Calendar.DAY_OF_MONTH);
-                int month = datePicker.get(Calendar.MONTH) + 1;
-                int year = datePicker.get(Calendar.YEAR);
-                // Buat Intent untuk berpindah ke halaman selanjutnya
-                Intent intent = new Intent(PilihTanggalAwalPeminjaman.this, FormulirPeminjamanTempat.class);
-                // Kirim tanggal yang dipilih sebagai data ekstra
-                intent.putExtra("nama_tempat",namatempat);
-                intent.putExtra("tanggal_awal", year + "/" + month + "/" + day);
-                // Mulai halaman selanjutnya
-                startActivity(intent);
-                overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
-                dataShared.setData(DataShared.KEY.TANGGAL_MULAI, year + "/" + month + "/" + day);
+//                Calendar datePicker = calendarView.getFirstSelectedDate();
+                List<Calendar> selectedDates = calendarView.getSelectedDates();
+                if(selectedDates.isEmpty()){
+                    Toast.makeText(PilihTanggalAwalPeminjaman.this, "Pilih Dahulu", Toast.LENGTH_SHORT).show();
+                } else {
+                    Calendar selectedDate = selectedDates.get(0);
+                    int day = selectedDate.get(Calendar.DAY_OF_MONTH);
+                    int month = selectedDate.get(Calendar.MONTH) + 1;
+                    int year = selectedDate.get(Calendar.YEAR);
+                    if (isDateUnavailable(selectedDate)){
+
+                        Toast.makeText(PilihTanggalAwalPeminjaman.this, "Kosong", Toast.LENGTH_SHORT).show();
+
+                    } else {
+                        // Buat Intent untuk berpindah ke halaman selanjutnya
+                        Intent intent = new Intent(PilihTanggalAwalPeminjaman.this, FormulirPeminjamanTempat.class);
+                        // Kirim tanggal yang dipilih sebagai data ekstra
+                        intent.putExtra("nama_tempat",namatempat);
+                        intent.putExtra("tanggal_awal", year + "/" + month + "/" + day);
+                        // Mulai halaman selanjutnya
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+                        dataShared.setData(DataShared.KEY.TANGGAL_MULAI, year + "/" + month + "/" + day);}
+                    // Ambil tanggal yang dipilih dari DatePicker
+                }
+//                int day = datePicker.get(Calendar.DAY_OF_MONTH);
+//                int month = datePicker.get(Calendar.MONTH) + 1;
+//                int year = datePicker.get(Calendar.YEAR);
+
+
+
+
+
+
             }
         });
         ImageButton pinjamback =  findViewById(R.id.pinjamback);
@@ -158,6 +181,7 @@ private DataShared dataShared;
 //
 //        changeBackground(calendars);
 
+
         DataShared shared = new DataShared(this);
         RetroServer.getInstance().tanggalSewa(
                 shared.getData(DataShared.KEY.ID_NAMA_TEMPAT)
@@ -167,7 +191,7 @@ private DataShared dataShared;
                 if (response.body() !=  null && response.body().getStatus().equalsIgnoreCase("success")){
 
                     ArrayList<TanggalSewaModel> models = response.body().getData();
-
+                    storeUnavailableDates(models);
                     for(int i = 0; i < models.size(); i++){
                         Calendar awal = Calendar.getInstance();
                         Calendar akhir = Calendar.getInstance();
@@ -214,7 +238,43 @@ private DataShared dataShared;
         });
 
     }
+    private void storeUnavailableDates(ArrayList<TanggalSewaModel> models) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
 
+        for (TanggalSewaModel model : models) {
+            try {
+                Date startDate = sdf.parse(model.getTglAwal());
+                Date endDate = sdf.parse(model.getTglAkhir());
+
+                if (startDate != null && endDate != null) {
+                    Calendar start = Calendar.getInstance();
+                    start.setTime(startDate);
+                    Calendar end = Calendar.getInstance();
+                    end.setTime(endDate);
+
+                    while (!start.after(end)) {
+                        unavailableDates.add((Calendar) start.clone());
+                        start.add(Calendar.DAY_OF_MONTH, 1);
+                    }
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+                // Handle the exception, for example, log it or show an error message
+            }
+        }
+    }
+
+
+    private boolean isDateUnavailable(Calendar date) {
+        for (Calendar unavailableDate : unavailableDates) {
+            if (date.get(Calendar.YEAR) == unavailableDate.get(Calendar.YEAR) &&
+                    date.get(Calendar.MONTH) == unavailableDate.get(Calendar.MONTH) &&
+                    date.get(Calendar.DAY_OF_MONTH) == unavailableDate.get(Calendar.DAY_OF_MONTH)) {
+                return true;
+            }
+        }
+        return false;
+    }
     private void changeBackground(ArrayList<Calendar> calendars){
         ArrayList<CalendarDay> calendarDays = new ArrayList<>();
         for (Calendar calendar : calendars){
