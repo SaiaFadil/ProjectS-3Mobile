@@ -44,6 +44,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -68,6 +69,7 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
 
     private DataShared dataShared;
     private Calendar tanggalMulaiCalendar;
+    Calendar mulaiAwal;
 
     byte[] pathSurat;
 
@@ -123,7 +125,6 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
             }
         });
 
-        inpTanggalMulai.setInputType(InputType.TYPE_NULL);
         inpTanggalAkhir.setInputType(InputType.TYPE_NULL);
 
         // Ambil data tanggal dari intent
@@ -176,6 +177,8 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
                         String tanggalMulaiFormatted = String.format(Locale.getDefault(), "%02d/%02d/%02d", tahun, bulan + 1, hari);
                         // Set teks pada EditText tanggal mulai
                         inpTanggalMulai.setText(tanggalMulaiFormatted);
+
+
                     }
                 }, tahunSaatIni, bulanSaatIni, hariSaatIni);
 
@@ -187,39 +190,91 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
         inpTanggalAkhir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (tanggalMulaiCalendar == null) {
-                    // Berikan pesan bahwa pengguna harus memilih tanggal mulai terlebih dahulu
-                    Toast.makeText(FormulirPeminjamanTempat.this, "Harap pilih kembali tanggal mulai untuk mengantisipasi kesalahan saat pemilihan tanggal mulai", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+                System.out.println("tes tanggalMulaiCalendar =" + tanggalMulaiCalendar);
 
-                // Dapatkan tanggal awal dari tanggal yang dipilih sebelumnya
+                if(tanggalMulaiCalendar == null){
+
+                    mulaiAwal = Calendar.getInstance();
+                    String tanggalPilih = dataShared.getData(DataShared.KEY.TANGGAL_MULAI).toString();
+                    String[] bagian = tanggalPilih.split("/");
+
+                    // Konversi setiap bagian ke integer
+                    int tahun = Integer.parseInt(bagian[0]);
+                    int bulan = Integer.parseInt(bagian[1])-1;
+                    int tanggal = Integer.parseInt(bagian[2]);
+
+                    System.out.println("tahun sekarang = "+ tahun);
+
+                    mulaiAwal = Calendar.getInstance();
+                    mulaiAwal.set(tahun , bulan , tanggal);
+
+                    if (tanggalPilih.equals("")) {
+                        // Berikan pesan bahwa pengguna harus memilih tanggal mulai terlebih dahulu
+                        Toast.makeText(FormulirPeminjamanTempat.this, "Harap pilih kembali tanggal mulai untuk mengantisipasi kesalahan saat pemilihan tanggal mulai", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    // Buat DatePickerDialog untuk memilih tanggal akhir
+                    DatePickerDialog datePickerDialog = new DatePickerDialog(FormulirPeminjamanTempat.this, new DatePickerDialog.OnDateSetListener() {
+                        @Override
+                        public void onDateSet(DatePicker view, int tahun, int bulan, int hari) {
+                            // Bandingkan dengan tanggal mulai yang telah dipilih
+                            Calendar selectedCalendar = Calendar.getInstance();
+                            selectedCalendar.set(tahun, bulan, hari);
+                            // Set teks pada EditText tanggal akhir
+//                            inpTanggalAkhir.setText(tanggalAkhirFormatted);
+
+                            if (selectedCalendar.after(mulaiAwal)) {
+
+                                // Format tanggal akhir sesuai kebutuhan Anda (misalnya, "dd/MM/yyyy")
+                                String tanggalAkhirFormatted1 = String.format(Locale.getDefault(), "%02d/%02d/%02d", tahun, bulan + 1, hari);
+                                // Set teks pada EditText tanggal akhir
+                                inpTanggalAkhir.setText(tanggalAkhirFormatted1);
+                            } else {
+                                Toast.makeText(FormulirPeminjamanTempat.this, "Tanggal selesai tidak boleh sebelum tanggal mulai", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }, tahun, bulan, tanggal);
+
+                    // Tampilkan dialog pemilihan tanggal akhir
+                    datePickerDialog.show();
+
+                } else {
+                    // Dapatkan tanggal awal dari tanggal yang dipilih sebelumnya
                 int tahunAwal = tanggalMulaiCalendar.get(Calendar.YEAR);
                 int bulanAwal = tanggalMulaiCalendar.get(Calendar.MONTH);
                 int hariAwal = tanggalMulaiCalendar.get(Calendar.DAY_OF_MONTH);
 
-                // Buat DatePickerDialog untuk memilih tanggal akhir
-                DatePickerDialog datePickerDialog = new DatePickerDialog(FormulirPeminjamanTempat.this, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int tahun, int bulan, int hari) {
-                        // Bandingkan dengan tanggal mulai yang telah dipilih
-                        Calendar selectedCalendar = Calendar.getInstance();
-                        selectedCalendar.set(tahun, bulan, hari);
+                    DatePickerDialog datePickerDialog = new DatePickerDialog(FormulirPeminjamanTempat.this, new DatePickerDialog.OnDateSetListener() {
+                        @Override
+                        public void onDateSet(DatePicker view, int tahun, int bulan, int hari) {
+                            // Bandingkan dengan tanggal mulai yang telah dipilih
+                            Calendar selectedCalendar = Calendar.getInstance();
+                            selectedCalendar.set(tahun, bulan, hari);
 
-                        if (selectedCalendar.before(tanggalMulaiCalendar)) {
-                            // Jika tanggal yang dipilih sebelum tanggal mulai, berikan pesan atau lakukan tindakan sesuai kebutuhan Anda
-                            Toast.makeText(FormulirPeminjamanTempat.this, "Tanggal selesai tidak boleh sebelum tanggal mulai", Toast.LENGTH_SHORT).show();
-                        } else {
-                            // Format tanggal akhir sesuai kebutuhan Anda (misalnya, "dd/MM/yyyy")
-                            String tanggalAkhirFormatted = String.format(Locale.getDefault(), "%02d/%02d/%02d", tahun, bulan + 1, hari);
-                            // Set teks pada EditText tanggal akhir
-                            inpTanggalAkhir.setText(tanggalAkhirFormatted);
+                            if (selectedCalendar.after(tanggalMulaiCalendar)) {
+
+                                // Format tanggal akhir sesuai kebutuhan Anda (misalnya, "dd/MM/yyyy")
+                                String tanggalAkhirFormatted = String.format(Locale.getDefault(), "%02d/%02d/%02d", tahun, bulan + 1, hari);
+                                // Set teks pada EditText tanggal akhir
+                                inpTanggalAkhir.setText(tanggalAkhirFormatted);
+                            } else {
+                                // Jika tanggal yang dipilih sebelum tanggal mulai, berikan pesan atau lakukan tindakan sesuai kebutuhan Anda
+                                Toast.makeText(FormulirPeminjamanTempat.this, "Tanggal selesai tidak boleh sebelum tanggal mulai", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    }
-                }, tahunAwal, bulanAwal, hariAwal);
+                    }, tahunAwal, bulanAwal, hariAwal);
 
-                // Tampilkan dialog pemilihan tanggal akhir
-                datePickerDialog.show();
+                    // Tampilkan dialog pemilihan tanggal akhir
+                    datePickerDialog.show();
+                }
+
+
+
+
+
+
+
             }
         });
 
@@ -486,7 +541,8 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
 
                 // Periksa apakah jalur file kosong
                 String filePath = cardViewFileNameTextView1.getText().toString().trim();
-                if (TextUtils.isEmpty(filePath)) {
+                System.out.println("filePath ==" + filePath);
+                if (filePath.equals("Pilih File")) {
                     // Display a notification that the file must be selected
                     Toast.makeText(FormulirPeminjamanTempat.this, "Harap pilih berkas", Toast.LENGTH_SHORT).show();
                     return; // Stop execution if the file path is empty
@@ -511,7 +567,7 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
                         || TextUtils.isEmpty(tanggalMulai)
                         || TextUtils.isEmpty(waktuMulai)
                         || TextUtils.isEmpty(tanggalAkhir)
-                        || TextUtils.isEmpty(waktuAkhir)) {
+                        || TextUtils.isEmpty(waktuAkhir) ) {
                     // Display a notification that all fields must be filled
                     Toast.makeText(FormulirPeminjamanTempat.this, "Harap isi semua", Toast.LENGTH_SHORT).show();
                     return; // Stop execution if any field is empty
