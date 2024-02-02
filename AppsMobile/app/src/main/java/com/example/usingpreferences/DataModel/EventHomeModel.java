@@ -25,12 +25,20 @@ public class EventHomeModel {
     @SerializedName("poster_event")
     private String imgEvent;
 
-    public EventHomeModel(int idEvent, String namaEvent, String tanggal, String alamat, String imgEvent) {
+    private String deskripsi;
+
+    @Expose
+    @SerializedName("link_pendaftaran")
+    private String linkPendaftaran;
+
+    public EventHomeModel(int idEvent, String namaEvent, String tanggal, String alamat, String imgEvent, String deskripsi, String linkPendaftaran) {
         this.idEvent = idEvent;
         this.namaEvent = namaEvent;
         this.tanggal = tanggal;
         this.alamat = alamat;
         this.imgEvent = imgEvent;
+        this.deskripsi = deskripsi;
+        this.linkPendaftaran = linkPendaftaran;
     }
 
     public int getIdEvent() {
@@ -71,5 +79,21 @@ public class EventHomeModel {
 
     public void setTanggal(String tanggal) {
         this.tanggal = tanggal;
+    }
+
+    public String getDeskripsi() {
+        return deskripsi;
+    }
+
+    public void setDeskripsi(String deskripsi) {
+        this.deskripsi = deskripsi;
+    }
+
+    public String getLinkPendaftaran() {
+        return linkPendaftaran;
+    }
+
+    public void setLinkPendaftaran(String linkPendaftaran) {
+        this.linkPendaftaran = linkPendaftaran;
     }
 }

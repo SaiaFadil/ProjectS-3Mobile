@@ -57,6 +57,7 @@
         android:orientation="vertical"
         android:padding="@dimen/_10sdp">
     <TextView
+        android:id="@+id/txtjudul"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Judul Event"
@@ -73,6 +74,7 @@
         android:layout_marginTop="@dimen/_8sdp">
 
         <ImageView
+            android:id="@+id/txtimage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/banner1"
@@ -81,6 +83,7 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
+        android:id="@+id/txt_tanggal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tanggal Event"
@@ -90,6 +93,7 @@
             android:layout_gravity="center"
             android:layout_margin="@dimen/_10sdp"/>
         <TextView
+            android:id="@+id/txt_des"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/deskripsi_event"
