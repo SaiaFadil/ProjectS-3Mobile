@@ -87,6 +87,7 @@ public class EventLainyaFragment extends Fragment {
                 if (response.body() != null && response.body().getStatus().equalsIgnoreCase("success")){
 
                     recyclerView.setAdapter(new EventHomeLainyaAdapter(
+                            requireContext(),
                             response.body().getData()
                     ));
 

@@ -243,6 +243,7 @@ public class HomeFragment extends Fragment {
                 if (response.body() != null && response.body().getStatus().equalsIgnoreCase("success")){
 
                     recyclerView.setAdapter(new EventHomeAdapter(
+                            requireContext(),
                             response.body().getData()
                     ));
 

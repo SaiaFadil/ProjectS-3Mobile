@@ -5,7 +5,8 @@ header("Content-Type: application/json");
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     
-    $sql = "SELECT  d.id_detail, d.nama_event, d.tanggal_awal, d.tempat_event, d.poster_event 
+    $sql = "SELECT  d.id_detail, d.nama_event, d.deskripsi ,d.tanggal_awal, 
+    d.tempat_event, d.poster_event, d.link_pendaftaran 
     FROM `events` AS e 
     JOIN detail_events AS d
     ON  e.id_detail = d.id_detail
