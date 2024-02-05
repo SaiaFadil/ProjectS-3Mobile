@@ -25,6 +25,8 @@ import com.example.usingpreferences.DataModel.ResponseDetailPinjamDiterima;
 import com.example.usingpreferences.R;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
+import java.util.Base64;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -113,10 +115,20 @@ public class FormPinjamDiterima extends AppCompatActivity {
                         mData.setVisibility(View.VISIBLE);
                         mData.startAnimation(fadeIn);
                     }
+                    String encodedString = ambildata.getNik_sewa();
+
+                    // Mendecode string Base64 menjadi array byte
+                    byte[] decodedBytes = new byte[0];
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                        decodedBytes = Base64.getDecoder().decode(encodedString);
+                    }
+
+                    // Mengonversi array byte menjadi string
+                    String decodedString = new String(decodedBytes);
 
                     idSewa = ambildata.getId_sewa();
                     namaLengkap.setText(ambildata.getNama_peminjam());
-                    ktpPinjam.setText(ambildata.getNik_sewa());
+                    ktpPinjam.setText(decodedString);
                     instansiPinjam.setText(ambildata.getInstansi());
                     namaKegiatanPinjam.setText(ambildata.getNama_kegiatan_sewa());
                     JumlahPesertaPinjam.setText(ambildata.getJumlah_peserta());
