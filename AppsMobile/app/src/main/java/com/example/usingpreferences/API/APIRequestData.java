@@ -730,4 +730,23 @@ public interface APIRequestData {
     @GET("event_home.php")
     Call<EventHomeResponse> getEventHome();
 
+    @Multipart
+    @POST("pinjam_tempat.php")
+    Call<ModelResponseAll> sendPinjamTempat(
+            @Part("nama_peminjam") RequestBody namalengkappinjam,
+            @Part("nik_sewa") RequestBody et_ktppinjam,
+            @Part("instansi") RequestBody et_instansipinjam,
+            @Part("nama_kegiatan_sewa") RequestBody et_namakegiatanpinjam,
+            @Part("jumlah_peserta") RequestBody et_jumlahpesertapinjam,
+            @Part("nama_tempat") RequestBody et_tempatpinjam,
+            @Part("deskripsi_sewa_tempat") RequestBody et_deskripsipinjam,
+            @Part("tgl_awal_peminjaman") RequestBody et_tanggalawalpinjam,
+            @Part("tgl_akhir_peminjaman") RequestBody et_tanggalakhirpinjam,
+            @Part("status") RequestBody status,
+            @Part("catatan") RequestBody catatan,
+            @Part("id_tempat") RequestBody idTempat,
+            @Part("id_user") RequestBody idUser,
+            @Part MultipartBody.Part photo
+    );
+
 }
