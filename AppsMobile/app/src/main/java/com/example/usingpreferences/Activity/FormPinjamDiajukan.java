@@ -60,6 +60,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Base64;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -347,10 +348,22 @@ public class FormPinjamDiajukan extends AppCompatActivity {
                         mData.startAnimation(fadeIn);
                     }
 
+                    String encodedString = ambildata.getNik_sewa();
+
+                    // Mendecode string Base64 menjadi array byte
+                    byte[] decodedBytes = new byte[0];
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                        decodedBytes = Base64.getDecoder().decode(encodedString);
+                    }
+
+                    // Mengonversi array byte menjadi string
+                    String decodedString = new String(decodedBytes);
+
+
                     idSewa = ambildata.getId_sewa();
                     idTempat = ambildata.getId_tempat();
                     namaLengkap.setText(ambildata.getNama_peminjam());
-                    noKtp.setText(ambildata.getNik_sewa());
+                    noKtp.setText(decodedString);
                     instansi.setText(ambildata.getInstansi());
                     namaKegiatan.setText(ambildata.getNama_kegiatan_sewa());
                     jumlahPeserta.setText(ambildata.getJumlah_peserta());
@@ -691,10 +704,14 @@ public class FormPinjamDiajukan extends AppCompatActivity {
                 } else if(pathSurat == null){
                     Toast.makeText(FormPinjamDiajukan.this, "harap masukan gambar ulang", Toast.LENGTH_SHORT).show();
                 } else {
+                    String encodedString = "";
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                         encodedString = Base64.getEncoder().encodeToString(noKtp.getText().toString().getBytes());
+                    }
                     SharedPreferences sharedPreferences = getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
                     String idUserShared = sharedPreferences.getString("id_user", "").trim();
                     String namaPeminjam = namaLengkap.getText().toString();
-                    String nikSewa = noKtp.getText().toString();
+                    String nikSewa = encodedString ;
                     String namaTempat = TempatKegiatan.getText().toString();
                     String deskripsitempat = deskripsi.getText().toString();
                     String getnamaKegiatan =  namaKegiatan.getText().toString();
@@ -706,6 +723,8 @@ public class FormPinjamDiajukan extends AppCompatActivity {
                     String getCatatan = "";
                     String getIdTempat = idTempat;
                     String getIdSewa = idSewa;
+
+                    System.out.println("NIK Sewa = " + nikSewa);
 
                     if(TextUtils.isEmpty(namaPeminjam)){
                         namaLengkap.setError("nama harus diisi");
