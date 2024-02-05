@@ -56,6 +56,7 @@ import com.example.usingpreferences.DataModel.getSingkatanResponse;
 import java.util.List;
 
 import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -645,7 +646,7 @@ public interface APIRequestData {
     );
 
     @FormUrlEncoded
-    @POST("status_Pinjam/detail_Pinjam_diterima.php")
+    @POST("Tempat/detail_Pinjam_diterima.php")
     Call<ResponseDetailPinjamDiterima> getDetailPinjamDiterima(
             @Field("id_sewa") String id_sewa
     );
@@ -663,25 +664,45 @@ public interface APIRequestData {
     );
 
 
-    @FormUrlEncoded
+    @Multipart
     @POST("Tempat/edit_Pinjam_diajukan.php")
     Call<ModelResponseAll> editPinjamDiajukan(
-            @Field("id_sewa") String id_sewa,
-            @Field("deskripsi_sewa_tempat") String deskripsi_sewa_tempat,
-            @Field("tgl_awal_peminjaman") String tgl_awal_peminjaman,
-            @Field("nama_tempat") String nama_tempat
+            @Part("nama_peminjam") RequestBody nama_peminjam,
+            @Part("nik_sewa") RequestBody nik_sewa,
+            @Part("nama_tempat") RequestBody nama_tempat,
+            @Part("deskripsi_sewa_tempat") RequestBody deskripsi_sewa_tempat,
+            @Part("nama_kegiatan_sewa") RequestBody nama_kegiatan_sewa,
+            @Part("jumlah_peserta") RequestBody jumlah_peserta,
+            @Part("instansi") RequestBody instansi,
+            @Part("tgl_awal_peminjaman") RequestBody tgl_awal_peminjaman,
+            @Part("tgl_akhir_peminjaman") RequestBody tgl_akhir_peminjaman,
+            @Part("status") RequestBody status,
+            @Part("catatan") RequestBody catatan,
+            @Part("id_tempat") RequestBody id_tempat,
+            @Part("id_user") RequestBody id_user,
+            @Part("id_sewa") RequestBody id_sewa,
+            @Part MultipartBody.Part surat_ket_sewa
 
     );
 
-    @FormUrlEncoded
+    @Multipart
     @POST("Tempat/ajukanulang_Pinjam_ditolak.php")
     Call<ModelResponseAll> ajukanulangPinjamDiajukan(
-            @Field("id_sewa") String id_sewa,
-            @Field("deskripsi_sewa_tempat") String deskripsi_sewa_tempat,
-            @Field("tgl_awal_peminjaman") String tgl_awal_peminjaman,
-            @Field("nama_tempat") String nama_tempat
-
-    );
+            @Part("nama_peminjam") RequestBody nama_peminjam,
+            @Part("nik_sewa") RequestBody nik_sewa,
+            @Part("nama_tempat") RequestBody nama_tempat,
+            @Part("deskripsi_sewa_tempat") RequestBody deskripsi_sewa_tempat,
+            @Part("nama_kegiatan_sewa") RequestBody nama_kegiatan_sewa,
+            @Part("jumlah_peserta") RequestBody jumlah_peserta,
+            @Part("instansi") RequestBody instansi,
+            @Part("tgl_awal_peminjaman") RequestBody tgl_awal_peminjaman,
+            @Part("tgl_akhir_peminjaman") RequestBody tgl_akhir_peminjaman,
+            @Part("status") RequestBody status,
+            @Part("catatan") RequestBody catatan,
+            @Part("id_tempat") RequestBody id_tempat,
+            @Part("id_user") RequestBody id_user,
+            @Part("id_sewa") RequestBody id_sewa,
+            @Part MultipartBody.Part surat_ket_sewa);
 
     @FormUrlEncoded
     @POST("Tempat/deletee_Pinjam_diajukan.php")

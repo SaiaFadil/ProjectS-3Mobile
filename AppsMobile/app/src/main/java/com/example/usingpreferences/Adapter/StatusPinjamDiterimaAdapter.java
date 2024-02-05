@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.usingpreferences.Activity.FormPinjamDiproses;
+import com.example.usingpreferences.Activity.FormPinjamDiterima;
 import com.example.usingpreferences.Activity.LihatKode_Pinjam;
 import com.example.usingpreferences.DataModel.ModelStatusPinjamDiterima;
 import com.example.usingpreferences.R;
@@ -54,10 +56,14 @@ public class StatusPinjamDiterimaAdapter extends RecyclerView.Adapter<StatusPinj
         holder.tglPinjamTextView.setText(item.getTgl_awal_peminjaman());
         holder.namaPinjamTextView.setText(item.getNama_peminjam());
 
-        holder.itemView.setOnClickListener(v -> {
-            context. startActivity(new Intent(context, LihatKode_Pinjam.class)
-                    .putExtra("id_sewa", item.getId_sewa())
-            );
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext() , FormPinjamDiterima.class);
+                intent.putExtra("id_sewa" , item.getId_sewa());
+                view.getContext().startActivity(intent);
+
+            }
         });
 
 

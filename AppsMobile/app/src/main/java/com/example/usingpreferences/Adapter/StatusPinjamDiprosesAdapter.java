@@ -1,5 +1,6 @@
 package com.example.usingpreferences.Adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.usingpreferences.Activity.FormPinjamDiproses;
 import com.example.usingpreferences.DataModel.ModelStatusPinjamDiproses;
 import com.example.usingpreferences.R;
 import com.facebook.shimmer.ShimmerFrameLayout;
@@ -49,8 +51,14 @@ public class StatusPinjamDiprosesAdapter extends RecyclerView.Adapter<StatusPinj
         holder.namaPinjamTextView.setText(item.getNama_peminjam());
 
 
-        holder.itemView.setOnClickListener(v -> {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext() , FormPinjamDiproses.class);
+                intent.putExtra("id_sewa" , item.getId_sewa());
+                view.getContext().startActivity(intent);
 
+            }
         });
 
 

@@ -36,6 +36,7 @@ public class LihatKode_Pinjam extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(LihatKode_Pinjam.this, MainActivity.class).putExtra(MainActivity.FRAGMENT, R.layout.fragment_status);
                 startActivity(intent);
+//                LihatKode_Pinjam.super.onBackPressed();
             }
         });
 

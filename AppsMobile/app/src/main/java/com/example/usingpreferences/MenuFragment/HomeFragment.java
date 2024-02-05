@@ -242,10 +242,14 @@ public class HomeFragment extends Fragment {
             public void onResponse(Call<EventHomeResponse> call, Response<EventHomeResponse> response) {
                 if (response.body() != null && response.body().getStatus().equalsIgnoreCase("success")){
 
-                    recyclerView.setAdapter(new EventHomeAdapter(
-                            requireContext(),
-                            response.body().getData()
-                    ));
+                    if(isAdded()){
+                        recyclerView.setAdapter(new EventHomeAdapter(
+                                requireContext(),
+                                response.body().getData()
+                        ));
+                    }
+
+
 
                 }else {
                     Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show();

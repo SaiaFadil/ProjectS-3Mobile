@@ -21,6 +21,18 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Activity.FormPinjamDitolak"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.FormPinjamDiterima"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.FormPinjamDiproses"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.FormPinjamDiajukan"
+            android:exported="false" />
+        <activity
             android:name=".Activity.FormEventDiterimaDiproses"
             android:exported="false" />
         <activity
@@ -30,8 +42,8 @@
             android:name=".Activity.FormEventDiajukan"
             android:exported="false" />
         <activity
-        android:name=".Activity.FormulirPeminjamanTempat"
-        android:exported="false" />
+            android:name=".Activity.FormulirPeminjamanTempat"
+            android:exported="false" />
         <activity
             android:name=".Activity.PilihTanggalAwalPeminjaman"
             android:exported="false" />
@@ -68,7 +80,6 @@
         <activity
             android:name=".Activity.FormPerpanjanganDiterima"
             android:exported="false" />
-
         <activity
             android:name=".Activity.FormSenimanDiajukan"
             android:exported="false" />
@@ -78,7 +89,6 @@
         <activity
             android:name=".Activity.ActivityLihatKodePerpanjangan"
             android:exported="false" />
-
         <activity
             android:name=".Activity.ActivityLihatKodeSurat"
             android:exported="false" />
@@ -182,7 +192,7 @@
         <activity
             android:name=".Activity.MainActivity"
             android:exported="false"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Activity.AturUlangKataSandi"
             android:exported="false" />

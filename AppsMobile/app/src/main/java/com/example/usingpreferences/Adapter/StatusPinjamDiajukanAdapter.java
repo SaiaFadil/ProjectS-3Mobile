@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.usingpreferences.Activity.FormPinjamDiajukan;
 import com.example.usingpreferences.Activity.FormTempatDiajukan2;
 import com.example.usingpreferences.DataModel.ModelStatusPinjamDiajukan;
 import com.example.usingpreferences.R;
@@ -55,7 +56,7 @@ public class StatusPinjamDiajukanAdapter extends RecyclerView.Adapter<StatusPinj
         holder.namaPinjamTextView.setText(item.getNama_peminjam());
 
         holder.itemView.setOnClickListener(v -> {
-            context. startActivity(new Intent(context, FormTempatDiajukan2.class)
+            context. startActivity(new Intent(context, FormPinjamDiajukan.class)
                     .putExtra("id_sewa", item.getId_sewa())
             );
         });

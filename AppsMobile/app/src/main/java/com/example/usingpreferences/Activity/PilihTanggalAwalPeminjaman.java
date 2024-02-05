@@ -37,10 +37,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class PilihTanggalAwalPeminjaman extends AppCompatActivity {
-public static String namatempat;
+    public static String namatempat;
 
 
-private DataShared dataShared;
+    private DataShared dataShared;
 
     private boolean isSpecificDate(Long selectedDate) {
         // Replace this logic with your specific date-checking criteria
@@ -125,33 +125,56 @@ private DataShared dataShared;
                     Toast.makeText(PilihTanggalAwalPeminjaman.this, "Pilih Dahulu", Toast.LENGTH_SHORT).show();
                 } else {
                     Calendar selectedDate = selectedDates.get(0);
-                    int day = selectedDate.get(Calendar.DAY_OF_MONTH);
-                    int month = selectedDate.get(Calendar.MONTH) + 1;
-                    int year = selectedDate.get(Calendar.YEAR);
-                    if (isDateUnavailable(selectedDate)){
+                    Calendar currentDate = Calendar.getInstance();
+                    if(selectedDate.get(Calendar.YEAR) == currentDate.get(Calendar.YEAR) &&
+                            selectedDate.get(Calendar.MONTH) == currentDate.get(Calendar.MONTH) &&
+                            selectedDate.get(Calendar.DAY_OF_MONTH) == currentDate.get(Calendar.DAY_OF_MONTH)){
+                        Toast.makeText(PilihTanggalAwalPeminjaman.this, "tanggal hari ini", Toast.LENGTH_SHORT).show();
+                        int day = selectedDate.get(Calendar.DAY_OF_MONTH);
+                        int month = selectedDate.get(Calendar.MONTH) + 1;
+                        int year = selectedDate.get(Calendar.YEAR);
 
-                        Toast.makeText(PilihTanggalAwalPeminjaman.this, "Kosong", Toast.LENGTH_SHORT).show();
+                        if (isDateUnavailable(selectedDate)){
 
+                            Toast.makeText(PilihTanggalAwalPeminjaman.this, "Kosong", Toast.LENGTH_SHORT).show();
+
+                        } else {
+                            // Buat Intent untuk berpindah ke halaman selanjutnya
+                            Intent intent = new Intent(PilihTanggalAwalPeminjaman.this, FormulirPeminjamanTempat.class);
+                            // Kirim tanggal yang dipilih sebagai data ekstra
+                            intent.putExtra("nama_tempat",namatempat);
+                            intent.putExtra("tanggal_awal", year + "/" + month + "/" + day);
+                            // Mulai halaman selanjutnya
+                            startActivity(intent);
+                            overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+                            dataShared.setData(DataShared.KEY.TANGGAL_MULAI, year + "/" + month + "/" + day);}
+                    }
+
+                    else if(selectedDate.before(Calendar.getInstance())){
+                        Toast.makeText(PilihTanggalAwalPeminjaman.this, "pilih tanggal setelah hari ini", Toast.LENGTH_SHORT).show();
                     } else {
-                        // Buat Intent untuk berpindah ke halaman selanjutnya
-                        Intent intent = new Intent(PilihTanggalAwalPeminjaman.this, FormulirPeminjamanTempat.class);
-                        // Kirim tanggal yang dipilih sebagai data ekstra
-                        intent.putExtra("nama_tempat",namatempat);
-                        intent.putExtra("tanggal_awal", year + "/" + month + "/" + day);
-                        // Mulai halaman selanjutnya
-                        startActivity(intent);
-                        overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
-                        dataShared.setData(DataShared.KEY.TANGGAL_MULAI, year + "/" + month + "/" + day);}
+                        int day = selectedDate.get(Calendar.DAY_OF_MONTH);
+                        int month = selectedDate.get(Calendar.MONTH) + 1;
+                        int year = selectedDate.get(Calendar.YEAR);
+
+                        if (isDateUnavailable(selectedDate)){
+
+                            Toast.makeText(PilihTanggalAwalPeminjaman.this, "Kosong", Toast.LENGTH_SHORT).show();
+
+                        } else {
+                            // Buat Intent untuk berpindah ke halaman selanjutnya
+                            Intent intent = new Intent(PilihTanggalAwalPeminjaman.this, FormulirPeminjamanTempat.class);
+                            // Kirim tanggal yang dipilih sebagai data ekstra
+                            intent.putExtra("nama_tempat",namatempat);
+                            intent.putExtra("tanggal_awal", year + "/" + month + "/" + day);
+                            // Mulai halaman selanjutnya
+                            startActivity(intent);
+                            overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
+                            dataShared.setData(DataShared.KEY.TANGGAL_MULAI, year + "/" + month + "/" + day);}
+                    }
+
                     // Ambil tanggal yang dipilih dari DatePicker
                 }
-//                int day = datePicker.get(Calendar.DAY_OF_MONTH);
-//                int month = datePicker.get(Calendar.MONTH) + 1;
-//                int year = datePicker.get(Calendar.YEAR);
-
-
-
-
-
 
             }
         });

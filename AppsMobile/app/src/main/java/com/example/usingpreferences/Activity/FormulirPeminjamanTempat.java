@@ -13,7 +13,9 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.text.Editable;
+import android.text.InputFilter;
 import android.text.InputType;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
@@ -44,8 +46,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 import okhttp3.MediaType;
@@ -68,10 +72,11 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
     private MaterialButton btnPickImage;
 
     private DataShared dataShared;
-    private Calendar tanggalMulaiCalendar;
+     Calendar tanggalMulaiCalendar , tanggalAkhirCalendar;
     Calendar mulaiAwal;
 
     byte[] pathSurat;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,6 +107,59 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
 
         inpNamaTempat.setText(dataShared.getData(DataShared.KEY.NAMA_TEMPAT));
         inpTanggalMulai.setText(dataShared.getData(DataShared.KEY.TANGGAL_MULAI));
+        tanggalAkhirCalendar = Calendar.getInstance();
+
+        InputFilter filter = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                StringBuilder filteredStringBuilder = new StringBuilder();
+
+                for (int i = start; i < end; i++) {
+                    char currentChar = source.charAt(i);
+
+                    if (Character.isLetter(currentChar) || currentChar == ' ') {
+                        filteredStringBuilder.append(currentChar); // Memasukkan karakter yang diizinkan
+                    }
+                }
+
+                return filteredStringBuilder.toString(); // Mengembalikan karakter yang diizinkan
+            }
+        };
+
+        InputFilter angkaBoleh = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                StringBuilder filteredStringBuilder = new StringBuilder();
+
+                for (int i = start; i < end; i++) {
+                    char currentChar = source.charAt(i);
+
+                    if (Character.isLetter(currentChar) || currentChar == ' ' || Character.isDigit(currentChar)) {
+                        filteredStringBuilder.append(currentChar); // Memasukkan karakter yang diizinkan
+                    }
+                }
+
+                return filteredStringBuilder.toString(); // Mengembalikan karakter yang diizinkan
+            }
+        };
+
+        InputFilter filterDesc = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                for (int i = start; i < end; i++) {
+                    char inputChar = source.charAt(i);
+                    if (!Character.isLetterOrDigit(inputChar) && !Character.isSpaceChar(inputChar) && inputChar != '\n') {
+                        return ""; // Hanya izinkan huruf, spasi, dan Enter (newline)
+                    }
+                }
+                return null; // Input valid
+            }
+        };
+
+        inpDeskripsi.setFilters(new InputFilter[]{filterDesc , new InputFilter.LengthFilter(500)});
+        inpNamaPemimjam.setFilters(new InputFilter[]{filter});
+        inpInstansi.setFilters(new InputFilter[]{angkaBoleh});
+        inpNamaKegiatan.setFilters(new InputFilter[]{filter});
 
 
 
@@ -182,7 +240,8 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
                     }
                 }, tahunSaatIni, bulanSaatIni, hariSaatIni);
 
-                // Tampilkan dialog pemilihan tanggal mulai
+                DatePicker datePicker = datePickerDialog.getDatePicker();
+                datePicker.setMinDate(calendar.getTimeInMillis());
                 datePickerDialog.show();
             }
         });
@@ -229,6 +288,8 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
                                 // Format tanggal akhir sesuai kebutuhan Anda (misalnya, "dd/MM/yyyy")
                                 String tanggalAkhirFormatted1 = String.format(Locale.getDefault(), "%02d/%02d/%02d", tahun, bulan + 1, hari);
                                 // Set teks pada EditText tanggal akhir
+                                tanggalAkhirCalendar = Calendar.getInstance();
+                                tanggalAkhirCalendar.set(tahun,bulan , hari);
                                 inpTanggalAkhir.setText(tanggalAkhirFormatted1);
                             } else {
                                 Toast.makeText(FormulirPeminjamanTempat.this, "Tanggal selesai tidak boleh sebelum tanggal mulai", Toast.LENGTH_SHORT).show();
@@ -236,14 +297,16 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
                         }
                     }, tahun, bulan, tanggal);
 
-                    // Tampilkan dialog pemilihan tanggal akhir
+                    DatePicker datePicker = datePickerDialog.getDatePicker();
+                    final Calendar calendar = Calendar.getInstance();
+                    datePicker.setMinDate(calendar.getTimeInMillis());
                     datePickerDialog.show();
 
                 } else {
                     // Dapatkan tanggal awal dari tanggal yang dipilih sebelumnya
-                int tahunAwal = tanggalMulaiCalendar.get(Calendar.YEAR);
-                int bulanAwal = tanggalMulaiCalendar.get(Calendar.MONTH);
-                int hariAwal = tanggalMulaiCalendar.get(Calendar.DAY_OF_MONTH);
+                    int tahunAwal = tanggalMulaiCalendar.get(Calendar.YEAR);
+                    int bulanAwal = tanggalMulaiCalendar.get(Calendar.MONTH);
+                    int hariAwal = tanggalMulaiCalendar.get(Calendar.DAY_OF_MONTH);
 
                     DatePickerDialog datePickerDialog = new DatePickerDialog(FormulirPeminjamanTempat.this, new DatePickerDialog.OnDateSetListener() {
                         @Override
@@ -257,6 +320,8 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
                                 // Format tanggal akhir sesuai kebutuhan Anda (misalnya, "dd/MM/yyyy")
                                 String tanggalAkhirFormatted = String.format(Locale.getDefault(), "%02d/%02d/%02d", tahun, bulan + 1, hari);
                                 // Set teks pada EditText tanggal akhir
+
+                                tanggalAkhirCalendar.set(tahun,bulan , hari);
                                 inpTanggalAkhir.setText(tanggalAkhirFormatted);
                             } else {
                                 // Jika tanggal yang dipilih sebelum tanggal mulai, berikan pesan atau lakukan tindakan sesuai kebutuhan Anda
@@ -417,7 +482,7 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
                 String input = s.toString();
 
                 // Check minimum length
-                if (input.length() < minLength) {
+                if (input.length() < 12) {
                     inpInstansi.setError("Instansi harus diisi");
                 } else {
                     inpInstansi.setError(null); // Hapus kesalahan jika panjang minimum terpenuhi
@@ -527,6 +592,8 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
                 // Dapatkan nilai dari kolom input
                 SharedPreferences sharedPreferences = getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
                 String idUserShared = sharedPreferences.getString("id_user", "");
+
+                System.out.println("ID USER" + idUserShared);
                 String namaPemimjam = inpNamaPemimjam.getText().toString().trim();
                 String namaTempat = inpNamaTempat.getText().toString().trim();
                 String namaKegiatan = inpNamaKegiatan.getText().toString().trim();
@@ -573,44 +640,67 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
                     return; // Stop execution if any field is empty
                 }
 
-                // Lanjutkan dengan panggilan API jika semua ketentuan terpenuhi
-                File ktpSenimanFile = new File(filePath);
-                RequestBody requestFileKtpSeniman = RequestBody.create(MediaType.parse("multipart/form-data"), pathSurat);
-                MultipartBody.Part ktpSenimanPart = MultipartBody.Part.createFormData("surat_ket_sewa", ktpSenimanFile.getName(), requestFileKtpSeniman);
+                String checkWaktuMulai = inpWaktuMulai.getText().toString().trim();
+                String checkWaktuBerakhir = inpWaktuAkhir.getText().toString().trim();
+                SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+                Date checkMulai , checkAkhir;
 
-                RetroServer.getConnection().create(APIRequestData.class)
-                        .sendPinjamTempat(
-                                namaPemimjam,
-                                ktp,
-                                instansi,
-                                namaKegiatan,
-                                peserta,
-                                namaTempat,
-                                deskripsi,
-                                tanggalMulai + " " + waktuMulai,
-                                tanggalAkhir + " " + waktuAkhir,
-                                "diajukan",
-                                deskripsi,
-                                dataShared.getData(DataShared.KEY.ID_NAMA_TEMPAT).toString(),
-                                idUserShared,
-                                ktpSenimanPart
-                        ).enqueue(new Callback<ModelResponseAll>() {
-                            @Override
-                            public void onResponse(Call<ModelResponseAll> call, Response<ModelResponseAll> response) {
-                                if (response.body() != null && response.body().getKode() == 1) {
-                                    Toast.makeText(FormulirPeminjamanTempat.this, "SUKSES", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(FormulirPeminjamanTempat.this, PengajuanBerhasilTerkirim.class);
-                                    startActivity(intent);
-                                } else {
-                                    Toast.makeText(FormulirPeminjamanTempat.this, "GAGAL", Toast.LENGTH_SHORT).show();
+//                try {
+//                    checkMulai = format.parse(checkWaktuMulai);
+//                    checkAkhir = format.parse(checkWaktuBerakhir);
+//                } catch (ParseException e) {
+//                    throw new RuntimeException(e);
+//                }
+//                else if (checkMulai.after(checkAkhir)){
+//                    Toast.makeText(FormulirPeminjamanTempat.this, "harap waktu selesai setelah waktu mulai", Toast.LENGTH_SHORT).show();
+//
+//                }
+
+
+                if(tanggalMulaiCalendar.after(tanggalAkhirCalendar)){
+                    Toast.makeText(FormulirPeminjamanTempat.this, "Pastikan memasukan tanggal dengan benar", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Lanjutkan dengan panggilan API jika semua ketentuan terpenuhi
+                    File ktpSenimanFile = new File(filePath);
+                    RequestBody requestFileKtpSeniman = RequestBody.create(MediaType.parse("multipart/form-data"), pathSurat);
+                    MultipartBody.Part ktpSenimanPart = MultipartBody.Part.createFormData("surat_ket_sewa", ktpSenimanFile.getName(), requestFileKtpSeniman);
+
+                    RetroServer.getConnection().create(APIRequestData.class)
+                            .sendPinjamTempat(
+                                    namaPemimjam,
+                                    ktp,
+                                    instansi,
+                                    namaKegiatan,
+                                    peserta,
+                                    namaTempat,
+                                    deskripsi,
+                                    tanggalMulai + " " + waktuMulai,
+                                    tanggalAkhir + " " + waktuAkhir,
+                                    "diajukan",
+                                    deskripsi,
+                                    dataShared.getData(DataShared.KEY.ID_NAMA_TEMPAT).toString(),
+                                    idUserShared,
+                                    ktpSenimanPart
+                            ).enqueue(new Callback<ModelResponseAll>() {
+                                @Override
+                                public void onResponse(Call<ModelResponseAll> call, Response<ModelResponseAll> response) {
+                                    if (response.body() != null && response.body().getKode() == 1) {
+                                        Toast.makeText(FormulirPeminjamanTempat.this, "SUKSES", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(FormulirPeminjamanTempat.this, PengajuanBerhasilTerkirim.class);
+                                        startActivity(intent);
+                                    } else {
+                                        Toast.makeText(FormulirPeminjamanTempat.this, "GAGAL", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
-                            }
 
-                            @Override
-                            public void onFailure(Call<ModelResponseAll> call, Throwable t) {
-                                t.printStackTrace();
-                            }
-                        });
+                                @Override
+                                public void onFailure(Call<ModelResponseAll> call, Throwable t) {
+                                    t.printStackTrace();
+                                }
+                            });
+                }
+
+
             }
         });
 
@@ -625,28 +715,7 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
             }
         });
     }
-    public static byte[] uriToByteArray(Context context, Uri uri) {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        try {
-            ContentResolver contentResolver = context.getContentResolver();
-            InputStream inputStream = contentResolver.openInputStream(uri);
-            byte[] buffer = new byte[1024];
-            int bytesRead;
-            while ((bytesRead = inputStream.read(buffer)) != -1) {
-                byteArrayOutputStream.write(buffer, 0, bytesRead);
-            }
-            return byteArrayOutputStream.toByteArray();
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        } finally {
-            try {
-                byteArrayOutputStream.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+
 
     public static String getFilePathFromUri(Context context, Uri uri) {
         String filePath = null;
@@ -707,6 +776,44 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
         return extension;
     }
 
+
+    private void showTimePickerDialog(final EditText editText) {
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this,
+                new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        // Format waktu yang dipilih
+                        String selectedTime = String.format("%02d:%02d:%02d", hourOfDay, minute,00);
+                        editText.setText(selectedTime);
+                    }
+                }, 0, 0, true);
+
+        timePickerDialog.show();
+
+    }
+
+    public static byte[] uriToByteArray(Context context, Uri uri) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        try {
+            ContentResolver contentResolver = context.getContentResolver();
+            InputStream inputStream = contentResolver.openInputStream(uri);
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = inputStream.read(buffer)) != -1) {
+                byteArrayOutputStream.write(buffer, 0, bytesRead);
+            }
+            return byteArrayOutputStream.toByteArray();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            try {
+                byteArrayOutputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
     @SuppressLint("Range")
     private String getFileName(Uri uri) {
         String result = null;
@@ -729,20 +836,7 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
         }
         return result;
     }
-    private void showTimePickerDialog(final EditText editText) {
-        TimePickerDialog timePickerDialog = new TimePickerDialog(this,
-                new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        // Format waktu yang dipilih
-                        String selectedTime = String.format("%02d:%02d:%02d", hourOfDay, minute,00);
-                        editText.setText(selectedTime);
-                    }
-                }, 0, 0, true);
 
-        timePickerDialog.show();
-
-    }
     private void selectFile(String mimeType, int buttonId) {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType(mimeType);
