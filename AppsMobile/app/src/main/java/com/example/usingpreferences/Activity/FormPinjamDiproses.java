@@ -27,6 +27,7 @@ import com.example.usingpreferences.R;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.List;
 
 import retrofit2.Call;
@@ -113,8 +114,19 @@ public class FormPinjamDiproses extends AppCompatActivity {
                         mDataSemua.setVisibility(View.VISIBLE);
                         mDataSemua.startAnimation(fadeIn);
                     }
+
+                    String encodedString = ambildata.getNik_sewa();
+
+                    // Mendecode string Base64 menjadi array byte
+                    byte[] decodedBytes = new byte[0];
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                        decodedBytes = Base64.getDecoder().decode(encodedString);
+                    }
+
+                    // Mengonversi array byte menjadi string
+                    String decodedString = new String(decodedBytes);
                     namaLengkap.setText(ambildata.getNama_peminjam());
-                    noKtp.setText(ambildata.getNik_sewa());
+                    noKtp.setText(decodedString);
                     instansiPinjam.setText(ambildata.getInstansi());
                     namaKegiatan.setText(ambildata.getNama_kegiatan_sewa());
                     jumlahPeserta.setText(ambildata.getJumlah_peserta());
