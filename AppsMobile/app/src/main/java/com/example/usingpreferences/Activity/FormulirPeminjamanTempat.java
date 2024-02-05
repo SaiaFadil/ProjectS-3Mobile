@@ -73,12 +73,13 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
     MaterialButton btnkirimpinjam ;
 
     private DataShared dataShared;
-     Calendar tanggalMulaiCalendar , tanggalAkhirCalendar;
+    Calendar tanggalMulaiCalendar , tanggalAkhirCalendar;
     Calendar mulaiAwal;
 
     byte[] pathSurat;
 
 
+    @SuppressLint("CutPasteId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,7 +111,6 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
         inpNamaTempat.setText(dataShared.getData(DataShared.KEY.NAMA_TEMPAT));
         inpTanggalMulai.setText(dataShared.getData(DataShared.KEY.TANGGAL_MULAI));
         tanggalAkhirCalendar = Calendar.getInstance();
-        tanggalMulaiCalendar = Calendar.getInstance();
 
         InputFilter filter = new InputFilter() {
             @Override
@@ -598,7 +598,7 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
                 String namaPemimjam = inpNamaPemimjam.getText().toString().trim();
                 String namaTempat = inpNamaTempat.getText().toString().trim();
                 String namaKegiatan = inpNamaKegiatan.getText().toString().trim();
-                String ktp = inpKtp.getText().toString().trim();
+                String ktp = inpKtp.getText().toString();
                 String instansi = inpInstansi.getText().toString().trim();
                 String peserta = inpPeserta.getText().toString().trim();
                 String deskripsi = inpDeskripsi.getText().toString().trim();
@@ -606,6 +606,8 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
                 String waktuMulai = inpWaktuMulai.getText().toString().trim();
                 String tanggalAkhir = inpTanggalAkhir.getText().toString().trim();
                 String waktuAkhir = inpWaktuAkhir.getText().toString().trim();
+
+                System.out.println("tes hasil ktp = "+ ktp);
 
                 // Periksa apakah jalur file kosong
                 String filePath = cardViewFileNameTextView1.getText().toString().trim();
@@ -657,11 +659,7 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
 //
 //                }
 
-
-                if(tanggalMulaiCalendar.after(tanggalAkhirCalendar)){
-                    Toast.makeText(FormulirPeminjamanTempat.this, "Pastikan memasukan tanggal dengan benar", Toast.LENGTH_SHORT).show();
-                } else {
-                    // Lanjutkan dengan panggilan API jika semua ketentuan terpenuhi
+                if(tanggalMulaiCalendar == null){
                     File ktpSenimanFile = new File(filePath);
                     RequestBody requestFileKtpSeniman = RequestBody.create(MediaType.parse("multipart/form-data"), pathSurat);
                     MultipartBody.Part ktpSenimanPart = MultipartBody.Part.createFormData("surat_ket_sewa", ktpSenimanFile.getName(), requestFileKtpSeniman);
@@ -669,7 +667,7 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
                     RetroServer.getConnection().create(APIRequestData.class)
                             .sendPinjamTempat(
                                     namaPemimjam,
-                                    ktp,
+                                    ktp.toString(),
                                     instansi,
                                     namaKegiatan,
                                     peserta,
@@ -699,7 +697,51 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
                                     t.printStackTrace();
                                 }
                             });
+                } else {
+                    if(tanggalMulaiCalendar.after(tanggalAkhirCalendar)){
+                        Toast.makeText(FormulirPeminjamanTempat.this, "Pastikan memasukan tanggal dengan benar", Toast.LENGTH_SHORT).show();
+                    } else {
+                        // Lanjutkan dengan panggilan API jika semua ketentuan terpenuhi
+                        File ktpSenimanFile = new File(filePath);
+                        RequestBody requestFileKtpSeniman = RequestBody.create(MediaType.parse("multipart/form-data"), pathSurat);
+                        MultipartBody.Part ktpSenimanPart = MultipartBody.Part.createFormData("surat_ket_sewa", ktpSenimanFile.getName(), requestFileKtpSeniman);
+
+                        RetroServer.getConnection().create(APIRequestData.class)
+                                .sendPinjamTempat(
+                                        namaPemimjam,
+                                        ktp,
+                                        instansi,
+                                        namaKegiatan,
+                                        peserta,
+                                        namaTempat,
+                                        deskripsi,
+                                        tanggalMulai + " " + waktuMulai,
+                                        tanggalAkhir + " " + waktuAkhir,
+                                        "diajukan",
+                                        deskripsi,
+                                        dataShared.getData(DataShared.KEY.ID_NAMA_TEMPAT).toString(),
+                                        idUserShared,
+                                        ktpSenimanPart
+                                ).enqueue(new Callback<ModelResponseAll>() {
+                                    @Override
+                                    public void onResponse(Call<ModelResponseAll> call, Response<ModelResponseAll> response) {
+                                        if (response.body() != null && response.body().getKode() == 1) {
+                                            Toast.makeText(FormulirPeminjamanTempat.this, "SUKSES", Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(FormulirPeminjamanTempat.this, PengajuanBerhasilTerkirim.class);
+                                            startActivity(intent);
+                                        } else {
+                                            Toast.makeText(FormulirPeminjamanTempat.this, "GAGAL", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<ModelResponseAll> call, Throwable t) {
+                                        t.printStackTrace();
+                                    }
+                                });
+                    }
                 }
+
 
 
             }
