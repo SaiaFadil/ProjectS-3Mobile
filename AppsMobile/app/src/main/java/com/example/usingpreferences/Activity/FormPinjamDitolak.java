@@ -56,6 +56,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Base64;
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -242,11 +243,21 @@ public class FormPinjamDitolak extends AppCompatActivity {
                         mData.setVisibility(View.VISIBLE);
                         mData.startAnimation(fadeIn);
                     }
+                    String encodedString = ambildata.getNik_sewa();
+
+                    // Mendecode string Base64 menjadi array byte
+                    byte[] decodedBytes = new byte[0];
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                        decodedBytes = Base64.getDecoder().decode(encodedString);
+                    }
+
+                    // Mengonversi array byte menjadi string
+                    String decodedString = new String(decodedBytes);
 
                     idSewa = ambildata.getId_sewa();
                     idTempat = ambildata.getId_tempat();
                     namaLengkap.setText(ambildata.getNama_peminjam());
-                    noKtp.setText(ambildata.getNik_sewa());
+                    noKtp.setText(decodedString);
                     instansi.setText(ambildata.getInstansi());
                     namaKegiatan.setText(ambildata.getNama_kegiatan_sewa());
                     jumlahPeserta.setText(ambildata.getJumlah_peserta());
