@@ -110,6 +110,7 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
         inpNamaTempat.setText(dataShared.getData(DataShared.KEY.NAMA_TEMPAT));
         inpTanggalMulai.setText(dataShared.getData(DataShared.KEY.TANGGAL_MULAI));
         tanggalAkhirCalendar = Calendar.getInstance();
+        tanggalMulaiCalendar = Calendar.getInstance();
 
         InputFilter filter = new InputFilter() {
             @Override
