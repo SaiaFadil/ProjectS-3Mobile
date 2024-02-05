@@ -70,6 +70,7 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
     private EditText inpNamaTempat, inpNamaLengkap, inpKtp, inpInstansi, inpNamaKegiatan, inpDeskripsi, inpTanggalMulai, inpTanggalAkhir, inpPeserta, inpNamaPemimjam, InpWaktuMulai;
 
     private MaterialButton btnPickImage;
+    MaterialButton btnkirimpinjam ;
 
     private DataShared dataShared;
      Calendar tanggalMulaiCalendar , tanggalAkhirCalendar;
@@ -101,6 +102,7 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
         inpWaktuAkhir = findViewById(R.id.waktuakhirpinjam);
         cardViewFileNameTextView1 = findViewById(R.id.textViewButton1);
         checkboxsetuju = findViewById(R.id.checkboxsetuju);
+        btnkirimpinjam   = findViewById(R.id.button_kirimpinjam);
 
         inpWaktuMulai.setInputType(InputType.TYPE_NULL);
         inpWaktuAkhir.setInputType(InputType.TYPE_NULL);
@@ -108,7 +110,6 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
         inpNamaTempat.setText(dataShared.getData(DataShared.KEY.NAMA_TEMPAT));
         inpTanggalMulai.setText(dataShared.getData(DataShared.KEY.TANGGAL_MULAI));
         tanggalAkhirCalendar = Calendar.getInstance();
-        tanggalMulaiCalendar = Calendar.getInstance();
 
         InputFilter filter = new InputFilter() {
             @Override
@@ -254,7 +255,7 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
 
                 if(tanggalMulaiCalendar == null){
 
-                    mulaiAwal = Calendar.getInstance();
+
                     String tanggalPilih = dataShared.getData(DataShared.KEY.TANGGAL_MULAI).toString();
                     String[] bagian = tanggalPilih.split("/");
 
@@ -281,8 +282,6 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
                             // Bandingkan dengan tanggal mulai yang telah dipilih
                             Calendar selectedCalendar = Calendar.getInstance();
                             selectedCalendar.set(tahun, bulan, hari);
-                            // Set teks pada EditText tanggal akhir
-//                            inpTanggalAkhir.setText(tanggalAkhirFormatted);
 
                             if (selectedCalendar.after(mulaiAwal)) {
 
@@ -585,7 +584,7 @@ public class FormulirPeminjamanTempat extends AppCompatActivity {
         });
 
 
-        MaterialButton btnkirimpinjam = findViewById(R.id.button_kirimpinjam);
+
 
         btnkirimpinjam.setOnClickListener(new View.OnClickListener() {
             @Override
